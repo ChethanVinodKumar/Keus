@@ -6,54 +6,23 @@
   </listeners>
   <test thread-count="5" name="Test1(failed)">
     <classes>
-      <class name="com.getapcs.testcases.TEST">
+      <class name="com.getapcs.testcases.TEST_Create">
         <methods>
-          <include name="verifyInvoiceCreate"/>
-          <include name="verifyBinningCreate"/>
-          <include name="setUp"/>
-          <include name="verifySalesOrderCreate"/>
-          <include name="verifyQuoteEdit"/>
-          <include name="verifyShopOrderConfirmation"/>
-          <include name="verifyOQCTable"/>
-          <include name="verifyPR_Edit"/>
-          <include name="verifyShopOrderTable"/>
-          <include name="verifyItemMasterEdit"/>
-          <include name="verifyGRINTable"/>
-          <include name="verifyDOTable"/>
-          <include name="verifyBinningTable"/>
-          <include name="verifySOCTable"/>
-          <include name="verifyPRTable"/>
-          <include name="verifyRfqTable"/>
-          <include name="verifyQuoteTable"/>
-          <include name="verifyPRcreate"/>
-          <include name="verifyPOTable"/>
-          <include name="verifyIQCConfirmationTable"/>
-          <include name="verifySalesRFQEdit"/>
-          <include name="verifyInvoiceTable"/>
-          <include name="verifyShopOrderCreate"/>
-          <include name="verifyShopOrderEdit"/>
-          <include name="verifySalesRFQCS"/>
-          <include name="verifyBomEdit"/>
-          <include name="verifyPurchaseOrderCreate"/>
-          <include name="verifyDOCreate"/>
-          <include name="verifyPR_Approval2"/>
-          <include name="verifySalesOrderTable"/>
-          <include name="verifyOQCBiningTable"/>
-          <include name="verifyPurchaseOrderApproval2"/>
-          <include name="verifyOQCBinning"/>
-          <include name="verifyPurchaseOrderApproval1"/>
-          <include name="verifySalesOrderEdit"/>
-          <include name="verifyPR_Approval1"/>
-          <include name="verifyPoEdit"/>
-          <include name="verifySalesItemPriceListEdit"/>
-          <include name="verifyQuoteCreate"/>
-          <include name="verifyMaterialIssueAfterPRPO"/>
+          <include name="verifyInventryReportAfterGRIN"/>
+          <include name="verifyInventryReportAfterBinning"/>
           <include name="verifyIQCCreate"/>
+          <include name="verifyShopOrderConfirmation"/>
+          <include name="verifyOQCBinning"/>
+          <include name="verifyInvoiceCreate"/>
+          <include name="setUp"/>
+          <include name="verifyPR_Approval2"/>
+          <include name="verifyBinningCreate"/>
+          <include name="verifyDOCreate"/>
           <include name="verifyOQC"/>
-          <include name="verifySalesRFQCreate"/>
-          <include name="verifyGRINCreate"/>
+          <include name="verifyInventryReportAfterIQC"/>
+          <include name="verifyMaterialIssueAfterPRPO"/>
         </methods>
-      </class> <!-- com.getapcs.testcases.TEST -->
+      </class> <!-- com.getapcs.testcases.TEST_Create -->
     </classes>
   </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

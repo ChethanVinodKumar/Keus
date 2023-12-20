@@ -7,13 +7,19 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils; // Import FileUtils
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,6 +30,7 @@ import org.openqa.selenium.devtools.v118.network.model.Request;
 import org.openqa.selenium.devtools.v118.network.model.Response;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Testbase1 {
@@ -137,10 +144,11 @@ public class Testbase1 {
 		robot.delay(1000);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
-//		if (closeButton.isDisplayed()) {
-//			click(driver, closeButton);
-//		} else
-//			System.out.println("Close Button is Not Displayed.");
+		try {
+			click(driver, closeButton);
+		} catch (Exception e) {
+			System.out.println("Close button is not displayed");
+		}
 	}
 
 	// Data Print 1
@@ -173,6 +181,47 @@ public class Testbase1 {
 
 		element.sendKeys(Keys.ARROW_RIGHT);
 		element.sendKeys(Keys.ENTER);
+	}
+
+//Screen Shot
+
+	public static void screenShot(String fileName) throws IOException {
+		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshotFile, new File(".///Getapcs_Keus1//ScreenShot//" + fileName + ".png"));
+
+	}
+
+	// Pagination
+	public static void paginate(WebDriver driver, int startPage, int endPage, boolean forward) throws Exception {
+
+		if (forward) {
+
+			// Forward iteration
+			for (int i = startPage; i <= endPage; i++) {
+				System.out.println("Clicking on pagination " + i);
+				WebElement pageLink = driver.findElement(By.partialLinkText(String.valueOf(i)));
+				click(driver, pageLink);
+
+				// Wait for page load
+				wait.until(ExpectedConditions.jsReturnsValue("return document.readyState==='complete';"));
+
+				System.out.println("Page " + i + " loaded!");
+			}
+
+		} else {
+
+			// Backward iteration
+			for (int i = endPage; i >= startPage; i--) {
+				System.out.println("Clicking on pagination " + i);
+				WebElement pageLink = driver.findElement(By.partialLinkText(String.valueOf(i)));
+				click(driver, pageLink);
+
+				// Wait for page load
+				wait.until(ExpectedConditions.jsReturnsValue("return document.readyState==='complete';"));
+
+				System.out.println("Page " + i + " loaded!");
+			}
+		}
 	}
 
 }

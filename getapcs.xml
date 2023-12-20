@@ -9,7 +9,7 @@
  
   <test  name="Test1">
     <classes>
-      <class name="com.getapcs.testcases.TEST"/>
+      <class name="com.getapcs.testcases.TEST_Create"/>
     </classes>   
   </test>
 

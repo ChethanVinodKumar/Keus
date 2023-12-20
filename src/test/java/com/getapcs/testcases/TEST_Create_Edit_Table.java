@@ -62,7 +62,7 @@ import com.getapcs.base.Testbase1;
 import com.getapcs.pages.HomePage;
 import com.getapcs.pages.LoginPage;
 
-public class TEST extends Testbase1 {
+public class TEST_Create_Edit_Table extends Testbase1 {
 	LoginPage loginPage;
 	HomePage homePage;
 
@@ -123,7 +123,7 @@ public class TEST extends Testbase1 {
 	Invoice_TablePage Invoice_TablePage;
 	ShopOrder_Confirmation_TablePage ShopOrder_Confirmation_TablePage;
 
-	public TEST() {
+	public TEST_Create_Edit_Table() {
 		super();
 	}
 

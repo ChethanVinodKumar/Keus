@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.getapcs.testcases.PrimaryMaster">
+      <class name="com.getapcs.testcases.TEST_Edit_Table">
         <methods>
           <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="verifyCustomerField"/>
+          <include name="verifyItemMasterTable"/>
         </methods>
-      </class> <!-- com.getapcs.testcases.PrimaryMaster -->
+      </class> <!-- com.getapcs.testcases.TEST_Edit_Table -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

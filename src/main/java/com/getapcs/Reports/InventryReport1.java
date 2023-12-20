@@ -1,9 +1,12 @@
 package com.getapcs.Reports;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.getapcs.base.Testbase1;
 import com.getapcs.pages.HomePage;
@@ -48,6 +51,9 @@ public class InventryReport1 extends Testbase1 {
 	@FindBy(xpath = "(//span[@class='dropdown-btn'])[4]")
 	WebElement location;
 
+	@FindBy(xpath = "(//span[normalize-space()='»»'])[1]")
+	WebElement paginationLast;
+
 	public InventryReport1() {
 
 		PageFactory.initElements(driver, this);
@@ -58,37 +64,90 @@ public class InventryReport1 extends Testbase1 {
 
 	public HomePage InventryReport1Page() throws InterruptedException {
 
-//Part Type
-
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/item-master/table");
-
-		String tableXpath = "//table[@class='table table-striped']";
-
-		// Get the first PR number text from table
-		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
-
-		// Store the element with hard coded PR number
-		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath = elementXpath.replace("PP-54", partType1);
-
-		System.out.println(updatedXpath);
-
 //project Number 
 
 		driver.navigate().to("https://demo_keus.getapcs.com/sales/rfq/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
-		// Get the first PR number text from table
 		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
 
-		// Store the element with hard coded PR number
 		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
 
 		String updatedXpath1 = elementXpath1.replace("PP-54", projectNumber1);
 
 		System.out.println(updatedXpath1);
+
+//WareHouse
+
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/binning/table");
+
+		click(driver, paginationLast);
+
+		Thread.sleep(4000);
+
+		List<WebElement> viewButtons = wait.until(
+				ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//i[@class='mdi mdi-eye edit-icon']")));
+
+		if (!viewButtons.isEmpty()) {
+			WebElement lastViewButton = viewButtons.get(viewButtons.size() - 1);
+
+			// Click using JavaScript Executor to avoid stale element reference
+			js.executeScript("arguments[0].click();", lastViewButton);
+		} else {
+			System.out.println("No 'view' buttons found on the page");
+		}
+		Thread.sleep(2000);
+
+//Part Type
+
+		String tableXpath = "//table[@class='table mb-2']";
+
+		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+
+		// Remove leading and trailing whitespaces
+		partType1 = partType1.trim();
+
+		// Remove the trailing hyphen and any characters after it
+		int hyphenIndex = partType1.indexOf(" -");
+		if (hyphenIndex != -1) {
+			partType1 = partType1.substring(0, hyphenIndex);
+		}
+
+		System.out.println(partType1);
+		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
+
+		String originalxpath = elementXpath.replace("PP-54", partType1);
+
+		String updatedXpath = originalxpath.replace(" -']", "']");
+
+		System.out.println(updatedXpath);
+
+		click(driver, binning);
+
+//Warehouse
+
+		String tableXpath2 = "//table[@class='table table-striped']";
+
+		String warehouse1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[1]")).getText();
+
+		String elementXpath2 = "(//div[normalize-space()='HYD-BH-RD5'])[1]";
+
+		String updatedXpath2 = elementXpath2.replace("HYD-BH-RD5", warehouse1);
+
+		System.out.println(updatedXpath2);
+
+		Thread.sleep(2000);
+
+//Location
+
+		String location1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
+
+		String elementXpath3 = "(//div[normalize-space()='HYD-BH-RD5'])[1]";
+
+		String updatedXpath3 = elementXpath3.replace("HYD-BH-RD5", location1);
+
+		System.out.println(updatedXpath3);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
@@ -119,7 +178,9 @@ public class InventryReport1 extends Testbase1 {
 		click(driver, warehouse);
 
 		click(driver, searchwareHouse);
-		searchwareHouse.sendKeys("HYD-BH-RD5");
+		searchwareHouse.sendKeys(warehouse1);
+
+		WebElement warehouseSelect = driver.findElement(By.xpath(updatedXpath2));
 
 		click(driver, warehouseSelect);
 
@@ -128,7 +189,9 @@ public class InventryReport1 extends Testbase1 {
 		click(driver, location);
 
 		click(driver, searchlocation);
-		searchlocation.sendKeys("room no1");
+		searchlocation.sendKeys(location1);
+
+		WebElement locationSelect = driver.findElement(By.xpath(updatedXpath3));
 
 		click(driver, locationSelect);
 
