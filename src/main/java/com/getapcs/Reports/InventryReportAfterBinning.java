@@ -1,5 +1,6 @@
 package com.getapcs.Reports;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.getapcs.base.Testbase1;
 import com.getapcs.pages.HomePage;
 
-public class InventryReport1 extends Testbase1 {
+public class InventryReportAfterBinning extends Testbase1 {
 
 	// Material Issue
 
@@ -54,7 +55,7 @@ public class InventryReport1 extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='»»'])[1]")
 	WebElement paginationLast;
 
-	public InventryReport1() {
+	public InventryReportAfterBinning() {
 
 		PageFactory.initElements(driver, this);
 
@@ -62,7 +63,7 @@ public class InventryReport1 extends Testbase1 {
 
 	// *************Inventry Report Page******************//
 
-	public HomePage InventryReport1Page() throws InterruptedException {
+	public HomePage InventryReportPage() throws InterruptedException, IOException {
 
 //project Number 
 
@@ -156,6 +157,7 @@ public class InventryReport1 extends Testbase1 {
 		click(driver, partType);
 
 		click(driver, searchPartType);
+
 		searchPartType.sendKeys(partType1);
 
 		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath));
@@ -167,6 +169,7 @@ public class InventryReport1 extends Testbase1 {
 		click(driver, projectNumber);
 
 		click(driver, searchprojectNumber);
+
 		searchprojectNumber.sendKeys(projectNumber1);
 
 		WebElement projectNumberSelect1 = driver.findElement(By.xpath(updatedXpath1));
@@ -178,6 +181,7 @@ public class InventryReport1 extends Testbase1 {
 		click(driver, warehouse);
 
 		click(driver, searchwareHouse);
+
 		searchwareHouse.sendKeys(warehouse1);
 
 		WebElement warehouseSelect = driver.findElement(By.xpath(updatedXpath2));
@@ -189,6 +193,7 @@ public class InventryReport1 extends Testbase1 {
 		click(driver, location);
 
 		click(driver, searchlocation);
+
 		searchlocation.sendKeys(location1);
 
 		WebElement locationSelect = driver.findElement(By.xpath(updatedXpath3));
@@ -198,6 +203,10 @@ public class InventryReport1 extends Testbase1 {
 //Filter
 
 		click(driver, filter);
+
+		Thread.sleep(2000);
+
+		screenShot("After Binning");
 
 		return new HomePage();
 	}

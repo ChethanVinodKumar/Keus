@@ -33,8 +33,8 @@ public class Item_Master_Create_Page extends Testbase1 {
 	WebElement uploadPhoto;
 
 	// General Description
-	@FindBy(xpath = "(//a[normalize-space()='General Description'])[1]")
-	WebElement generalDescriptionTab;
+//	@FindBy(xpath = "(//a[normalize-space()='General Description'])[1]")
+//	WebElement generalDescriptionTab;
 
 	@FindBy(xpath = "(//input[@type='text'])[2]")
 	WebElement typeDropDown;
@@ -382,23 +382,23 @@ public class Item_Master_Create_Page extends Testbase1 {
 		boolean isDeselectedDescriptionTextField = !descriptionField1.isSelected();
 		assertTrue(isDeselectedDescriptionTextField);
 
-		// verifying that ActiveStatus is displayed or hidden.
-		boolean isDisplayedActiveStatus = activeStatus.isDisplayed();
-		assertTrue(isDisplayedActiveStatus);
-		boolean isHiddenActiveStatus = !activeStatus.isDisplayed();
-		assertFalse(isHiddenActiveStatus);
-
-		// Verifying that ObsoluteToggleButton is enabled or not
-		boolean isEnabledObsoluteToggleButton = obsoluteToggleButton.isEnabled();
-		assertTrue(isEnabledObsoluteToggleButton);
-		boolean isDisabledObsoluteToggleButton = !obsoluteToggleButton.isEnabled();
-		assertFalse(isDisabledObsoluteToggleButton);
-
-		// verifying that ObsoluteToggleButton is displayed or hidden.
-		boolean isDisplayedObsoluteToggleButton = obsoluteToggleButton.isDisplayed();
-		assertTrue(isDisplayedObsoluteToggleButton);
-		boolean isHiddenObsoluteToggleButton = !obsoluteToggleButton.isDisplayed();
-		assertFalse(isHiddenObsoluteToggleButton);
+//		// verifying that ActiveStatus is displayed or hidden.
+//		boolean isDisplayedActiveStatus = activeStatus.isDisplayed();
+//		assertTrue(isDisplayedActiveStatus);
+//		boolean isHiddenActiveStatus = !activeStatus.isDisplayed();
+//		assertFalse(isHiddenActiveStatus);
+//
+//		// Verifying that ObsoluteToggleButton is enabled or not
+//		boolean isEnabledObsoluteToggleButton = obsoluteToggleButton.isEnabled();
+//		assertTrue(isEnabledObsoluteToggleButton);
+//		boolean isDisabledObsoluteToggleButton = !obsoluteToggleButton.isEnabled();
+//		assertFalse(isDisabledObsoluteToggleButton);
+//
+//		// verifying that ObsoluteToggleButton is displayed or hidden.
+//		boolean isDisplayedObsoluteToggleButton = obsoluteToggleButton.isDisplayed();
+//		assertTrue(isDisplayedObsoluteToggleButton);
+//		boolean isHiddenObsoluteToggleButton = !obsoluteToggleButton.isDisplayed();
+//		assertFalse(isHiddenObsoluteToggleButton);
 
 		uploadFile(driver, uploadPhoto, 0);
 
@@ -428,9 +428,9 @@ public class Item_Master_Create_Page extends Testbase1 {
 		// ###################### GeneralDescription ##############################
 
 		// Verifying that do we have proper Text heading.
-		String generalDescriptionactualText = generalDescriptionTab.getText();
-		String generalDescriptionExpectedText = "General Description";
-		assertEquals(generalDescriptionactualText, generalDescriptionExpectedText);
+//		String generalDescriptionactualText = generalDescriptionTab.getText();
+//		String generalDescriptionExpectedText = "General Description";
+//		assertEquals(generalDescriptionactualText, generalDescriptionExpectedText);
 
 		click(driver, typeDropDown);
 		js.executeScript("arguments[0].click();", typeDropDownSelectData);

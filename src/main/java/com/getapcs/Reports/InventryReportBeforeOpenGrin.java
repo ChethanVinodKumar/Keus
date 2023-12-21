@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.getapcs.base.Testbase1;
 import com.getapcs.pages.HomePage;
 
-public class InventryReport extends Testbase1 {
+public class InventryReportBeforeOpenGrin extends Testbase1 {
 
 	// Material Issue
 
@@ -30,12 +30,15 @@ public class InventryReport extends Testbase1 {
 	WebElement filter;
 
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
-	WebElement editButton;
+	WebElement viewButton;
+
+	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")
+	WebElement itemsTab;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
 
-	public InventryReport() {
+	public InventryReportBeforeOpenGrin() {
 
 		PageFactory.initElements(driver, this);
 
@@ -47,23 +50,16 @@ public class InventryReport extends Testbase1 {
 
 //Part Type
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/grin/table");
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/purchase-order/table");
 
-		click(driver, editButton);
+		click(driver, viewButton);
 
-		String tableXpath = "//table[@class='table mb-2']";
+		click(driver, itemsTab);
+
+		String tableXpath = "//table[@class='table table-striped']";
 
 		// Get the first PR number text from table
-		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
-
-		// Remove leading and trailing whitespaces
-		partType1 = partType1.trim();
-
-		// Remove the trailing hyphen and any characters after it
-		int hyphenIndex = partType1.indexOf(" - Test Description");
-		if (hyphenIndex != -1) {
-			partType1 = partType1.substring(0, hyphenIndex);
-		}
+		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 
 		// Store the element with hard coded PR number
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
@@ -71,22 +67,6 @@ public class InventryReport extends Testbase1 {
 		String updatedXpath = elementXpath.replace("PP-54", partType1);
 
 		System.out.println(updatedXpath);
-
-//project Number 
-
-		click(driver, addProject);
-
-		String tableXpath1 = "//table[@class='table table-striped']";
-
-		// Get the first PR number text from table
-		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[1]")).getText();
-
-		// Store the element with hard coded PR number
-		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath1 = elementXpath1.replace("PP-54", projectNumber1);
-
-		System.out.println(updatedXpath1);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
@@ -101,23 +81,12 @@ public class InventryReport extends Testbase1 {
 
 		click(driver, partTypeSelect);
 
-//Part Type
-
-		click(driver, projectNumber);
-
-		click(driver, searchprojectNumber);
-		searchprojectNumber.sendKeys(projectNumber1);
-
-		WebElement projectNumberSelect1 = driver.findElement(By.xpath(updatedXpath1));
-
-		click(driver, projectNumberSelect1);
-
 //Filter
 
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("After GRIN");
+		screenShot("Before OpenGRIN");
 
 		return new HomePage();
 	}

@@ -442,6 +442,7 @@ public class HomePage extends Testbase1 {
 		engineering.click();
 		itemMaster.click();
 		create.sendKeys(Keys.ENTER);
+		click(driver, threeLinesSideBarIcon);
 
 	}
 
@@ -683,6 +684,18 @@ public class HomePage extends Testbase1 {
 		POModifyandView.click();
 		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
 	}
+
+	// Open Grin
+
+	public void clickOnOpenGRINCreate() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, openGRIN);
+		click(driver, openGRIN_Create);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+	}
+
 	// GRIN
 
 	public void clickOnGRINCreate() throws InterruptedException {

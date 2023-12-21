@@ -144,11 +144,11 @@ public class Testbase1 {
 		robot.delay(1000);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
-		try {
-			click(driver, closeButton);
-		} catch (Exception e) {
-			System.out.println("Close button is not displayed");
-		}
+//		try {
+//			click(driver, closeButton);
+//		} catch (Exception e) {
+//			System.out.println("Close button is not displayed");
+//		}
 	}
 
 	// Data Print 1
