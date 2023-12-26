@@ -578,30 +578,9 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 		rEACHToggleButton.click();
 
-		uploadFile(driver, filesUpload, 1);
+//Upload File
 
-//		// Verifying and Coc Upload Files in Grin Create
-//		js.executeScript("arguments[0].click();", filesUpload);
-//		robot.delay(2000);
-//		StringSelection stringSelection2 = new StringSelection(
-//				"C:\\Users\\W2191\\eclipse-workspace\\Getapcs_Test\\src\\main\\java\\com\\getapcs\\pages\\HomePage.java");
-//		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection2, null);
-//
-//		// Press Enter to open the file dialog
-//
-//		robot.delay(2000);
-//
-//		// Press Ctrl+V to paste the file path
-//		robot.keyPress(KeyEvent.VK_CONTROL);
-//		robot.keyPress(KeyEvent.VK_V);
-//		robot.delay(2000);
-//		robot.keyRelease(KeyEvent.VK_CONTROL);
-//		robot.keyRelease(KeyEvent.VK_V);
-//
-//		robot.delay(2000);
-//		// Press Enter to confirm the file selection
-//		robot.keyPress(KeyEvent.VK_ENTER);
-//		robot.keyRelease(KeyEvent.VK_ENTER);
+		uploadFile(driver, filesUpload, 1);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);

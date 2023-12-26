@@ -266,6 +266,9 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[@routerlink='transaction/delivery-order/table'])[1]")
 	WebElement MorVDeliveryOrder;
 
+	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
+	WebElement returnDo;
+
 	// Invoice
 
 	@FindBy(xpath = "//span[normalize-space()='Invoice']")
@@ -276,6 +279,33 @@ public class HomePage extends Testbase1 {
 
 	@FindBy(xpath = "(//a[@routerlink='transaction/invoice/table'])[1]")
 	WebElement invoiceMorV;
+
+	// Material Request
+
+	@FindBy(xpath = "(//span[normalize-space()='Material Request'])[1]")
+	WebElement materialRequest;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/create-material-request'])[1]")
+	WebElement createMR;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/material-request'])[1]")
+	WebElement MRModifyORView;
+
+	// Material ReturnNote
+
+	@FindBy(xpath = "(//span[normalize-space()='Material Return Note'])[1]")
+	WebElement materialReturnNote;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/material-return-note'])[1]")
+	WebElement MRNModifyORView;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/create-material-return-note'])[1]")
+	WebElement createMRN;
+
+	// OpenMRN
+
+	@FindBy(xpath = "(//a[normalize-space()='Open MRN'])[1]")
+	WebElement openMRN;
 
 //Engineering
 
@@ -844,15 +874,17 @@ public class HomePage extends Testbase1 {
 		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
 	}
 
-//	public void clickOnReturnDO() throws InterruptedException {
-//		threeLinesSideBarIcon.click();
-//		transaction.click();
-//		DO.click();
-//		click(driver, DOTable);
-//		click(driver, threeLinesSideBarIcon);
-//		Thread.sleep(3000);
-//
-//	}
+	public void clickOnReturnDO() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, deliveryOrder);
+		click(driver, MorVDeliveryOrder);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, returnDo);
+
+		Thread.sleep(3000);
+
+	}
 
 	public void clickOnInvoiceCreate() throws InterruptedException {
 		click(driver, threeLinesSideBarIcon);
@@ -869,6 +901,56 @@ public class HomePage extends Testbase1 {
 		transaction.click();
 		click(driver, invoice);
 		click(driver, invoiceMorV);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnMaterialRequest() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, materialRequest);
+		click(driver, createMR);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnMaterialRequestTable() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, materialRequest);
+		click(driver, MRModifyORView);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnMaterialReturnNote() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, materialReturnNote);
+		click(driver, createMRN);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnMaterialReturnNoteTable() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, materialReturnNote);
+		click(driver, MRNModifyORView);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnMaterialReturnNoteOpenMRN() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, materialReturnNote);
+		click(driver, openMRN);
 		click(driver, threeLinesSideBarIcon);
 		Thread.sleep(3000);
 

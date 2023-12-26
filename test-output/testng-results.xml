@@ -1,53 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-21T17:21:35 IST" name="Default suite" finished-at="2023-12-21T17:25:58 IST" duration-ms="263751">
+  <suite started-at="2023-12-26T12:39:12 IST" name="Default suite" finished-at="2023-12-26T12:39:54 IST" duration-ms="42527">
     <groups>
     </groups>
-    <test started-at="2023-12-21T17:21:35 IST" name="Default test" finished-at="2023-12-21T17:25:58 IST" duration-ms="263751">
-      <class name="com.getapcs.testcases.TEST_Create">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:21:35 IST" name="setUp" finished-at="2023-12-21T17:21:44 IST" duration-ms="9306" status="PASS">
+    <test started-at="2023-12-26T12:39:12 IST" name="Default test" finished-at="2023-12-26T12:39:54 IST" duration-ms="42527">
+      <class name="com.getapcs.testcases.TEST_Create_MR">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.TEST_Create_MR@45cff11c]" started-at="2023-12-26T12:39:12 IST" name="setUp" finished-at="2023-12-26T12:39:26 IST" duration-ms="14711" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyInventryReportBeforeOpenGrin()[pri:18, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:21:44 IST" name="verifyInventryReportBeforeOpenGrin" finished-at="2023-12-21T17:22:07 IST" duration-ms="23317" status="PASS">
+        <test-method signature="verifyMaterialReturnNoteOpenMRN()[pri:31, instance:com.getapcs.testcases.TEST_Create_MR@45cff11c]" started-at="2023-12-26T12:39:26 IST" name="verifyMaterialReturnNoteOpenMRN" finished-at="2023-12-26T12:39:54 IST" duration-ms="27755" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyInventryReportBeforeOpenGrin -->
-        <test-method signature="verifyOpenGrinCreate()[pri:19, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:22:07 IST" name="verifyOpenGrinCreate" finished-at="2023-12-21T17:22:31 IST" duration-ms="23422" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyOpenGrinCreate -->
-        <test-method signature="verifyInventryReportAfterOpenGRIN()[pri:20, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:22:31 IST" name="verifyInventryReportAfterOpenGRIN" finished-at="2023-12-21T17:22:52 IST" duration-ms="21069" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterOpenGRIN -->
-        <test-method signature="verifyGRINCreate()[pri:21, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:22:52 IST" name="verifyGRINCreate" finished-at="2023-12-21T17:23:41 IST" duration-ms="49488" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyGRINCreate -->
-        <test-method signature="verifyInventryReportAfterGRIN()[pri:22, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:23:41 IST" name="verifyInventryReportAfterGRIN" finished-at="2023-12-21T17:24:03 IST" duration-ms="22016" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterGRIN -->
-        <test-method signature="verifyIQCCreate()[pri:23, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:24:03 IST" name="verifyIQCCreate" finished-at="2023-12-21T17:24:29 IST" duration-ms="25897" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyIQCCreate -->
-        <test-method signature="verifyInventryReportAfterIQC()[pri:24, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:24:29 IST" name="verifyInventryReportAfterIQC" finished-at="2023-12-21T17:24:50 IST" duration-ms="21119" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterIQC -->
-        <test-method signature="verifyBinningCreate()[pri:25, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:24:50 IST" name="verifyBinningCreate" finished-at="2023-12-21T17:25:29 IST" duration-ms="38333" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyBinningCreate -->
-        <test-method signature="verifyInventryReportAfterBinning()[pri:26, instance:com.getapcs.testcases.TEST_Create@14f5da2c]" started-at="2023-12-21T17:25:29 IST" name="verifyInventryReportAfterBinning" finished-at="2023-12-21T17:25:58 IST" duration-ms="29691" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterBinning -->
-      </class> <!-- com.getapcs.testcases.TEST_Create -->
+        </test-method> <!-- verifyMaterialReturnNoteOpenMRN -->
+      </class> <!-- com.getapcs.testcases.TEST_Create_MR -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

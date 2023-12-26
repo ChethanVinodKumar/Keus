@@ -5,21 +5,18 @@ import org.testng.annotations.Test;
 
 import com.getapcs.Engineering.EnggBOM_ReleaseBOM;
 import com.getapcs.Engineering.Engg_BOM_Create_Page;
-import com.getapcs.Engineering.Engg_BOM_Edit_Page;
 import com.getapcs.Engineering.Item_Master_Create_Page;
 import com.getapcs.Engineering.Item_Master_Create_Page1;
-import com.getapcs.Engineering.Item_Master_Edit_Page;
 import com.getapcs.Reports.InventryReportAfterBinning;
 import com.getapcs.Reports.InventryReportAfterGrin;
 import com.getapcs.Reports.InventryReportAfterIQCConfirmation;
+import com.getapcs.Reports.InventryReportAfterMaterialRequest;
+import com.getapcs.Reports.InventryReportAfterMaterialReturnNote;
 import com.getapcs.Reports.InventryReportAfterOpenGrin;
 import com.getapcs.Reports.InventryReportBeforeOpenGrin;
 import com.getapcs.Sales.ItemPriceList_CreatePage;
-import com.getapcs.Sales.ItemPriceList_EditPage;
 import com.getapcs.Sales.QuoteCreatePage;
-import com.getapcs.Sales.QuoteEditPage;
 import com.getapcs.Sales.RFQ_CreatePage;
-import com.getapcs.Sales.RFQ_EditPage;
 import com.getapcs.Sales.RFQ_ReleaseCS;
 import com.getapcs.SecondaryMaster.Price_List;
 import com.getapcs.Transaction.Binning;
@@ -31,6 +28,7 @@ import com.getapcs.Transaction.MaterialRequest;
 import com.getapcs.Transaction.Material_ReturnNote;
 import com.getapcs.Transaction.OQC;
 import com.getapcs.Transaction.OQCBinning;
+import com.getapcs.Transaction.OpenMRN;
 import com.getapcs.Transaction.PRApproval1;
 import com.getapcs.Transaction.PRApproval2;
 import com.getapcs.Transaction.Purchase_Order;
@@ -39,20 +37,18 @@ import com.getapcs.Transaction.ReturnDO;
 import com.getapcs.Transaction.SalesOrder;
 import com.getapcs.Transaction.ShopOrder;
 import com.getapcs.Transaction.ShopOrderConfirmation;
-import com.getapcs.Transaction.VerifyInvoiceCreate;
 import com.getapcs.Transaction.openGrin;
-import com.getapcs.TransactionEdit.Purchase_Order_Edit;
-import com.getapcs.TransactionEdit.VerifyPR_EditPage;
-import com.getapcs.TransactionEdit.VerifySalesOrderEditPage;
+import com.getapcs.TransactionTable.Material_Request_Table;
+import com.getapcs.TransactionTable.Material_Return_Note_TablePage;
 import com.getapcs.base.Testbase1;
 import com.getapcs.pages.HomePage;
 import com.getapcs.pages.LoginPage;
 
-public class TEST_Create extends Testbase1 {
+public class TEST_Create_MR extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 66";
-	public final static String fg = "FG-66";
-	public final static String pp = "PP-66";
+	public final static String priceList = "TEST PriceList 67";
+	public final static String fg = "FG-67";
+	public final static String pp = "PP-67";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -67,6 +63,7 @@ public class TEST_Create extends Testbase1 {
 	RFQ_ReleaseCS rfq_ReleaseCS;
 	QuoteCreatePage quoteCreatePage;
 	SalesOrder SalesOrder;
+	ShopOrder ShopOrder;
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
 	PRApproval1 PRApproval1;
@@ -82,7 +79,12 @@ public class TEST_Create extends Testbase1 {
 	DeliveryOrder DeliveryOrder;
 	ReturnDO ReturnDO;
 	MaterialRequest MaterialRequest;
+	InventryReportAfterMaterialRequest InventryReportAfterMaterialRequest;
+	Material_Request_Table Material_Request_Table;
+	InventryReportAfterMaterialReturnNote InventryReportAfterMaterialReturnNote;
 	Material_ReturnNote Material_ReturnNote;
+	OpenMRN OpenMRN;
+	Material_Return_Note_TablePage Material_Return_Note_TablePage;
 
 	InventryReportBeforeOpenGrin InventryReportBeforeOpenGrin;
 	InventryReportAfterOpenGrin InventryReportAfterOpenGrin;
@@ -90,19 +92,7 @@ public class TEST_Create extends Testbase1 {
 	InventryReportAfterIQCConfirmation InventryReportAfterIQCConfirmation;
 	InventryReportAfterBinning InventryReportAfterBinning;
 
-	Item_Master_Edit_Page itemMasterEditPage;
-	Engg_BOM_Edit_Page enggBomEditPage;
-	ItemPriceList_EditPage PriceList_EditPage;
-	RFQ_EditPage rfq_EditPage;
-	QuoteEditPage quoteEditPage;
-
-	VerifySalesOrderEditPage salesOrderEdit;
-	VerifyPR_EditPage VerifyPR_EditPage;
-	Purchase_Order_Edit Purchase_Order_Edit;
-	ShopOrder ShopOrder;
-	VerifyInvoiceCreate VerifyInvoiceCreate;
-
-	public TEST_Create() {
+	public TEST_Create_MR() {
 		super();
 	}
 
@@ -113,9 +103,7 @@ public class TEST_Create extends Testbase1 {
 		homePage = loginPage.login("admin@mail.com", "user@123");
 		itemMasterCreatePage = new Item_Master_Create_Page();
 		itemMasterCreatePage1 = new Item_Master_Create_Page1();
-		itemMasterEditPage = new Item_Master_Edit_Page();
 		enggBomCreatePage = new Engg_BOM_Create_Page();
-		enggBomEditPage = new Engg_BOM_Edit_Page();
 		releaseBom = new EnggBOM_ReleaseBOM();
 		priceList_CreatePage = new ItemPriceList_CreatePage();
 		rfq_CreatePage = new RFQ_CreatePage();
@@ -139,7 +127,12 @@ public class TEST_Create extends Testbase1 {
 		ReturnDO = new ReturnDO();
 		Price_List = new Price_List();
 		MaterialRequest = new MaterialRequest();
+		InventryReportAfterMaterialRequest = new InventryReportAfterMaterialRequest();
+		Material_Request_Table = new Material_Request_Table();
 		Material_ReturnNote = new Material_ReturnNote();
+		OpenMRN = new OpenMRN();
+		InventryReportAfterMaterialReturnNote = new InventryReportAfterMaterialReturnNote();
+		Material_Return_Note_TablePage = new Material_Return_Note_TablePage();
 
 		InventryReportBeforeOpenGrin = new InventryReportBeforeOpenGrin();
 		InventryReportAfterOpenGrin = new InventryReportAfterOpenGrin();
@@ -147,19 +140,8 @@ public class TEST_Create extends Testbase1 {
 		InventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
 		InventryReportAfterBinning = new InventryReportAfterBinning();
 
-		itemMasterEditPage = new Item_Master_Edit_Page();
-		enggBomEditPage = new Engg_BOM_Edit_Page();
-		PriceList_EditPage = new ItemPriceList_EditPage();
-		quoteEditPage = new QuoteEditPage();
-		rfq_EditPage = new RFQ_EditPage();
-		quoteEditPage = new QuoteEditPage();
-		salesOrderEdit = new VerifySalesOrderEditPage();
-		VerifyPR_EditPage = new VerifyPR_EditPage();
-		Purchase_Order_Edit = new Purchase_Order_Edit();
-		ShopOrder = new ShopOrder();
-		VerifyInvoiceCreate = new VerifyInvoiceCreate();
 	}
-
+//
 //	@Test(priority = 1)
 //	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
 //		Thread.sleep(4000);
@@ -229,7 +211,7 @@ public class TEST_Create extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
+
 //	@Test(priority = 6)
 //	public void verifySalesRFQCreate() throws Throwable {
 //
@@ -537,7 +519,6 @@ public class TEST_Create extends Testbase1 {
 //	public void verifyBinningCreate() throws Throwable {
 //		homePage.clickOnBinningCreate();
 //		Binning.BinningCreatePage("25");
-//
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
@@ -561,62 +542,6 @@ public class TEST_Create extends Testbase1 {
 //	}
 
 //	@Test(priority = 28)
-//	public void verifyShopOrderConfirmation() throws Throwable {
-//
-//		homePage.clickOnShopOrderConfirmationCreate();
-//		ShopOrderConfirmation.ShopOrderConfirmationCreate();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 29)
-//	public void verifyOQC() throws Throwable {
-//
-//		homePage.clickOnOQCCreate();
-//		OQC.OQCCreate("10");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 30)
-//	public void verifyOQCBinning() throws Throwable {
-//
-//		homePage.clickOnOQCBinningCreate();
-//		OQCBinning.OQCBinningCreate("10");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 31)
-//	public void verifyDOCreate() throws Throwable {
-//
-//		homePage.clickOnDOCreate();
-//		DeliveryOrder.DeliveryOrderCreate("10", "10");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 32)
-//	public void verifyInvoiceCreate() throws Throwable {
-//		homePage.clickOnInvoiceCreate();
-//		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
-//
-//		Thread.sleep(4000);
-//
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 33)
-//	public void verifyReturnDO() throws Throwable {
-//		homePage.clickOnReturnDO();
-//		ReturnDO.ReturnDOCreate();
-//
-//		Thread.sleep(4000);
-//
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-
-//	@Test(priority = 34)
 //	public void verifyMaterialRequest() throws Throwable {
 //		homePage.clickOnMaterialRequest();
 //		MaterialRequest.MRCreate("20", "10");
@@ -625,15 +550,62 @@ public class TEST_Create extends Testbase1 {
 //
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
+//
+//	@Test(priority = 29)
+//	public void verifyInventryReportAfterMaterialRequest() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterMaterialRequest.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
-	@Test(priority = 35)
-	public void verifyMaterialReturnNote() throws Throwable {
-		homePage.clickOnMaterialReturnNote();
-		Material_ReturnNote.MRNCreate("10");
+//	@Test(priority = 30)
+//	public void verifyMaterialReturnNote() throws Throwable {
+//		homePage.clickOnMaterialReturnNote();
+//		Material_ReturnNote.MRNCreate("10");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+
+	@Test(priority = 31)
+	public void verifyMaterialReturnNoteOpenMRN() throws Throwable {
+		homePage.clickOnMaterialReturnNoteOpenMRN();
+		OpenMRN.OpenMRNIssueMRN("10");
 
 		Thread.sleep(4000);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
+//	@Test(priority = 31)
+//	public void verifyInventryReportAfterMaterialReturnNote() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterMaterialReturnNote.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
+//	@Test(priority = 32)
+//	public void verifyMR_Table() throws Throwable {
+//		homePage.clickOnMaterialRequestTable();
+//		Material_Request_Table.Material_Request_Table();
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 33)
+//	public void verifyMRN_Table() throws Throwable {
+//		homePage.clickOnMaterialReturnNoteTable();
+//		Material_Return_Note_TablePage.Material_Return_Note_Table();
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 }

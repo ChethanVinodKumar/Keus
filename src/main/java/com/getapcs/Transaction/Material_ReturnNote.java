@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.getapcs.base.Testbase1;
 import com.getapcs.pages.HomePage;
 
-public class MaterialRequest extends Testbase1 {
+public class Material_ReturnNote extends Testbase1 {
 
 	// Delivery Order
 
@@ -21,8 +21,8 @@ public class MaterialRequest extends Testbase1 {
 	@FindBy(xpath = "(//input[@role='combobox'])[1]")
 	WebElement partNumber;
 
-	@FindBy(xpath = "(//input[@type='number'])[1]")
-	WebElement requiredQty;
+	@FindBy(xpath = "(//input[@type='text'])[6]")
+	WebElement returnQty;
 
 	@FindBy(xpath = "//table[@formarrayname='ItemData']/tbody/tr[1]/td[2]//input[@type='text']")
 	WebElement partType;
@@ -33,41 +33,14 @@ public class MaterialRequest extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButton;
 
-	@FindBy(xpath = "(//button[normalize-space()='Issue'])[1]")
-	WebElement issueButton;
-
-	@FindBy(xpath = "(//i[@title='Add Location'])[1]")
-	WebElement locationAdd;
-
-	@FindBy(xpath = "(//input[@type='text'])[4]")
-	WebElement warehouse;
-
-	@FindBy(xpath = "(//input[@type='text'])[5]")
-	WebElement location;
-
-	@FindBy(xpath = "(//span[normalize-space()='HYD-BH-RD5'])[1]")
-	WebElement warehouseSelect;
-
-	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
-	WebElement locationSelect;
-
-	@FindBy(xpath = "(//input[@placeholder='Enter Quantity'])[1]")
-	WebElement issueQty;
-
-	@FindBy(xpath = "(//button[normalize-space()='Add'])[1]")
-	WebElement add;
-
-	@FindBy(xpath = "(//button[normalize-space()='Save'])[2]")
-	WebElement save;
-
-	public MaterialRequest() {
+	public Material_ReturnNote() {
 
 		PageFactory.initElements(driver, this);
 	}
 
 //*************Material Request Create Page******************
 
-	public HomePage MRCreate(String RequiredQuantity, String IssueQuantity) throws InterruptedException {
+	public HomePage MRNCreate(String returnQuantity) throws InterruptedException {
 		// TODO Auto-generated method stub
 
 //Sales Order Number
@@ -112,7 +85,7 @@ public class MaterialRequest extends Testbase1 {
 
 		System.out.println(updatedXpath2);
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/create-material-request");
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/create-material-return-note");
 
 //Project Number
 
@@ -155,53 +128,13 @@ public class MaterialRequest extends Testbase1 {
 
 		dataPrintFromInputtag(driver, stock, "stock");
 
-//Required Qty
+//Return Quantity
 
-		click(driver, requiredQty);
+		click(driver, returnQty);
 
-		isSelected(driver, requiredQty, "requiredQty");
-		requiredQty.clear();
-		requiredQty.sendKeys(RequiredQuantity);
-
-		click(driver, saveButton);
-
-//Issue Button
-
-		click(driver, issueButton);
-
-		click(driver, locationAdd);
-
-		for (int i = 1; i <= 2; i++) {
-
-			// Warehouse
-
-			click(driver, warehouse);
-
-			isSelected(driver, warehouse, "warehouse");
-
-			click(driver, warehouseSelect);
-
-			// Location
-
-			click(driver, location);
-
-			isSelected(driver, location, "location");
-
-			click(driver, locationSelect);
-
-			// Issue Quantity
-
-			click(driver, issueQty);
-
-			issueQty.sendKeys(IssueQuantity);
-
-			// add
-
-			click(driver, add);
-
-		}
-
-		click(driver, save);
+		isSelected(driver, returnQty, "requiredQty");
+		returnQty.clear();
+		returnQty.sendKeys(returnQuantity);
 
 		click(driver, saveButton);
 

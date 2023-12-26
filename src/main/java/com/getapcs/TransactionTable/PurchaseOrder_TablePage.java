@@ -44,7 +44,7 @@ public class PurchaseOrder_TablePage extends Testbase1 {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage PurchaseOrder_Table() throws InterruptedException {
+	public HomePage PurchaseOrder_Table() throws Exception {
 
 		// Verifying that do we have proper Text heading.
 		WebElement HeadingText = driver.findElement(By.xpath("(//div[@class='title_sub_div_1'])[1]"));
@@ -88,7 +88,7 @@ public class PurchaseOrder_TablePage extends Testbase1 {
 
 		driver.navigate().refresh();
 
-//Pagination
+// Pagination
 
 		click(driver, paginationLast);
 
@@ -96,38 +96,10 @@ public class PurchaseOrder_TablePage extends Testbase1 {
 
 		click(driver, paginationFirst);
 
-		int totalPages = driver.findElements(By.cssSelector(".pagination a")).size();
+		// Usage
+		paginate(driver, 1, 9, true); // forward
+		paginate(driver, 1, 9, false); // backward
 
-		// Loop through each pagination link in Forward iteration
-		for (int i = 1; i <= totalPages; i++) {
-			System.out.println("Clicking on pagination link #" + i);
-			WebElement pageLink = driver.findElement(By.partialLinkText(String.valueOf(i)));
-			js.executeScript("arguments[0].click();", pageLink);
-			Thread.sleep(2000);
-
-			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-			// Wait for the page to load
-			wait1.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete';"));
-
-			System.out.println("Page #" + i + " loaded successfully.");
-			// You can now interact with the loaded page.
-		}
-
-		// Backward iteration
-		for (int i = totalPages; i >= 1; i--) {
-			System.out.println("Clicking on pagination link #" + i);
-			WebElement pageLink = driver.findElement(By.partialLinkText(String.valueOf(i)));
-			js.executeScript("arguments[0].click();", pageLink);
-			Thread.sleep(2000);
-
-			// Wait for the page to load
-			wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete';"));
-
-			System.out.println("Page #" + i + " loaded successfully.");
-			// You can now interact with the loaded page.
-
-		}
 		return new HomePage();
 
 	}

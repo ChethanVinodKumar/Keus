@@ -20,7 +20,7 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 	WebElement priceListNameDropDownSelect;
 
 	@FindBy(xpath = "(//input[@type='text'])[2]")
-	WebElement itemNumberdescriptionSearchableField;
+	WebElement itemNumberdescriptionField;
 
 	@FindBy(xpath = "(//span[normalize-space()='798878123-Test Description'])[1]")
 	WebElement itemNumberdescriptionSearchableFieldSelect;
@@ -89,10 +89,8 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 
 		String tableXpath = "//table[@class='table table-striped']";
 
-		// Get the first PR number text from table
 		String PriceList = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
-		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", PriceList);
@@ -104,10 +102,8 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
-		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
 
-		// Store the element with hard coded PR number
 		String elementXpath1 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath1 = elementXpath1.replace("Item-FG-11-TEST", ItemNumber + "-Test Description");
@@ -121,32 +117,30 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 		itemPriceListCreate.sendKeys(Keys.ENTER);
 
 		Thread.sleep(2000);
-		// Verify and Click on Price List Name DropDown and Select in Create-Item
+
 		// PriceList-Sales Module
 		boolean priceListNameDropDownIsDisplayed = priceListNameDropDown.isDisplayed();
 		assertTrue(priceListNameDropDownIsDisplayed, "Price List Name DropDown is not Displayed.");
 		priceListNameDropDown.sendKeys(Keys.ENTER);
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(text(),'TEST Price List')])[2]"))).click();
 
 		WebElement priceListNameDropDownSelect = driver.findElement(By.xpath(updatedXpath));
 		js.executeScript("arguments[0].click();", priceListNameDropDownSelect);
 
-		// Verify and Click on item Number Description Searchable Field in Create-Item
-		// PriceList-Sales Module
-		boolean itemNumberdescriptionSearchableFieldIsDisplayed = itemNumberdescriptionSearchableField.isDisplayed();
+		// Description Field
+		boolean itemNumberdescriptionSearchableFieldIsDisplayed = itemNumberdescriptionField.isDisplayed();
 		assertTrue(itemNumberdescriptionSearchableFieldIsDisplayed,
 				"Item Number Description Searchable Field is not Displayed.");
-		itemNumberdescriptionSearchableField.sendKeys(Keys.ENTER);
+		itemNumberdescriptionField.sendKeys(Keys.ENTER);
 
 		WebElement itemNumberdescriptionSearchableFieldSelect = driver.findElement(By.xpath(updatedXpath1));
 		js.executeScript("arguments[0].click();", itemNumberdescriptionSearchableFieldSelect);
 
-		// Verify and Enter Data on Quantity TextBox in Create-Item PriceList-Sales
-		// Module
+		// Quantity Text Box
 		boolean quantityTextBoxisDisplayed = quantityTextBox.isDisplayed();
 		assertTrue(quantityTextBoxisDisplayed, "Quantity Text Box is not Displayed");
 		quantityTextBox.clear();
 		quantityTextBox.sendKeys(quantity);
+
 		// Verify Quantity Field is Accepting Numeric or String
 		String quantityinputValue = quantityTextBox.getAttribute("value");
 		boolean isNumericQuantityTextBox = quantityinputValue.matches("\\d+"); // This regex matches one or more digits

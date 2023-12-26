@@ -1,4 +1,4 @@
-package com.getapcs.Engineering;
+package com.getapcs.TransactionTable;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.getapcs.base.Testbase1;
 import com.getapcs.pages.HomePage;
 
-public class Engg_Bom_Table_Page extends Testbase1 {
+public class Material_Return_Note_TablePage extends Testbase1 {
 	@FindBy(xpath = "(//select)[1]")
 	WebElement pageSize;
 
@@ -34,19 +34,19 @@ public class Engg_Bom_Table_Page extends Testbase1 {
 	@FindBy(xpath = "(//table[@class='table table-striped'])[1]")
 	WebElement table;
 
-	@FindBy(xpath = "//table[@class='table table-striped']/tbody/tr[1]/td[2]")
+	@FindBy(xpath = "//table[@class='table table-striped']/tbody/tr[1]/td[3]")
 	WebElement searchData;
 
-	public Engg_Bom_Table_Page() {
+	public Material_Return_Note_TablePage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage EnggBOMTable() throws Exception {
+	public HomePage Material_Return_Note_Table() throws Exception {
 
 		// Verifying that do we have proper Text heading.
-		WebElement HeadingText = driver.findElement(By.xpath("//div[@class='title_sub_div_1 mt-1']"));
+		WebElement HeadingText = driver.findElement(By.xpath("(//div[@class='title_sub_div_1'])[1]"));
 		String actualText = HeadingText.getText();
-		String ExpectedText = "Engg Bom";
+		String ExpectedText = "Material Return Note";
 		assertEquals(actualText, ExpectedText);
 
 //Page Size
@@ -89,7 +89,7 @@ public class Engg_Bom_Table_Page extends Testbase1 {
 
 		driver.navigate().refresh();
 
-//Pagination
+// Pagination
 
 		click(driver, paginationLast);
 
@@ -98,11 +98,10 @@ public class Engg_Bom_Table_Page extends Testbase1 {
 		click(driver, paginationFirst);
 
 		// Usage
-		paginate(driver, 1, 10, true); // forward
-		paginate(driver, 1, 10, false); // backward
+		paginate(driver, 1, 1, true); // forward
+		paginate(driver, 1, 1, false); // backward
 
 		return new HomePage();
 
 	}
-
 }

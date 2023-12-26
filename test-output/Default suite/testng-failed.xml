@@ -3,16 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.getapcs.testcases.TEST_Create">
+      <class name="com.getapcs.testcases.TEST_Create_MR">
         <methods>
-          <include name="verifyIQCCreate"/>
-          <include name="verifyInventryReportAfterBinning"/>
           <include name="setUp"/>
-          <include name="verifyInventryReportBeforeOpenGrin"/>
-          <include name="verifyBinningCreate"/>
-          <include name="verifyInventryReportAfterIQC"/>
+          <include name="verifyMaterialReturnNote"/>
         </methods>
-      </class> <!-- com.getapcs.testcases.TEST_Create -->
+      </class> <!-- com.getapcs.testcases.TEST_Create_MR -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

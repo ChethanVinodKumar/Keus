@@ -4,10 +4,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -104,6 +100,9 @@ public class RFQ_CreatePage extends Testbase1 {
 
 	@FindBy(xpath = "(//span[normalize-space()='Abhilashpatil'])[1]")
 	WebElement salesPersonSelect;
+
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
 
 	public RFQ_CreatePage() {
 		PageFactory.initElements(driver, this);
@@ -310,31 +309,10 @@ public class RFQ_CreatePage extends Testbase1 {
 		// UploadFiles
 		// Verifing that do we able to upload files or not.
 		WebElement UploadFiles = driver.findElement(By.xpath("(//input[@placeholder='Upload Items'])[1]"));
-		JavascriptExecutor executor1 = (JavascriptExecutor) driver;
-		executor1.executeScript("arguments[0].click();", UploadFiles);
-		Robot robot = new Robot();
-		robot.delay(2000);
-		StringSelection stringSelection = new StringSelection(
-				"C:\\Users\\W2191\\eclipse-workspace\\Getapcs2\\src\\test\\java\\com\\testcases\\master1\\AALoginFunctionality.java");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
-		// Press Enter to open the file dialog
+		uploadFile(driver, UploadFiles, 1);
 
-		robot.delay(2000);
-
-		// Press Ctrl+V to paste the file path
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.delay(2000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.delay(2000);
-		// Press Enter to confirm the file selection
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-
-		close.sendKeys(Keys.ENTER);
+		click(driver, closeButton);
 
 		executor.executeScript("arguments[0].click();", add);
 

@@ -3,11 +3,6 @@ package com.getapcs.Engineering;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -403,34 +398,10 @@ public class Engg_BOM_Create_Page extends Testbase1 {
 //		WebElement AddNRE = driver.findElement(By.xpath("//button[normalize-space()='Add']"));
 		addButtonInNRE.click();
 
-		// Verifing that do we able to upload files or not.
-//				WebElement UploadFiles = driver.findElement(By.xpath("//input[@placeholder='Upload Items']"));
-		js.executeScript("arguments[0].click();", fileUploadInBomCreate);
-		Robot robot = new Robot();
-		robot.delay(2000);
-		StringSelection stringSelection2 = new StringSelection(
-				"C:\\Users\\W2191\\eclipse-workspace\\Getapcs_Test\\src\\main\\java\\com\\getapcs\\pages\\HomePage.java");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection2, null);
+//Upload File
 
-		// Press Enter to open the file dialog
+		uploadFile(driver, fileUploadInBomCreate, 1);
 
-		robot.delay(2000);
-
-		// Press Ctrl+V to paste the file path
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.delay(2000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.delay(2000);
-		// Press Enter to confirm the file selection
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		WebElement closeButton = driver.findElement(By.xpath("(//button[normalize-space()='Close'])[1]"));
-		js.executeScript("arguments[0].click();", closeButton);
-//		String beforeSaveButton = driver.getCurrentUrl();
-//		  System.out.println(beforeSaveButton+"\n");
 		System.out.println(driver.getCurrentUrl());
 		Thread.sleep(1000);
 

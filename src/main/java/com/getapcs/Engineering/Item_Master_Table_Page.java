@@ -98,8 +98,8 @@ public class Item_Master_Table_Page extends Testbase1 {
 		click(driver, paginationFirst);
 
 		// Usage
-		paginate(driver, 1, 17, true); // forward
-		paginate(driver, 1, 17, false); // backward
+		paginate(driver, 1, 10, true); // forward
+		paginate(driver, 1, 10, false); // backward
 
 		return new HomePage();
 
