@@ -24,16 +24,16 @@ public class SalesOrder_Reports extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Clear'])[1]")
 	WebElement clear;
 
-	@FindBy(xpath = "(//span[@class='dropdown-btn'])[1]")
+	@FindBy(xpath = "(//span[contains(text(),'Select Sales Order Number')])[1]")
 	WebElement salesOrderNum;
 
-	@FindBy(xpath = "(//span[@class='dropdown-btn'])[2]")
+	@FindBy(xpath = "(//span[contains(text(),'Project No')])[1]")
 	WebElement projectNum;
 
-	@FindBy(xpath = "(//span[@class='dropdown-btn'])[3]")
+	@FindBy(xpath = "(//span[contains(text(),'Customer Name')])[1]")
 	WebElement customerName;
 
-	@FindBy(xpath = "(//span[@class='dropdown-btn'])[4]")
+	@FindBy(xpath = "(//span[contains(text(),'Sales Order Status')])[1]")
 	WebElement salesOrderStatus;
 
 	@FindBy(xpath = "(//input[@placeholder='Search'])[2]")
@@ -63,7 +63,11 @@ public class SalesOrder_Reports extends Testbase1 {
 
 //Date Filter
 
-		datePicker(driver, fromDate);
+		click(driver, fromDate);
+
+		selectPreviousDate(driver, fromDate, 10);
+
+		click(driver, toDate);
 
 		datePicker(driver, toDate);
 
@@ -87,9 +91,9 @@ public class SalesOrder_Reports extends Testbase1 {
 
 		String salesOrderNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
-		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
+		String elementXpath = "(//div[normalize-space()='271223SO-000434'])[1]";
 
-		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", salesOrderNumber);
+		String updatedXpath = elementXpath.replace("271223SO-000434", salesOrderNumber);
 
 		System.out.println(updatedXpath);
 
@@ -97,9 +101,9 @@ public class SalesOrder_Reports extends Testbase1 {
 
 		String projectNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[4]")).getText();
 
-		String elementXpath1 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
+		String elementXpath1 = "(//div[normalize-space()='271223SO-000434'])[1]";
 
-		String updatedXpath1 = elementXpath1.replace("Item-FG-11-TEST", projectNumber);
+		String updatedXpath1 = elementXpath1.replace("271223SO-000434", projectNumber);
 
 		System.out.println(updatedXpath1);
 
@@ -107,9 +111,9 @@ public class SalesOrder_Reports extends Testbase1 {
 
 		String customerName1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[7]")).getText();
 
-		String elementXpath2 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
+		String elementXpath2 = "(//div[normalize-space()='271223SO-000434'])[1]";
 
-		String updatedXpath2 = elementXpath2.replace("Item-FG-11-TEST", customerName1);
+		String updatedXpath2 = elementXpath2.replace("271223SO-000434", customerName1);
 
 		System.out.println(updatedXpath2);
 
@@ -118,8 +122,6 @@ public class SalesOrder_Reports extends Testbase1 {
 		// Sales Order Number
 
 		click(driver, salesOrderNum);
-
-		isSelected(driver, salesOrderNum, "salesOrderNum");
 
 		click(driver, SearchsalesOrderNum);
 
@@ -135,8 +137,6 @@ public class SalesOrder_Reports extends Testbase1 {
 
 		click(driver, projectNum);
 
-		isSelected(driver, projectNum, "projectNum");
-
 		click(driver, SearchprojectNum);
 
 		SearchprojectNum.sendKeys(projectNumber);
@@ -150,8 +150,6 @@ public class SalesOrder_Reports extends Testbase1 {
 		// Customer Name
 
 		click(driver, customerName);
-
-		isSelected(driver, customerName, "customerName");
 
 		click(driver, SearchcustomerName);
 

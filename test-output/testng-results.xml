@@ -2,24 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-27T12:59:51 IST" name="Default suite" finished-at="2023-12-27T13:00:45 IST" duration-ms="54305">
+  <suite started-at="2023-12-27T17:45:46 IST" name="Default suite" finished-at="2023-12-27T17:46:48 IST" duration-ms="62243">
     <groups>
     </groups>
-    <test started-at="2023-12-27T12:59:51 IST" name="Default test" finished-at="2023-12-27T13:00:45 IST" duration-ms="54305">
-      <class name="com.getapcs.testcases.PrimaryMaster">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.PrimaryMaster@4bff1903]" started-at="2023-12-27T12:59:51 IST" name="setUp" finished-at="2023-12-27T13:00:03 IST" duration-ms="12567" status="PASS">
+    <test started-at="2023-12-27T17:45:46 IST" name="Default test" finished-at="2023-12-27T17:46:48 IST" duration-ms="62243">
+      <class name="com.getapcs.testcases.TEST_Reports">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.TEST_Reports@24b6b8f6]" started-at="2023-12-27T17:45:46 IST" name="setUp" finished-at="2023-12-27T17:45:55 IST" duration-ms="9541" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyCustomerField()[pri:3, instance:com.getapcs.testcases.PrimaryMaster@4bff1903]" started-at="2023-12-27T13:00:04 IST" name="verifyCustomerField" finished-at="2023-12-27T13:00:45 IST" duration-ms="41637" status="PASS">
+        <test-method signature="verifyPurchaseReqisitionReports()[pri:3, instance:com.getapcs.testcases.TEST_Reports@24b6b8f6]" started-at="2023-12-27T17:45:55 IST" name="verifyPurchaseReqisitionReports" finished-at="2023-12-27T17:46:48 IST" duration-ms="52615" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCustomerField -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.getapcs.testcases.PrimaryMaster@4bff1903]" started-at="2023-12-27T13:00:45 IST" name="tearDown" finished-at="2023-12-27T13:00:45 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.getapcs.testcases.PrimaryMaster -->
+        </test-method> <!-- verifyPurchaseReqisitionReports -->
+      </class> <!-- com.getapcs.testcases.TEST_Reports -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

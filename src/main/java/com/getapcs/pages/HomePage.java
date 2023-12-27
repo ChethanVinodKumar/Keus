@@ -347,6 +347,9 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[normalize-space()='Sales Order Report'])[1]")
 	WebElement salesOrderReports;
 
+	@FindBy(xpath = "(//a[normalize-space()='Purchase Requisition Report'])[1]")
+	WebElement prReports;
+
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -977,4 +980,12 @@ public class HomePage extends Testbase1 {
 
 	}
 
+	public void clickOnPurchaseReqisitionReport() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, prReports);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
 }
