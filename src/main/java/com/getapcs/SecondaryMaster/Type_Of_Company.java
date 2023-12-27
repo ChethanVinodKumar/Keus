@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 
 
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
+import com.getapcs.home.login.HomePage;
 
 public class Type_Of_Company extends Testbase1 {
 

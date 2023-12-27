@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
+import com.getapcs.home.login.HomePage;
 
 public class PRApproval1 extends Testbase1 {
 

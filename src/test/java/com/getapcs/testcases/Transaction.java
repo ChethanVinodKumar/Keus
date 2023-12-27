@@ -11,8 +11,8 @@ import com.getapcs.PrimaryMaster.CustomerMaster;
 import com.getapcs.PrimaryMaster.VenderMaster;
 import com.getapcs.PrimaryMaster.VenderMasterEdit;
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
-import com.getapcs.pages.LoginPage;
+import com.getapcs.home.login.HomePage;
+import com.getapcs.home.login.LoginPage;
 import com.getapcs.Transaction.*;
 
 public class Transaction extends Testbase1 {
