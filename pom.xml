@@ -88,22 +88,5 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-	<dependency>
-		<groupId>Getapcs1</groupId>
-		<artifactId>GetaPcs1</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
 </dependencies>
 </project>
