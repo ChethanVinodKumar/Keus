@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
+import com.getapcs.home.login.HomePage;
 
 public class Engg_Bom_Table_Page extends Testbase1 {
 	@FindBy(xpath = "(//select)[1]")

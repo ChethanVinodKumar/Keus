@@ -1,13 +1,15 @@
 package com.getapcs.testcases;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.getapcs.Keus.Reports.ItemMaster_Reports;
 import com.getapcs.Keus.Reports.PurchaseRequisition_Reports;
 import com.getapcs.Keus.Reports.SalesOrder_Reports;
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
-import com.getapcs.pages.LoginPage;
+import com.getapcs.home.login.HomePage;
+import com.getapcs.home.login.LoginPage;
 
 public class TEST_Reports extends Testbase1 {
 
@@ -15,6 +17,7 @@ public class TEST_Reports extends Testbase1 {
 	HomePage homePage;
 	SalesOrder_Reports SalesOrder_Reports;
 	PurchaseRequisition_Reports PurchaseRequisition_Reports;
+	ItemMaster_Reports itemMasterReports;
 
 	public TEST_Reports() {
 		super();
@@ -28,22 +31,37 @@ public class TEST_Reports extends Testbase1 {
 
 		SalesOrder_Reports = new SalesOrder_Reports();
 		PurchaseRequisition_Reports = new PurchaseRequisition_Reports();
+		itemMasterReports = new ItemMaster_Reports();
 
 	}
 
-//	@Test(priority = 1)
-//	public void verifySalesOrderReports() throws Exception {
-//		homePage.clickOnSalesOrderReport();
-//		SalesOrder_Reports.SalesOrder_ReportsPage();
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-
-	@Test(priority = 3)
-	public void verifyPurchaseReqisitionReports() throws Exception {
-		homePage.clickOnPurchaseReqisitionReport();
-		PurchaseRequisition_Reports.PurchaseRequisition_ReportsPage();
-		Thread.sleep(4000);
+	@Test(priority = 1)
+	public void verifySalesOrderReports() throws Exception {
+		homePage.clickOnSalesOrderReport();
+		SalesOrder_Reports.SalesOrder_ReportsPage();
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+//	@Test(priority = 3)
+//	public void verifyPurchaseReqisitionReports() throws Exception {
+//		homePage.clickOnPurchaseReqisitionReport();
+//		PurchaseRequisition_Reports.PurchaseRequisition_ReportsPage();
+//		Thread.sleep(4000);
+//		}
+
+	@Test(priority = 1)
+	public void verifyItemMasterReport() throws Throwable {
+		homePage.clickOnItemMasterReports();
+		itemMasterReports.itemMasterReport();
+
+		Thread.sleep(3000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@AfterTest
+	void afterTest() {
+		driver.manage().window().minimize();
+		driver.quit();
 	}
 
 }

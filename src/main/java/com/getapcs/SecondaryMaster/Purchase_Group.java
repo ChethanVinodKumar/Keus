@@ -11,7 +11,7 @@ import static org.testng.Assert.assertTrue;
 
 
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
+import com.getapcs.home.login.HomePage;
 
 public class Purchase_Group extends Testbase1 {
 

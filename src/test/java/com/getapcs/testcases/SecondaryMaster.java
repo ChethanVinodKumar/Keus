@@ -53,8 +53,8 @@ import com.getapcs.SecondaryMaster.Warehouse;
 import com.getapcs.SecondaryMaster.NumberOfRoom;
 import com.getapcs.SecondaryMaster.TypeOfRoom;
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
-import com.getapcs.pages.LoginPage;
+import com.getapcs.home.login.HomePage;
+import com.getapcs.home.login.LoginPage;
 
 public class SecondaryMaster  extends Testbase1 {
 	LoginPage loginPage;

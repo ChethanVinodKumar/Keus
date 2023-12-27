@@ -19,7 +19,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
+import com.getapcs.home.login.HomePage;
 
 public class BankName extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Yes'])[1]")

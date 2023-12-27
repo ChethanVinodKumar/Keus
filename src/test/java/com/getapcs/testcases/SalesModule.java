@@ -14,8 +14,8 @@ import com.getapcs.Sales.RFQ_CreatePage;
 import com.getapcs.Sales.RFQ_EditPage;
 import com.getapcs.Sales.RFQ_ReleaseCS;
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
-import com.getapcs.pages.LoginPage;
+import com.getapcs.home.login.HomePage;
+import com.getapcs.home.login.LoginPage;
 
 public class SalesModule extends Testbase1 {
 	LoginPage loginPage;

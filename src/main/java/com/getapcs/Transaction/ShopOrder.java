@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
+import com.getapcs.home.login.HomePage;
 
 public class ShopOrder extends Testbase1 {
 

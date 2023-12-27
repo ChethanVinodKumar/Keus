@@ -1,4 +1,4 @@
-package com.getapcs.pages;
+package com.getapcs.home.login;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -344,11 +344,10 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[normalize-space()='Inventory Report with Location'])[1]")
 	WebElement inventryReportWithLocation;
 
+	@FindBy(xpath = "//a[@routerlink='reports/item-master-report']")
+	WebElement itemMasterReport;
 	@FindBy(xpath = "(//a[normalize-space()='Sales Order Report'])[1]")
 	WebElement salesOrderReports;
-
-	@FindBy(xpath = "(//a[normalize-space()='Purchase Requisition Report'])[1]")
-	WebElement prReports;
 
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -971,6 +970,14 @@ public class HomePage extends Testbase1 {
 
 	}
 
+	public void clickOnItemMasterReports() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, itemMasterReport);
+		click(driver, threeLinesSideBarIcon);
+
+	}
+
 	public void clickOnSalesOrderReport() throws InterruptedException {
 		click(driver, threeLinesSideBarIcon);
 		click(driver, reports);
@@ -980,12 +987,4 @@ public class HomePage extends Testbase1 {
 
 	}
 
-	public void clickOnPurchaseReqisitionReport() throws InterruptedException {
-		click(driver, threeLinesSideBarIcon);
-		click(driver, reports);
-		click(driver, prReports);
-		click(driver, threeLinesSideBarIcon);
-		Thread.sleep(3000);
-
-	}
 }

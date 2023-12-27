@@ -45,8 +45,8 @@ import com.getapcs.TransactionEdit.Purchase_Order_Edit;
 import com.getapcs.TransactionEdit.VerifyPR_EditPage;
 import com.getapcs.TransactionEdit.VerifySalesOrderEditPage;
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
-import com.getapcs.pages.LoginPage;
+import com.getapcs.home.login.HomePage;
+import com.getapcs.home.login.LoginPage;
 
 public class TEST_Create extends Testbase1 {
 

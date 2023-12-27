@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
+import com.getapcs.home.login.HomePage;
 
 public class CompanyCategory extends Testbase1 {
 	@FindBy(xpath = "(//i[@class='mdi mdi-pencil edit-icon'])[1]")

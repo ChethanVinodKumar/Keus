@@ -10,8 +10,8 @@ import com.getapcs.Engineering.Engg_BOM_Edit_Page;
 import com.getapcs.Engineering.Item_Master_Create_Page;
 import com.getapcs.Engineering.Item_Master_Edit_Page;
 import com.getapcs.base.Testbase1;
-import com.getapcs.pages.HomePage;
-import com.getapcs.pages.LoginPage;
+import com.getapcs.home.login.HomePage;
+import com.getapcs.home.login.LoginPage;
 
 public class EnggModuleTest extends Testbase1 {
 

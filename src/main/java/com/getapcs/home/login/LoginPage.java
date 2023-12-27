@@ -1,4 +1,4 @@
-package com.getapcs.pages;
+package com.getapcs.home.login;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
