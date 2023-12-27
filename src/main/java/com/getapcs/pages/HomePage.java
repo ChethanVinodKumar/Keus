@@ -344,6 +344,9 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[normalize-space()='Inventory Report with Location'])[1]")
 	WebElement inventryReportWithLocation;
 
+	@FindBy(xpath = "(//a[normalize-space()='Sales Order Report'])[1]")
+	WebElement salesOrderReports;
+
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -453,7 +456,6 @@ public class HomePage extends Testbase1 {
 		itemPriceList.click();
 		modifyorViewItemPriceList.sendKeys(Keys.ENTER);
 		click(driver, threeLinesSideBarIcon);
-
 	}
 
 	public void clickonSalesQuoteModifyorView() {
@@ -462,7 +464,6 @@ public class HomePage extends Testbase1 {
 		quote.click();
 		click(driver, modifyorViewQuote);
 		click(driver, threeLinesSideBarIcon);
-
 	}
 
 //Engineering
@@ -962,6 +963,15 @@ public class HomePage extends Testbase1 {
 		click(driver, threeLinesSideBarIcon);
 		click(driver, reports);
 		click(driver, inventryReportWithLocation);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnSalesOrderReport() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, salesOrderReports);
 		click(driver, threeLinesSideBarIcon);
 		Thread.sleep(3000);
 
