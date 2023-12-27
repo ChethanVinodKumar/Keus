@@ -344,6 +344,9 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[normalize-space()='Inventory Report with Location'])[1]")
 	WebElement inventryReportWithLocation;
 
+	@FindBy(xpath = "//a[@routerlink='reports/item-master-report']")
+	WebElement itemMasterReport;
+
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -962,6 +965,15 @@ public class HomePage extends Testbase1 {
 		click(driver, threeLinesSideBarIcon);
 		click(driver, reports);
 		click(driver, inventryReportWithLocation);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnItemMasterReports() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, itemMasterReport);
 		click(driver, threeLinesSideBarIcon);
 		Thread.sleep(3000);
 
