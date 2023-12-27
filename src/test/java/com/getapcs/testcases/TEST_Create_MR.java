@@ -46,9 +46,9 @@ import com.getapcs.pages.LoginPage;
 
 public class TEST_Create_MR extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 67";
-	public final static String fg = "FG-67";
-	public final static String pp = "PP-67";
+	public final static String priceList = "TEST PriceList 69";
+	public final static String fg = "FG-69";
+	public final static String pp = "PP-69";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -211,7 +211,7 @@ public class TEST_Create_MR extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-
+//
 //	@Test(priority = 6)
 //	public void verifySalesRFQCreate() throws Throwable {
 //
@@ -432,7 +432,7 @@ public class TEST_Create_MR extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
+
 //	@Test(priority = 18)
 //	public void verifyInventryReportBeforeOpenGrin() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
@@ -505,7 +505,7 @@ public class TEST_Create_MR extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
+
 //	@Test(priority = 24)
 //	public void verifyInventryReportAfterIQC() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
@@ -514,11 +514,11 @@ public class TEST_Create_MR extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
+
 //	@Test(priority = 25)
 //	public void verifyBinningCreate() throws Throwable {
 //		homePage.clickOnBinningCreate();
-//		Binning.BinningCreatePage("25");
+//		Binning.BinningCreatePage();
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}

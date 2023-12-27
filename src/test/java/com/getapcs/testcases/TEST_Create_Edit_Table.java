@@ -642,7 +642,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 	@Test(priority = 34)
 	public void verifyBinningCreate() throws Throwable {
 		homePage.clickOnBinningCreate();
-		Binning.BinningCreatePage("25");
+		Binning.BinningCreatePage();
 
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");

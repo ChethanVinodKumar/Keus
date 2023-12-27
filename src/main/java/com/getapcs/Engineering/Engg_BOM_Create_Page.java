@@ -125,6 +125,9 @@ public class Engg_BOM_Create_Page extends Testbase1 {
 	@FindBy(xpath = "//button[text()='Save']")
 	WebElement saveButton;
 
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
+
 	public Engg_BOM_Create_Page() {
 		PageFactory.initElements(driver, this);
 
@@ -401,6 +404,8 @@ public class Engg_BOM_Create_Page extends Testbase1 {
 //Upload File
 
 		uploadFile(driver, fileUploadInBomCreate, 1);
+
+		click(driver, closeButton);
 
 		System.out.println(driver.getCurrentUrl());
 		Thread.sleep(1000);

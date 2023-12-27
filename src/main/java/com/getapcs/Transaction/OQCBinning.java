@@ -37,6 +37,18 @@ public class OQCBinning extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
 	WebElement locationSelect;
 
+	@FindBy(xpath = "(//input[@type='text'])[4]")
+	WebElement warehouse1;
+
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BH-RD3'])[1]")
+	WebElement warehouseSelect1;
+
+	@FindBy(xpath = "(//input[@type='text'])[5]")
+	WebElement location1;
+
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BHRD3-Room1'])[1]")
+	WebElement locationSelect1;
+
 	@FindBy(xpath = "(//input[@placeholder='Enter quantity'])[1]")
 	WebElement quantity;
 
@@ -119,23 +131,50 @@ public class OQCBinning extends Testbase1 {
 
 		click(driver, binning);
 
-		click(driver, warehouse);
+		for (int i = 1; i <= 2; i++) {
 
-		isSelected(driver, warehouse, "warehouse");
+			if (i == 1) {
 
-		click(driver, warehouseSelect);
+				// Warehouse
 
-		click(driver, location);
+				click(driver, warehouse);
 
-		isSelected(driver, location, "location");
+				isSelected(driver, warehouse, "warehouse");
 
-		click(driver, locationSelect);
+				click(driver, warehouseSelect);
 
-		click(driver, quantity);
+				// Location
 
-		quantity.sendKeys(Quantity);
+				click(driver, location);
 
-		click(driver, add);
+				isSelected(driver, location, "location");
+
+				click(driver, locationSelect);
+			}
+			if (i == 2) {
+				// Warehouse
+
+				click(driver, warehouse1);
+
+				isSelected(driver, warehouse1, "warehouse1");
+
+				click(driver, warehouseSelect1);
+
+				// Location
+
+				click(driver, location1);
+
+				isSelected(driver, location1, "location1");
+
+				click(driver, locationSelect1);
+			}
+
+			click(driver, quantity);
+
+			quantity.sendKeys(Quantity);
+
+			click(driver, add);
+		}
 		click(driver, save);
 		click(driver, saveButton);
 

@@ -40,6 +40,18 @@ public class Binning extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
 	WebElement locationSelect;
 
+	@FindBy(xpath = "(//input[@type='text'])[3]")
+	WebElement warehouse1;
+
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BH-RD3'])[1]")
+	WebElement warehouseSelect1;
+
+	@FindBy(xpath = "(//input[@type='text'])[4]")
+	WebElement location1;
+
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BHRD3-Room1'])[1]")
+	WebElement locationSelect1;
+
 	@FindBy(xpath = "(//input[@placeholder='Enter quantity'])[1]")
 	WebElement quantity;
 
@@ -60,7 +72,7 @@ public class Binning extends Testbase1 {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage BinningCreatePage(String BinningQty) throws Throwable {
+	public HomePage BinningCreatePage() throws Throwable {
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/grin/table");
 
@@ -193,21 +205,41 @@ public class Binning extends Testbase1 {
 
 			click(driver, projectNumSelect);
 
-			// Warehouse
+			if (i == 1) {
 
-			click(driver, warehouse);
+				// Warehouse
 
-			isSelected(driver, warehouse, "warehouse");
+				click(driver, warehouse);
 
-			click(driver, warehouseSelect);
+				isSelected(driver, warehouse, "warehouse");
 
-			// Location
+				click(driver, warehouseSelect);
 
-			click(driver, location);
+				// Location
 
-			isSelected(driver, location, "location");
+				click(driver, location);
 
-			click(driver, locationSelect);
+				isSelected(driver, location, "location");
+
+				click(driver, locationSelect);
+			}
+			if (i == 2) {
+				// Warehouse
+
+				click(driver, warehouse1);
+
+				isSelected(driver, warehouse1, "warehouse1");
+
+				click(driver, warehouseSelect1);
+
+				// Location
+
+				click(driver, location1);
+
+				isSelected(driver, location1, "location1");
+
+				click(driver, locationSelect1);
+			}
 
 			// Quantity
 

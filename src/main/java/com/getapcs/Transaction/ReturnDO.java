@@ -11,7 +11,7 @@ import com.getapcs.pages.HomePage;
 
 public class ReturnDO extends Testbase1 {
 
-	// Delivery Order
+	// Return Delivery Order
 
 	@FindBy(xpath = "//label[text()='Customer Name']/..//input[@formcontrolname='customerName']")
 	WebElement customerName;

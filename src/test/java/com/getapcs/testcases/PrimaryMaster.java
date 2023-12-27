@@ -68,7 +68,7 @@ public class PrimaryMaster extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //
 //	}
-//
+
 	@Test(priority = 3)
 	public void verifyCustomerField() throws InterruptedException, AWTException {
 		homePage.clickOnCustomerMasterCreate();
@@ -80,7 +80,7 @@ public class PrimaryMaster extends Testbase1 {
 				"sgdv762178", "kh27", "jhh", "100000", "TEST Special Terms", "10000", "10", "TEST Icr", "10", "skill",
 				" 10", "10", "floor", "machine1", " tools", "sqft1", "erp2", "osp2", "approved");
 		Thread.sleep(1000);
-		// driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
 //	@Test(priority = 4 )

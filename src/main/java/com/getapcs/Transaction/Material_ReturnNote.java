@@ -38,7 +38,7 @@ public class Material_ReturnNote extends Testbase1 {
 		PageFactory.initElements(driver, this);
 	}
 
-//*************Material Request Create Page******************
+//*************Material Return Note Create Page******************
 
 	public HomePage MRNCreate(String returnQuantity) throws InterruptedException {
 		// TODO Auto-generated method stub

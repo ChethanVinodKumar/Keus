@@ -2,20 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-26T12:39:12 IST" name="Default suite" finished-at="2023-12-26T12:39:54 IST" duration-ms="42527">
+  <suite started-at="2023-12-27T12:59:51 IST" name="Default suite" finished-at="2023-12-27T13:00:45 IST" duration-ms="54305">
     <groups>
     </groups>
-    <test started-at="2023-12-26T12:39:12 IST" name="Default test" finished-at="2023-12-26T12:39:54 IST" duration-ms="42527">
-      <class name="com.getapcs.testcases.TEST_Create_MR">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.TEST_Create_MR@45cff11c]" started-at="2023-12-26T12:39:12 IST" name="setUp" finished-at="2023-12-26T12:39:26 IST" duration-ms="14711" status="PASS">
+    <test started-at="2023-12-27T12:59:51 IST" name="Default test" finished-at="2023-12-27T13:00:45 IST" duration-ms="54305">
+      <class name="com.getapcs.testcases.PrimaryMaster">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.PrimaryMaster@4bff1903]" started-at="2023-12-27T12:59:51 IST" name="setUp" finished-at="2023-12-27T13:00:03 IST" duration-ms="12567" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyMaterialReturnNoteOpenMRN()[pri:31, instance:com.getapcs.testcases.TEST_Create_MR@45cff11c]" started-at="2023-12-26T12:39:26 IST" name="verifyMaterialReturnNoteOpenMRN" finished-at="2023-12-26T12:39:54 IST" duration-ms="27755" status="PASS">
+        <test-method signature="verifyCustomerField()[pri:3, instance:com.getapcs.testcases.PrimaryMaster@4bff1903]" started-at="2023-12-27T13:00:04 IST" name="verifyCustomerField" finished-at="2023-12-27T13:00:45 IST" duration-ms="41637" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyMaterialReturnNoteOpenMRN -->
-      </class> <!-- com.getapcs.testcases.TEST_Create_MR -->
+        </test-method> <!-- verifyCustomerField -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.getapcs.testcases.PrimaryMaster@4bff1903]" started-at="2023-12-27T13:00:45 IST" name="tearDown" finished-at="2023-12-27T13:00:45 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.getapcs.testcases.PrimaryMaster -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

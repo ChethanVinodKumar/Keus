@@ -172,7 +172,7 @@ public class PRApproval2 extends Testbase1 {
 		assertTrue(prNumberDropDownIsSelected, "PR Number DropDown is not Selected");
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("//span[normalize-space()='271023PR-00020']")));
 		WebElement selectPRNumberDropDownValue = driver.findElement(By.xpath(updatedXpath));
-		selectPRNumberDropDownValue.click();
+		click(driver, selectPRNumberDropDownValue);
 
 		// Verify the PR Date Element in PR View Page-Transaction Module
 //        WebElement prDateElement = driver.findElement(By.xpath("//label[text()='PR Date']/following-sibling::label[@class='field2']"));

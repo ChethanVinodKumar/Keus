@@ -2,10 +2,6 @@ package com.getapcs.Transaction;
 
 import static org.testng.Assert.assertTrue;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -413,26 +409,8 @@ public class Grin extends Testbase1 {
 
 		// Verifying and Coc Upload Files in Grin Create
 //  		WebElement cocUploadFiles = driver.findElement(By.xpath("//input[@placeholder='Upload file']"));
-		js.executeScript("arguments[0].click();", cocUploadFiles);
-		robot.delay(2000);
-		StringSelection stringSelection1 = new StringSelection("C:\\Users\\W2191\\Documents\\123.txt");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection1, null);
 
-		// Press Enter to open the file dialog
-
-		robot.delay(2000);
-
-		// Press Ctrl+V to paste the file path
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.delay(2000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.delay(2000);
-		// Press Enter to confirm the file selection
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		uploadFile(driver, cocUploadFiles, 3);
 
 		// Verify Taxes Button in Add Project Pop-UP
 //          WebElement taxesButton = driver.findElement(By.xpath("//i[@title='Add Taxes']"));

@@ -176,29 +176,29 @@ public class InventryReportAfterBinning extends Testbase1 {
 
 		click(driver, projectNumberSelect1);
 
-//Warehouse
-
-		click(driver, warehouse);
-
-		click(driver, searchwareHouse);
-
-		searchwareHouse.sendKeys(warehouse1);
-
-		WebElement warehouseSelect = driver.findElement(By.xpath(updatedXpath2));
-
-		click(driver, warehouseSelect);
-
-//Location
-
-		click(driver, location);
-
-		click(driver, searchlocation);
-
-		searchlocation.sendKeys(location1);
-
-		WebElement locationSelect = driver.findElement(By.xpath(updatedXpath3));
-
-		click(driver, locationSelect);
+////Warehouse
+//
+//		click(driver, warehouse);
+//
+//		click(driver, searchwareHouse);
+//
+//		searchwareHouse.sendKeys(warehouse1);
+//
+//		WebElement warehouseSelect = driver.findElement(By.xpath(updatedXpath2));
+//
+//		click(driver, warehouseSelect);
+//
+////Location
+//
+//		click(driver, location);
+//
+//		click(driver, searchlocation);
+//
+//		searchlocation.sendKeys(location1);
+//
+//		WebElement locationSelect = driver.findElement(By.xpath(updatedXpath3));
+//
+//		click(driver, locationSelect);
 
 //Filter
 

@@ -101,17 +101,6 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 
 		click(driver, partTypeSelect);
 
-//Part Type
-
-		click(driver, projectNumber);
-
-		click(driver, searchprojectNumber);
-		searchprojectNumber.sendKeys(projectNumber1);
-
-		WebElement projectNumberSelect1 = driver.findElement(By.xpath(updatedXpath1));
-
-		click(driver, projectNumberSelect1);
-
 //Filter
 
 		click(driver, filter);

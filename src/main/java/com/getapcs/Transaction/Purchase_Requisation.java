@@ -2,10 +2,6 @@ package com.getapcs.Transaction;
 
 import static org.testng.Assert.assertTrue;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -263,28 +259,7 @@ public class Purchase_Requisation extends Testbase1 {
 		purposeTextField.clear();
 		purposeTextField.sendKeys("TEST Purpose");
 
-		// Verifying and Upload Files in Add Vendor
-//  		WebElement uploadFiles = driver.findElement(By.xpath("//input[@placeholder='Upload file']"));
-		js.executeScript("arguments[0].click();", uploadFiles);
-		robot.delay(1000);
-		StringSelection stringSelection = new StringSelection("C:\\Users\\W2191\\Documents\\123.txt");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-
-		// Press Enter to open the file dialog
-
-		robot.delay(1000);
-
-		// Press Ctrl+V to paste the file path
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.delay(1000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.delay(1000);
-		// Press Enter to confirm the file selection
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		uploadFile(driver, uploadFiles, 1);
 
 		// ################## Item Tab ######################
 
@@ -294,33 +269,9 @@ public class Purchase_Requisation extends Testbase1 {
 		assertTrue(itemTabIsDisplayed, "item Tab is not Displayed.");
 		itemTab.click();
 
-		// Verify Upload File Element
-//  		WebElement uploadFiles1 = driver.findElement(By.xpath("//input[@placeholder='Upload Items']"));
-		boolean uploadFiles1IsDisplayed = uploadItem.isDisplayed();
-		assertTrue(uploadFiles1IsDisplayed, "Upload item is not Displayed.");
+		uploadFile(driver, uploadItem, 1);
 
-		js.executeScript("arguments[0].click();", uploadItem);
-		robot.delay(1000);
-		StringSelection stringSelection1 = new StringSelection("C:\\Users\\W2191\\Documents\\123.txt");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection1, null);
-
-		// Press Enter to open the file dialog
-
-		robot.delay(1000);
-
-		// Press Ctrl+V to paste the file path
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.delay(1000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.delay(1000);
-		// Press Enter to confirm the file selection
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-//          driver.findElement(By.xpath("//button[normalize-space()='Close']")).click();
-
+		click(driver, closeButton);
 		// Verify and Select Value from Item Number DropDown in PR Create-Transaction
 		// Module
 //        WebElement itemNumberDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[5]")));
@@ -391,7 +342,7 @@ public class Purchase_Requisation extends Testbase1 {
 					.equals(projectQuantityTextField);
 			assertTrue(projectQuantityTextFieldIsSelected, "Project Quantity Text Field  is not Selected");
 			projectQuantityTextField.clear();
-			projectQuantityTextField.sendKeys("1000");
+			projectQuantityTextField.sendKeys("500");
 
 			// Verify and Click on Add Button in Project Expansion Panel
 //        WebElement addButtonInProjectExpansionPanel = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Add')])[1]")));
