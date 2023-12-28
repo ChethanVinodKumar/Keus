@@ -61,45 +61,6 @@ public class ItemMaster_Reports extends Testbase1 {
 	@FindBy(xpath = "//button[@title='Filter data.']")
 	WebElement itemLevelFiltterButton;
 
-//	@FindBy(xpath = "(//input[@type='checkbox' and @aria-label='SA'])[1]")
-//	WebElement saCheckBox1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-//
-//	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
-//	WebElement returnDo1;
-
 	public ItemMaster_Reports() {
 
 		PageFactory.initElements(driver, this);
@@ -119,15 +80,11 @@ public class ItemMaster_Reports extends Testbase1 {
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/item-master-report");
 
-//		datePicker(driver, fromDatePicker);
-//
-//		for (int i = 1; i <= 2; i++) {
-//			datePicker(driver, toDatePicker);
-//		}
+		selectPreviousDate(driver, fromDatePicker, 10);
+		datePicker(driver, toDatePicker);
+		click(driver, dateFiltterButton);
 
-//		click(driver, dateFiltterButton);
-
-//		click(driver, clearButton);
+		click(driver, clearButton);
 
 		click(driver, itemTypeDropDown);
 		click(driver, purchasePartCheckBox);

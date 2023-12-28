@@ -29,6 +29,7 @@ import org.openqa.selenium.devtools.v118.network.Network;
 import org.openqa.selenium.devtools.v118.network.model.Request;
 import org.openqa.selenium.devtools.v118.network.model.Response;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -49,16 +50,16 @@ public class Testbase1 {
 
 		// pre-condition
 
-//		//Incognito Mode Execution
-//		options = new ChromeOptions();
-//		options.addArguments("--incognito");
-//		DesiredCapabilities cap = new DesiredCapabilities();
-//		cap.setCapability(ChromeOptions.CAPABILITY, options);
-//		options.merge(cap);
-//		driver = new ChromeDriver(options);
+		// Incognito Mode Execution
+		options = new ChromeOptions();
+		options.addArguments("--incognito");
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability(ChromeOptions.CAPABILITY, options);
+		options.merge(cap);
+		driver = new ChromeDriver(options);
 
 		// Normal Execution
-		driver = new ChromeDriver();
+//		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -170,10 +171,10 @@ public class Testbase1 {
 		System.out.println("\n" + variableName + " : " + elementValue + "\n");
 	}
 
-	// Date Picker
+	// Date Picker 1
 	public static void datePicker(WebDriver driver, WebElement element) throws InterruptedException {
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
-		element.click();
+		click(driver, element);
 
 		for (int i = 0; i < 5; i++) {
 			element.sendKeys(Keys.ARROW_DOWN);
@@ -184,10 +185,11 @@ public class Testbase1 {
 		element.sendKeys(Keys.ENTER);
 	}
 
+	// Date Picker 2
 	public static void selectPreviousDate(WebDriver driver, WebElement element, int numberOfClicks)
 			throws InterruptedException {
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
-		element.click();
+		click(driver, element);
 
 		for (int i = 0; i < numberOfClicks; i++) {
 			element.sendKeys(Keys.ARROW_UP);
@@ -198,11 +200,10 @@ public class Testbase1 {
 		element.sendKeys(Keys.ENTER);
 	}
 
-//Screen Shot
-
+	// Screen Shot
 	public static void screenShot(String fileName) throws IOException {
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshotFile, new File(".///Getapcs_Keus1//ScreenShot//" + fileName + ".png"));
+		FileUtils.copyFile(screenshotFile, new File(".//Getapcs_Keus1//ScreenShot//" + fileName + ".png"));
 
 	}
 

@@ -5,12 +5,8 @@
     <classes>
       <class name="com.getapcs.testcases.TEST_Reports">
         <methods>
-<<<<<<< HEAD
-          <include name="verifyPurchaseReqisitionReports"/>
-=======
+          <include name="verifyIQCConfirmationReports"/>
           <include name="afterTest"/>
-          <include name="verifyPrice_ListCreate"/>
->>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
           <include name="setUp"/>
         </methods>
       </class> <!-- com.getapcs.testcases.TEST_Reports -->

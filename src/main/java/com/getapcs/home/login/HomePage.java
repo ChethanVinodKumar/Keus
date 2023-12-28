@@ -353,6 +353,12 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[normalize-space()='Purchase Requisition Report'])[1]")
 	WebElement prReports;
 
+	@FindBy(xpath = "//a[@routerlink='reports/purchase-order-report']")
+	WebElement poReports;
+
+	@FindBy(xpath = "//a[@routerlink='reports/iqc-confirmation-report']")
+	WebElement iqcConfirmationReports;
+
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -995,6 +1001,24 @@ public class HomePage extends Testbase1 {
 		click(driver, threeLinesSideBarIcon);
 		click(driver, reports);
 		click(driver, prReports);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnPurchaseOrderReport() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, poReports);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnIQC_ConfirmationReport() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, iqcConfirmationReports);
 		click(driver, threeLinesSideBarIcon);
 		Thread.sleep(3000);
 
