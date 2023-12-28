@@ -90,13 +90,13 @@ public class DeliveryOrder extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
 	WebElement locationSelect;
 
-	@FindBy(xpath = "(//input[@type='text'])[4]")
+	@FindBy(xpath = "(//input[@type='text'])[18]")
 	WebElement warehouse1;
 
 	@FindBy(xpath = "(//span[normalize-space()='HYD-BH-RD3'])[1]")
 	WebElement warehouseSelect1;
 
-	@FindBy(xpath = "(//input[@type='text'])[5]")
+	@FindBy(xpath = "(//input[@type='text'])[19]")
 	WebElement location1;
 
 	@FindBy(xpath = "(//span[normalize-space()='HYD-BHRD3-Room1'])[1]")

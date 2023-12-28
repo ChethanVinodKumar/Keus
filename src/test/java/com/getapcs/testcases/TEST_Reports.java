@@ -4,6 +4,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.getapcs.Keus.Reports.Binning_Reports;
+import com.getapcs.Keus.Reports.GRIN_Reports;
 import com.getapcs.Keus.Reports.ItemMaster_Reports;
 import com.getapcs.Keus.Reports.PurchaseRequisition_Reports;
 import com.getapcs.Keus.Reports.SalesOrder_Reports;
@@ -18,6 +20,8 @@ public class TEST_Reports extends Testbase1 {
 	SalesOrder_Reports SalesOrder_Reports;
 	PurchaseRequisition_Reports PurchaseRequisition_Reports;
 	ItemMaster_Reports itemMasterReports;
+	GRIN_Reports GRIN_Reports;
+	Binning_Reports Binning_Reports;
 
 	public TEST_Reports() {
 		super();
@@ -32,17 +36,19 @@ public class TEST_Reports extends Testbase1 {
 		SalesOrder_Reports = new SalesOrder_Reports();
 		PurchaseRequisition_Reports = new PurchaseRequisition_Reports();
 		itemMasterReports = new ItemMaster_Reports();
+		GRIN_Reports = new GRIN_Reports();
+		Binning_Reports = new Binning_Reports();
 
 	}
 
-	@Test(priority = 1)
-	public void verifyItemMasterReport() throws Throwable {
-		homePage.clickOnItemMasterReports();
-		itemMasterReports.itemMasterReport();
-		Thread.sleep(3000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
+//	@Test(priority = 1)
+//	public void verifyItemMasterReport() throws Throwable {
+//		homePage.clickOnItemMasterReports();
+//		itemMasterReports.itemMasterReport();
+//		Thread.sleep(3000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
 //	@Test(priority = 2)
 //	public void verifySalesOrderReports() throws Exception {
 //		homePage.clickOnSalesOrderReport();
@@ -58,6 +64,22 @@ public class TEST_Reports extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
+//
+//	@Test(priority = 5)
+//	public void verifyGRINReports() throws Exception {
+//		homePage.clickOnGRINReport();
+//		GRIN_Reports.GRIN_Reports_Page();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+
+	@Test(priority = 7)
+	public void verifyBinningReports() throws Exception {
+		homePage.clickonBinningReports();
+		Binning_Reports.Binning_Reports_Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 
 	@AfterTest
 	void afterTest() {
