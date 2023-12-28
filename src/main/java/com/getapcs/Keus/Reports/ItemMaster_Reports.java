@@ -1,7 +1,5 @@
 package com.getapcs.Keus.Reports;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -142,9 +140,9 @@ public class ItemMaster_Reports extends Testbase1 {
 		click(driver, itemNoforPP);
 
 		click(driver, itemLevelFiltterButton);
-		Thread.sleep(Duration.ofSeconds(2));
+		Thread.sleep(2000);
 		screenShot("ItemMasterReportsPP");
-		Thread.sleep(Duration.ofSeconds(2));
+		Thread.sleep(2000);
 
 		click(driver, clearButton);
 
@@ -158,9 +156,9 @@ public class ItemMaster_Reports extends Testbase1 {
 		click(driver, itemNoforFG);
 
 		click(driver, itemLevelFiltterButton);
-		Thread.sleep(Duration.ofSeconds(2));
+		Thread.sleep(2000);
 		screenShot("ItemMasterReportsFG");
-		Thread.sleep(Duration.ofSeconds(2));
+		Thread.sleep(2000);
 
 		return new HomePage();
 	}

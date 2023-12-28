@@ -184,6 +184,20 @@ public class Testbase1 {
 		element.sendKeys(Keys.ENTER);
 	}
 
+	public static void selectPreviousDate(WebDriver driver, WebElement element, int numberOfClicks)
+			throws InterruptedException {
+		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
+		element.click();
+
+		for (int i = 0; i < numberOfClicks; i++) {
+			element.sendKeys(Keys.ARROW_UP);
+			Thread.sleep(500); // Add a small delay if needed
+		}
+
+		element.sendKeys(Keys.ARROW_LEFT);
+		element.sendKeys(Keys.ENTER);
+	}
+
 //Screen Shot
 
 	public static void screenShot(String fileName) throws IOException {
