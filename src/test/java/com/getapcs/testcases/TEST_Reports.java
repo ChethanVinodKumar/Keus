@@ -36,27 +36,28 @@ public class TEST_Reports extends Testbase1 {
 	}
 
 	@Test(priority = 1)
-	public void verifySalesOrderReports() throws Exception {
-		homePage.clickOnSalesOrderReport();
-		SalesOrder_Reports.SalesOrder_ReportsPage();
+	public void verifyItemMasterReport() throws Throwable {
+		homePage.clickOnItemMasterReports();
+		itemMasterReports.itemMasterReport();
+		Thread.sleep(3000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
+//	@Test(priority = 2)
+//	public void verifySalesOrderReports() throws Exception {
+//		homePage.clickOnSalesOrderReport();
+//		SalesOrder_Reports.SalesOrder_ReportsPage();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
 //	@Test(priority = 3)
 //	public void verifyPurchaseReqisitionReports() throws Exception {
 //		homePage.clickOnPurchaseReqisitionReport();
 //		PurchaseRequisition_Reports.PurchaseRequisition_ReportsPage();
 //		Thread.sleep(4000);
-//		}
-
-	@Test(priority = 1)
-	public void verifyItemMasterReport() throws Throwable {
-		homePage.clickOnItemMasterReports();
-		itemMasterReports.itemMasterReport();
-
-		Thread.sleep(3000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 	@AfterTest
 	void afterTest() {
