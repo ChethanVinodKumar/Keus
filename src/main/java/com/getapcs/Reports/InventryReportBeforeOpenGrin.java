@@ -86,7 +86,7 @@ public class InventryReportBeforeOpenGrin extends Testbase1 {
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("Before OpenGRIN");
+		screenShot("Before GRIN");
 
 		return new HomePage();
 	}

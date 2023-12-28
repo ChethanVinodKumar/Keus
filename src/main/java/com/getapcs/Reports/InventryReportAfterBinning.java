@@ -1,13 +1,11 @@
 package com.getapcs.Reports;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
@@ -55,6 +53,9 @@ public class InventryReportAfterBinning extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='»»'])[1]")
 	WebElement paginationLast;
 
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	WebElement viewButton;
+
 	public InventryReportAfterBinning() {
 
 		PageFactory.initElements(driver, this);
@@ -65,45 +66,15 @@ public class InventryReportAfterBinning extends Testbase1 {
 
 	public HomePage InventryReportPage() throws InterruptedException, IOException {
 
-//project Number 
-
-		driver.navigate().to("https://demo_keus.getapcs.com/sales/rfq/table");
-
-		String tableXpath1 = "//table[@class='table table-striped']";
-
-		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
-
-		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath1 = elementXpath1.replace("PP-54", projectNumber1);
-
-		System.out.println(updatedXpath1);
-
-//WareHouse
+		// Part Type
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/binning/table");
 
-		click(driver, paginationLast);
-
-		Thread.sleep(4000);
-
-		List<WebElement> viewButtons = wait.until(
-				ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//i[@class='mdi mdi-eye edit-icon']")));
-
-		if (!viewButtons.isEmpty()) {
-			WebElement lastViewButton = viewButtons.get(viewButtons.size() - 1);
-
-			// Click using JavaScript Executor to avoid stale element reference
-			js.executeScript("arguments[0].click();", lastViewButton);
-		} else {
-			System.out.println("No 'view' buttons found on the page");
-		}
-		Thread.sleep(2000);
-
-//Part Type
+		click(driver, viewButton);
 
 		String tableXpath = "//table[@class='table mb-2']";
 
+		// Get the first PR number text from table
 		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
 
 		// Remove leading and trailing whitespaces
@@ -115,99 +86,59 @@ public class InventryReportAfterBinning extends Testbase1 {
 			partType1 = partType1.substring(0, hyphenIndex);
 		}
 
-		System.out.println(partType1);
+		// Store the element with hard coded PR number
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
 
-		String originalxpath = elementXpath.replace("PP-54", partType1);
-
-		String updatedXpath = originalxpath.replace(" -']", "']");
+		String updatedXpath = elementXpath.replace("PP-54", partType1);
 
 		System.out.println(updatedXpath);
 
-		click(driver, binning);
-
-//Warehouse
-
-		String tableXpath2 = "//table[@class='table table-striped']";
-
-		String warehouse1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[1]")).getText();
-
-		String elementXpath2 = "(//div[normalize-space()='HYD-BH-RD5'])[1]";
-
-		String updatedXpath2 = elementXpath2.replace("HYD-BH-RD5", warehouse1);
-
-		System.out.println(updatedXpath2);
-
-		Thread.sleep(2000);
-
-//Location
-
-		String location1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
-
-		String elementXpath3 = "(//div[normalize-space()='HYD-BH-RD5'])[1]";
-
-		String updatedXpath3 = elementXpath3.replace("HYD-BH-RD5", location1);
-
-		System.out.println(updatedXpath3);
-
+//		// project Number
+//
+//		String tableXpath1 = "//table[@class='table table-striped']";
+//
+//		// Get the first PR number text from table
+//		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[1]")).getText();
+//
+//		// Store the element with hard coded PR number
+//		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath1 = elementXpath1.replace("PP-54", projectNumber1);
+//
+//		System.out.println(updatedXpath1);
+//
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
-//Part Type
+		// Part Type
 
 		click(driver, partType);
 
 		click(driver, searchPartType);
-
 		searchPartType.sendKeys(partType1);
 
 		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath));
 
 		click(driver, partTypeSelect);
 
-//Part Type
+//		// Part Type
+//
+//		click(driver, projectNumber);
+//
+//		click(driver, searchprojectNumber);
+//		searchprojectNumber.sendKeys(projectNumber1);
+//
+//		WebElement projectNumberSelect1 = driver.findElement(By.xpath(updatedXpath1));
+//
+//		click(driver, projectNumberSelect1);
 
-		click(driver, projectNumber);
-
-		click(driver, searchprojectNumber);
-
-		searchprojectNumber.sendKeys(projectNumber1);
-
-		WebElement projectNumberSelect1 = driver.findElement(By.xpath(updatedXpath1));
-
-		click(driver, projectNumberSelect1);
-
-////Warehouse
-//
-//		click(driver, warehouse);
-//
-//		click(driver, searchwareHouse);
-//
-//		searchwareHouse.sendKeys(warehouse1);
-//
-//		WebElement warehouseSelect = driver.findElement(By.xpath(updatedXpath2));
-//
-//		click(driver, warehouseSelect);
-//
-////Location
-//
-//		click(driver, location);
-//
-//		click(driver, searchlocation);
-//
-//		searchlocation.sendKeys(location1);
-//
-//		WebElement locationSelect = driver.findElement(By.xpath(updatedXpath3));
-//
-//		click(driver, locationSelect);
-
-//Filter
+		// Filter
 
 		click(driver, filter);
 
-		Thread.sleep(2000);
-
-		screenShot("After Binning");
+		Thread.sleep(4000);
+		screenShot("After GRIN");
 
 		return new HomePage();
 	}
+
 }

@@ -30,7 +30,7 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 	WebElement filter;
 
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
-	WebElement editButton;
+	WebElement viewButton;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
@@ -47,9 +47,9 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 
 //Part Type
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/grin/table");
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/iqc-confirmation/table");
 
-		click(driver, editButton);
+		click(driver, viewButton);
 
 		String tableXpath = "//table[@class='table mb-2']";
 
@@ -72,22 +72,22 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 
 		System.out.println(updatedXpath);
 
-//project Number 
-
-		click(driver, addProject);
-
-		String tableXpath1 = "//table[@class='table table-striped']";
-
-		// Get the first PR number text from table
-		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[1]")).getText();
-
-		// Store the element with hard coded PR number
-		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath1 = elementXpath1.replace("PP-54", projectNumber1);
-
-		System.out.println(updatedXpath1);
-
+////project Number 
+//
+//		click(driver, addProject);
+//
+//		String tableXpath1 = "//table[@class='table table-striped']";
+//
+//		// Get the first PR number text from table
+//		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[1]")).getText();
+//
+//		// Store the element with hard coded PR number
+//		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath1 = elementXpath1.replace("PP-54", projectNumber1);
+//
+//		System.out.println(updatedXpath1);
+//
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
 //Part Type

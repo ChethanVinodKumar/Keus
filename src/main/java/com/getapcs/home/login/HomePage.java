@@ -358,6 +358,11 @@ public class HomePage extends Testbase1 {
 
 	@FindBy(xpath = "//a[@routerlink='reports/iqc-confirmation-report']")
 	WebElement iqcConfirmationReports;
+	@FindBy(xpath = "(//a[normalize-space()='GRIN Report'])[1]")
+	WebElement grinReports;
+
+	@FindBy(xpath = "(//a[normalize-space()='Binning Report'])[1]")
+	WebElement binningReports;
 
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -1024,4 +1029,21 @@ public class HomePage extends Testbase1 {
 
 	}
 
+	public void clickOnGRINReport() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, grinReports);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
+
+	public void clickonBinningReports() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, reports);
+		click(driver, binningReports);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+
+	}
 }

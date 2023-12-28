@@ -198,7 +198,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 	@Test(priority = 1)
 	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
 		Thread.sleep(4000);
-		Price_List.Price_ListCreate("TEST PriceList 51", "TEST Description", "TEST Remarks");
+		Price_List.Price_ListCreate("TEST PriceList 75", "TEST Description", "TEST Remarks");
 
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
@@ -208,7 +208,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 	public void verifyItemMasterCreate() throws Throwable {
 
 		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage.itemMasterCreate("FG-51", "Test Description", "76543456",
+		itemMasterCreatePage.itemMasterCreate("FG-75", "Test Description", "76543456",
 				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
 				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
 				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
@@ -218,7 +218,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage1.itemMasterCreate("PP-51", "Test Description", "76543456",
+		itemMasterCreatePage1.itemMasterCreate("PP-75", "Test Description", "76543456",
 				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
 				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
 				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
