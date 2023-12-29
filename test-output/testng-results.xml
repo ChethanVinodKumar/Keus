@@ -1,89 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="32" passed="32" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-28T16:16:45 IST" name="Default suite" finished-at="2023-12-28T16:17:17 IST" duration-ms="31643">
+  <suite started-at="2023-12-29T10:16:29 IST" name="Suite" finished-at="2023-12-29T10:30:56 IST" duration-ms="866283">
     <groups>
     </groups>
-    <test started-at="2023-12-28T16:16:45 IST" name="Default test" finished-at="2023-12-28T16:17:17 IST" duration-ms="31643">
+    <test started-at="2023-12-29T10:16:29 IST" name="Test1" finished-at="2023-12-29T10:30:56 IST" duration-ms="866283">
       <class name="com.getapcs.testcases.TEST_Create">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.TEST_Create@24b6b8f6]" started-at="2023-12-28T16:16:46 IST" name="setUp" finished-at="2023-12-28T16:16:55 IST" duration-ms="9890" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:16:29 IST" name="setUp" finished-at="2023-12-29T10:16:37 IST" duration-ms="7803" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyInventryReportAfterBinning()[pri:26, instance:com.getapcs.testcases.TEST_Create@24b6b8f6]" started-at="2023-12-28T16:16:55 IST" name="verifyInventryReportAfterBinning" finished-at="2023-12-28T16:17:17 IST" duration-ms="21669" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchWindowException">
-            <message>
-              <![CDATA[no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=120.0.6099.111)
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [559c7bbb58428a4a6240d8bae3232298, get {url=https://demo_keus.getapcs.com/dashboard}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.111, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54873}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54873/devtoo..., se:cdpVersion: 120.0.6099.111, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 559c7bbb58428a4a6240d8bae3232298]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=120.0.6099.111)
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [559c7bbb58428a4a6240d8bae3232298, get {url=https://demo_keus.getapcs.com/dashboard}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.111, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54873}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54873/devtoo..., se:cdpVersion: 120.0.6099.111, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 559c7bbb58428a4a6240d8bae3232298
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
-at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:309)
-at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.to(RemoteWebDriver.java:1152)
-at com.getapcs.testcases.TEST_Create.verifyInventryReportAfterBinning(TEST_Create.java:553)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+        <test-method signature="verifyPrice_ListCreate()[pri:1, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:16:37 IST" name="verifyPrice_ListCreate" finished-at="2023-12-29T10:16:49 IST" duration-ms="11798" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPrice_ListCreate -->
+        <test-method signature="verifyItemMasterCreate()[pri:2, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:16:49 IST" name="verifyItemMasterCreate" finished-at="2023-12-29T10:17:53 IST" duration-ms="63621" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyItemMasterCreate -->
+        <test-method signature="verifyBomCreate()[pri:3, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:17:53 IST" name="verifyBomCreate" finished-at="2023-12-29T10:18:25 IST" duration-ms="32291" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBomCreate -->
+        <test-method signature="verifyReleaseBom()[pri:4, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:18:25 IST" name="verifyReleaseBom" finished-at="2023-12-29T10:19:26 IST" duration-ms="61367" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyReleaseBom -->
+        <test-method signature="verifySalesItemPriceListCreate()[pri:5, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:19:26 IST" name="verifySalesItemPriceListCreate" finished-at="2023-12-29T10:19:50 IST" duration-ms="24028" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySalesItemPriceListCreate -->
+        <test-method signature="verifySalesRFQCreate()[pri:6, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:19:50 IST" name="verifySalesRFQCreate" finished-at="2023-12-29T10:20:17 IST" duration-ms="27035" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySalesRFQCreate -->
+        <test-method signature="verifySalesRFQCS()[pri:7, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:20:17 IST" name="verifySalesRFQCS" finished-at="2023-12-29T10:20:35 IST" duration-ms="17429" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySalesRFQCS -->
+        <test-method signature="verifyQuoteCreate()[pri:8, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:20:35 IST" name="verifyQuoteCreate" finished-at="2023-12-29T10:20:53 IST" duration-ms="18460" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyQuoteCreate -->
+        <test-method signature="verifySalesOrderCreate()[pri:9, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:20:53 IST" name="verifySalesOrderCreate" finished-at="2023-12-29T10:21:16 IST" duration-ms="22454" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySalesOrderCreate -->
+        <test-method signature="verifyShopOrderCreate()[pri:10, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:21:16 IST" name="verifyShopOrderCreate" finished-at="2023-12-29T10:21:48 IST" duration-ms="32441" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyShopOrderCreate -->
+        <test-method signature="verifyMaterialIssue()[pri:11, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:21:48 IST" name="verifyMaterialIssue" finished-at="2023-12-29T10:22:07 IST" duration-ms="18722" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyMaterialIssue -->
+        <test-method signature="verifyPRcreate()[pri:12, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:22:07 IST" name="verifyPRcreate" finished-at="2023-12-29T10:22:59 IST" duration-ms="52382" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPRcreate -->
+        <test-method signature="verifyPR_Approval1()[pri:13, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:22:59 IST" name="verifyPR_Approval1" finished-at="2023-12-29T10:23:32 IST" duration-ms="32774" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPR_Approval1 -->
+        <test-method signature="verifyPR_Approval2()[pri:14, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:23:32 IST" name="verifyPR_Approval2" finished-at="2023-12-29T10:24:04 IST" duration-ms="32157" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPR_Approval2 -->
+        <test-method signature="verifyPurchaseOrderCreate()[pri:15, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:24:04 IST" name="verifyPurchaseOrderCreate" finished-at="2023-12-29T10:24:27 IST" duration-ms="22744" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPurchaseOrderCreate -->
+        <test-method signature="verifyPurchaseOrderApproval1()[pri:16, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:24:27 IST" name="verifyPurchaseOrderApproval1" finished-at="2023-12-29T10:24:58 IST" duration-ms="30934" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPurchaseOrderApproval1 -->
+        <test-method signature="verifyPurchaseOrderApproval2()[pri:17, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:24:58 IST" name="verifyPurchaseOrderApproval2" finished-at="2023-12-29T10:25:15 IST" duration-ms="17372" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPurchaseOrderApproval2 -->
+        <test-method signature="verifyInventryReportBeforeGrin()[pri:18, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:25:15 IST" name="verifyInventryReportBeforeGrin" finished-at="2023-12-29T10:25:36 IST" duration-ms="20964" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInventryReportBeforeGrin -->
+        <test-method signature="verifyGRINCreate()[pri:21, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:25:36 IST" name="verifyGRINCreate" finished-at="2023-12-29T10:26:22 IST" duration-ms="45290" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyGRINCreate -->
+        <test-method signature="verifyInventryReportAfterGRIN()[pri:22, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:26:22 IST" name="verifyInventryReportAfterGRIN" finished-at="2023-12-29T10:26:44 IST" duration-ms="22572" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInventryReportAfterGRIN -->
+        <test-method signature="verifyIQCCreate()[pri:23, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:26:44 IST" name="verifyIQCCreate" finished-at="2023-12-29T10:27:10 IST" duration-ms="25893" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyIQCCreate -->
+        <test-method signature="verifyInventryReportAfterIQC()[pri:24, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:27:10 IST" name="verifyInventryReportAfterIQC" finished-at="2023-12-29T10:27:32 IST" duration-ms="21526" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInventryReportAfterIQC -->
+        <test-method signature="verifyBinningCreate()[pri:25, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:27:32 IST" name="verifyBinningCreate" finished-at="2023-12-29T10:28:11 IST" duration-ms="39096" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBinningCreate -->
+        <test-method signature="verifyInventryReportAfterBinning()[pri:26, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:28:11 IST" name="verifyInventryReportAfterBinning" finished-at="2023-12-29T10:28:32 IST" duration-ms="21526" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInventryReportAfterBinning -->
+        <test-method signature="verifyMaterialIssueAfterPRPO()[pri:27, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:28:32 IST" name="verifyMaterialIssueAfterPRPO" finished-at="2023-12-29T10:28:51 IST" duration-ms="19171" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyMaterialIssueAfterPRPO -->
+        <test-method signature="verifyShopOrderConfirmation()[pri:28, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:28:51 IST" name="verifyShopOrderConfirmation" finished-at="2023-12-29T10:29:05 IST" duration-ms="13163" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyShopOrderConfirmation -->
+        <test-method signature="verifyInventryReportAfterSOC()[pri:29, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:29:05 IST" name="verifyInventryReportAfterSOC" finished-at="2023-12-29T10:29:26 IST" duration-ms="21519" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInventryReportAfterSOC -->
+        <test-method signature="verifyOQC()[pri:30, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:29:26 IST" name="verifyOQC" finished-at="2023-12-29T10:29:38 IST" duration-ms="11483" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyOQC -->
+        <test-method signature="verifyOQCBinning()[pri:31, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:29:38 IST" name="verifyOQCBinning" finished-at="2023-12-29T10:29:54 IST" duration-ms="15993" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyOQCBinning -->
+        <test-method signature="verifyInventryReportAfterOQCBinning()[pri:32, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:29:54 IST" name="verifyInventryReportAfterOQCBinning" finished-at="2023-12-29T10:30:15 IST" duration-ms="21308" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInventryReportAfterOQCBinning -->
+        <test-method signature="verifyDOCreate()[pri:33, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:30:15 IST" name="verifyDOCreate" finished-at="2023-12-29T10:30:34 IST" duration-ms="19622" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDOCreate -->
+        <test-method signature="verifyInventryReportAfterDO()[pri:34, instance:com.getapcs.testcases.TEST_Create@fd8294b]" started-at="2023-12-29T10:30:34 IST" name="verifyInventryReportAfterDO" finished-at="2023-12-29T10:30:56 IST" duration-ms="21158" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInventryReportAfterDO -->
       </class> <!-- com.getapcs.testcases.TEST_Create -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Suite -->
 </testng-results>

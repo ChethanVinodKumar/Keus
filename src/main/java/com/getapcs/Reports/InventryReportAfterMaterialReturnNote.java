@@ -89,7 +89,7 @@ public class InventryReportAfterMaterialReturnNote extends Testbase1 {
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("After GRIN");
+		screenShot("After MRN");
 
 		return new HomePage();
 	}

@@ -136,7 +136,7 @@ public class InventryReportAfterBinning extends Testbase1 {
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("After GRIN");
+		screenShot("After Binning");
 
 		return new HomePage();
 	}

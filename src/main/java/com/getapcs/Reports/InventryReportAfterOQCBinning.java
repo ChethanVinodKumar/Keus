@@ -10,9 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
 
-public class InventryReportAfterMaterialRequest extends Testbase1 {
-
-	// Material Issue
+public class InventryReportAfterOQCBinning extends Testbase1 {
 
 	@FindBy(xpath = "(//span[@class='dropdown-multiselect__caret'])[1]")
 	WebElement partType;
@@ -30,12 +28,12 @@ public class InventryReportAfterMaterialRequest extends Testbase1 {
 	WebElement filter;
 
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
-	WebElement viewButton;
+	WebElement editButton;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
 
-	public InventryReportAfterMaterialRequest() {
+	public InventryReportAfterOQCBinning() {
 
 		PageFactory.initElements(driver, this);
 
@@ -47,30 +45,31 @@ public class InventryReportAfterMaterialRequest extends Testbase1 {
 
 //Part Type
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/material-request");
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/oqc-binning");
 
-		click(driver, viewButton);
+		String tableXpath = "//table[@class='table table-striped']";
 
-		String tableXpath = "//table[@class='table mb-2']";
+		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
-		// Get the first PR number text from table
-		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
-
-		// Remove leading and trailing whitespaces
-		partType1 = partType1.trim();
-
-		// Remove the trailing hyphen and any characters after it
-		int hyphenIndex = partType1.indexOf("--Test Description");
-		if (hyphenIndex != -1) {
-			partType1 = partType1.substring(0, hyphenIndex);
-		}
-
-		// Store the element with hard coded PR number
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
 
 		String updatedXpath = elementXpath.replace("PP-54", partType1);
 
 		System.out.println(updatedXpath);
+
+//project Number 
+		driver.navigate().to("https://demo_keus.getapcs.com/engineering/item-master/table");
+
+		String tableXpath1 = "//table[@class='table table-striped']";
+
+		String partType2 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
+
+		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
+
+		String updatedXpath1 = elementXpath1.replace("PP-54", partType2);
+
+		System.out.println(updatedXpath1);
+
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
 //Part Type
@@ -84,14 +83,21 @@ public class InventryReportAfterMaterialRequest extends Testbase1 {
 
 		click(driver, partTypeSelect);
 
+		click(driver, searchPartType);
+		searchPartType.clear();
+		searchPartType.sendKeys(partType2);
+
+		WebElement partTypeSelect1 = driver.findElement(By.xpath(updatedXpath1));
+
+		click(driver, partTypeSelect1);
+
 //Filter
 
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("After MR");
+		screenShot("After OQCBinning");
 
 		return new HomePage();
 	}
-
 }

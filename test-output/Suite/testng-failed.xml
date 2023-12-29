@@ -8,19 +8,38 @@
     <classes>
       <class name="com.getapcs.testcases.TEST_Create">
         <methods>
-          <include name="verifyInventryReportAfterGRIN"/>
-          <include name="verifyInventryReportAfterBinning"/>
-          <include name="verifyIQCCreate"/>
-          <include name="verifyShopOrderConfirmation"/>
-          <include name="verifyOQCBinning"/>
-          <include name="verifyInvoiceCreate"/>
+          <include name="verifyInventryReportAfterDO"/>
+          <include name="verifySalesRFQCreate"/>
           <include name="setUp"/>
-          <include name="verifyPR_Approval2"/>
+          <include name="verifyInventryReportAfterSOC"/>
           <include name="verifyBinningCreate"/>
-          <include name="verifyDOCreate"/>
-          <include name="verifyOQC"/>
+          <include name="verifySalesOrderCreate"/>
+          <include name="verifyInventryReportAfterBinning"/>
+          <include name="verifyShopOrderConfirmation"/>
+          <include name="verifyReleaseBom"/>
+          <include name="verifyPRcreate"/>
+          <include name="verifyMaterialIssue"/>
           <include name="verifyInventryReportAfterIQC"/>
+          <include name="verifySalesRFQCS"/>
+          <include name="verifyInventryReportAfterGRIN"/>
+          <include name="verifyGRINCreate"/>
+          <include name="verifyShopOrderCreate"/>
+          <include name="verifyDOCreate"/>
+          <include name="verifyPurchaseOrderCreate"/>
+          <include name="verifyInventryReportBeforeGrin"/>
+          <include name="verifyPR_Approval1"/>
+          <include name="verifyPurchaseOrderApproval1"/>
+          <include name="verifyQuoteCreate"/>
+          <include name="verifyIQCCreate"/>
+          <include name="verifyOQCBinning"/>
+          <include name="verifyItemMasterCreate"/>
+          <include name="verifyPurchaseOrderApproval2"/>
+          <include name="verifyPR_Approval2"/>
+          <include name="verifySalesItemPriceListCreate"/>
+          <include name="verifyBomCreate"/>
+          <include name="verifyOQC"/>
           <include name="verifyMaterialIssueAfterPRPO"/>
+          <include name="verifyInventryReportAfterOQCBinning"/>
         </methods>
       </class> <!-- com.getapcs.testcases.TEST_Create -->
     </classes>
