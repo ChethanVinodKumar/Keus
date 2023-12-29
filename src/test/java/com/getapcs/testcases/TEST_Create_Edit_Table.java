@@ -200,14 +200,14 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 		Invoice_TablePage = new Invoice_TablePage();
 	}
 
-//	@Test(priority = 1)
-//	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
-//		Thread.sleep(4000);
-//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+	@Test(priority = 1)
+	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
+		Thread.sleep(4000);
+		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 
 	@Test(priority = 3)
 	public void verifyItemMasterCreate() throws Throwable {
@@ -217,19 +217,16 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
 				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
 				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize",
-
-				"565");
+				"TEST BatchSize", "565");
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
 		homePage.clickOnItemMasterCreate();
 		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", "76543456", "Test Manufacturer or CustomerName",
 				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
 				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
 				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize",
-
-				"565");
+				"TEST BatchSize", "565");
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}

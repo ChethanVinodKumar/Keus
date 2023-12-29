@@ -14,9 +14,12 @@ import com.getapcs.Engineering.Item_Master_Create_Page;
 import com.getapcs.Engineering.Item_Master_Create_Page1;
 import com.getapcs.Engineering.Item_Master_Edit_Page;
 import com.getapcs.Reports.InventryReportAfterBinning;
+import com.getapcs.Reports.InventryReportAfterDO;
 import com.getapcs.Reports.InventryReportAfterGrin;
 import com.getapcs.Reports.InventryReportAfterIQCConfirmation;
+import com.getapcs.Reports.InventryReportAfterOQCBinning;
 import com.getapcs.Reports.InventryReportAfterOpenGrin;
+import com.getapcs.Reports.InventryReportAfterSOC;
 import com.getapcs.Reports.InventryReportBeforeOpenGrin;
 import com.getapcs.Sales.ItemPriceList_CreatePage;
 import com.getapcs.Sales.ItemPriceList_EditPage;
@@ -54,9 +57,9 @@ import com.getapcs.home.login.LoginPage;
 
 public class TEST_Create extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 75";
-	public final static String fg = "FG-75";
-	public final static String pp = "PP-75";
+	public final static String priceList = "TEST PriceList 78";
+	public final static String fg = "FG-78";
+	public final static String pp = "PP-78";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -81,9 +84,12 @@ public class TEST_Create extends Testbase1 {
 	IQCConfirmation IQCConfirmation;
 	Binning Binning;
 	ShopOrderConfirmation ShopOrderConfirmation;
+	InventryReportAfterSOC InventryReportAfterSOC;
 	OQC OQC;
 	OQCBinning OQCBinning;
+	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
 	DeliveryOrder DeliveryOrder;
+	InventryReportAfterDO InventryReportAfterDO;
 	ReturnDO ReturnDO;
 	MaterialRequest MaterialRequest;
 	Material_ReturnNote Material_ReturnNote;
@@ -137,9 +143,12 @@ public class TEST_Create extends Testbase1 {
 		IQCConfirmation = new IQCConfirmation();
 		Binning = new Binning();
 		ShopOrderConfirmation = new ShopOrderConfirmation();
+		InventryReportAfterSOC = new InventryReportAfterSOC();
 		OQC = new OQC();
 		OQCBinning = new OQCBinning();
+		InventryReportAfterOQCBinning = new InventryReportAfterOQCBinning();
 		DeliveryOrder = new DeliveryOrder();
+		InventryReportAfterDO = new InventryReportAfterDO();
 		ReturnDO = new ReturnDO();
 		Price_List = new Price_List();
 		MaterialRequest = new MaterialRequest();
@@ -575,6 +584,15 @@ public class TEST_Create extends Testbase1 {
 	}
 
 	@Test(priority = 29)
+	public void verifyInventryReportAfterSOC() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterSOC.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 30)
 	public void verifyOQC() throws Throwable {
 
 		homePage.clickOnOQCCreate();
@@ -583,7 +601,7 @@ public class TEST_Create extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 30)
+	@Test(priority = 31)
 	public void verifyOQCBinning() throws Throwable {
 
 		homePage.clickOnOQCBinningCreate();
@@ -592,7 +610,16 @@ public class TEST_Create extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 31)
+	@Test(priority = 32)
+	public void verifyInventryReportAfterOQCBinning() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterOQCBinning.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 33)
 	public void verifyDOCreate() throws Throwable {
 
 		homePage.clickOnDOCreate();
@@ -601,20 +628,29 @@ public class TEST_Create extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
-//	@Test(priority = 32)
-//	public void verifyInvoiceCreate() throws Throwable {
-//		homePage.clickOnInvoiceCreate();
-//		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
+	@Test(priority = 34)
+	public void verifyInventryReportAfterDO() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterDO.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+//
+//	@Test(priority = 35)
+//	public void verifyReturnDO() throws Throwable {
+//		homePage.clickOnReturnDO();
+//		ReturnDO.ReturnDOCreate();
 //
 //		Thread.sleep(4000);
 //
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-
-//	@Test(priority = 33)
-//	public void verifyReturnDO() throws Throwable {
-//		homePage.clickOnReturnDO();
-//		ReturnDO.ReturnDOCreate();
+//
+//	@Test(priority = 37)
+//	public void verifyInvoiceCreate() throws Throwable {
+//		homePage.clickOnInvoiceCreate();
+//		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
 //
 //		Thread.sleep(4000);
 //

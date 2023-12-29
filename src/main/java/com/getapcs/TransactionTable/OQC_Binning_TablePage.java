@@ -93,8 +93,8 @@ public class OQC_Binning_TablePage extends Testbase1 {
 		click(driver, paginationFirst);
 
 		// Usage
-		paginate(driver, 1, 4, true); // forward
-		paginate(driver, 1, 4, false); // backward
+		paginate(driver, 1, 2, true); // forward
+		paginate(driver, 1, 2, false); // backward
 
 		return new HomePage();
 
