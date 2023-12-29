@@ -85,7 +85,7 @@ public class Engg_Bom_Table_Page extends Testbase1 {
 
 		assertTrue(driver.findElement(By.xpath(xpath)).isDisplayed(), "It is Not Displayed");
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.navigate().refresh();
 

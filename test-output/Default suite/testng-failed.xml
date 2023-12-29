@@ -3,17 +3,60 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.getapcs.testcases.TEST_Create">
+      <class name="com.getapcs.testcases.TEST_Create_Edit_Table">
         <methods>
-<<<<<<< HEAD
-          <include name="verifyIQCConfirmationReports"/>
-          <include name="afterTest"/>
-=======
-          <include name="verifyInventryReportAfterBinning"/>
->>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
+          <include name="verifyInvoiceCreate"/>
           <include name="setUp"/>
+          <include name="verifyBinningCreate"/>
+          <include name="verifyPR_Edit"/>
+          <include name="verifyOQCTable"/>
+          <include name="verifyRfqTable"/>
+          <include name="verifyPRTable"/>
+          <include name="verifyMaterialIssue"/>
+          <include name="verifyPOTable"/>
+          <include name="verifyItemPriceListTable"/>
+          <include name="verifyShopOrderEdit"/>
+          <include name="verifyEnggBomReleaseBomTable"/>
+          <include name="verifyPurchaseOrderCreate"/>
+          <include name="verifyPoEdit"/>
+          <include name="verifySalesRFQCS"/>
+          <include name="verifyDOCreate"/>
+          <include name="verifyOQCBinning"/>
+          <include name="verifyPurchaseOrderApproval2"/>
+          <include name="verifySalesOrderTable"/>
+          <include name="verifyOQCBiningTable"/>
+          <include name="verifyQuoteCreate"/>
+          <include name="verifySalesItemPriceListEdit"/>
+          <include name="verifyPurchaseOrderApproval1"/>
+          <include name="verifyQuoteEdit"/>
+          <include name="verifyEnggBomTable"/>
+          <include name="verifyGRINTable"/>
+          <include name="verifySalesOrderCreate"/>
+          <include name="verifyMaterialIssueTable"/>
+          <include name="verifyShopOrderConfirmation"/>
+          <include name="verifyDOTable"/>
+          <include name="verifyShopOrderTable"/>
+          <include name="verifySOCTable"/>
+          <include name="verifyBinningTable"/>
+          <include name="verifyItemMasterEdit"/>
+          <include name="verifyIQCConfirmationTable"/>
+          <include name="verifyPRcreate"/>
+          <include name="verifyQuoteTable"/>
+          <include name="verifyGRINCreate"/>
+          <include name="verifyShopOrderCreate"/>
+          <include name="verifyBomEdit"/>
+          <include name="verifySalesRFQEdit"/>
+          <include name="verifyReleaseBom"/>
+          <include name="verifySalesOrderEdit"/>
+          <include name="verifyInvoiceTable"/>
+          <include name="verifyPR_Approval2"/>
+          <include name="verifyOQC"/>
+          <include name="verifySalesRFQCreate"/>
+          <include name="verifyMaterialIssueAfterPRPO"/>
+          <include name="verifyPR_Approval1"/>
+          <include name="verifyIQCCreate"/>
         </methods>
-      </class> <!-- com.getapcs.testcases.TEST_Create -->
+      </class> <!-- com.getapcs.testcases.TEST_Create_Edit_Table -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

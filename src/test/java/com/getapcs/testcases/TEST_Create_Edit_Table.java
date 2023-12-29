@@ -63,6 +63,11 @@ import com.getapcs.home.login.HomePage;
 import com.getapcs.home.login.LoginPage;
 
 public class TEST_Create_Edit_Table extends Testbase1 {
+
+	public final static String priceList = "TEST PriceList 75";
+	public final static String fg = "FG-75";
+	public final static String pp = "PP-75";
+
 	LoginPage loginPage;
 	HomePage homePage;
 
@@ -195,34 +200,34 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 		Invoice_TablePage = new Invoice_TablePage();
 	}
 
-	@Test(priority = 1)
-	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
-		Thread.sleep(4000);
-		Price_List.Price_ListCreate("TEST PriceList 75", "TEST Description", "TEST Remarks");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 1)
+//	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
+//		Thread.sleep(4000);
+//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 	@Test(priority = 3)
 	public void verifyItemMasterCreate() throws Throwable {
 
 		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage.itemMasterCreate("FG-75", "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize",
+		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+				"TEST BatchSize",
 
 				"565");
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage1.itemMasterCreate("PP-75", "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize",
+		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+				"TEST BatchSize",
 
 				"565");
 		Thread.sleep(4000);
@@ -757,6 +762,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
+	@EditPages
 	@Test(priority = 47)
 	public void verifyItemMasterEdit() throws Throwable {
 
@@ -787,8 +793,6 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 	@Test(priority = 49)
 	public void verifySalesItemPriceListEdit() throws AWTException, InterruptedException {
 
-		// Purchase Order Create Page
-
 		PriceList_EditPage.ItemPriceListEdit("110", "220", "51", "120", "100", "90");
 
 		Thread.sleep(4000);
@@ -797,8 +801,6 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 
 	@Test(priority = 50)
 	public void verifySalesRFQEdit() throws Throwable {
-
-		// Purchase Order Create Page
 
 		rfq_EditPage.RFQEdit("TEST Rfq Number111", "TEST Remarks", "TEST Reason For Modification", "10",
 				"TEST Note111");
@@ -809,8 +811,6 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 
 	@Test(priority = 51)
 	public void verifyQuoteEdit() throws Throwable {
-
-		// Purchase Order Create Page
 
 		quoteEditPage.QuoteEdit("TEST Quote Ref1", "10", "10", "10", "8", "8", "8", "8", "10", "10", "10", "10", "10",
 				"9", "9", "100", "9", "8", "7", "7", "TEST Special Terms1");

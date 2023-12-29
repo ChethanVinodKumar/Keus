@@ -124,11 +124,10 @@ public class Testbase1 {
 
 		js.executeScript("arguments[0].click();", element);
 
-		String[] files = new String[] {
-				"search-ms:displayname=Search%20Results%20in%20Downloads&crumb=System.Generic.String%3Aimage&crumb=location:C%3A%5CUsers%5CW2191%5CDownloads\\image", // imgae
-				"C:\\Users\\W2191\\Desktop\\WYZ MINDZ Tasks\\Chethan V _ 11-12-2023.xlsx", // excel
-				"C:\\Users\\W2191\\Desktop\\Project Documentation.docx", // docx
-				"C:\\Users\\W2191\\Documents\\123.txt" }; // Txt
+		String[] files = new String[] { "C:\\Users\\Gopal Reddy\\Desktop\\Screenshot 2023-10-27 114940.png", // imgae
+				"C:\\Users\\Gopal Reddy\\Downloads\\TempletForTC.xlsx", // excel
+				"C:\\Users\\Gopal Reddy\\Downloads\\Transaction-Open GRIN-Open GRIN Edit Page.docx",
+				"C:\\Users\\Gopal Reddy\\Desktop\\HardCoded To Soft Coded.txt" }; // docx
 
 		String file = files[fileIndex];
 
