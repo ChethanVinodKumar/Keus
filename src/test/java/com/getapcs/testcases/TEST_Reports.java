@@ -70,6 +70,13 @@ public class TEST_Reports extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
+//	@Test(priority = 4)
+//	public void verifyPurchaseOrderReports() throws Throwable {
+//		homePage.clickOnPurchaseOrderReport();
+//		poReports.poReportPage();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 //
 //	@Test(priority = 5)
 //	public void verifyGRINReports() throws Exception {
@@ -79,27 +86,19 @@ public class TEST_Reports extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 
-	@Test(priority = 7)
-	public void verifyBinningReports() throws Exception {
-		homePage.clickonBinningReports();
-		Binning_Reports.Binning_Reports_Page();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-//	@Test(priority = 4)
-//	public void verifyPurchaseOrderReports() throws Throwable {
-//		homePage.clickOnPurchaseOrderReport();
-//		poReports.poReportPage();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-
 	@Test(priority = 6)
 	public void verifyIQCConfirmationReports() throws Throwable {
 		homePage.clickOnIQC_ConfirmationReport();
 		iqcConfirmationReports.iqcConfirmationPage();
 		Thread.sleep(2000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 7)
+	public void verifyBinningReports() throws Exception {
+		homePage.clickonBinningReports();
+		Binning_Reports.Binning_Reports_Page();
+		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
