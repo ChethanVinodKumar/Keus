@@ -12,6 +12,7 @@ import com.getapcs.Engineering.Engg_BOM_Create_Page;
 import com.getapcs.Engineering.Engg_BOM_Edit_Page;
 import com.getapcs.Engineering.Item_Master_Create_Page;
 import com.getapcs.Engineering.Item_Master_Create_Page1;
+import com.getapcs.Engineering.Item_Master_Create_Page_SA;
 import com.getapcs.Engineering.Item_Master_Edit_Page;
 import com.getapcs.Reports.InventryReportAfterBinning;
 import com.getapcs.Reports.InventryReportAfterDO;
@@ -57,8 +58,9 @@ import com.getapcs.home.login.LoginPage;
 
 public class TEST_Create extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 78";
-	public final static String fg = "FG-78";
+	public final static String priceList = "TEST PriceList 85";
+	public final static String fg = "FG-84";
+	public final static String sa = "SA-01";
 	public final static String pp = "PP-78";
 
 	LoginPage loginPage;
@@ -66,6 +68,7 @@ public class TEST_Create extends Testbase1 {
 
 	Item_Master_Create_Page itemMasterCreatePage;
 	Item_Master_Create_Page1 itemMasterCreatePage1;
+	Item_Master_Create_Page_SA itemMasterCreatePageSA;
 	Engg_BOM_Create_Page enggBomCreatePage;
 	Price_List Price_List;
 	EnggBOM_ReleaseBOM releaseBom;
@@ -124,6 +127,7 @@ public class TEST_Create extends Testbase1 {
 		itemMasterCreatePage = new Item_Master_Create_Page();
 		itemMasterCreatePage1 = new Item_Master_Create_Page1();
 		itemMasterEditPage = new Item_Master_Edit_Page();
+		itemMasterCreatePageSA = new Item_Master_Create_Page_SA();
 		enggBomCreatePage = new Engg_BOM_Create_Page();
 		enggBomEditPage = new Engg_BOM_Edit_Page();
 		releaseBom = new EnggBOM_ReleaseBOM();
@@ -186,25 +190,35 @@ public class TEST_Create extends Testbase1 {
 	public void verifyItemMasterCreate() throws Throwable {
 
 		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", fg + "3456", "Test Manufacturer or CustomerName",
 				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
 				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
 				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize",
+				"TEST BatchSize", "565");
 
-				"565");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", "76543456", "Test Manufacturer or CustomerName",
-				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
-				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
-				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize",
 
-				"565");
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", pp + "43456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize",
+//
+//				"565");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePageSA.itemMasterCreate(sa, "Test Description", sa + "456", "Test Manufacturer or CustomerName",
+//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+//				"TEST BatchSize", "565");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
 	}
 
 	@Test(priority = 3)
