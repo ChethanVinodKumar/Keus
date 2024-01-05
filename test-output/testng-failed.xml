@@ -3,12 +3,34 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="com.getapcs.testcases.TEST_Create">
+=======
+      <class name="com.keus.getapcs.testcases.TEST_SA_Flow">
+>>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
         <methods>
+<<<<<<< HEAD
           <include name="verifyReturnInvoice"/>
           <include name="setUp"/>
+=======
+          <include name="verifyQuoteCreate"/>
+          <include name="verifyBomCreateforSA2"/>
+          <include name="verifySalesItemPriceListCreate"/>
+          <include name="setUp"/>
+          <include name="verifySalesRFQCS"/>
+          <include name="verifyShopOrderCreate"/>
+          <include name="afetrTest"/>
+          <include name="verifySalesRFQCreate"/>
+          <include name="verifySalesOrderCreate"/>
+          <include name="verifyItemMasterCreateforSA"/>
+          <include name="verifyReleaseBom"/>
+>>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.getapcs.testcases.TEST_Create -->
+=======
+      </class> <!-- com.keus.getapcs.testcases.TEST_SA_Flow -->
+>>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

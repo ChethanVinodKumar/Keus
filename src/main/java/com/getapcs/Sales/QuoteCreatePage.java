@@ -5,7 +5,6 @@ import static org.testng.Assert.assertTrue;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -246,12 +245,12 @@ public class QuoteCreatePage extends Testbase1 {
 		PageFactory.initElements(driver, this);
 	}
 
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-
 	public HomePage QuoteCreate(String quoteRef, String generalDiscount, String Quantity, String discount, String igst1,
 			String cgst1, String sgst1, String utgst1, String Quantity1, String QuantityField1, String DiscountField1,
 			String igst2, String cgst2, String sgst2, String utgst2, String additinalCharges, String igst3,
 			String cgst3, String sgst3, String utgst3, String specialTerms) throws Throwable {
+
+		System.out.println("\n" + "QuoteCreatePage  Started" + "\n");
 
 		driver.navigate().to("https://demo_keus.getapcs.com/sales/rfq/table");
 
@@ -831,6 +830,9 @@ public class QuoteCreatePage extends Testbase1 {
 		boolean saveButtoninSpecialTermsTabIsDisplayed = saveButton.isDisplayed();
 		assertTrue(saveButtoninSpecialTermsTabIsDisplayed, "Save Button in Quote Create Page is not Displayed.");
 		saveButton.click();
+
+		System.out.println("\n" + "QuoteCreatePage  Ended" + "\n");
+
 		return new HomePage();
 
 	}

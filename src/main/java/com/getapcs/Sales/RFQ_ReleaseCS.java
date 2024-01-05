@@ -1,8 +1,5 @@
 package com.getapcs.Sales;
 
-import static org.testng.Assert.assertTrue;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,30 +29,24 @@ public class RFQ_ReleaseCS extends Testbase1 {
 		PageFactory.initElements(driver, this);
 	}
 
-	JavascriptExecutor executor = (JavascriptExecutor) driver;
-
 	public HomePage RFQCs() throws Throwable {
 
+		System.out.println("\n" + "RFQ_ReleaseCS  Started" + "\n");
+
 		// Verify and Release the CS
-		// Verify and Click on CS Button1
-		boolean csButton1IsDisplayed = csButton1.isDisplayed();
-		assertTrue(csButton1IsDisplayed, "CS Button1 is not Dsiplayed");
-		csButton1.sendKeys(Keys.ENTER);
+		click(driver, csButton1);
 
 		Thread.sleep(4000);
 
-		// Verify and Click on Check Box which is Present in Item Tab-CS Release
-//		click(driver, itemTabCheckBox);
 		itemTabCheckBox.sendKeys(Keys.SPACE);
 		// itemTabCheckBox1.sendKeys(Keys.SPACE);
 
 		Thread.sleep(2000);
 
-		// Verify and Click on Release Button in Notes Tab -CS Release Page
-		boolean releaseButtonInCSReleaseIsDisplayed = releaseButtonInCSRelease.isDisplayed();
-		assertTrue(releaseButtonInCSReleaseIsDisplayed, "Release Button is not Displayed in CS Release Page.");
-
 		click(driver, releaseButtonInCSRelease);
+
+		System.out.println("\n" + "RFQ_ReleaseCS  Ended" + "\n");
+
 		return new HomePage();
 
 	}

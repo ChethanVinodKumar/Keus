@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
 
-public class Item_Master_Create_Page extends Testbase1 {
+public class Item_Master_Create_Page_SA extends Testbase1 {
 
 	@FindBy(xpath = "//div[@class='title_sub_div_1 mt-1']")
 	WebElement headingText;
@@ -42,6 +42,8 @@ public class Item_Master_Create_Page extends Testbase1 {
 	WebElement typeDropDownSelectData;
 	@FindBy(xpath = "(//span[normalize-space()='PurchasePart'])[1]")
 	WebElement typeDropDownSelectData1;
+	@FindBy(xpath = "(//span[normalize-space()='SA'])[1]")
+	WebElement typeDropDownSelectData2;
 
 	@FindBy(xpath = "(//input[@type='text'])[4]")
 	WebElement commodity;
@@ -330,7 +332,7 @@ public class Item_Master_Create_Page extends Testbase1 {
 	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement saveButton;
 
-	public Item_Master_Create_Page() {
+	public Item_Master_Create_Page_SA() {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -437,7 +439,7 @@ public class Item_Master_Create_Page extends Testbase1 {
 //		assertEquals(generalDescriptionactualText, generalDescriptionExpectedText);
 
 		click(driver, typeDropDown);
-		js.executeScript("arguments[0].click();", typeDropDownSelectData);
+		js.executeScript("arguments[0].click();", typeDropDownSelectData2);
 
 		commodity.sendKeys(Keys.ENTER);
 		js.executeScript("arguments[0].click();", commodityDropDownSelectData);
@@ -582,7 +584,7 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 		rEACHToggleButton.click();
 
-		// Upload File
+//Upload File
 
 		uploadFile(driver, filesUpload, 1);
 		click(driver, upload);
