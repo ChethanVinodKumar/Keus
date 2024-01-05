@@ -26,7 +26,9 @@ import com.getapcs.Transaction.MaterialIssue;
 import com.getapcs.Transaction.Purchase_Requisation;
 import com.getapcs.Transaction.SalesOrder;
 import com.getapcs.Transaction.ShopOrder;
+import com.getapcs.Transaction.ShopOrder_For_FG;
 import com.getapcs.Transaction.ShopOrder_For_SA;
+import com.getapcs.Transaction.ShopOrder_For_SA2;
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
 import com.getapcs.home.login.LoginPage;
@@ -34,15 +36,15 @@ import com.getapcs.home.login.LoginPage;
 public class TEST_SA_Flow extends Testbase1 {
 
 	public final static String priceList = "TEST PriceList 1";
-	public final static String fg = "FG-88";
-	public final static String pp1 = "PP-94";
-	public final static String pp2 = "PP-95";
-	public final static String pp3 = "PP-96";
-	public final static String pp4 = "PP-97";
-	public final static String pp5 = "PP-98";
-	public final static String pp6 = "PP-99";
-	public final static String sa1 = "SA-11";
-	public final static String sa2 = "SA-12";
+	public final static String fg = "FG-91";
+	public final static String pp1 = "PP-113";
+	public final static String pp2 = "PP-114";
+	public final static String pp3 = "PP-115";
+	public final static String pp4 = "PP-116";
+	public final static String pp5 = "PP-117";
+	public final static String pp6 = "PP-118";
+	public final static String sa1 = "SA-17";
+	public final static String sa2 = "SA-18";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -71,6 +73,8 @@ public class TEST_SA_Flow extends Testbase1 {
 	SalesOrder SalesOrder;
 	ShopOrder ShopOrder;
 	ShopOrder_For_SA ShopOrderSA;
+	ShopOrder_For_SA2 ShopOrderSA2;
+	ShopOrder_For_FG ShopOrderFG;
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
 //	PRApproval1 PRApproval1;
@@ -148,6 +152,8 @@ public class TEST_SA_Flow extends Testbase1 {
 		SalesOrder = new SalesOrder();
 		ShopOrder = new ShopOrder();
 		ShopOrderSA = new ShopOrder_For_SA();
+		ShopOrderSA2 = new ShopOrder_For_SA2();
+		ShopOrderFG = new ShopOrder_For_FG();
 		MaterialIssue = new MaterialIssue();
 //		Purchase_Order = new Purchase_Order();
 		Purchase_Requisation = new Purchase_Requisation();
@@ -233,7 +239,7 @@ public class TEST_SA_Flow extends Testbase1 {
 				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
 				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
 				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 		homePage.clickOnItemMasterCreate();
@@ -441,6 +447,16 @@ public class TEST_SA_Flow extends Testbase1 {
 
 	@Test(priority = 10)
 	public void verifyShopOrderCreate() throws Throwable {
+
+		homePage.clickOnTransactionShopOrderCreate();
+		ShopOrderFG.ShopOrderCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnTransactionShopOrderCreate();
+		ShopOrderSA2.ShopOrderCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 		homePage.clickOnTransactionShopOrderCreate();
 		ShopOrderSA.ShopOrderCreate();
