@@ -23,6 +23,7 @@ import com.getapcs.Sales.RFQ_CreatePage;
 import com.getapcs.Sales.RFQ_ReleaseCS;
 import com.getapcs.SecondaryMaster.Price_List;
 import com.getapcs.Transaction.MaterialIssue;
+import com.getapcs.Transaction.Purchase_Order_SA2;
 import com.getapcs.Transaction.Purchase_Requisation;
 import com.getapcs.Transaction.SalesOrder;
 import com.getapcs.Transaction.ShopOrder;
@@ -79,7 +80,8 @@ public class TEST_SA_Flow extends Testbase1 {
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
 //	PRApproval1 PRApproval1;
-//	PRApproval2 PRApproval2;
+//	PRApproval2 PRApproval2;'
+	Purchase_Order_SA2 Purchase_Order_SA2;
 //	Purchase_Order Purchase_Order;
 //	openGrin openGrin;
 //	Grin Grin;
@@ -160,6 +162,7 @@ public class TEST_SA_Flow extends Testbase1 {
 		Purchase_Requisation = new Purchase_Requisation();
 //		PRApproval1 = new PRApproval1();
 //		PRApproval2 = new PRApproval2();
+		Purchase_Order_SA2 = new Purchase_Order_SA2();
 //		openGrin = new openGrin();
 //		Grin = new Grin();
 //		IQCConfirmation = new IQCConfirmation();
@@ -463,6 +466,17 @@ public class TEST_SA_Flow extends Testbase1 {
 		ShopOrderFG.ShopOrderCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 10)
+	public void verifyPOCreate() throws Throwable {
+
+		homePage.clickOnPRCreatePage();
+		Purchase_Order_SA2.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
+				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
 	}
 
 	@AfterTest

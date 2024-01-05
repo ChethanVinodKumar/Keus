@@ -99,10 +99,10 @@ public class ShopOrder_For_SA2 extends Testbase1 {
 
 		Thread.sleep(4000);
 
-//		js.executeScript("arguments[0].click();", saRadioButton);
+		js.executeScript("arguments[0].click();", saRadioButton);
 
 //		saRadioButton.click();
-		click(driver, saRadioButton);
+//		click(driver, saRadioButton);
 
 		click(driver, saItemNumberDropDown);
 		isSelected(driver, saItemNumberDropDown, "saItemNumberDropDown");
