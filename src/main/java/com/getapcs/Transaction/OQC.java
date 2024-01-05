@@ -77,6 +77,7 @@ public class OQC extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/create-fg-oqc");
 
 //FG Item Number
+
 		click(driver, fgItemNumber);
 		fgItemNumber.sendKeys(Keys.BACK_SPACE);
 		isSelected(driver, fgItemNumber, "fgItemNumber");
@@ -84,6 +85,7 @@ public class OQC extends Testbase1 {
 		WebElement fgItemNumberSelect = driver.findElement(By.xpath(updatedXpath));
 
 		click(driver, fgItemNumberSelect);
+
 //Shop Order Number
 
 		click(driver, shopOrderNum);
