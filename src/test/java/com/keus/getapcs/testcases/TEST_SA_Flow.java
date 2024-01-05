@@ -36,7 +36,8 @@ import com.getapcs.home.login.LoginPage;
 public class TEST_SA_Flow extends Testbase1 {
 
 	public final static String priceList = "TEST PriceList 1";
-	public final static String fg = "FG-91";
+	public final static String fgNo = "91";
+	public final static String fg = "FG-" + fgNo;
 	public final static String pp1 = "PP-113";
 	public final static String pp2 = "PP-114";
 	public final static String pp3 = "PP-115";
@@ -433,7 +434,7 @@ public class TEST_SA_Flow extends Testbase1 {
 				"8", // utgst4
 				"15", // quantity4
 				"Test Remark4", // remark4
-				"PO57664", // poNumber
+				"PO-" + fgNo, // poNumber
 				"TEST Remark", // billingandShippingRemark
 				"20", // totalAddidtional Charges
 				"8", // sgst
@@ -449,17 +450,17 @@ public class TEST_SA_Flow extends Testbase1 {
 	public void verifyShopOrderCreate() throws Throwable {
 
 		homePage.clickOnTransactionShopOrderCreate();
-		ShopOrderFG.ShopOrderCreate();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-		homePage.clickOnTransactionShopOrderCreate();
 		ShopOrderSA2.ShopOrderCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 		homePage.clickOnTransactionShopOrderCreate();
 		ShopOrderSA.ShopOrderCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnTransactionShopOrderCreate();
+		ShopOrderFG.ShopOrderCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
