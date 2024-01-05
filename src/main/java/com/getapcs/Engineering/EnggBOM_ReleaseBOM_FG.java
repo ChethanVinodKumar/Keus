@@ -49,6 +49,9 @@ public class EnggBOM_ReleaseBOM_FG extends Testbase1 {
 	}
 
 	public HomePage releaseBom(String releaseNote) throws Throwable {
+
+		System.out.println("\n" + "EnggBOM_ReleaseBOM_FG  Started" + "\n");
+
 		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
@@ -123,6 +126,8 @@ public class EnggBOM_ReleaseBOM_FG extends Testbase1 {
 
 			click(driver, releaseButton);
 			Thread.sleep(5000);
+
+			System.out.println("\n" + "EnggBOM_ReleaseBOM_FG  Ended" + "\n");
 
 		}
 

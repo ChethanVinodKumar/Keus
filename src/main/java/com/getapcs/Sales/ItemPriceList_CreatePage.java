@@ -85,6 +85,8 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 	public HomePage ItemPriceListCreate(String quantity, String leastCount, String markUp, String leastCostMinus,
 			String discountPlus, String discountMinus) throws InterruptedException {
 
+		System.out.println("\n" + "ItemPriceList_CreatePage  Started" + "\n");
+
 		driver.navigate().to("https://demo_keus.getapcs.com/master/price-list/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
@@ -251,6 +253,9 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 		boolean saveButtonIsDisplayed = saveButton.isDisplayed();
 		assertTrue(saveButtonIsDisplayed, "Save Button is not Displayed");
 		saveButton.click();
+
+		System.out.println("\n" + "ItemPriceList_CreatePage  Ended" + "\n");
+
 		return new HomePage();
 
 	}

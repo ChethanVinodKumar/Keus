@@ -20,7 +20,7 @@ public class ShopOrder_For_SA extends Testbase1 {
 
 	// Shop Order
 
-	@FindBy(xpath = "(//input[@id='4'])[1]")
+	@FindBy(id = "4")
 	WebElement saRadioButton;
 
 	@FindBy(xpath = "//input[@formcontrolname='itemNoDesc']")
@@ -37,7 +37,7 @@ public class ShopOrder_For_SA extends Testbase1 {
 	@FindBy(xpath = "//input[@placeholder='DD-MM-YYYY']")
 	WebElement soCloseDatePicker;
 
-	@FindBy(xpath = "(//input[@type='text'])[10]")
+	@FindBy(xpath = "(//input[@type='text'])[12]")
 	WebElement releaseQty;
 
 	@FindBy(xpath = "//button[normalize-space()='Save']")
@@ -103,6 +103,11 @@ public class ShopOrder_For_SA extends Testbase1 {
 
 //SO Close Date
 
+		Thread.sleep(4000);
+
+//		js.executeScript("arguments[0].click();", saRadioButton);
+
+//		saRadioButton.click();
 		click(driver, saRadioButton);
 
 		click(driver, saItemNumberDropDown);
@@ -119,12 +124,19 @@ public class ShopOrder_For_SA extends Testbase1 {
 		WebElement projectNo = driver.findElement(By.xpath(updatedXpathProjectNo));
 		click(driver, projectNo);
 
+		Thread.sleep(2000);
+
 		datePicker(driver, soCloseDatePicker);
 
-		Thread.sleep(4000);
+		Thread.sleep(1000);
 
-//		String salesOrderNumberExpected = driver
-//				.findElement(By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[3]")).getText();
+//		String saRequiredQty = driver
+//				.findElement(By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[6]/div/input")).getText();
+//		
+		String saRequiredQty = (String) js.executeScript("return arguments[0].value;", driver.findElement(
+				By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[6]/div//input[@type='text']")));
+
+		System.out.println("saRequiredQty : " + saRequiredQty);
 
 //		assertEquals(salesOrderNumber, salesOrderNumberExpected);
 
@@ -132,11 +144,12 @@ public class ShopOrder_For_SA extends Testbase1 {
 
 		click(driver, releaseQty);
 		isSelected(driver, releaseQty, "releaseQty");
-		releaseQty.sendKeys("10");
+		releaseQty.clear();
+		releaseQty.sendKeys(saRequiredQty);
 
 //Save Button
 		Thread.sleep(4000);
-		click(driver, saveButton);
+//		click(driver, saveButton);
 
 		return new HomePage();
 	}

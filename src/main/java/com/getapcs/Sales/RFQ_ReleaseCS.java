@@ -31,6 +31,8 @@ public class RFQ_ReleaseCS extends Testbase1 {
 
 	public HomePage RFQCs() throws Throwable {
 
+		System.out.println("\n" + "RFQ_ReleaseCS  Started" + "\n");
+
 		// Verify and Release the CS
 		click(driver, csButton1);
 
@@ -42,6 +44,9 @@ public class RFQ_ReleaseCS extends Testbase1 {
 		Thread.sleep(2000);
 
 		click(driver, releaseButtonInCSRelease);
+
+		System.out.println("\n" + "RFQ_ReleaseCS  Ended" + "\n");
+
 		return new HomePage();
 
 	}

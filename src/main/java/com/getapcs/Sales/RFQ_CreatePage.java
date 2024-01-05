@@ -106,6 +106,8 @@ public class RFQ_CreatePage extends Testbase1 {
 
 	public HomePage RFQCreate(String rfqNumber, String Enterquantity, String Enternote) throws Throwable {
 
+		System.out.println("\n" + "RFQ_CreatePage  Started" + "\n");
+
 		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
@@ -365,6 +367,9 @@ public class RFQ_CreatePage extends Testbase1 {
 		Assert.assertTrue(saveButton.isEnabled(), "Save button is not enabled.");
 		saveButton.click();
 		Thread.sleep(3000);
+
+		System.out.println("\n" + "RFQ_CreatePage  Ended" + "\n");
+
 		return new HomePage();
 
 	}

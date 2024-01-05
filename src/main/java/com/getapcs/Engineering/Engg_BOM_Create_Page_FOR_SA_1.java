@@ -138,6 +138,8 @@ public class Engg_BOM_Create_Page_FOR_SA_1 extends Testbase1 {
 	public HomePage bomCreate(String quantity, String scarpAllowance, String remark, String version, String quantityPer,
 			String probability, String alternateRemark, String quantityNRE, String cost) throws Throwable {
 
+		System.out.println("\n" + "Engg_BOM_Create_Page_FOR_SA_1  Started" + "\n");
+
 		driver.navigate().to("https://demo_keus.getapcs.com/engineering/item-master/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
@@ -477,6 +479,8 @@ public class Engg_BOM_Create_Page_FOR_SA_1 extends Testbase1 {
 
 		Thread.sleep(3000);
 		System.out.println(driver.getCurrentUrl());
+
+		System.out.println("\n" + "Engg_BOM_Create_Page_FOR_SA_2  Ended" + "\n");
 
 //				assertNotEquals(beforeSaveButton, afterSaveButton, "URLs are the same");
 		return new HomePage();
