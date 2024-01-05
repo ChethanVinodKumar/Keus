@@ -441,7 +441,7 @@ public class TEST_SA_Flow extends Testbase1 {
 				"8", // cgst
 				"8", // igst
 				"8", // utgst
-				"20");// specialDiscount
+				"20");// specialDiscoun
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
