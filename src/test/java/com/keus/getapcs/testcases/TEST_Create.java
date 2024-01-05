@@ -1,4 +1,4 @@
-package com.getapcs.testcases;
+package com.keus.getapcs.testcases;
 
 import java.awt.AWTException;
 
@@ -60,7 +60,7 @@ public class TEST_Create extends Testbase1 {
 
 	public final static String priceList = "TEST PriceList 85";
 	public final static String fg = "FG-84";
-	public final static String sa = "SA-01";
+	public final static String sa = "SA-02";
 	public final static String pp = "PP-78";
 
 	LoginPage loginPage;
@@ -189,15 +189,15 @@ public class TEST_Create extends Testbase1 {
 	@Test(priority = 2)
 	public void verifyItemMasterCreate() throws Throwable {
 
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", fg + "3456", "Test Manufacturer or CustomerName",
-				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
-				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
-				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize", "565");
-
-		Thread.sleep(2000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", fg + "3456", "Test Manufacturer or CustomerName",
+//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+//				"TEST BatchSize", "565");
+//
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 //		homePage.clickOnItemMasterCreate();
 //		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", pp + "43456",
@@ -210,14 +210,14 @@ public class TEST_Create extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
-//		homePage.clickOnItemMasterCreate();
-//		itemMasterCreatePageSA.itemMasterCreate(sa, "Test Description", sa + "456", "Test Manufacturer or CustomerName",
-//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
-//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
-//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-//				"TEST BatchSize", "565");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+		homePage.clickOnItemMasterCreate();
+		itemMasterCreatePageSA.itemMasterCreate(sa, "Test Description", sa + "456", "Test Manufacturer or CustomerName",
+				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+				"TEST BatchSize", "565");
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 	}
 

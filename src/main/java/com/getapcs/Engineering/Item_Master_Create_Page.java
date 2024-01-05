@@ -138,6 +138,8 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 	@FindBy(xpath = "//input[@placeholder='Upload file']")
 	WebElement filesUpload;
+	@FindBy(xpath = "(//button[normalize-space()='Uploaded Files'])[1]")
+	WebElement upload;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Net Weight']")
 	WebElement netWeightField;
@@ -339,6 +341,8 @@ public class Item_Master_Create_Page extends Testbase1 {
 			String max, String reOrder, String twoBin, String leadTime, String expiryDays, String inspectionIntDays,
 			String specialInstructions, String instructions, String grProcess, String batchSize, String stdCost)
 			throws Throwable {
+
+		Thread.sleep(5000);
 
 		String actualText = headingText.getText();
 		String expectedText = "Item Master";
@@ -578,9 +582,10 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 		rEACHToggleButton.click();
 
-//Upload File
+		// Upload File
 
 		uploadFile(driver, filesUpload, 1);
+		click(driver, upload);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);

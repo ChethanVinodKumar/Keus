@@ -342,6 +342,8 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 			String specialInstructions, String instructions, String grProcess, String batchSize, String stdCost)
 			throws Throwable {
 
+		Thread.sleep(5000);
+
 		String actualText = headingText.getText();
 		String expectedText = "Item Master";
 		assertEquals(actualText, expectedText);

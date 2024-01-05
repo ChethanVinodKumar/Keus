@@ -4,15 +4,11 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.getapcs.base.Testbase1;
@@ -108,8 +104,6 @@ public class RFQ_CreatePage extends Testbase1 {
 		PageFactory.initElements(driver, this);
 	}
 
-	JavascriptExecutor executor = (JavascriptExecutor) driver;
-
 	public HomePage RFQCreate(String rfqNumber, String Enterquantity, String Enternote) throws Throwable {
 
 		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
@@ -141,7 +135,6 @@ public class RFQ_CreatePage extends Testbase1 {
 		boolean rfqIsDisplayed = rfq.isDisplayed();
 		assertTrue(rfqIsDisplayed, "RFQ is not Displayed.");
 		rfq.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		// Verify and Click on Create Module in RFQ-Sales Module
 		boolean createRFQIsDisplayed = createRFQ.isDisplayed();
@@ -154,7 +147,7 @@ public class RFQ_CreatePage extends Testbase1 {
 		boolean customerNameDropDownIsDisplayed = customerNameDropDown.isDisplayed();
 		assertTrue(customerNameDropDownIsDisplayed, "Customer Name Drop Down is not Displayed.");
 		customerNameDropDown.sendKeys(Keys.ENTER);
-		executor.executeScript("arguments[0].click();", customerNameDropDownSelect);
+		js.executeScript("arguments[0].click();", customerNameDropDownSelect);
 
 //		//Click on Customer Alias Name Drop Down RFQ Create Page-Sales Module
 //		WebElement customerAliasNameDropDown = driver.findElement(By.xpath("(//input[@type='text'])[2]"));
@@ -217,7 +210,7 @@ public class RFQ_CreatePage extends Testbase1 {
 
 		typeOfSolution.sendKeys(Keys.ENTER);
 
-		executor.executeScript("arguments[0].click();", typeOfSolutionSelect);
+		js.executeScript("arguments[0].click();", typeOfSolutionSelect);
 
 		// Product Type
 
@@ -236,7 +229,7 @@ public class RFQ_CreatePage extends Testbase1 {
 
 		productType.sendKeys(Keys.ENTER);
 
-		executor.executeScript("arguments[0].click();", productTypeSelect);
+		js.executeScript("arguments[0].click();", productTypeSelect);
 
 		click(driver, salesPerson);
 		isSelected(driver, salesPerson, "salesPerson");
@@ -260,7 +253,7 @@ public class RFQ_CreatePage extends Testbase1 {
 
 		roomName.sendKeys(Keys.ENTER);
 
-		executor.executeScript("arguments[0].click();", roomNameSelect);
+		js.executeScript("arguments[0].click();", roomNameSelect);
 
 		// Item Number Field
 
@@ -314,11 +307,11 @@ public class RFQ_CreatePage extends Testbase1 {
 
 		click(driver, closeButton);
 
-		executor.executeScript("arguments[0].click();", add);
+		js.executeScript("arguments[0].click();", add);
 
 //NOTES
 
-		executor.executeScript("arguments[0].click();", notesTab);
+		js.executeScript("arguments[0].click();", notesTab);
 
 		// Category
 
@@ -338,7 +331,7 @@ public class RFQ_CreatePage extends Testbase1 {
 
 		Thread.sleep(2000);
 
-		executor.executeScript("arguments[0].click();", categorySelect);
+		js.executeScript("arguments[0].click();", categorySelect);
 
 		// note
 
@@ -364,7 +357,7 @@ public class RFQ_CreatePage extends Testbase1 {
 
 		assertEquals(displayedTextInnote, expected_placeholder5);
 
-		executor.executeScript("arguments[0].click();", add);
+		js.executeScript("arguments[0].click();", add);
 
 		// Verify and Click on Save Button in Create-Item PriceList-Sales Module
 		boolean saveButtonIsDisplayed = saveButton.isDisplayed();

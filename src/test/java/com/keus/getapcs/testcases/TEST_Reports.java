@@ -1,4 +1,4 @@
-package com.getapcs.testcases;
+package com.keus.getapcs.testcases;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;

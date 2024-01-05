@@ -3,12 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.getapcs.testcases.TEST_Create">
+      <class name="com.keus.getapcs.testcases.TEST_SA_Flow">
         <methods>
-          <include name="verifyItemMasterCreate"/>
+          <include name="verifyQuoteCreate"/>
+          <include name="verifyBomCreateforSA2"/>
+          <include name="verifySalesItemPriceListCreate"/>
           <include name="setUp"/>
+          <include name="verifySalesRFQCS"/>
+          <include name="verifyShopOrderCreate"/>
+          <include name="afetrTest"/>
+          <include name="verifySalesRFQCreate"/>
+          <include name="verifySalesOrderCreate"/>
+          <include name="verifyItemMasterCreateforSA"/>
+          <include name="verifyReleaseBom"/>
         </methods>
-      </class> <!-- com.getapcs.testcases.TEST_Create -->
+      </class> <!-- com.keus.getapcs.testcases.TEST_SA_Flow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

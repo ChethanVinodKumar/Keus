@@ -1,4 +1,4 @@
-package com.getapcs.testcases;
+package com.keus.getapcs.testcases;
 
 import java.awt.AWTException;
 import org.testng.annotations.AfterTest;
