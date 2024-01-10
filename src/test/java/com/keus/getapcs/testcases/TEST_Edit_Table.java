@@ -193,29 +193,31 @@ public class TEST_Edit_Table extends Testbase1 {
 //	public void verifyPoEdit() throws Throwable {
 //		homePage.clickonPOEdit();
 //		Purchase_Order_Edit.purchaseOrderEditPage("123RefNo");
-//	}
-//
-//	@Test(priority = 9)
-//	public void verifyShopOrderEdit() throws Throwable {
-//
-//		// Purchase Order Create Page
-//
-//		homePage.clickOnTransactionShopOrderEdit();
-//		ShopOrder.ShopOrderEdit();
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 
-//****************Table Pages******************//
+	@Test(priority = 9)
+	public void verifyShopOrderEdit() throws Throwable {
 
-	@Test(priority = 10)
-	public void verifyItemMasterTable() throws Throwable {
+		// Purchase Order Create Page
 
-		homePage.clickOnItemMasterTable();
-		Item_Master_Table_Page.itemMasterTable();
+		homePage.clickOnTransactionShopOrderEdit();
+		ShopOrder.ShopOrderEdit();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
+
+//****************Table Pages******************//
+
+//	@Test(priority = 10)
+//	public void verifyItemMasterTable() throws Throwable {
+//
+//		homePage.clickOnItemMasterTable();
+//		Item_Master_Table_Page.itemMasterTable();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //	@Test(priority = 11)
 //	public void verifyEnggBomTable() throws Throwable {

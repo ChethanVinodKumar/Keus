@@ -1,9 +1,5 @@
 package com.keus.getapcs.testcases;
 
-import java.awt.AWTException;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -18,9 +14,13 @@ import com.getapcs.Reports.InventryReportAfterBinning;
 import com.getapcs.Reports.InventryReportAfterDO;
 import com.getapcs.Reports.InventryReportAfterGrin;
 import com.getapcs.Reports.InventryReportAfterIQCConfirmation;
+import com.getapcs.Reports.InventryReportAfterMI;
+import com.getapcs.Reports.InventryReportAfterODO;
 import com.getapcs.Reports.InventryReportAfterOQCBinning;
 import com.getapcs.Reports.InventryReportAfterOpenGrin;
-import com.getapcs.Reports.InventryReportAfterSOC;
+import com.getapcs.Reports.InventryReportAfterReturnDO;
+import com.getapcs.Reports.InventryReportAfterReturnInvoice;
+import com.getapcs.Reports.InventryReportAfterReturnODO;
 import com.getapcs.Reports.InventryReportBeforeOpenGrin;
 import com.getapcs.Sales.ItemPriceList_CreatePage;
 import com.getapcs.Sales.ItemPriceList_EditPage;
@@ -44,10 +44,13 @@ import com.getapcs.Transaction.PRApproval2;
 import com.getapcs.Transaction.Purchase_Order;
 import com.getapcs.Transaction.Purchase_Requisation;
 import com.getapcs.Transaction.ReturnDO;
+import com.getapcs.Transaction.ReturnInvoice;
+import com.getapcs.Transaction.ReturnOpenDeliveryOrder;
 import com.getapcs.Transaction.SalesOrder;
 import com.getapcs.Transaction.ShopOrder;
 import com.getapcs.Transaction.ShopOrderConfirmation;
 import com.getapcs.Transaction.VerifyInvoiceCreate;
+import com.getapcs.Transaction.openDeliveryOrder;
 import com.getapcs.Transaction.openGrin;
 import com.getapcs.TransactionEdit.Purchase_Order_Edit;
 import com.getapcs.TransactionEdit.VerifyPR_EditPage;
@@ -58,10 +61,9 @@ import com.getapcs.home.login.LoginPage;
 
 public class TEST_Create extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 85";
-	public final static String fg = "FG-84";
-	public final static String sa = "SA-02";
-	public final static String pp = "PP-78";
+	public final static String priceList = "TEST PriceList 006";
+	public final static String fg = "FG-006";
+	public final static String pp = "PP-006";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -87,21 +89,28 @@ public class TEST_Create extends Testbase1 {
 	IQCConfirmation IQCConfirmation;
 	Binning Binning;
 	ShopOrderConfirmation ShopOrderConfirmation;
-	InventryReportAfterSOC InventryReportAfterSOC;
 	OQC OQC;
 	OQCBinning OQCBinning;
-	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
 	DeliveryOrder DeliveryOrder;
-	InventryReportAfterDO InventryReportAfterDO;
 	ReturnDO ReturnDO;
+	openDeliveryOrder openDeliveryOrder;
+	ReturnOpenDeliveryOrder ReturnOpenDeliveryOrder;
 	MaterialRequest MaterialRequest;
 	Material_ReturnNote Material_ReturnNote;
+	ReturnInvoice ReturnInvoice;
 
 	InventryReportBeforeOpenGrin InventryReportBeforeOpenGrin;
 	InventryReportAfterOpenGrin InventryReportAfterOpenGrin;
 	InventryReportAfterGrin InventryReportAfterGrin;
 	InventryReportAfterIQCConfirmation InventryReportAfterIQCConfirmation;
 	InventryReportAfterBinning InventryReportAfterBinning;
+	InventryReportAfterReturnDO InventryReportAfterReturnDO;
+	InventryReportAfterODO InventryReportAfterODO;
+	InventryReportAfterReturnODO InventryReportAfterReturnODO;
+	InventryReportAfterReturnInvoice InventryReportAfterReturnInvoice;
+	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
+	InventryReportAfterDO InventryReportAfterDO;
+	InventryReportAfterMI InventryReportAfterMI;
 
 	Item_Master_Edit_Page itemMasterEditPage;
 	Engg_BOM_Edit_Page enggBomEditPage;
@@ -147,22 +156,29 @@ public class TEST_Create extends Testbase1 {
 		IQCConfirmation = new IQCConfirmation();
 		Binning = new Binning();
 		ShopOrderConfirmation = new ShopOrderConfirmation();
-		InventryReportAfterSOC = new InventryReportAfterSOC();
+		InventryReportAfterMI = new InventryReportAfterMI();
 		OQC = new OQC();
 		OQCBinning = new OQCBinning();
 		InventryReportAfterOQCBinning = new InventryReportAfterOQCBinning();
 		DeliveryOrder = new DeliveryOrder();
 		InventryReportAfterDO = new InventryReportAfterDO();
 		ReturnDO = new ReturnDO();
+		openDeliveryOrder = new openDeliveryOrder();
+		ReturnOpenDeliveryOrder = new ReturnOpenDeliveryOrder();
 		Price_List = new Price_List();
 		MaterialRequest = new MaterialRequest();
 		Material_ReturnNote = new Material_ReturnNote();
+		ReturnInvoice = new ReturnInvoice();
 
 		InventryReportBeforeOpenGrin = new InventryReportBeforeOpenGrin();
 		InventryReportAfterOpenGrin = new InventryReportAfterOpenGrin();
 		InventryReportAfterGrin = new InventryReportAfterGrin();
 		InventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
 		InventryReportAfterBinning = new InventryReportAfterBinning();
+		InventryReportAfterReturnDO = new InventryReportAfterReturnDO();
+		InventryReportAfterODO = new InventryReportAfterODO();
+		InventryReportAfterReturnODO = new InventryReportAfterReturnODO();
+		InventryReportAfterReturnInvoice = new InventryReportAfterReturnInvoice();
 
 		itemMasterEditPage = new Item_Master_Edit_Page();
 		enggBomEditPage = new Engg_BOM_Edit_Page();
@@ -177,18 +193,18 @@ public class TEST_Create extends Testbase1 {
 		VerifyInvoiceCreate = new VerifyInvoiceCreate();
 	}
 
-	@Test(priority = 1)
-	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
-		Thread.sleep(4000);
-		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 2)
-	public void verifyItemMasterCreate() throws Throwable {
-
+//	@Test(priority = 1)
+//	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
+//		Thread.sleep(4000);
+//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 2)
+//	public void verifyItemMasterCreate() throws Throwable {
+//
 //		homePage.clickOnItemMasterCreate();
 //		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", fg + "3456", "Test Manufacturer or CustomerName",
 //				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
@@ -198,7 +214,7 @@ public class TEST_Create extends Testbase1 {
 //
 //		Thread.sleep(2000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
+//
 //		homePage.clickOnItemMasterCreate();
 //		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", pp + "43456",
 //				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
@@ -209,274 +225,265 @@ public class TEST_Create extends Testbase1 {
 //				"565");
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePageSA.itemMasterCreate(sa, "Test Description", sa + "456", "Test Manufacturer or CustomerName",
-				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
-				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
-				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize", "565");
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-	}
-
-	@Test(priority = 3)
-	public void verifyBomCreate() throws Throwable {
-
-		homePage.clickOnBomCreatePage();
-		enggBomCreatePage.bomCreate("1", // Quantity
-				"50", // scarpAllowance
-				"TestRemark", // Remark
-				"1", // Version
-				"10", // quantityPer
-				"100", // probability
-				"TEST Alternate Remark", // alternateRemark
-				"1", // quantityNRE
-				"20");// cost
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 4)
-	public void verifyReleaseBom() throws Throwable {
-		homePage.clickOnReleaseBomPage();
-		releaseBom.releaseBom("Test Remark");// Remark
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 5)
-	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
-
-		// Purchase Order Create Page
-		homePage.clickonTransactionPriceListCreate();
-		priceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 6)
-	public void verifySalesRFQCreate() throws Throwable {
-
-		// Purchase Order Create Page
-
-		rfq_CreatePage.RFQCreate("TEST Rfq Number", "10", "TEST Note");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 7)
-	public void verifySalesRFQCS() throws Throwable {
-
-		// Purchase Order Create Page
-		homePage.clickonSalesRfqModifyorView();
-		Thread.sleep(4000);
-		rfq_ReleaseCS.RFQCs();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 8)
-	public void verifyQuoteCreate() throws Throwable {
-
-		// Purchase Order Create Page
-
-		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
-				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 9)
-	public void verifySalesOrderCreate() throws Throwable {
-		homePage.clickOnSalesOrderCreate();
-		SalesOrder.salesOrderCreate("20", // generalDiscount
-				"20", // orderQty
-				"10", // discount1
-				"9", // sgst1
-				"9", // cgst1
-				"9", // igst1
-				"9", // utgst1
-				"10", // quantity1
-				"Test Remark", // remark1
-				"50", // orderqty2
-				"20", // discount2
-				"9", // sgst2
-				"9", // cgst2
-				"9", // igst2
-				"9", // utgst2
-				"15", // quantity2
-				"Test Remark2", // remark2
-				"50", // orderQty3
-				"10", // discount3
-				"9", // sgst3
-				"9", // cgst3
-				"9", // igst3
-				"9", // utgst3
-				"25", // quantity3
-				"Test Remark3", // remark3
-				"30", // orderQty4
-				"10", // discount4
-				"8", // sgst4
-				"8", // cgst4
-				"8", // igst4
-				"8", // utgst4
-				"15", // quantity4
-				"Test Remark4", // remark4
-				"PO57664", // poNumber
-				"TEST Remark", // billingandShippingRemark
-				"20", // totalAddidtional Charges
-				"8", // sgst
-				"8", // cgst
-				"8", // igst
-				"8", // utgst
-				"20");// specialDiscount
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 10)
-	public void verifyShopOrderCreate() throws Throwable {
-
-		homePage.clickOnTransactionShopOrderCreate();
-		ShopOrder.ShopOrderCreate();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 11)
-	public void verifyMaterialIssue() throws Throwable {
-
-		homePage.clickOnTransactionMaterialIssue();
-		MaterialIssue.MaterialIssuePage();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 12)
-	public void verifyPRcreate() throws Throwable {
-		homePage.clickOnPRCreatePage();
-		Purchase_Requisation.prCreatePage();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 13)
-
-	public void verifyPR_Approval1() throws Throwable {
-		homePage.clickOnPOApproval1();
-		PRApproval1.prApproval1Page();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 14)
-	public void verifyPR_Approval2() throws Throwable {
-		homePage.clickOnPRApproval2();
-		PRApproval2.prApproval2Page();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 15)
-	public void verifyPurchaseOrderCreate() throws Throwable {
-
-		// Purchase Order Create Page
-		homePage.clickontransactionPOcreate();
-		Purchase_Order.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
-				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 16)
-	public void verifyPurchaseOrderApproval1() throws AWTException, InterruptedException {
-		// Purchase Order POApproval 1
-
-		homePage.clickontransactionPOModelAndView();
-
-		System.out.println("Before Approval");
-		WebElement table = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-
-		// Extract the data from the first row of the table
-		WebElement firstRow = table.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-		String projectNumber = firstRow.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-		String approvalStatus = firstRow.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval status
-
-		// Output the extracted data
-		System.out.println("Project Number: " + projectNumber);
-		System.out.println("Approval Status: " + approvalStatus);
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-		homePage.clickontransactionPOApproval1();
-		Purchase_Order.purchaseOrderApproval1();
-
-		System.out.println("After Approval");
-		WebElement table1 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-
-		// Extract the data from the first row of the table
-		WebElement firstRow1 = table1.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-		String projectNumber1 = firstRow1.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-		String approvalStatus1 = firstRow1.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval
-																						// status
-
-		Thread.sleep(4000);
-
-		// Output the extracted data
-		System.out.println("Project Number: " + projectNumber1);
-		System.out.println("Approval Status: " + approvalStatus1);
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 17)
-	public void verifyPurchaseOrderApproval2() throws AWTException, InterruptedException {
-		// Purchase Order POApproval 2
-
-		homePage.clickontransactionPOModelAndView();
-
-		System.out.println("Before Approval");
-		WebElement table2 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-
-		// Extract the data from the first row of the table
-		WebElement firstRow2 = table2.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-		String projectNumber2 = firstRow2.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-		String approvalStatus2 = firstRow2.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
-																						// status
-
-		// Output the extracted data
-		System.out.println("Project Number: " + projectNumber2);
-		System.out.println("Approval Status: " + approvalStatus2);
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-		homePage.clickontransactionPOApproval2();
-		Purchase_Order.purchaseOrderApproval2();
-
-		System.out.println("After Approval");
-		WebElement table3 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-
-		// Extract the data from the first row of the table
-		WebElement firstRow3 = table3.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-		String projectNumber3 = firstRow3.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-		String approvalStatus3 = firstRow3.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
-																						// status
-		Thread.sleep(4000);
-		// Output the extracted data
-
-		System.out.println("Project Number: " + projectNumber3);
-		System.out.println("Approval Status: " + approvalStatus3);
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//
+//	}
+//
+//	@Test(priority = 3)
+//	public void verifyBomCreate() throws Throwable {
+//
+//		homePage.clickOnBomCreatePage();
+//		enggBomCreatePage.bomCreate("1", // Quantity
+//				"50", // scarpAllowance
+//				"TestRemark", // Remark
+//				"1", // Version
+//				"10", // quantityPer
+//				"100", // probability
+//				"TEST Alternate Remark", // alternateRemark
+//				"1", // quantityNRE
+//				"20");// cost
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 4)
+//	public void verifyReleaseBom() throws Throwable {
+//		homePage.clickOnReleaseBomPage();
+//		releaseBom.releaseBom("Test Remark");// Remark
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 5)
+//	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonTransactionPriceListCreate();
+//		priceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 6)
+//	public void verifySalesRFQCreate() throws Throwable {
+//
+//		// Purchase Order Create Page
+//
+//		rfq_CreatePage.RFQCreate("TEST Rfq Number", "10", "TEST Note");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 7)
+//	public void verifySalesRFQCS() throws Throwable {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonSalesRfqModifyorView();
+//		Thread.sleep(4000);
+//		rfq_ReleaseCS.RFQCs();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 8)
+//	public void verifyQuoteCreate() throws Throwable {
+//
+//		// Purchase Order Create Page
+//
+//		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
+//				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 9)
+//	public void verifySalesOrderCreate() throws Throwable {
+//		homePage.clickOnSalesOrderCreate();
+//		SalesOrder.salesOrderCreate("20", // generalDiscount
+//				"20", // orderQty
+//				"10", // discount1
+//				"9", // sgst1
+//				"9", // cgst1
+//				"9", // igst1
+//				"9", // utgst1
+//				"10", // quantity1
+//				"Test Remark", // remark1
+//				"50", // orderqty2
+//				"20", // discount2
+//				"9", // sgst2
+//				"9", // cgst2
+//				"9", // igst2
+//				"9", // utgst2
+//				"15", // quantity2
+//				"Test Remark2", // remark2
+//				"50", // orderQty3
+//				"10", // discount3
+//				"9", // sgst3
+//				"9", // cgst3
+//				"9", // igst3
+//				"9", // utgst3
+//				"25", // quantity3
+//				"Test Remark3", // remark3
+//				"30", // orderQty4
+//				"10", // discount4
+//				"8", // sgst4
+//				"8", // cgst4
+//				"8", // igst4
+//				"8", // utgst4
+//				"15", // quantity4
+//				"Test Remark4", // remark4
+//				"PO57664", // poNumber
+//				"TEST Remark", // billingandShippingRemark
+//				"20", // totalAddidtional Charges
+//				"8", // sgst
+//				"8", // cgst
+//				"8", // igst
+//				"8", // utgst
+//				"20");// specialDiscount
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 10)
+//	public void verifyShopOrderCreate() throws Throwable {
+//
+//		homePage.clickOnTransactionShopOrderCreate();
+//		ShopOrder.ShopOrderCreate();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 11)
+//	public void verifyMaterialIssue() throws Throwable {
+//
+//		homePage.clickOnTransactionMaterialIssue();
+//		MaterialIssue.MaterialIssuePage();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 12)
+//	public void verifyPRcreate() throws Throwable {
+//		homePage.clickOnPRCreatePage();
+//		Purchase_Requisation.prCreatePage();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 13)
+//
+//	public void verifyPR_Approval1() throws Throwable {
+//		homePage.clickOnPOApproval1();
+//		PRApproval1.prApproval1Page();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 14)
+//	public void verifyPR_Approval2() throws Throwable {
+//		homePage.clickOnPRApproval2();
+//		PRApproval2.prApproval2Page();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 15)
+//	public void verifyPurchaseOrderCreate() throws Throwable {
+//
+//		// Purchase Order Create Page
+//		homePage.clickontransactionPOcreate();
+//		Purchase_Order.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
+//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 16)
+//	public void verifyPurchaseOrderApproval1() throws AWTException, InterruptedException {
+//		// Purchase Order POApproval 1
+//
+//		homePage.clickontransactionPOModelAndView();
+//
+//		System.out.println("Before Approval");
+//		WebElement table = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+//
+//		// Extract the data from the first row of the table
+//		WebElement firstRow = table.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+//		String projectNumber = firstRow.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+//		String approvalStatus = firstRow.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval status
+//
+//		// Output the extracted data
+//		System.out.println("Project Number: " + projectNumber);
+//		System.out.println("Approval Status: " + approvalStatus);
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//
+//		homePage.clickontransactionPOApproval1();
+//		Purchase_Order.purchaseOrderApproval1();
+//
+//		System.out.println("After Approval");
+//		WebElement table1 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+//
+//		// Extract the data from the first row of the table
+//		WebElement firstRow1 = table1.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+//		String projectNumber1 = firstRow1.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+//		String approvalStatus1 = firstRow1.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval
+//																						// status
+//
+//		Thread.sleep(4000);
+//
+//		// Output the extracted data
+//		System.out.println("Project Number: " + projectNumber1);
+//		System.out.println("Approval Status: " + approvalStatus1);
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 17)
+//	public void verifyPurchaseOrderApproval2() throws AWTException, InterruptedException {
+//		// Purchase Order POApproval 2
+//
+//		homePage.clickontransactionPOModelAndView();
+//
+//		System.out.println("Before Approval");
+//		WebElement table2 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+//
+//		// Extract the data from the first row of the table
+//		WebElement firstRow2 = table2.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+//		String projectNumber2 = firstRow2.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+//		String approvalStatus2 = firstRow2.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
+//																						// status
+//
+//		// Output the extracted data
+//		System.out.println("Project Number: " + projectNumber2);
+//		System.out.println("Approval Status: " + approvalStatus2);
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//
+//		homePage.clickontransactionPOApproval2();
+//		Purchase_Order.purchaseOrderApproval2();
+//
+//		System.out.println("After Approval");
+//		WebElement table3 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+//
+//		// Extract the data from the first row of the table
+//		WebElement firstRow3 = table3.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+//		String projectNumber3 = firstRow3.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+//		String approvalStatus3 = firstRow3.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
+//																						// status
+//		Thread.sleep(4000);
+//		// Output the extracted data
+//
+//		System.out.println("Project Number: " + projectNumber3);
+//		System.out.println("Approval Status: " + approvalStatus3);
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 	@Test(priority = 18)
 	public void verifyInventryReportBeforeGrin() throws Throwable {
@@ -589,67 +596,67 @@ public class TEST_Create extends Testbase1 {
 	}
 
 	@Test(priority = 28)
-	public void verifyShopOrderConfirmation() throws Throwable {
-
-		homePage.clickOnShopOrderConfirmationCreate();
-		ShopOrderConfirmation.ShopOrderConfirmationCreate();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 29)
-	public void verifyInventryReportAfterSOC() throws Throwable {
+	public void verifyInventryReportAfterMI() throws Throwable {
 		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterSOC.InventryReportPage();
+		InventryReportAfterMI.InventryReportPage();
 
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 30)
-	public void verifyOQC() throws Throwable {
-
-		homePage.clickOnOQCCreate();
-		OQC.OQCCreate("10");
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 31)
-	public void verifyOQCBinning() throws Throwable {
-
-		homePage.clickOnOQCBinningCreate();
-		OQCBinning.OQCBinningCreate("5");
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 32)
-	public void verifyInventryReportAfterOQCBinning() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterOQCBinning.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 33)
-	public void verifyDOCreate() throws Throwable {
-
-		homePage.clickOnDOCreate();
-		DeliveryOrder.DeliveryOrderCreate("10", "5");
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 34)
-	public void verifyInventryReportAfterDO() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterDO.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 29)
+//	public void verifyShopOrderConfirmation() throws Throwable {
+//
+//		homePage.clickOnShopOrderConfirmationCreate();
+//		ShopOrderConfirmation.ShopOrderConfirmationCreate();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 30)
+//	public void verifyOQC() throws Throwable {
+//
+//		homePage.clickOnOQCCreate();
+//		OQC.OQCCreate("10");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 31)
+//	public void verifyOQCBinning() throws Throwable {
+//
+//		homePage.clickOnOQCBinningCreate();
+//		OQCBinning.OQCBinningCreate("5");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 32)
+//	public void verifyInventryReportAfterOQCBinning() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterOQCBinning.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 33)
+//	public void verifyDOCreate() throws Throwable {
+//
+//		homePage.clickOnDOCreate();
+//		DeliveryOrder.DeliveryOrderCreate("10", "5");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 34)
+//	public void verifyInventryReportAfterDO() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterDO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 //
 //	@Test(priority = 35)
 //	public void verifyReturnDO() throws Throwable {
@@ -661,7 +668,71 @@ public class TEST_Create extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
+//	@Test(priority = 36)
+//	public void verifyInventryReportAfterReturnDO() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterReturnDO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
 //	@Test(priority = 37)
+//	public void verifyODOCreate() throws Throwable {
+//
+//		homePage.clickOnOpenDeliveryOrder();
+//		openDeliveryOrder.openDeliveryOrderCreate("2", "1", "10");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 38)
+//	public void verifyInventryReportAfterODO() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterODO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 39)
+//	public void verifyReturnODO() throws Throwable {
+//		homePage.clickOnReturnOpenDeliveryOrder();
+//		ReturnOpenDeliveryOrder.ReturnOpenDOCreate("2");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 40)
+//	public void verifyInventryReportAfterReturnODO() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterReturnODO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 41)
+//	public void verifyDOCreate1() throws Throwable {
+//
+//		homePage.clickOnDOCreate();
+//		DeliveryOrder.DeliveryOrderCreate("10", "5");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 42)
+//	public void verifyInventryReportAfterDO1() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterDO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 43)
 //	public void verifyInvoiceCreate() throws Throwable {
 //		homePage.clickOnInvoiceCreate();
 //		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
@@ -670,5 +741,23 @@ public class TEST_Create extends Testbase1 {
 //
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-
+//
+//	@Test(priority = 44)
+//	public void verifyReturnInvoiceCreate() throws Throwable {
+//		homePage.clickOnInvoiceCreate();
+//		ReturnInvoice.ReturnInvoicepage("10", "5");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 45)
+//	public void verifyInventryReportAfterReturnInvoice() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterReturnInvoice.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 }

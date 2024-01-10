@@ -3,34 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="com.getapcs.testcases.TEST_Create">
-=======
-      <class name="com.keus.getapcs.testcases.TEST_SA_Flow">
->>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
+      <class name="com.keus.getapcs.testcases.TEST_Create">
         <methods>
-<<<<<<< HEAD
-          <include name="verifyReturnInvoice"/>
-          <include name="setUp"/>
-=======
-          <include name="verifyQuoteCreate"/>
-          <include name="verifyBomCreateforSA2"/>
-          <include name="verifySalesItemPriceListCreate"/>
-          <include name="setUp"/>
-          <include name="verifySalesRFQCS"/>
-          <include name="verifyShopOrderCreate"/>
-          <include name="afetrTest"/>
-          <include name="verifySalesRFQCreate"/>
+          <include name="verifyPurchaseOrderCreate"/>
+          <include name="verifyMaterialIssue"/>
           <include name="verifySalesOrderCreate"/>
-          <include name="verifyItemMasterCreateforSA"/>
-          <include name="verifyReleaseBom"/>
->>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
+          <include name="verifyPRcreate"/>
+          <include name="verifyPurchaseOrderApproval1"/>
+          <include name="verifyPR_Approval1"/>
+          <include name="setUp"/>
+          <include name="verifyPR_Approval2"/>
+          <include name="verifyPurchaseOrderApproval2"/>
+          <include name="verifyShopOrderCreate"/>
+          <include name="verifyQuoteCreate"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- com.getapcs.testcases.TEST_Create -->
-=======
-      </class> <!-- com.keus.getapcs.testcases.TEST_SA_Flow -->
->>>>>>> branch 'master' of https://github.com/wyzmindz/GetaPCS-Testing.git
+      </class> <!-- com.keus.getapcs.testcases.TEST_Create -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

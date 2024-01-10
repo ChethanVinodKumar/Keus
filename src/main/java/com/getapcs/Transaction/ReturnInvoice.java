@@ -34,9 +34,6 @@ public class ReturnInvoice extends Testbase1 {
 	@FindBy(xpath = "(//input[@type='text'])[2]")
 	WebElement returnQty;
 
-	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-return-invoice-form/div[2]/div/div/div/form/div/div[4]/div/div/div/table/tbody/tr/td[18]/div/textarea")
-	WebElement remarks;
-
 	@FindBy(xpath = "(//button[normalize-space()='Binning'])[1]")
 	WebElement binning;
 
@@ -75,6 +72,9 @@ public class ReturnInvoice extends Testbase1 {
 
 	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement saveButton;
+
+	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-return-invoice-form/div[2]/div/div/div/form/div/div[4]/div/div/div/table/tbody/tr/td[18]/div/textarea")
+	WebElement remarks;
 
 	public ReturnInvoice() {
 

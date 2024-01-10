@@ -18,7 +18,7 @@ public class Grin extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='Test venderName1'])[1]")
 	WebElement selectVenderNameDropDownValue;
 
-	@FindBy(xpath = "//label[normalize-space(text())='Vendor Id']/following-sibling::div/input[@formcontrolname='vendorId']")
+	@FindBy(xpath = "//label[normalize-space(text())='Vendor Id']/following-sibling::div/input[@formcontrolname='vendorNumber']")
 	WebElement venderIdField;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Invoice Number']")

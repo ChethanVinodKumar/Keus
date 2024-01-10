@@ -225,7 +225,7 @@ public class ShopOrder extends Testbase1 {
 		// Verifying that releaseQty Text Field is Enabled or not
 		boolean isEnabledreleaseQtyField = releaseQty.isEnabled();
 		assertTrue(isEnabledreleaseQtyField);
-
+		releaseQty.clear();
 		releaseQty.sendKeys("10");
 
 //Can Create Qty

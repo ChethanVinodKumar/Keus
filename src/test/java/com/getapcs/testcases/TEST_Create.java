@@ -13,9 +13,9 @@ import com.getapcs.Reports.InventryReportAfterBinning;
 import com.getapcs.Reports.InventryReportAfterDO;
 import com.getapcs.Reports.InventryReportAfterGrin;
 import com.getapcs.Reports.InventryReportAfterIQCConfirmation;
+import com.getapcs.Reports.InventryReportAfterMI;
 import com.getapcs.Reports.InventryReportAfterOQCBinning;
 import com.getapcs.Reports.InventryReportAfterOpenGrin;
-import com.getapcs.Reports.InventryReportAfterSOC;
 import com.getapcs.Reports.InventryReportBeforeOpenGrin;
 import com.getapcs.Sales.ItemPriceList_CreatePage;
 import com.getapcs.Sales.ItemPriceList_EditPage;
@@ -81,7 +81,7 @@ public class TEST_Create extends Testbase1 {
 	IQCConfirmation IQCConfirmation;
 	Binning Binning;
 	ShopOrderConfirmation ShopOrderConfirmation;
-	InventryReportAfterSOC InventryReportAfterSOC;
+	InventryReportAfterMI InventryReportAfterMI;
 	OQC OQC;
 	OQCBinning OQCBinning;
 	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
@@ -141,7 +141,7 @@ public class TEST_Create extends Testbase1 {
 		IQCConfirmation = new IQCConfirmation();
 		Binning = new Binning();
 		ShopOrderConfirmation = new ShopOrderConfirmation();
-		InventryReportAfterSOC = new InventryReportAfterSOC();
+		InventryReportAfterMI = new InventryReportAfterMI();
 		OQC = new OQC();
 		OQCBinning = new OQCBinning();
 		InventryReportAfterOQCBinning = new InventryReportAfterOQCBinning();

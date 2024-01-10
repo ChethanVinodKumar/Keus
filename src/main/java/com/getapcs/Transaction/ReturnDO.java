@@ -73,6 +73,9 @@ public class ReturnDO extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
 	WebElement locationSelect;
 
+	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
+	WebElement projectNumberSelect;
+
 	public ReturnDO() {
 
 		PageFactory.initElements(driver, this);
@@ -137,6 +140,7 @@ public class ReturnDO extends Testbase1 {
 		// Project Number
 
 		click(driver, projectNumber);
+		click(driver, projectNumberSelect);
 
 		// Warehouse
 

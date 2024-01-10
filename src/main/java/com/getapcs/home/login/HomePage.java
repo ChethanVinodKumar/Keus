@@ -266,7 +266,7 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[@routerlink='transaction/delivery-order/table'])[1]")
 	WebElement MorVDeliveryOrder;
 
-	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
+	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[2]")
 	WebElement returnDo;
 
 	// Invoice
@@ -301,6 +301,17 @@ public class HomePage extends Testbase1 {
 
 	@FindBy(xpath = "(//a[@routerlink='transaction/create-material-return-note'])[1]")
 	WebElement createMRN;
+
+	// Open Delivery Order
+
+	@FindBy(xpath = "(//span[normalize-space()='Open Delivery Order'])[1]")
+	WebElement openDelievryOrder;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/open-delivery-order/create'])[1]")
+	WebElement createOpenDeliveryOrder;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/open-delivery-order/table'])[1]")
+	WebElement MorVOpenDeliveryOrder;
 
 	// OpenMRN
 
@@ -974,6 +985,26 @@ public class HomePage extends Testbase1 {
 
 	}
 
+	public void clickOnOpenDeliveryOrder() {
+
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, openDelievryOrder);
+		click(driver, createOpenDeliveryOrder);
+		click(driver, threeLinesSideBarIcon);
+
+	}
+
+	public void clickOnReturnOpenDeliveryOrder() {
+
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, openDelievryOrder);
+		click(driver, MorVOpenDeliveryOrder);
+		click(driver, threeLinesSideBarIcon);
+
+	}
+
 //Reports
 
 	public void clickOnInventryReportWithLocation() throws InterruptedException {
@@ -1046,4 +1077,5 @@ public class HomePage extends Testbase1 {
 		Thread.sleep(3000);
 
 	}
+
 }

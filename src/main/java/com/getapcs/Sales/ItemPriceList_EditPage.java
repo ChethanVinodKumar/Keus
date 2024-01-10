@@ -65,7 +65,7 @@ public class ItemPriceList_EditPage extends Testbase1 {
 	@FindBy(xpath = "(//input[@placeholder='Enter Least Cost Minus'])[1]")
 	WebElement leastCostMinusField;
 
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-item-price-list-form[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/label[2]/span[1]")
+	@FindBy(xpath = "(//span[@class='slider round'])[1]")
 	WebElement isDiscountApplicableToggleButton;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Discount Plus']")

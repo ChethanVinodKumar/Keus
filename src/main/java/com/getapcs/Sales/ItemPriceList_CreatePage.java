@@ -28,7 +28,7 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 	@FindBy(xpath = "//input[@placeholder='Enter Quantity']")
 	WebElement quantityTextBox;
 
-	@FindBy(xpath = "(//input[@type='text'])[4]")
+	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement uocDropDown;
 
 	@FindBy(xpath = "//span[text()='INR']")
@@ -46,10 +46,10 @@ public class ItemPriceList_CreatePage extends Testbase1 {
 	@FindBy(xpath = "(//input[@placeholder='Enter Least Cost Minus'])[1]")
 	WebElement leastCostMinusTextBox;
 
-	@FindBy(xpath = "//body[1]/app-root[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-item-price-list-form[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/label[2]/span[1]")
+	@FindBy(xpath = "(//span[@class='slider round'])[1]")
 	WebElement isDiscountApplicableToggleButton;
 
-	@FindBy(xpath = "//input[@placeholder='Enter Discount Plus']")
+	@FindBy(xpath = "(//input[@placeholder='Enter Discount Plus'])[1]")
 	WebElement discountPlusTextBox;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Discount Minus']")
