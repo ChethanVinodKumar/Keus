@@ -541,25 +541,25 @@ public class TEST_Create_MR extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 28)
-//	public void verifyMaterialRequest() throws Throwable {
-//		homePage.clickOnMaterialRequest();
-//		MaterialRequest.MRCreate("20", "10");
-//
-//		Thread.sleep(4000);
-//
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 29)
-//	public void verifyInventryReportAfterMaterialRequest() throws Throwable {
-//		homePage.clickOnInventryReportWithLocation();
-//		InventryReportAfterMaterialRequest.InventryReportPage();
-//
-//		Thread.sleep(4000);
-//
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+	@Test(priority = 28)
+	public void verifyMaterialRequest() throws Throwable {
+		homePage.clickOnMaterialRequest();
+		MaterialRequest.MRCreate("20", "10");
+
+		Thread.sleep(4000);
+
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 29)
+	public void verifyInventryReportAfterMaterialRequest() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterMaterialRequest.InventryReportPage();
+
+		Thread.sleep(4000);
+
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 
 	@Test(priority = 30)
 	public void verifyMaterialReturnNote() throws Throwable {

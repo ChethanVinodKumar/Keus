@@ -51,7 +51,7 @@ public class InventryReportAfterReturnODO extends Testbase1 {
 
 		click(driver, viewButton);
 
-		String tableXpath = "//table[@class='table mb-2']";
+		String tableXpath = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
 
 		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 
@@ -118,7 +118,7 @@ public class InventryReportAfterReturnODO extends Testbase1 {
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("After Delivery Order");
+		screenShot("After Return Open Delivery Order");
 
 		return new HomePage();
 	}

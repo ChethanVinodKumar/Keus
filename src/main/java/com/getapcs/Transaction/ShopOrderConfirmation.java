@@ -105,6 +105,7 @@ public class ShopOrderConfirmation extends Testbase1 {
 		String ProducedQTy1 = String.valueOf(ProducedQTy);
 
 		click(driver, producedQty);
+		producedQty.clear();
 		isSelected(driver, producedQty, "producedQty");
 		producedQty.sendKeys(ProducedQTy1);
 

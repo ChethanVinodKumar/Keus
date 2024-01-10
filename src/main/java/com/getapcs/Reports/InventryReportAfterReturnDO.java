@@ -52,18 +52,9 @@ public class InventryReportAfterReturnDO extends Testbase1 {
 
 		click(driver, viewButton);
 
-		String tableXpath = "//table[@class='table mb-2']";
+		String tableXpath = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
 
-		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
-
-		// Remove leading and trailing whitespaces
-		partType1 = partType1.trim();
-
-		// Remove the trailing hyphen and any characters after it
-		int hyphenIndex = partType1.indexOf(" - Test Description");
-		if (hyphenIndex != -1) {
-			partType1 = partType1.substring(0, hyphenIndex);
-		}
+		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 
 		// Store the element with hard coded PR number
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
@@ -98,7 +89,7 @@ public class InventryReportAfterReturnDO extends Testbase1 {
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("After OQCBinning");
+		screenShot("After Return Delivery Order");
 
 		return new HomePage();
 	}

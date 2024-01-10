@@ -199,7 +199,6 @@ public class Binning extends Testbase1 {
 
 			Thread.sleep(2000);
 			click(driver, projectNum);
-			projectNum.sendKeys("TISPL");
 
 			WebElement projectNumSelect = driver.findElement(By.xpath(updatedXpath2));
 

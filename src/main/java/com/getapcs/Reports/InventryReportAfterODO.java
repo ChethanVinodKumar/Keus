@@ -118,7 +118,7 @@ public class InventryReportAfterODO extends Testbase1 {
 		click(driver, filter);
 
 		Thread.sleep(4000);
-		screenShot("After Delivery Order");
+		screenShot("After Open Delivery Order");
 
 		return new HomePage();
 	}

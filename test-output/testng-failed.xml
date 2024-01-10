@@ -5,17 +5,11 @@
     <classes>
       <class name="com.keus.getapcs.testcases.TEST_Create">
         <methods>
-          <include name="verifyPurchaseOrderCreate"/>
-          <include name="verifyMaterialIssue"/>
-          <include name="verifySalesOrderCreate"/>
-          <include name="verifyPRcreate"/>
-          <include name="verifyPurchaseOrderApproval1"/>
-          <include name="verifyPR_Approval1"/>
+          <include name="verifyMaterialReturnNote"/>
+          <include name="verifyMaterialReturnNoteOpenMRN"/>
+          <include name="verifyInventryReportAfterMaterialReturnNote"/>
+          <include name="verifyInventryReportAfterMaterialRequest"/>
           <include name="setUp"/>
-          <include name="verifyPR_Approval2"/>
-          <include name="verifyPurchaseOrderApproval2"/>
-          <include name="verifyShopOrderCreate"/>
-          <include name="verifyQuoteCreate"/>
         </methods>
       </class> <!-- com.keus.getapcs.testcases.TEST_Create -->
     </classes>

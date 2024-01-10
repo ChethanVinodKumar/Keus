@@ -73,7 +73,13 @@ public class ReturnDO extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
 	WebElement locationSelect;
 
-	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BH-RD3'])[1]")
+	WebElement warehouseSelect1;
+
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BHRD3-Room1'])[1]")
+	WebElement locationSelect1;
+
+	@FindBy(xpath = "(//span[normalize-space()='190623FC-000001'])[1]")
 	WebElement projectNumberSelect;
 
 	public ReturnDO() {
@@ -83,7 +89,7 @@ public class ReturnDO extends Testbase1 {
 
 //*************Return DO Create Page******************
 
-	public HomePage ReturnDOCreate() throws InterruptedException {
+	public HomePage ReturnDOCreate(String BinningQuantity) throws InterruptedException {
 
 //Customer Name
 
@@ -137,36 +143,64 @@ public class ReturnDO extends Testbase1 {
 
 		click(driver, binning);
 
-		// Project Number
+		for (int i = 1; i <= 2; i++) {
 
-		click(driver, projectNumber);
-		click(driver, projectNumberSelect);
+			if (i == 1) {
+				// Project Number
 
-		// Warehouse
+				click(driver, projectNumber);
+				click(driver, projectNumberSelect);
 
-		click(driver, wareHouse);
+				// Warehouse
 
-		isSelected(driver, wareHouse, "warehouse");
+				click(driver, wareHouse);
 
-		click(driver, warehouseSelect);
+				isSelected(driver, wareHouse, "warehouse");
 
-		// Location
+				click(driver, warehouseSelect);
 
-		click(driver, location);
+				// Location
 
-		isSelected(driver, location, "location");
+				click(driver, location);
 
-		click(driver, locationSelect);
+				isSelected(driver, location, "location");
 
-		// Quantity
+				click(driver, locationSelect);
+			}
 
-		click(driver, quantityBinning);
+			if (i == 2) {
+				// Project Number
 
-		isSelected(driver, quantityBinning, "quantityBinning");
+				click(driver, projectNumber);
+				click(driver, projectNumberSelect);
 
-		quantityBinning.sendKeys("10");
+				// Warehouse
 
-		click(driver, add);
+				click(driver, wareHouse);
+
+				isSelected(driver, wareHouse, "warehouse");
+
+				click(driver, warehouseSelect1);
+
+				// Location
+
+				click(driver, location);
+
+				isSelected(driver, location, "location");
+
+				click(driver, locationSelect1);
+			}
+
+			// Quantity
+
+			click(driver, quantityBinning);
+
+			isSelected(driver, quantityBinning, "quantityBinning");
+
+			quantityBinning.sendKeys(BinningQuantity);
+
+			click(driver, add);
+		}
 		click(driver, save);
 
 //Remarks Field
@@ -175,7 +209,7 @@ public class ReturnDO extends Testbase1 {
 
 		isSelected(driver, remarks, "remarks");
 
-		returnBy.sendKeys("TEST remarks");
+		remarks.sendKeys("TEST remarks");
 
 //Save Button
 

@@ -339,8 +339,8 @@ public class Engg_BOM_Create_Page extends Testbase1 {
 
 		probabilityofUsageField.sendKeys(probability);
 
-		alternateitemNumberDropDown.click();
-		alternateitemNumberDropDownDataSeelect.click();
+		click(driver, alternateitemNumberDropDown);
+		alternateitemNumberDropDown.sendKeys(Keys.ENTER);
 
 //		WebElement RemarksAlternates = driver.findElement(By.xpath("//textarea[@placeholder='Enter Remarks']"));
 

@@ -6,42 +6,18 @@
   </listeners>
   <test thread-count="5" name="Test1(failed)">
     <classes>
-      <class name="com.getapcs.testcases.TEST_Create">
+      <class name="com.keus.getapcs.testcases.TEST_Create">
         <methods>
-          <include name="verifyInventryReportAfterDO"/>
-          <include name="verifySalesRFQCreate"/>
+          <include name="verifyMaterialReturnNote"/>
+          <include name="verifyMaterialReturnNoteOpenMRN"/>
+          <include name="verifyInventryReportAfterReturnInvoice"/>
+          <include name="verifyReturnInvoiceCreate"/>
+          <include name="verifyInventryReportAfterMaterialReturnNote"/>
+          <include name="verifyInventryReportAfterMaterialRequest"/>
+          <include name="verifyMaterialRequest"/>
           <include name="setUp"/>
-          <include name="verifyInventryReportAfterSOC"/>
-          <include name="verifyBinningCreate"/>
-          <include name="verifySalesOrderCreate"/>
-          <include name="verifyInventryReportAfterBinning"/>
-          <include name="verifyShopOrderConfirmation"/>
-          <include name="verifyReleaseBom"/>
-          <include name="verifyPRcreate"/>
-          <include name="verifyMaterialIssue"/>
-          <include name="verifyInventryReportAfterIQC"/>
-          <include name="verifySalesRFQCS"/>
-          <include name="verifyInventryReportAfterGRIN"/>
-          <include name="verifyGRINCreate"/>
-          <include name="verifyShopOrderCreate"/>
-          <include name="verifyDOCreate"/>
-          <include name="verifyPurchaseOrderCreate"/>
-          <include name="verifyInventryReportBeforeGrin"/>
-          <include name="verifyPR_Approval1"/>
-          <include name="verifyPurchaseOrderApproval1"/>
-          <include name="verifyQuoteCreate"/>
-          <include name="verifyIQCCreate"/>
-          <include name="verifyOQCBinning"/>
-          <include name="verifyItemMasterCreate"/>
-          <include name="verifyPurchaseOrderApproval2"/>
-          <include name="verifyPR_Approval2"/>
-          <include name="verifySalesItemPriceListCreate"/>
-          <include name="verifyBomCreate"/>
-          <include name="verifyOQC"/>
-          <include name="verifyMaterialIssueAfterPRPO"/>
-          <include name="verifyInventryReportAfterOQCBinning"/>
         </methods>
-      </class> <!-- com.getapcs.testcases.TEST_Create -->
+      </class> <!-- com.keus.getapcs.testcases.TEST_Create -->
     </classes>
   </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->
