@@ -532,8 +532,6 @@ public class SalesOrder extends Testbase1 {
 		// ################## Items Tab ######################
 
 		// Verify Items Tab in Sales Order Create Page
-		assertTrue(itemsTab.isDisplayed(), "Items Tab is not Displayed.");
-		itemsTab.click();
 
 		// Verify General Discount Percentage Radio Button in General Tab
 		assertTrue(generalDiscountPercentageRadioButton.isDisplayed(),

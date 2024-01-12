@@ -428,7 +428,7 @@ public class CompanyMaster extends Testbase1 {
 			String eml1, String addrs, String gst, String pan, String brch, String account, String ifsc, String swtch,
 			String Iban, String adv, String specialtms, String turnovr, String dnb, String icr, String headcount,
 			String skill, String people, String cacp, String floor, String machine1, String tools, String sqft1,
-			String erp2, String osp2, String approved) throws InterruptedException, AWTException {
+			String erp2, String osp2, String approved) throws Exception {
 
 		companyId.sendKeys(comId);
 		// 1Verifying that Item Number Text Field is Enabled or not
@@ -1910,32 +1910,10 @@ public class CompanyMaster extends Testbase1 {
 
 		// Verifing that do we able to upload files or not.
 		WebElement UploadFiles = driver.findElement(By.xpath("(//input[@placeholder='Upload file'])[1]"));
-		JavascriptExecutor executor1 = (JavascriptExecutor) driver;
-		executor1.executeScript("arguments[0].click();", UploadFiles);
-		Robot robot = new Robot();
-		robot.delay(2000);
-		StringSelection stringSelection = new StringSelection(
-				"C:\\Users\\W2191\\eclipse-workspace\\Getapcs2\\src\\test\\java\\com\\testcases\\master1\\AALoginFunctionality.java");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-
-		// Press Enter to open the file dialog
-
-		robot.delay(2000);
-
-		// Press Ctrl+V to paste the file path
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.delay(2000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.delay(2000);
-		// Press Enter to confirm the file selection
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		uploadFile(driver, UploadFiles, 2);
 
 		WebElement SaveButton = driver.findElement(By.xpath("//button[normalize-space()='Save']"));
-		// SaveButton.sendKeys(Keys.ENTER);
+		SaveButton.sendKeys(Keys.ENTER);
 
 		return new HomePage();
 	}

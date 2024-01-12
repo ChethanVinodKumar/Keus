@@ -171,6 +171,15 @@ public class Purchase_Order extends Testbase1 {
 	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
 	WebElement UploadFiles1;
 
+	@FindBy(xpath = "(//i[@class='mdi mdi-plus-circle-outline add-icon'])[1]")
+	WebElement prNumberButton;
+
+	@FindBy(xpath = "(//input[@value='m1'])[1]")
+	WebElement prNumberSelect;
+
+	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Save'])[1]")
+	WebElement saveButtonPR;
+
 //PO Approval 1
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
@@ -372,6 +381,10 @@ public class Purchase_Order extends Testbase1 {
 
 		assertEquals(displayedTextInquntity, expected_placeholderquntity);
 		quntity.sendKeys(quantity);
+
+		click(driver, prNumberButton);
+		click(driver, prNumberSelect);
+		click(driver, saveButtonPR);
 
 		js.executeScript("arguments[0].click()", addProject);
 
