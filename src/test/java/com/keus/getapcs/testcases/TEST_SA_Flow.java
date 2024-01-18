@@ -17,12 +17,37 @@ import com.getapcs.Engineering.Engg_BOM_Create_Page_FOR_SA_2;
 import com.getapcs.Engineering.Item_Master_Create_Page;
 import com.getapcs.Engineering.Item_Master_Create_Page1;
 import com.getapcs.Engineering.Item_Master_Create_Page_SA;
+import com.getapcs.InventryReports.SAFlow.InventryReportAfterBinning;
+import com.getapcs.InventryReports.SAFlow.InventryReportAfterGrin;
+import com.getapcs.InventryReports.SAFlow.InventryReportAfterIQCConfirmation;
+import com.getapcs.InventryReports.SAFlow.InventryReportBeforGrin;
+import com.getapcs.Keus.TransactionSAFlow.Binning;
+import com.getapcs.Keus.TransactionSAFlow.Binning_SA_FG;
+import com.getapcs.Keus.TransactionSAFlow.Grin_Create;
+import com.getapcs.Keus.TransactionSAFlow.IQCConfirmation;
+import com.getapcs.Keus.TransactionSAFlow.MaterialIssueFG;
+import com.getapcs.Keus.TransactionSAFlow.MaterialIssueSA1;
+import com.getapcs.Keus.TransactionSAFlow.MaterialIssueSA2;
+import com.getapcs.Keus.TransactionSAFlow.OQCBinningFG;
+import com.getapcs.Keus.TransactionSAFlow.OQCBinningSA1;
+import com.getapcs.Keus.TransactionSAFlow.OQCBinningSA2;
+import com.getapcs.Keus.TransactionSAFlow.OQCFG;
+import com.getapcs.Keus.TransactionSAFlow.OQCSA1;
+import com.getapcs.Keus.TransactionSAFlow.OQCSA2;
+import com.getapcs.Keus.TransactionSAFlow.Purchase_Requisation_FG;
+import com.getapcs.Keus.TransactionSAFlow.Purchase_Requisation_SA1;
+import com.getapcs.Keus.TransactionSAFlow.Purchase_Requisation_SA2;
+import com.getapcs.Keus.TransactionSAFlow.ShopOrderConfirmationFG;
+import com.getapcs.Keus.TransactionSAFlow.ShopOrderConfirmationSA1;
+import com.getapcs.Keus.TransactionSAFlow.ShopOrderConfirmationSA2;
 import com.getapcs.Sales.ItemPriceList_CreatePage;
 import com.getapcs.Sales.QuoteCreatePage;
 import com.getapcs.Sales.RFQ_CreatePage;
 import com.getapcs.Sales.RFQ_ReleaseCS;
 import com.getapcs.SecondaryMaster.Price_List;
 import com.getapcs.Transaction.MaterialIssue;
+import com.getapcs.Transaction.PRApproval1;
+import com.getapcs.Transaction.PRApproval2;
 import com.getapcs.Transaction.Purchase_Order;
 import com.getapcs.Transaction.Purchase_Order_FG;
 import com.getapcs.Transaction.Purchase_Order_SA1;
@@ -39,17 +64,17 @@ import com.getapcs.home.login.LoginPage;
 
 public class TEST_SA_Flow extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 1";
-	public final static String fgNo = "91";
+	public final static String priceList = "TEST PriceList 0101";
+	public final static String fgNo = "00101";
 	public final static String fg = "FG-" + fgNo;
-	public final static String pp1 = "PP-113";
-	public final static String pp2 = "PP-114";
-	public final static String pp3 = "PP-115";
-	public final static String pp4 = "PP-116";
-	public final static String pp5 = "PP-117";
-	public final static String pp6 = "PP-118";
-	public final static String sa1 = "SA-17";
-	public final static String sa2 = "SA-18";
+	public final static String pp1 = "PP-0101";
+	public final static String pp2 = "PP-0102";
+	public final static String pp3 = "PP-0103";
+	public final static String pp4 = "PP-0104";
+	public final static String pp5 = "PP-0105";
+	public final static String pp6 = "PP-0106";
+	public final static String sa1 = "SA-0101";
+	public final static String sa2 = "SA-0102";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -82,44 +107,37 @@ public class TEST_SA_Flow extends Testbase1 {
 	ShopOrder_For_FG ShopOrderFG;
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
-//	PRApproval1 PRApproval1;
-//	PRApproval2 PRApproval2;'
+
+	Purchase_Requisation_SA2 Purchase_Requisation_SA2;
+	Purchase_Requisation_SA1 Purchase_Requisation_SA1;
+	Purchase_Requisation_FG Purchase_Requisation_FG;
+	PRApproval1 PRApproval1;
+	PRApproval2 PRApproval2;
 	Purchase_Order_SA2 Purchase_Order_SA2;
 	Purchase_Order_SA1 Purchase_Order_SA1;
 	Purchase_Order_FG Purchase_Order_FG;
 	Purchase_Order Purchase_Order;
-//	openGrin openGrin;
-//	Grin Grin;
-//	IQCConfirmation IQCConfirmation;
-//	Binning Binning;
-//	ShopOrderConfirmation ShopOrderConfirmation;
-//	InventryReportAfterSOC InventryReportAfterSOC;
-//	OQC OQC;
-//	OQCBinning OQCBinning;
-//	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
-//	DeliveryOrder DeliveryOrder;
-//	InventryReportAfterDO InventryReportAfterDO;
-//	ReturnDO ReturnDO;
-//	MaterialRequest MaterialRequest;
-//	Material_ReturnNote Material_ReturnNote;
-//
-//	InventryReportBeforeOpenGrin InventryReportBeforeOpenGrin;
-//	InventryReportAfterOpenGrin InventryReportAfterOpenGrin;
-//	InventryReportAfterGrin InventryReportAfterGrin;
-//	InventryReportAfterIQCConfirmation InventryReportAfterIQCConfirmation;
-//	InventryReportAfterBinning InventryReportAfterBinning;
-//
-//	Item_Master_Edit_Page itemMasterEditPage;
-//	Engg_BOM_Edit_Page enggBomEditPage;
-//	ItemPriceList_EditPage PriceList_EditPage;
-//	RFQ_EditPage rfq_EditPage;
-//	QuoteEditPage quoteEditPage;
-//
-//	VerifySalesOrderEditPage salesOrderEdit;
-//	VerifyPR_EditPage VerifyPR_EditPage;
-//	Purchase_Order_Edit Purchase_Order_Edit;
-//	ShopOrder ShopOrder;
-//	VerifyInvoiceCreate VerifyInvoiceCreate;
+	Grin_Create Grin_Create;
+	IQCConfirmation IQCConfirmation;
+	Binning Binning;
+	Binning_SA_FG Binning_SA_FG;
+	MaterialIssueSA1 MaterialIssueSA1;
+	MaterialIssueSA2 MaterialIssueSA2;
+	MaterialIssueFG MaterialIssueFG;
+	ShopOrderConfirmationSA2 ShopOrderConfirmationSA2;
+	ShopOrderConfirmationSA1 ShopOrderConfirmationSA1;
+	ShopOrderConfirmationFG ShopOrderConfirmationFG;
+	OQCSA2 OQCSA2;
+	OQCBinningSA2 OQCBinningSA2;
+	OQCSA1 OQCSA1;
+	OQCBinningSA1 OQCBinningSA1;
+	OQCFG OQCFG;
+	OQCBinningFG OQCBinningFG;
+
+	InventryReportBeforGrin InventryReportBeforGrin;
+	InventryReportAfterGrin InventryReportAfterGrin;
+	InventryReportAfterIQCConfirmation InventryReportAfterIQCConfirmation;
+	InventryReportAfterBinning InventryReportAfterBinning;
 
 	public TEST_SA_Flow() {
 		super();
@@ -130,6 +148,7 @@ public class TEST_SA_Flow extends Testbase1 {
 		initialization();
 		loginPage = new LoginPage();
 		homePage = loginPage.login("admin@mail.com", "user@123");
+		Price_List = new Price_List();
 		itemMasterCreatePageFG = new Item_Master_Create_Page();
 		itemMasterCreatePagePP = new Item_Master_Create_Page1();
 		itemMasterCreatePageSA = new Item_Master_Create_Page_SA();
@@ -165,54 +184,46 @@ public class TEST_SA_Flow extends Testbase1 {
 		MaterialIssue = new MaterialIssue();
 		Purchase_Order = new Purchase_Order();
 		Purchase_Requisation = new Purchase_Requisation();
-//		PRApproval1 = new PRApproval1();
-//		PRApproval2 = new PRApproval2();
+
+		Purchase_Requisation_SA2 = new Purchase_Requisation_SA2();
+		Purchase_Requisation_SA1 = new Purchase_Requisation_SA1();
+		Purchase_Requisation_FG = new Purchase_Requisation_FG();
+		PRApproval1 = new PRApproval1();
+		PRApproval2 = new PRApproval2();
 		Purchase_Order_SA2 = new Purchase_Order_SA2();
 		Purchase_Order_SA1 = new Purchase_Order_SA1();
 		Purchase_Order_FG = new Purchase_Order_FG();
-//		openGrin = new openGrin();
-//		Grin = new Grin();
-//		IQCConfirmation = new IQCConfirmation();
-//		Binning = new Binning();
-//		ShopOrderConfirmation = new ShopOrderConfirmation();
-//		InventryReportAfterSOC = new InventryReportAfterSOC();
-//		OQC = new OQC();
-//		OQCBinning = new OQCBinning();
-//		InventryReportAfterOQCBinning = new InventryReportAfterOQCBinning();
-//		DeliveryOrder = new DeliveryOrder();
-//		InventryReportAfterDO = new InventryReportAfterDO();
-//		ReturnDO = new ReturnDO();
-//		Price_List = new Price_List();
-//		MaterialRequest = new MaterialRequest();
-//		Material_ReturnNote = new Material_ReturnNote();
-//
-//		InventryReportBeforeOpenGrin = new InventryReportBeforeOpenGrin();
-//		InventryReportAfterOpenGrin = new InventryReportAfterOpenGrin();
-//		InventryReportAfterGrin = new InventryReportAfterGrin();
-//		InventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
-//		InventryReportAfterBinning = new InventryReportAfterBinning();
-//
-//		itemMasterEditPage = new Item_Master_Edit_Page();
-//		enggBomEditPage = new Engg_BOM_Edit_Page();
-//		PriceList_EditPage = new ItemPriceList_EditPage();
-//		quoteEditPage = new QuoteEditPage();
-//		rfq_EditPage = new RFQ_EditPage();
-//		quoteEditPage = new QuoteEditPage();
-//		salesOrderEdit = new VerifySalesOrderEditPage();
-//		VerifyPR_EditPage = new VerifyPR_EditPage();
-//		Purchase_Order_Edit = new Purchase_Order_Edit();
-//		ShopOrder = new ShopOrder();
-//		VerifyInvoiceCreate = new VerifyInvoiceCreate();
+		Grin_Create = new Grin_Create();
+		IQCConfirmation = new IQCConfirmation();
+		Binning = new Binning();
+		Binning_SA_FG = new Binning_SA_FG();
+		MaterialIssueSA1 = new MaterialIssueSA1();
+		MaterialIssueSA2 = new MaterialIssueSA2();
+		MaterialIssueFG = new MaterialIssueFG();
+		ShopOrderConfirmationSA2 = new ShopOrderConfirmationSA2();
+		ShopOrderConfirmationSA1 = new ShopOrderConfirmationSA1();
+		ShopOrderConfirmationFG = new ShopOrderConfirmationFG();
+		OQCSA2 = new OQCSA2();
+		OQCBinningSA2 = new OQCBinningSA2();
+		OQCSA1 = new OQCSA1();
+		OQCBinningSA1 = new OQCBinningSA1();
+		OQCFG = new OQCFG();
+		OQCBinningFG = new OQCBinningFG();
+
+		InventryReportBeforGrin = new InventryReportBeforGrin();
+		InventryReportAfterGrin = new InventryReportAfterGrin();
+		InventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
+		InventryReportAfterBinning = new InventryReportAfterBinning();
 	}
 
-//	@Test(priority = 1)
-//	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
-//		Thread.sleep(4000);
-//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+	@Test(priority = 1)
+	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
+		Thread.sleep(4000);
+		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 
 	@Test(priority = 2)
 	public void verifyItemMasterCreateforSA() throws Throwable {
@@ -304,8 +315,8 @@ public class TEST_SA_Flow extends Testbase1 {
 	public void verifyBomCreateforSA2() throws Throwable {
 
 		homePage.clickOnBomCreatePage();
-		enggBomCreatePageForSA2.bomCreate("9", // Quantity
-				"50", // scarpAllowance
+		enggBomCreatePageForSA2.bomCreate("10", // Quantity
+				"10", // scarpAllowance
 				"TestRemark", // Remark
 				"1", // Version
 				"10", // quantityPer
@@ -317,8 +328,8 @@ public class TEST_SA_Flow extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 		homePage.clickOnBomCreatePage();
-		enggBomCreatePageForSA1.bomCreate("8", // Quantity
-				"50", // scarpAllowance
+		enggBomCreatePageForSA1.bomCreate("10", // Quantity
+				"10", // scarpAllowance
 				"TestRemark", // Remark
 				"1", // Version
 				"10", // quantityPer
@@ -330,8 +341,8 @@ public class TEST_SA_Flow extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 		homePage.clickOnBomCreatePage();
-		enggBomCreatePageForFG.bomCreate("7", // Quantity
-				"50", // scarpAllowance
+		enggBomCreatePageForFG.bomCreate("10", // Quantity
+				"10", // scarpAllowance
 				"TestRemark", // Remark
 				"1", // Version
 				"10", // quantityPer
@@ -367,7 +378,7 @@ public class TEST_SA_Flow extends Testbase1 {
 
 		// Purchase Order Create Page
 		homePage.clickonTransactionPriceListCreate();
-		priceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
+		priceList_CreatePage.ItemPriceListCreate("10", "10", "10", "10", "10", "10");
 
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
@@ -401,8 +412,8 @@ public class TEST_SA_Flow extends Testbase1 {
 
 		// Purchase Order Create Page
 
-		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
-				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
+		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
+				"8", "8", "10", "7", "7", "6", "7", "TEST Special Terms");
 
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
@@ -460,12 +471,12 @@ public class TEST_SA_Flow extends Testbase1 {
 	public void verifyShopOrderCreate() throws Throwable {
 
 		homePage.clickOnTransactionShopOrderCreate();
-		ShopOrderSA2.ShopOrderCreate();
+		ShopOrderSA.ShopOrderCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 		homePage.clickOnTransactionShopOrderCreate();
-		ShopOrderSA.ShopOrderCreate();
+		ShopOrderSA2.ShopOrderCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
@@ -475,10 +486,63 @@ public class TEST_SA_Flow extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 10)
-	public void verifyPOCreate() throws Throwable {
+	@Test(priority = 11)
+	public void verifyPRcreate$Approvals_1_2() throws Throwable {
+		homePage.clickOnPRCreatePage();
+		Purchase_Requisation_SA2.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// ##############################################################################
 
 		homePage.clickOnPRCreatePage();
+		Purchase_Requisation_SA1.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// ############################################################################
+
+		homePage.clickOnPRCreatePage();
+		Purchase_Requisation_FG.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 12)
+	public void verifyPOCreate() throws Throwable {
+
+		homePage.clickontransactionPOcreate();
 		Purchase_Order_SA2.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
@@ -496,7 +560,7 @@ public class TEST_SA_Flow extends Testbase1 {
 		Purchase_Order.purchaseOrderApproval2();
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
-		homePage.clickOnPRCreatePage();
+		homePage.clickontransactionPOcreate();
 		Purchase_Order_SA1.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
@@ -514,7 +578,7 @@ public class TEST_SA_Flow extends Testbase1 {
 		Purchase_Order.purchaseOrderApproval2();
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
-		homePage.clickOnPRCreatePage();
+		homePage.clickontransactionPOcreate();
 		Purchase_Order_FG.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
@@ -532,6 +596,196 @@ public class TEST_SA_Flow extends Testbase1 {
 		Purchase_Order.purchaseOrderApproval2();
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
+	}
+
+	@Test(priority = 13)
+	public void verifyInventryReportBeforeGrin() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportBeforGrin.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 14)
+	public void verifyGRINCreate() throws Throwable {
+		homePage.clickOnGRINCreate();
+		Grin_Create.grinCreatePage("TEST-IN-1122", // invoiceNo
+				"10", // invoiceGST
+				"10", // totalInvoice
+				"7687769", // mftrBatchNo
+				"10", // unitPrice
+
+				"9", // sgst
+				"9", // cgst
+				"9", // igst
+				"9", // utgst
+				"AWB-1-5657", // awbNo1
+				"AWB-2-5657", // awbNo2
+				"BE-557", // beNo
+				"80", // beCurrencyValue
+				"10", // freight
+				"10", // insurance
+				"10", // loadingOrUnloading
+				"80", // currencyConversion
+				"10", // transport
+				"test charge");// otherChargesValue
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 15)
+	public void verifyInventryReportAfterGrin() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterGrin.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 16)
+	public void verifyIQCCreate() throws Throwable {
+		homePage.clickOnIQCConfirmationCreate();
+		IQCConfirmation.iqcConfirmationCreatePage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 17)
+	public void verifyInventryReportAfterIQC() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterIQCConfirmation.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 18)
+	public void verifyBinningCreate() throws Throwable {
+		homePage.clickOnBinningCreate();
+		Binning_SA_FG.BinningCreatePage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 19)
+	public void verifyInventryReportAfterBinning() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterBinning.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 20)
+	public void verifyMaterialIssueSA2() throws Throwable {
+
+		homePage.clickOnTransactionMaterialIssue();
+		MaterialIssueSA2.MaterialIssuePage();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 21)
+	public void verifySOCSA2() throws Throwable {
+
+		homePage.clickOnShopOrderConfirmationCreate();
+		ShopOrderConfirmationSA2.ShopOrderConfirmationCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 22)
+	public void verifyOQCSA2() throws Throwable {
+
+		homePage.clickOnOQCCreate();
+		OQCSA2.OQCCreate();// Accepted Quantity
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 23)
+	public void verifyOQCBinningSA2() throws Throwable {
+
+		homePage.clickOnOQCBinningCreate();
+		OQCBinningSA2.OQCBinningCreate();// Accepted Quantity
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 24)
+	public void verifyMaterialIssueSA1() throws Throwable {
+
+		homePage.clickOnTransactionMaterialIssue();
+		MaterialIssueSA1.MaterialIssuePage();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 25)
+	public void verifySOCSA1() throws Throwable {
+
+		homePage.clickOnShopOrderConfirmationCreate();
+		ShopOrderConfirmationSA1.ShopOrderConfirmationCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 26)
+	public void verifyOQCSA1() throws Throwable {
+
+		homePage.clickOnOQCCreate();
+		OQCSA1.OQCCreate();// Accepted Quantity
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 27)
+	public void verifyOQCBinningSA1() throws Throwable {
+
+		homePage.clickOnOQCBinningCreate();
+		OQCBinningSA1.OQCBinningCreate();// Accepted Quantity
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 28)
+	public void verifyMaterialIssueFG() throws Throwable {
+
+		homePage.clickOnTransactionMaterialIssue();
+		MaterialIssueFG.MaterialIssuePage();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 29)
+	public void verifySOFG() throws Throwable {
+
+		homePage.clickOnShopOrderConfirmationCreate();
+		ShopOrderConfirmationFG.ShopOrderConfirmationCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 30)
+	public void verifyOQCFG() throws Throwable {
+
+		homePage.clickOnOQCCreate();
+		OQCFG.OQCCreate();// Accepted Quantity
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 31)
+	public void verifyOQCBinningFG() throws Throwable {
+
+		homePage.clickOnOQCBinningCreate();
+		OQCBinningFG.OQCBinningCreate();// Accepted Quantity
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
 
 	@AfterTest

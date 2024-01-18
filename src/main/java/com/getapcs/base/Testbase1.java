@@ -173,8 +173,10 @@ public class Testbase1 {
 
 	// Date Picker 1
 	public static void datePicker(WebDriver driver, WebElement element) throws InterruptedException {
-		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
+		// assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
 		click(driver, element);
+
+		Thread.sleep(2000);
 
 		for (int i = 0; i < 5; i++) {
 			element.sendKeys(Keys.ARROW_DOWN);

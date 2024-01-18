@@ -413,7 +413,7 @@ public class Item_Master_Create_Page1 extends Testbase1 {
 		String generalDescriptionExpectedText = "General Description";
 		assertEquals(generalDescriptionactualText, generalDescriptionExpectedText);
 
-		typeDropDown.click();
+		click(driver, typeDropDown);
 		js.executeScript("arguments[0].click();", typeDropDownSelectData1);
 
 		commodity.sendKeys(Keys.ENTER);
@@ -649,7 +649,7 @@ public class Item_Master_Create_Page1 extends Testbase1 {
 
 		footPrintField.sendKeys(footPrint);
 
-		uOMDropdown1.click();
+		click(driver, uOMDropdown1);
 		uOMDropdown1SelectData.click();
 
 		uOMDropdown2.click();

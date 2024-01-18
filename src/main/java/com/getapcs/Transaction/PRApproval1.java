@@ -163,7 +163,7 @@ public class PRApproval1 extends Testbase1 {
 //		WebElement itemTab = driver.findElement(By.linkText("Items"));
 		boolean itemTabIsDisplayed = itemsTab.isDisplayed();
 		assertTrue(itemTabIsDisplayed, "item Tab is not Displayed.");
-		itemsTab.click();
+		click(driver, itemsTab);
 
 		System.out.println("########## Items Tab ############" + "\n" + "\n");
 //	    

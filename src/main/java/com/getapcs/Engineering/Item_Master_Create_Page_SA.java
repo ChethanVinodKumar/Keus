@@ -676,7 +676,7 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 
 		footPrintField.sendKeys(footPrint);
 
-		uOMDropdown1.click();
+		click(driver, uOMDropdown1);
 		uOMDropdown1SelectData.click();
 
 		uOMDropdown2.click();

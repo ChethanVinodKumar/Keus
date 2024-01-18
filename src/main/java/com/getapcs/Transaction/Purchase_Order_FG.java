@@ -192,7 +192,7 @@ public class Purchase_Order_FG extends Testbase1 {
 
 		String tableXpath = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
 
-		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
+		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[3]")).getText();
 
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -201,7 +201,13 @@ public class Purchase_Order_FG extends Testbase1 {
 
 		String tableXpath1 = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
 
-		String ItemNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
+		String ItemNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[3]")).getText();
+
+		String reqQty1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[7]")).getText();
+
+		int reqQty2 = Integer.parseInt(reqQty1) + 500;
+
+		String reqQty = String.valueOf(reqQty2);
 
 		String elementXpath1 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -365,7 +371,7 @@ public class Purchase_Order_FG extends Testbase1 {
 			String expected_placeholderquntity = "Enter Quantity";
 
 			assertEquals(displayedTextInquntity, expected_placeholderquntity);
-			quntity.sendKeys(quantity);
+			quntity.sendKeys(reqQty);
 
 			if (i == 1) {
 				js.executeScript("arguments[0].click()", addProject);
@@ -404,7 +410,7 @@ public class Purchase_Order_FG extends Testbase1 {
 
 			assertEquals(displayedTextInprojectQuntity, expected_placeholderprojectQuntity);
 
-			projectQuntity.sendKeys(projectQty);
+			projectQuntity.sendKeys(reqQty);
 
 			js.executeScript("arguments[0].click()", addProjectNumber);
 
@@ -434,7 +440,7 @@ public class Purchase_Order_FG extends Testbase1 {
 
 			assertEquals(displayedTextIndeliverySheduleQuntity, expected_placeholderdeliverySheduleQuntity);
 
-			deliverySheduleQuntity.sendKeys(deliveryProjectQty);
+			deliverySheduleQuntity.sendKeys(reqQty);
 
 			js.executeScript("arguments[0].click()", addDeliveryShedule);
 
@@ -686,7 +692,7 @@ public class Purchase_Order_FG extends Testbase1 {
 
 		uploadFile(driver, UploadFiles1, 2);
 
-		// click(driver, save);
+		click(driver, save);
 		Thread.sleep(4000);
 		return new HomePage();
 

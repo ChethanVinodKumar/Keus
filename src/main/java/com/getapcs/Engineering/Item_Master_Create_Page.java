@@ -506,8 +506,8 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 		// Verifying the Placeholder which is present in Description text field.
 
-		defaultToggleButton.click();
-		defaultToggleButton.click();
+//		defaultToggleButton.click();
+//		defaultToggleButton.click();
 
 		// Verifying that Add button is Enabled or not
 

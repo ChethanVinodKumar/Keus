@@ -87,12 +87,12 @@ public class InventryReportAfterDO extends Testbase1 {
 
 		click(driver, partType);
 
-		click(driver, searchPartType);
-		searchPartType.sendKeys(partType1);
-
-		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath));
-
-		click(driver, partTypeSelect);
+//		click(driver, searchPartType);
+//		searchPartType.sendKeys(partType1);
+//
+//		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath));
+//
+//		click(driver, partTypeSelect);
 
 		click(driver, searchPartType);
 		searchPartType.clear();

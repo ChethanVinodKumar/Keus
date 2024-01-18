@@ -1,193 +1,297 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="44" passed="44" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="3" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-12T12:57:36 IST" name="Suite" finished-at="2024-01-12T13:17:03 IST" duration-ms="1167351">
+  <suite started-at="2024-01-18T11:17:51 IST" name="Default suite" finished-at="2024-01-18T11:19:23 IST" duration-ms="92560">
     <groups>
     </groups>
-    <test started-at="2024-01-12T12:57:36 IST" name="Test1" finished-at="2024-01-12T13:17:03 IST" duration-ms="1167351">
+    <test started-at="2024-01-18T11:17:51 IST" name="Default test" finished-at="2024-01-18T11:19:23 IST" duration-ms="92560">
       <class name="com.keus.getapcs.testcases.TEST_Create">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T12:57:36 IST" name="setUp" finished-at="2024-01-12T12:57:48 IST" duration-ms="12092" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.keus.getapcs.testcases.TEST_Create@53812a9b]" started-at="2024-01-18T11:17:51 IST" name="setUp" finished-at="2024-01-18T11:18:02 IST" duration-ms="11153" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyPrice_ListCreate()[pri:1, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T12:57:48 IST" name="verifyPrice_ListCreate" finished-at="2024-01-12T12:58:00 IST" duration-ms="11772" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPrice_ListCreate -->
-        <test-method signature="verifyItemMasterCreate()[pri:2, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T12:58:00 IST" name="verifyItemMasterCreate" finished-at="2024-01-12T12:59:03 IST" duration-ms="63360" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyItemMasterCreate -->
-        <test-method signature="verifyBomCreate()[pri:3, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T12:59:03 IST" name="verifyBomCreate" finished-at="2024-01-12T12:59:35 IST" duration-ms="32007" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyBomCreate -->
-        <test-method signature="verifyReleaseBom()[pri:4, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T12:59:35 IST" name="verifyReleaseBom" finished-at="2024-01-12T13:00:36 IST" duration-ms="61075" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyReleaseBom -->
-        <test-method signature="verifySalesItemPriceListCreate()[pri:5, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:00:36 IST" name="verifySalesItemPriceListCreate" finished-at="2024-01-12T13:00:59 IST" duration-ms="22467" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesItemPriceListCreate -->
-        <test-method signature="verifySalesRFQCreate()[pri:6, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:00:59 IST" name="verifySalesRFQCreate" finished-at="2024-01-12T13:01:28 IST" duration-ms="28984" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesRFQCreate -->
-        <test-method signature="verifySalesRFQCS()[pri:7, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:01:28 IST" name="verifySalesRFQCS" finished-at="2024-01-12T13:01:45 IST" duration-ms="16838" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesRFQCS -->
-        <test-method signature="verifyQuoteCreate()[pri:8, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:01:45 IST" name="verifyQuoteCreate" finished-at="2024-01-12T13:02:02 IST" duration-ms="17294" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyQuoteCreate -->
-        <test-method signature="verifySalesOrderCreate()[pri:9, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:02:02 IST" name="verifySalesOrderCreate" finished-at="2024-01-12T13:02:25 IST" duration-ms="23621" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesOrderCreate -->
-        <test-method signature="verifyShopOrderCreate()[pri:10, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:02:25 IST" name="verifyShopOrderCreate" finished-at="2024-01-12T13:02:57 IST" duration-ms="31990" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyShopOrderCreate -->
-        <test-method signature="verifyMaterialIssue()[pri:11, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:02:57 IST" name="verifyMaterialIssue" finished-at="2024-01-12T13:03:16 IST" duration-ms="18779" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyMaterialIssue -->
-        <test-method signature="verifyPRcreate()[pri:12, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:03:16 IST" name="verifyPRcreate" finished-at="2024-01-12T13:04:06 IST" duration-ms="49404" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPRcreate -->
-        <test-method signature="verifyPR_Approval1()[pri:13, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:04:06 IST" name="verifyPR_Approval1" finished-at="2024-01-12T13:04:38 IST" duration-ms="32266" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPR_Approval1 -->
-        <test-method signature="verifyPR_Approval2()[pri:14, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:04:38 IST" name="verifyPR_Approval2" finished-at="2024-01-12T13:05:10 IST" duration-ms="31999" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPR_Approval2 -->
-        <test-method signature="verifyPurchaseOrderCreate()[pri:15, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:05:10 IST" name="verifyPurchaseOrderCreate" finished-at="2024-01-12T13:05:32 IST" duration-ms="22368" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPurchaseOrderCreate -->
-        <test-method signature="verifyPurchaseOrderApproval1()[pri:16, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:05:32 IST" name="verifyPurchaseOrderApproval1" finished-at="2024-01-12T13:06:09 IST" duration-ms="36387" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPurchaseOrderApproval1 -->
-        <test-method signature="verifyPurchaseOrderApproval2()[pri:17, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:06:09 IST" name="verifyPurchaseOrderApproval2" finished-at="2024-01-12T13:06:28 IST" duration-ms="19420" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPurchaseOrderApproval2 -->
-        <test-method signature="verifyInventryReportBeforeGrin()[pri:18, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:06:28 IST" name="verifyInventryReportBeforeGrin" finished-at="2024-01-12T13:06:50 IST" duration-ms="22190" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportBeforeGrin -->
-        <test-method signature="verifyGRINCreate()[pri:21, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:06:50 IST" name="verifyGRINCreate" finished-at="2024-01-12T13:07:37 IST" duration-ms="46403" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyGRINCreate -->
-        <test-method signature="verifyInventryReportAfterGRIN()[pri:22, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:07:37 IST" name="verifyInventryReportAfterGRIN" finished-at="2024-01-12T13:08:00 IST" duration-ms="23677" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterGRIN -->
-        <test-method signature="verifyIQCCreate()[pri:23, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:08:00 IST" name="verifyIQCCreate" finished-at="2024-01-12T13:08:26 IST" duration-ms="25963" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyIQCCreate -->
-        <test-method signature="verifyInventryReportAfterIQC()[pri:24, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:08:26 IST" name="verifyInventryReportAfterIQC" finished-at="2024-01-12T13:08:50 IST" duration-ms="23954" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterIQC -->
-        <test-method signature="verifyBinningCreate()[pri:25, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:08:50 IST" name="verifyBinningCreate" finished-at="2024-01-12T13:09:29 IST" duration-ms="38381" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyBinningCreate -->
-        <test-method signature="verifyInventryReportAfterBinning()[pri:26, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:09:29 IST" name="verifyInventryReportAfterBinning" finished-at="2024-01-12T13:09:50 IST" duration-ms="21651" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterBinning -->
-        <test-method signature="verifyMaterialIssueAfterPRPO()[pri:27, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:09:50 IST" name="verifyMaterialIssueAfterPRPO" finished-at="2024-01-12T13:10:09 IST" duration-ms="18955" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyMaterialIssueAfterPRPO -->
-        <test-method signature="verifyInventryReportAfterMI()[pri:28, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:10:09 IST" name="verifyInventryReportAfterMI" finished-at="2024-01-12T13:10:31 IST" duration-ms="22052" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterMI -->
-        <test-method signature="verifyShopOrderConfirmation()[pri:29, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:10:31 IST" name="verifyShopOrderConfirmation" finished-at="2024-01-12T13:10:45 IST" duration-ms="13433" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyShopOrderConfirmation -->
-        <test-method signature="verifyOQC()[pri:30, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:10:45 IST" name="verifyOQC" finished-at="2024-01-12T13:10:57 IST" duration-ms="12699" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyOQC -->
-        <test-method signature="verifyOQCBinning()[pri:31, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:10:57 IST" name="verifyOQCBinning" finished-at="2024-01-12T13:11:13 IST" duration-ms="15963" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyOQCBinning -->
-        <test-method signature="verifyInventryReportAfterOQCBinning()[pri:32, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:11:13 IST" name="verifyInventryReportAfterOQCBinning" finished-at="2024-01-12T13:11:36 IST" duration-ms="22970" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterOQCBinning -->
-        <test-method signature="verifyDOCreate()[pri:33, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:11:36 IST" name="verifyDOCreate" finished-at="2024-01-12T13:11:57 IST" duration-ms="20177" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDOCreate -->
-        <test-method signature="verifyInventryReportAfterDO()[pri:34, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:11:57 IST" name="verifyInventryReportAfterDO" finished-at="2024-01-12T13:12:18 IST" duration-ms="21233" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterDO -->
-        <test-method signature="verifyODOCreate()[pri:37, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:12:18 IST" name="verifyODOCreate" finished-at="2024-01-12T13:12:50 IST" duration-ms="32266" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyODOCreate -->
-        <test-method signature="verifyInventryReportAfterODO()[pri:38, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:12:50 IST" name="verifyInventryReportAfterODO" finished-at="2024-01-12T13:13:13 IST" duration-ms="22646" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterODO -->
-        <test-method signature="verifyReturnODO()[pri:39, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:13:13 IST" name="verifyReturnODO" finished-at="2024-01-12T13:13:35 IST" duration-ms="21891" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyReturnODO -->
-        <test-method signature="verifyInventryReportAfterReturnODO()[pri:40, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:13:35 IST" name="verifyInventryReportAfterReturnODO" finished-at="2024-01-12T13:13:58 IST" duration-ms="23304" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterReturnODO -->
-        <test-method signature="verifyInvoiceCreate()[pri:43, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:13:58 IST" name="verifyInvoiceCreate" finished-at="2024-01-12T13:14:23 IST" duration-ms="25461" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInvoiceCreate -->
-        <test-method signature="verifyReturnInvoiceCreate()[pri:44, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:14:23 IST" name="verifyReturnInvoiceCreate" finished-at="2024-01-12T13:14:42 IST" duration-ms="18869" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyReturnInvoiceCreate -->
-        <test-method signature="verifyInventryReportAfterReturnInvoice()[pri:45, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:14:42 IST" name="verifyInventryReportAfterReturnInvoice" finished-at="2024-01-12T13:15:04 IST" duration-ms="21417" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInventryReportAfterReturnInvoice -->
-        <test-method signature="verifyMaterialRequest()[pri:46, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:15:04 IST" name="verifyMaterialRequest" finished-at="2024-01-12T13:15:34 IST" duration-ms="29837" status="PASS">
+        <test-method signature="verifyMaterialRequest()[pri:46, instance:com.keus.getapcs.testcases.TEST_Create@53812a9b]" started-at="2024-01-18T11:18:02 IST" name="verifyMaterialRequest" finished-at="2024-01-18T11:18:34 IST" duration-ms="31986" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyMaterialRequest -->
-        <test-method signature="verifyInventryReportAfterMaterialRequest()[pri:47, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:15:34 IST" name="verifyInventryReportAfterMaterialRequest" finished-at="2024-01-12T13:15:55 IST" duration-ms="21932" status="PASS">
+        <test-method signature="verifyInventryReportAfterMaterialRequest()[pri:47, instance:com.keus.getapcs.testcases.TEST_Create@53812a9b]" started-at="2024-01-18T11:18:34 IST" name="verifyInventryReportAfterMaterialRequest" finished-at="2024-01-18T11:18:56 IST" duration-ms="21830" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInventryReportAfterMaterialRequest -->
-        <test-method signature="verifyMaterialReturnNote()[pri:48, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:15:55 IST" name="verifyMaterialReturnNote" finished-at="2024-01-12T13:16:20 IST" duration-ms="24173" status="PASS">
+        <test-method signature="verifyMaterialReturnNote()[pri:48, instance:com.keus.getapcs.testcases.TEST_Create@53812a9b]" started-at="2024-01-18T11:18:56 IST" name="verifyMaterialReturnNote" finished-at="2024-01-18T11:19:21 IST" duration-ms="25407" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyMaterialReturnNote -->
-        <test-method signature="verifyMaterialReturnNoteOpenMRN()[pri:49, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:16:20 IST" name="verifyMaterialReturnNoteOpenMRN" finished-at="2024-01-12T13:16:39 IST" duration-ms="19562" status="PASS">
+        <test-method signature="verifyMaterialReturnNoteOpenMRN()[pri:49, instance:com.keus.getapcs.testcases.TEST_Create@53812a9b]" started-at="2024-01-18T11:19:21 IST" name="verifyMaterialReturnNoteOpenMRN" finished-at="2024-01-18T11:19:23 IST" duration-ms="2008" status="FAIL">
+          <exception class="org.openqa.selenium.json.JsonException">
+            <message>
+              <![CDATA[java.lang.reflect.InvocationTargetException
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34c9b2328373babed4303f2c358cef32, actions {actions=[org.openqa.selenium.interactions.Sequence@7ec08115]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.217, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53867/devtoo..., se:cdpVersion: 120.0.6099.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 34c9b2328373babed4303f2c358cef32]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.json.JsonException: java.lang.reflect.InvocationTargetException
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34c9b2328373babed4303f2c358cef32, actions {actions=[org.openqa.selenium.interactions.Sequence@7ec08115]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.217, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53867/devtoo..., se:cdpVersion: 120.0.6099.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 34c9b2328373babed4303f2c358cef32
+at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:520)
+at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:182)
+at org.openqa.selenium.json.JsonOutput.write0(JsonOutput.java:409)
+at org.openqa.selenium.json.JsonOutput.lambda$new$22(JsonOutput.java:204)
+at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+at org.openqa.selenium.json.JsonOutput.lambda$new$23(JsonOutput.java:204)
+at org.openqa.selenium.json.JsonOutput.write0(JsonOutput.java:409)
+at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:222)
+at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:68)
+at org.openqa.selenium.json.JsonOutput.lambda$new$25(JsonOutput.java:217)
+at org.openqa.selenium.json.JsonOutput.write0(JsonOutput.java:409)
+at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:400)
+at org.openqa.selenium.json.Json.toJson(Json.java:133)
+at org.openqa.selenium.json.Json.toJson(Json.java:119)
+at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:280)
+at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:130)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:179)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:609)
+at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:598)
+at com.getapcs.base.Testbase1.click(Testbase1.java:110)
+at com.getapcs.home.login.HomePage.clickOnMaterialReturnNoteOpenMRN(HomePage.java:983)
+at com.keus.getapcs.testcases.TEST_Create.verifyMaterialReturnNoteOpenMRN(TEST_Create.java:787)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Suppressed: org.openqa.selenium.json.JsonException: Attempting to close incomplete json stream
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: driver.version: RemoteWebDriver
+at org.openqa.selenium.json.JsonOutput.close(JsonOutput.java:431)
+at org.openqa.selenium.json.Json.toJson(Json.java:131)
+... 40 more
+Caused by: java.lang.reflect.InvocationTargetException
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:516)
+... 61 more
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.217)
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34c9b2328373babed4303f2c358cef32, findElement {using=xpath, value=(//a[normalize-space()='Open MRN'])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.217, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53867/devtoo..., se:cdpVersion: 120.0.6099.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 34c9b2328373babed4303f2c358cef32
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:354)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy15.getWrappedElement(Unknown Source)
+at org.openqa.selenium.interactions.PointerInput$Origin.asArg(PointerInput.java:259)
+at org.openqa.selenium.interactions.PointerInput$Move.encode(PointerInput.java:208)
+at org.openqa.selenium.interactions.Sequence.encode(Sequence.java:72)
+at org.openqa.selenium.interactions.Sequence.toJson(Sequence.java:81)
+... 66 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.json.JsonException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyMaterialReturnNoteOpenMRN -->
-        <test-method signature="verifyInventryReportAfterMaterialReturnNote()[pri:50, instance:com.keus.getapcs.testcases.TEST_Create@4879f0f2]" started-at="2024-01-12T13:16:39 IST" name="verifyInventryReportAfterMaterialReturnNote" finished-at="2024-01-12T13:17:03 IST" duration-ms="23995" status="PASS">
+        <test-method signature="verifyInventryReportAfterMaterialReturnNote()[pri:50, instance:com.keus.getapcs.testcases.TEST_Create@53812a9b]" started-at="2024-01-18T11:19:23 IST" name="verifyInventryReportAfterMaterialReturnNote" finished-at="2024-01-18T11:19:23 IST" duration-ms="42" status="FAIL">
+          <exception class="org.openqa.selenium.json.JsonException">
+            <message>
+              <![CDATA[java.lang.reflect.InvocationTargetException
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34c9b2328373babed4303f2c358cef32, actions {actions=[org.openqa.selenium.interactions.Sequence@4c18516]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.217, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53867/devtoo..., se:cdpVersion: 120.0.6099.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 34c9b2328373babed4303f2c358cef32]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.json.JsonException: java.lang.reflect.InvocationTargetException
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34c9b2328373babed4303f2c358cef32, actions {actions=[org.openqa.selenium.interactions.Sequence@4c18516]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.217, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53867/devtoo..., se:cdpVersion: 120.0.6099.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 34c9b2328373babed4303f2c358cef32
+at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:520)
+at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:182)
+at org.openqa.selenium.json.JsonOutput.write0(JsonOutput.java:409)
+at org.openqa.selenium.json.JsonOutput.lambda$new$22(JsonOutput.java:204)
+at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+at org.openqa.selenium.json.JsonOutput.lambda$new$23(JsonOutput.java:204)
+at org.openqa.selenium.json.JsonOutput.write0(JsonOutput.java:409)
+at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:222)
+at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:68)
+at org.openqa.selenium.json.JsonOutput.lambda$new$25(JsonOutput.java:217)
+at org.openqa.selenium.json.JsonOutput.write0(JsonOutput.java:409)
+at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:400)
+at org.openqa.selenium.json.Json.toJson(Json.java:133)
+at org.openqa.selenium.json.Json.toJson(Json.java:119)
+at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:280)
+at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:130)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:179)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:609)
+at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:598)
+at com.getapcs.base.Testbase1.click(Testbase1.java:110)
+at com.getapcs.home.login.HomePage.clickOnInventryReportWithLocation(HomePage.java:1012)
+at com.keus.getapcs.testcases.TEST_Create.verifyInventryReportAfterMaterialReturnNote(TEST_Create.java:797)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Suppressed: org.openqa.selenium.json.JsonException: Attempting to close incomplete json stream
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: driver.version: RemoteWebDriver
+at org.openqa.selenium.json.JsonOutput.close(JsonOutput.java:431)
+at org.openqa.selenium.json.Json.toJson(Json.java:131)
+... 40 more
+Caused by: java.lang.reflect.InvocationTargetException
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:516)
+... 61 more
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.217)
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [34c9b2328373babed4303f2c358cef32, findElement {using=xpath, value=(//span[@class='mdi mdi-menu'])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.217, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\W2191\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53867/devtoo..., se:cdpVersion: 120.0.6099.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 34c9b2328373babed4303f2c358cef32
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:354)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy15.getWrappedElement(Unknown Source)
+at org.openqa.selenium.interactions.PointerInput$Origin.asArg(PointerInput.java:259)
+at org.openqa.selenium.interactions.PointerInput$Move.encode(PointerInput.java:208)
+at org.openqa.selenium.interactions.Sequence.encode(Sequence.java:72)
+at org.openqa.selenium.interactions.Sequence.toJson(Sequence.java:81)
+... 66 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.json.JsonException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInventryReportAfterMaterialReturnNote -->
       </class> <!-- com.keus.getapcs.testcases.TEST_Create -->
-    </test> <!-- Test1 -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

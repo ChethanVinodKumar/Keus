@@ -525,10 +525,11 @@ public class HomePage extends Testbase1 {
 
 	public void clickOnBomCreatePage() {
 		// TODO Auto-generated method stub
-		threeLinesSideBarIcon.click();
-		engineering.click();
-		enggBom.click();
-		createEnggBom.sendKeys(Keys.ENTER);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, engineering);
+		click(driver, enggBom);
+		click(driver, createEnggBom);
+
 	}
 
 	public void clickOnBomEditPage() {

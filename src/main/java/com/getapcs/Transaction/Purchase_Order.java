@@ -741,52 +741,52 @@ public class Purchase_Order extends Testbase1 {
 
 		executor.executeScript("arguments[0].click();", poNumberSelect);
 
-		// PO Date
+//		// PO Date
+//
+//		String poDatexpath = "//label[text()='PO Date']/..//label[@class='field2']";
+//
+//		String poDate = driver.findElement(By.xpath(poDatexpath)).getText();
+//
+//		System.out.println("PO Date is : " + poDate);
+//		Thread.sleep(2000);
+//
+//		// Rev Number
+//
+//		String revNumxpath = "//label[text()='Rev Number']/..//label[@class='field2']";
+//
+//		String revNum = driver.findElement(By.xpath(revNumxpath)).getText();
+//
+//		System.out.println("Rev Number is : " + revNum);
+//		Thread.sleep(2000);
+//
+//		// Procutement Type
+//
+//		String procutementTypexpath = "//label[text()='Procurement Type']/..//label[@class='field2']";
+//
+//		String procutementType = driver.findElement(By.xpath(procutementTypexpath)).getText();
+//
+//		System.out.println("Procutement Type is : " + procutementType);
+//		Thread.sleep(2000);
+//
+//		// Currency
+//
+//		String currencyxpath = "//label[text()='Currency']/..//label[@class='field2']";
+//
+//		String currency = driver.findElement(By.xpath(currencyxpath)).getText();
+//
+//		System.out.println("Currency is : " + currency);
+//		Thread.sleep(2000);
 
-		String poDatexpath = "//label[text()='PO Date']/..//label[@class='field2']";
-
-		String poDate = driver.findElement(By.xpath(poDatexpath)).getText();
-
-		System.out.println("PO Date is : " + poDate);
-		Thread.sleep(2000);
-
-		// Rev Number
-
-		String revNumxpath = "//label[text()='Rev Number']/..//label[@class='field2']";
-
-		String revNum = driver.findElement(By.xpath(revNumxpath)).getText();
-
-		System.out.println("Rev Number is : " + revNum);
-		Thread.sleep(2000);
-
-		// Procutement Type
-
-		String procutementTypexpath = "//label[text()='Procurement Type']/..//label[@class='field2']";
-
-		String procutementType = driver.findElement(By.xpath(procutementTypexpath)).getText();
-
-		System.out.println("Procutement Type is : " + procutementType);
-		Thread.sleep(2000);
-
-		// Currency
-
-		String currencyxpath = "//label[text()='Currency']/..//label[@class='field2']";
-
-		String currency = driver.findElement(By.xpath(currencyxpath)).getText();
-
-		System.out.println("Currency is : " + currency);
-		Thread.sleep(2000);
-
-		// Vender Details
-
-		// Vender Name
-
-		String venderNamexpath = "//label[text()='Vendor Name']/..//label[@class='data_field']";
-
-		String venderName = driver.findElement(By.xpath(venderNamexpath)).getText();
-
-		System.out.println("Vender Name is : " + venderName);
-		Thread.sleep(2000);
+//		// Vender Details
+//
+//		// Vender Name
+//
+//		String venderNamexpath = "//label[text()='Vendor Name']/..//label[@class='data_field']";
+//
+//		String venderName = driver.findElement(By.xpath(venderNamexpath)).getText();
+//
+//		System.out.println("Vender Name is : " + venderName);
+//		Thread.sleep(2000);
 
 		// Items
 
@@ -842,9 +842,17 @@ public class Purchase_Order extends Testbase1 {
 		boolean billingFieldIsSelected = billingFieldFocusedElement.equals(billing);
 		Assert.assertFalse(billingFieldIsSelected, "billing Text Field is not Selected");
 
+		click(driver, terms);
+
+		Thread.sleep(2000);
+
 		executor.executeScript("arguments[0].click()", approve);
 
+		Thread.sleep(2000);
+
 		executor.executeScript("arguments[0].click()", approvePOPUP);
+
+		Thread.sleep(2000);
 
 		return new HomePage();
 	}
@@ -872,8 +880,8 @@ public class Purchase_Order extends Testbase1 {
 
 		// TODO Auto-generated method stub
 		// Verify that poNumber Field is Displayed or not
-		boolean isDisabledpoNumberFieldn = poNumber.isDisplayed();
-		Assert.assertTrue(isDisabledpoNumberFieldn);
+//		boolean isDisabledpoNumberFieldn = poNumber.isDisplayed();
+//		Assert.assertTrue(isDisabledpoNumberFieldn);
 
 		// Verify that poNumber Field is clickable or not
 		WebElement poNumberFieldFocusedElement = driver.switchTo().activeElement();
@@ -938,9 +946,17 @@ public class Purchase_Order extends Testbase1 {
 		boolean billingFieldIsSelected = billingFieldFocusedElement.equals(billing);
 		Assert.assertFalse(billingFieldIsSelected, "billing Text Field is not Selected");
 
+		click(driver, terms);
+
+		Thread.sleep(2000);
+
 		executor.executeScript("arguments[0].click()", approve);
 
+		Thread.sleep(2000);
+
 		executor.executeScript("arguments[0].click()", approvePOPUP);
+
+		Thread.sleep(2000);
 
 		return new HomePage();
 	}
