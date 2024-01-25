@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils; // Import FileUtils
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -126,7 +126,7 @@ public class Testbase1 {
 
 		String[] files = new String[] {
 				"search-ms:displayname=Search%20Results%20in%20Downloads&crumb=System.Generic.String%3Aimage&crumb=location:C%3A%5CUsers%5CW2191%5CDownloads\\image", // imgae
-				"C:\\Users\\W2191\\Desktop\\WYZ MINDZ Tasks\\Chethan V _18-12-2023 to 23-12-2023.xlsx", // excel
+				"C:\\Users\\W2191\\Desktop\\TESTdatafinal.xlsx", // excel
 				"C:\\Users\\W2191\\Desktop\\Project Documentation.docx", // Docx
 				"C:\\Users\\W2191\\Documents\\123.txt" }; // txt
 
@@ -202,10 +202,26 @@ public class Testbase1 {
 		element.sendKeys(Keys.ENTER);
 	}
 
+//	// Screen Shot
+//	public static void screenShot(String fileName) throws IOException {
+//		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//		FileUtils.copyFile(screenshotFile, new File(".//Getapcs_Keus1//ScreenShot//" + fileName + ".png"));
+//
+//	}
 	// Screen Shot
 	public static void screenShot(String fileName) throws IOException {
+
+		String filePath = ".//Getapcs_Keus//ScreenShot//" + fileName + ".png";
+
+		// Check if the previous screenshot file exists
+		File previousScreenshot = new File(filePath);
+		if (previousScreenshot.exists()) {
+			// Delete the previous screenshot file
+			FileUtils.forceDelete(previousScreenshot);
+		}
+
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshotFile, new File(".//Getapcs_Keus1//ScreenShot//" + fileName + ".png"));
+		FileUtils.copyFile(screenshotFile, new File(filePath));
 
 	}
 

@@ -107,9 +107,11 @@ public class PurchaseRequisition_Reports extends Testbase1 {
 		// Procutement Type
 
 		click(driver, viewButton);
+		Thread.sleep(1000);
 
 		String procutementType1 = driver
-				.findElement(By.xpath("(//div[@class='form-group main-div']/..//label[@class='field2'])[4]")).getText();
+				.findElement(By.xpath("//label[text()='Procurement Type']/following-sibling::label[@class='field2']"))
+				.getText();
 
 		String elementXpath1 = "(//div[normalize-space()='271223SO-000434'])[1]";
 
@@ -145,6 +147,7 @@ public class PurchaseRequisition_Reports extends Testbase1 {
 		click(driver, salesOrderNumberSelect);
 
 		click(driver, itemFilter);
+		click(driver, clear);
 
 		// Project Number
 
@@ -159,6 +162,7 @@ public class PurchaseRequisition_Reports extends Testbase1 {
 		click(driver, projectNumSelect);
 
 		click(driver, itemFilter);
+		click(driver, clear);
 
 		// Customer Name
 
@@ -171,6 +175,49 @@ public class PurchaseRequisition_Reports extends Testbase1 {
 		WebElement customerNameSelect = driver.findElement(By.xpath(updatedXpath2));
 
 		click(driver, customerNameSelect);
+
+		click(driver, itemFilter);
+		click(driver, clear);
+
+		// Sales Order Number
+
+		click(driver, purchaseRequisitionNum);
+
+		click(driver, SearchpurchaseRequisitionNum);
+
+		SearchpurchaseRequisitionNum.sendKeys(PRNum);
+
+		WebElement salesOrderNumberSelect1 = driver.findElement(By.xpath(updatedXpath));
+
+		click(driver, salesOrderNumberSelect1);
+
+		click(driver, itemFilter);
+
+		// Project Number
+
+		click(driver, procutementType);
+
+		click(driver, SearchprocutementType);
+
+		SearchprocutementType.sendKeys(procutementType1);
+
+		WebElement projectNumSelect1 = driver.findElement(By.xpath(updatedXpath1));
+
+		click(driver, projectNumSelect1);
+
+		click(driver, itemFilter);
+
+		// Customer Name
+
+		click(driver, shippingMode);
+
+		click(driver, SearchshippingMode);
+
+		SearchshippingMode.sendKeys(shippingMode1);
+
+		WebElement customerNameSelect1 = driver.findElement(By.xpath(updatedXpath2));
+
+		click(driver, customerNameSelect1);
 
 		click(driver, itemFilter);
 

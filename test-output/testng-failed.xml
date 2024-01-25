@@ -5,9 +5,53 @@
     <classes>
       <class name="com.keus.getapcs.testcases.TEST_Create">
         <methods>
+          <include name="verifyInventryReportBeforeGrin"/>
+          <include name="verifyPurchaseOrderCreate"/>
+          <include name="verifyDOCreate"/>
+          <include name="verifyInventryReportAfterGRIN"/>
+          <include name="verifyPurchaseOrderApproval1"/>
+          <include name="verifyMaterialRequest"/>
+          <include name="verifyShopOrderCreate"/>
+          <include name="verifyGRINCreate"/>
+          <include name="verifyInventryReportAfterOQCBinning"/>
+          <include name="verifyMaterialIssueAfterPRPO"/>
+          <include name="verifyMaterialReturnNote"/>
+          <include name="verifySalesRFQCreate"/>
+          <include name="verifyOQC"/>
+          <include name="verifyIQCCreate"/>
+          <include name="verifyBomCreate"/>
+          <include name="verifySalesRFQCS"/>
+          <include name="verifyPR_Approval2"/>
+          <include name="verifySalesItemPriceListCreate"/>
+          <include name="verifyReturnDO"/>
+          <include name="verifyPurchaseOrderApproval2"/>
+          <include name="verifyOQCBinning"/>
+          <include name="verifyQuoteCreate"/>
+          <include name="verifyODOCreate"/>
+          <include name="verifyInventryReportAfterMI"/>
           <include name="verifyMaterialReturnNoteOpenMRN"/>
+          <include name="verifyInventryReportAfterReturnInvoice"/>
+          <include name="verifyItemMasterCreate"/>
           <include name="verifyInventryReportAfterMaterialReturnNote"/>
+          <include name="verifyReturnODO"/>
+          <include name="verifySalesOrderCreate"/>
+          <include name="verifyPR_Approval1"/>
           <include name="setUp"/>
+          <include name="verifyInventryReportAfterReturnDO"/>
+          <include name="verifyInvoiceCreate"/>
+          <include name="verifyInventryReportAfterDO"/>
+          <include name="verifyInventryReportAfterReturnODO"/>
+          <include name="verifyBinningCreate"/>
+          <include name="verifyInventryReportAfterIQC"/>
+          <include name="verifyReturnInvoiceCreate"/>
+          <include name="verifyInventryReportAfterODO"/>
+          <include name="verifyMaterialIssue"/>
+          <include name="verifyInventryReportAfterMaterialRequest"/>
+          <include name="verifyPRcreate"/>
+          <include name="verifyPrice_ListCreate"/>
+          <include name="verifyShopOrderConfirmation"/>
+          <include name="verifyInventryReportAfterBinning"/>
+          <include name="verifyReleaseBom"/>
         </methods>
       </class> <!-- com.keus.getapcs.testcases.TEST_Create -->
     </classes>

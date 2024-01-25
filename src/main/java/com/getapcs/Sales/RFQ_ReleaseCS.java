@@ -10,10 +10,7 @@ import com.getapcs.home.login.HomePage;
 
 public class RFQ_ReleaseCS extends Testbase1 {
 
-	@FindBy(xpath = "(//button[@type='button'][normalize-space()='CS'])[1]")
-	WebElement csButton;
-
-	@FindBy(xpath = "(//button[text()='CS'])[1]")
+	@FindBy(xpath = "(//i[@title='CS'])[1]")
 	WebElement csButton1;
 
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-rfq-item-view/div[2]/div/div/div/form/div/div[4]/div/div/div/table/thead/tr/th[1]/input")

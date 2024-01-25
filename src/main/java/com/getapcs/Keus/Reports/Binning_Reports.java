@@ -126,7 +126,7 @@ public class Binning_Reports extends Testbase1 {
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/binning-report");
 
-		// GRIN Number
+		// GRIN Num
 
 		click(driver, grinNum);
 
@@ -140,6 +140,8 @@ public class Binning_Reports extends Testbase1 {
 
 		click(driver, itemFilter);
 
+		click(driver, clear);
+
 		// Vender Name
 
 		click(driver, venderName);
@@ -151,6 +153,36 @@ public class Binning_Reports extends Testbase1 {
 		WebElement venderNameSelect = driver.findElement(By.xpath(updatedXpath1));
 
 		click(driver, venderNameSelect);
+
+		click(driver, itemFilter);
+
+		click(driver, clear);
+
+		// GRIN Number
+
+		click(driver, grinNum);
+
+		click(driver, searchgrinNum);
+
+		searchgrinNum.sendKeys(GRINNum);
+
+		WebElement grinNumSelect1 = driver.findElement(By.xpath(updatedXpath));
+
+		click(driver, grinNumSelect1);
+
+		click(driver, itemFilter);
+
+		// Vender Name
+
+		click(driver, venderName);
+
+		click(driver, searchvenderName);
+
+		searchvenderName.sendKeys(venderName1);
+
+		WebElement venderNameSelect1 = driver.findElement(By.xpath(updatedXpath1));
+
+		click(driver, venderNameSelect1);
 
 		click(driver, itemFilter);
 

@@ -403,14 +403,12 @@ public class Engg_BOM_Create_Page extends Testbase1 {
 
 //Upload File
 
-		uploadFile(driver, fileUploadInBomCreate, 1);
-
-		click(driver, closeButton);
+		uploadFile(driver, fileUploadInBomCreate, 2);
 
 		System.out.println(driver.getCurrentUrl());
 		Thread.sleep(1000);
 
-		saveButton.click();
+		click(driver, saveButton);
 
 		Thread.sleep(3000);
 		System.out.println(driver.getCurrentUrl());

@@ -12,7 +12,7 @@ import com.getapcs.home.login.HomePage;
 
 public class SalesOrder extends Testbase1 {
 
-	@FindBy(xpath = "(//button[text()='Release'])[1]")
+	@FindBy(xpath = "(//i[@title='Release'])[1]")
 	WebElement releaseButton;
 
 	@FindBy(xpath = "//button[contains(text(),'Close')]")

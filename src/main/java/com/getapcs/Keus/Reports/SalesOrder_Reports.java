@@ -132,6 +132,7 @@ public class SalesOrder_Reports extends Testbase1 {
 		click(driver, salesOrderNumberSelect);
 
 		click(driver, itemFilter);
+		click(driver, clear);
 
 		// Project Number
 
@@ -146,6 +147,7 @@ public class SalesOrder_Reports extends Testbase1 {
 		click(driver, projectNumSelect);
 
 		click(driver, itemFilter);
+		click(driver, clear);
 
 		// Customer Name
 
@@ -158,6 +160,56 @@ public class SalesOrder_Reports extends Testbase1 {
 		WebElement customerNameSelect = driver.findElement(By.xpath(updatedXpath2));
 
 		click(driver, customerNameSelect);
+
+		click(driver, itemFilter);
+		click(driver, clear);
+
+		// Sales Order Status
+
+		click(driver, salesOrderStatus);
+
+		click(driver, salesOrderStatusSelect);
+		click(driver, clear);
+
+		// Sales Order Number
+
+		click(driver, salesOrderNum);
+
+		click(driver, SearchsalesOrderNum);
+
+		SearchsalesOrderNum.sendKeys(salesOrderNumber);
+
+		WebElement salesOrderNumberSelect1 = driver.findElement(By.xpath(updatedXpath));
+
+		click(driver, salesOrderNumberSelect1);
+
+		click(driver, itemFilter);
+
+		// Project Number
+
+		click(driver, projectNum);
+
+		click(driver, SearchprojectNum);
+
+		SearchprojectNum.sendKeys(projectNumber);
+
+		WebElement projectNumSelect1 = driver.findElement(By.xpath(updatedXpath1));
+
+		click(driver, projectNumSelect1);
+
+		click(driver, itemFilter);
+
+		// Customer Name
+
+		click(driver, customerName);
+
+		click(driver, SearchcustomerName);
+
+		SearchcustomerName.sendKeys(customerName1);
+
+		WebElement customerNameSelect1 = driver.findElement(By.xpath(updatedXpath2));
+
+		click(driver, customerNameSelect1);
 
 		click(driver, itemFilter);
 

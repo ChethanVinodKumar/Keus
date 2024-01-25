@@ -50,7 +50,7 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "//a[@routerlink='masters/company-master/table']")
 	WebElement modifyorView;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-pencil edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-pencil edit-table-icon'])[1]")
 	WebElement editButton;
 
 	@FindBy(xpath = "(//span[normalize-space()='Vendor Master'])[1]")
@@ -241,7 +241,7 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[@routerlink='transaction/fg-oqc'])[1]")
 	WebElement oQC1;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-table-icon'])[1]")
 	WebElement createOQC;
 
 	// OQC Binning
@@ -252,7 +252,7 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[@routerlink='transaction/oqc-binning'])[1]")
 	WebElement oQCBinningModifyorView;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-table-icon'])[1]")
 	WebElement createOQCBinning;
 
 	// Delivery Order
@@ -341,7 +341,7 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[@routerlink='engineering/engg-bom/table'])[1]")
 	WebElement modifyorViewEnggBom;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-pencil edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-pencil edit-table-icon'])[1]")
 	WebElement editButtonEnggBom;
 
 	@FindBy(xpath = "(//a[normalize-space()='Release Bom'])[1]")
@@ -425,10 +425,10 @@ public class HomePage extends Testbase1 {
 	}
 
 	public CustomerMaster clickOnCustomerMasterEdit() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		primaryMaster.click();
-		customerMaster.click();
-		modifyorView1.click();
+		click(driver, threeLinesSideBarIcon);
+		click(driver, primaryMaster);
+		click(driver, customerMaster);
+		click(driver, modifyorView1);
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click()", editButton);
 
@@ -437,10 +437,11 @@ public class HomePage extends Testbase1 {
 	}
 
 	public VenderMaster clickOnVenderMasterCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		primaryMaster.click();
-		venderMaster.click();
-		venderMasterCreate.click();
+		click(driver, threeLinesSideBarIcon);
+		click(driver, primaryMaster);
+		click(driver, venderMaster);
+		click(driver, venderMasterCreate);
+
 		Thread.sleep(4000);
 		return new VenderMaster();
 	}

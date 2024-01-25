@@ -120,6 +120,9 @@ public class Item_Master_Create_Page extends Testbase1 {
 	@FindBy(xpath = "//input[@placeholder='Enter Doc Ret']")
 	WebElement docRetField;
 
+	@FindBy(xpath = "//input[@placeholder='Enter Remarks To Vendor']")
+	WebElement remarksToVender;
+
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/div/div/div[3]/div[1]/label[2]/span")
 	WebElement cocToggleButton;
 
@@ -136,10 +139,10 @@ public class Item_Master_Create_Page extends Testbase1 {
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/ul/li[4]/a")
 	WebElement dimensionsTab;
 
-	@FindBy(xpath = "//input[@placeholder='Upload file']")
+	@FindBy(xpath = "(//input[@placeholder='Please Upload files.'])[1]")
 	WebElement filesUpload;
-	@FindBy(xpath = "(//button[normalize-space()='Uploaded Files'])[1]")
-	WebElement upload;
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement saveFile;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Net Weight']")
 	WebElement netWeightField;
@@ -456,7 +459,8 @@ public class Item_Master_Create_Page extends Testbase1 {
 		js.executeScript("arguments[0].click();", uomDropDownSelectData);
 
 		hSNDropDown.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", hSNDropDownSelectData);
+		hSNDropDown.sendKeys("1001");
+//		js.executeScript("arguments[0].click();", hSNDropDownSelectData);
 
 		js.executeScript("arguments[0].click();", prRequiredToggleButton);
 
@@ -574,6 +578,9 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 		docRetField.sendKeys(docRet);
 
+		click(driver, remarksToVender);
+		remarksToVender.sendKeys("TEST remarksToVender");
+
 		cocToggleButton.click();
 
 		rOHSToggleButton.click();
@@ -585,7 +592,7 @@ public class Item_Master_Create_Page extends Testbase1 {
 		// Upload File
 
 		uploadFile(driver, filesUpload, 1);
-		click(driver, upload);
+		click(driver, saveFile);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);

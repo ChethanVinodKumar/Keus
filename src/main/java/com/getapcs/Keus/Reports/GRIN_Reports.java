@@ -139,6 +139,7 @@ public class GRIN_Reports extends Testbase1 {
 		click(driver, grinNumSelect);
 
 		click(driver, itemFilter);
+		click(driver, clear);
 
 		// Vender Name
 
@@ -153,6 +154,7 @@ public class GRIN_Reports extends Testbase1 {
 		click(driver, venderNameSelect);
 
 		click(driver, itemFilter);
+		click(driver, clear);
 
 		// Invoice Number
 
@@ -165,6 +167,49 @@ public class GRIN_Reports extends Testbase1 {
 		WebElement invoiceNumSelect = driver.findElement(By.xpath(updatedXpath2));
 
 		click(driver, invoiceNumSelect);
+
+		click(driver, itemFilter);
+		click(driver, clear);
+
+		// GRIN Number
+
+		click(driver, grinNum);
+
+		click(driver, searchgrinNum);
+
+		searchgrinNum.sendKeys(GRINNum);
+
+		WebElement grinNumSelect1 = driver.findElement(By.xpath(updatedXpath));
+
+		click(driver, grinNumSelect1);
+
+		click(driver, itemFilter);
+
+		// Vender Name
+
+		click(driver, venderName);
+
+		click(driver, searchvenderName);
+
+		searchvenderName.sendKeys(venderName1);
+
+		WebElement venderNameSelect1 = driver.findElement(By.xpath(updatedXpath1));
+
+		click(driver, venderNameSelect1);
+
+		click(driver, itemFilter);
+
+		// Invoice Number
+
+		click(driver, invoiceNum);
+
+		click(driver, searchinvoiceNum);
+
+		searchinvoiceNum.sendKeys(invoiceNumber);
+
+		WebElement invoiceNumSelect1 = driver.findElement(By.xpath(updatedXpath2));
+
+		click(driver, invoiceNumSelect1);
 
 		click(driver, itemFilter);
 
