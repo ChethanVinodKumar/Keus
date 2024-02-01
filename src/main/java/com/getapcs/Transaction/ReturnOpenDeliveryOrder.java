@@ -82,7 +82,7 @@ public class ReturnOpenDeliveryOrder extends Testbase1 {
 	@FindBy(xpath = "//table[@formarrayname='ItemData']/tbody/tr[1]/td[7]")
 	WebElement DispatchQty;
 
-	@FindBy(xpath = "(//button[normalize-space()='Return ODO'])[1]")
+	@FindBy(xpath = "(//i[@title='Return Open Delivery Order'])[1]")
 	WebElement returnODO;
 
 	public ReturnOpenDeliveryOrder() {

@@ -29,7 +29,7 @@ public class InventryReportBeforeOpenGrin extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[1]")
 	WebElement viewButton;
 
 	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")

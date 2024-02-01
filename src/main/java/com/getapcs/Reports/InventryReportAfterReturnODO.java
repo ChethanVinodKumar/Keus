@@ -29,10 +29,7 @@ public class InventryReportAfterReturnODO extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
-	WebElement editButton;
-
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
 	public InventryReportAfterReturnODO() {

@@ -10,13 +10,13 @@ import com.getapcs.home.login.HomePage;
 
 public class Grin_Create extends Testbase1 {
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[1]")
 	WebElement viewButton;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[2]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[2]")
 	WebElement viewButton1;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[3]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[3]")
 	WebElement viewButton2;
 
 	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")

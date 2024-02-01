@@ -71,17 +71,17 @@ import com.getapcs.home.login.LoginPage;
 
 public class TEST_SA_Flow extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 0121";
-	public final static String fgNo = "0121";
+	public final static String priceList = "TEST PriceList 0151";
+	public final static String fgNo = "0151";
 	public final static String fg = "FG-" + fgNo;
-	public final static String pp1 = "PP-0121";
-	public final static String pp2 = "PP-0122";
-	public final static String pp3 = "PP-0123";
-	public final static String pp4 = "PP-0124";
-	public final static String pp5 = "PP-0125";
-	public final static String pp6 = "PP-0126";
-	public final static String sa1 = "SA-0121";
-	public final static String sa2 = "SA-0122";
+	public final static String pp1 = "PP-0151";
+	public final static String pp2 = "PP-0152";
+	public final static String pp3 = "PP-0153";
+	public final static String pp4 = "PP-0154";
+	public final static String pp5 = "PP-0155";
+	public final static String pp6 = "PP-0156";
+	public final static String sa1 = "SA-0151";
+	public final static String sa2 = "SA-0152";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -511,156 +511,156 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
-//	@Test(priority = 11)
-//	public void verifyPRcreate$Approvals_1_2() throws Throwable {
-//		homePage.clickOnPRCreatePage();
-//		Purchase_Requisation_SA2.prCreatePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickOnPOApproval1();
-//		PRApproval1.prApproval1Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickOnPRApproval2();
-//		PRApproval2.prApproval2Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// ##############################################################################
-//
-//		homePage.clickOnPRCreatePage();
-//		Purchase_Requisation_SA1.prCreatePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickOnPOApproval1();
-//		PRApproval1.prApproval1Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickOnPRApproval2();
-//		PRApproval2.prApproval2Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// ############################################################################
-//
-//		homePage.clickOnPRCreatePage();
-//		Purchase_Requisation_FG.prCreatePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickOnPOApproval1();
-//		PRApproval1.prApproval1Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickOnPRApproval2();
-//		PRApproval2.prApproval2Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//	}
-//
-//	@Test(priority = 12)
-//	public void verifyPOCreate() throws Throwable {
-//
-//		homePage.clickontransactionPOcreate();
-//		Purchase_Order_SA2.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
-//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// Approval 1
-//
-//		homePage.clickontransactionPOApproval1();
-//		Purchase_Order.purchaseOrderApproval1();
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// Approval 2
-//
-//		homePage.clickontransactionPOApproval2();
-//		Purchase_Order.purchaseOrderApproval2();
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickontransactionPOcreate();
-//		Purchase_Order_SA1.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
-//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// Approval 1
-//
-//		homePage.clickontransactionPOApproval1();
-//		Purchase_Order.purchaseOrderApproval1();
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// Approval 2
-//
-//		homePage.clickontransactionPOApproval2();
-//		Purchase_Order.purchaseOrderApproval2();
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		homePage.clickontransactionPOcreate();
-//		Purchase_Order_FG.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
-//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// Approval 1
-//
-//		homePage.clickontransactionPOApproval1();
-//		Purchase_Order.purchaseOrderApproval1();
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//		// Approval 2
-//
-//		homePage.clickontransactionPOApproval2();
-//		Purchase_Order.purchaseOrderApproval2();
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//
-//	}
-//
-//	@Test(priority = 13)
-//	public void verifyInventryReportBeforeGrin() throws Throwable {
-//		homePage.clickOnInventryReportWithLocation();
-//		InventryReportBeforGrin.InventryReportPage();
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 14)
-//	public void verifyGRINCreate() throws Throwable {
-//		homePage.clickOnGRINCreate();
-//		Grin_Create.grinCreatePage("TEST-IN-1122", // invoiceNo
-//				"10", // invoiceGST
-//				"10", // totalInvoice
-//				"7687769", // mftrBatchNo
-//				"10", // unitPrice
-//
-//				"9", // sgst
-//				"9", // cgst
-//				"9", // igst
-//				"9", // utgst
-//				"AWB-1-5657", // awbNo1
-//				"AWB-2-5657", // awbNo2
-//				"BE-557", // beNo
-//				"80", // beCurrencyValue
-//				"10", // freight
-//				"10", // insurance
-//				"10", // loadingOrUnloading
-//				"80", // currencyConversion
-//				"10", // transport
-//				"test charge");// otherChargesValue
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
+
+	@Test(priority = 11)
+	public void verifyPRcreate$Approvals_1_2() throws Throwable {
+		homePage.clickOnPRCreatePage();
+		Purchase_Requisation_SA2.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// ##############################################################################
+
+		homePage.clickOnPRCreatePage();
+		Purchase_Requisation_SA1.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// ############################################################################
+
+		homePage.clickOnPRCreatePage();
+		Purchase_Requisation_FG.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 12)
+	public void verifyPOCreate() throws Throwable {
+
+		homePage.clickontransactionPOcreate();
+		Purchase_Order_SA2.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
+				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// Approval 1
+
+		homePage.clickontransactionPOApproval1();
+		Purchase_Order.purchaseOrderApproval1();
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// Approval 2
+
+		homePage.clickontransactionPOApproval2();
+		Purchase_Order.purchaseOrderApproval2();
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickontransactionPOcreate();
+		Purchase_Order_SA1.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
+				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// Approval 1
+
+		homePage.clickontransactionPOApproval1();
+		Purchase_Order.purchaseOrderApproval1();
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// Approval 2
+
+		homePage.clickontransactionPOApproval2();
+		Purchase_Order.purchaseOrderApproval2();
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickontransactionPOcreate();
+		Purchase_Order_FG.purchaseOrderCreatePage("10", "50", "1000", "1000", "1000", "TEST Special Instructions", "8",
+				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// Approval 1
+
+		homePage.clickontransactionPOApproval1();
+		Purchase_Order.purchaseOrderApproval1();
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		// Approval 2
+
+		homePage.clickontransactionPOApproval2();
+		Purchase_Order.purchaseOrderApproval2();
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 13)
+	public void verifyInventryReportBeforeGrin() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportBeforGrin.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 14)
+	public void verifyGRINCreate() throws Throwable {
+		homePage.clickOnGRINCreate();
+		Grin_Create.grinCreatePage("TEST-IN-1122", // invoiceNo
+				"10", // invoiceGST
+				"10", // totalInvoice
+				"7687769", // mftrBatchNo
+				"10", // unitPrice
+
+				"9", // sgst
+				"9", // cgst
+				"9", // igst
+				"9", // utgst
+				"AWB-1-5657", // awbNo1
+				"AWB-2-5657", // awbNo2
+				"BE-557", // beNo
+				"80", // beCurrencyValue
+				"10", // freight
+				"10", // insurance
+				"10", // loadingOrUnloading
+				"80", // currencyConversion
+				"10", // transport
+				"test charge");// otherChargesValue
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
 //	@Test(priority = 15)
 //	public void verifyInventryReportAfterGrin() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
@@ -714,15 +714,15 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-
-	@Test(priority = 21)
-	public void verifyInventryReportAfterMaterialIssueSA2() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterMaterialIssueSA2.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//
+//	@Test(priority = 21)
+//	public void verifyInventryReportAfterMaterialIssueSA2() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterMaterialIssueSA2.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //	@Test(priority = 22)
 //	public void verifySOCSA2() throws Throwable {
@@ -741,14 +741,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-	@Test(priority = 24)
-	public void verifyInventryReportAfterOQCSA2() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterOQCSA2.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 24)
+//	public void verifyInventryReportAfterOQCSA2() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterOQCSA2.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //
 //	@Test(priority = 25)
@@ -759,14 +759,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-	@Test(priority = 26)
-	public void verifyInventryReportAfterOQCBinningSA2() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterOQCBinningSA2.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 26)
+//	public void verifyInventryReportAfterOQCBinningSA2() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterOQCBinningSA2.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //
 //	@Test(priority = 27)
@@ -777,14 +777,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-	@Test(priority = 28)
-	public void verifyInventryReportAfterMaterialIssueSA1() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterMaterialIssueSA1.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 28)
+//	public void verifyInventryReportAfterMaterialIssueSA1() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterMaterialIssueSA1.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //
 //	@Test(priority = 29)
@@ -805,14 +805,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
-	@Test(priority = 31)
-	public void verifyInventryReportAfterOQCSA1() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterOQCSA1.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 31)
+//	public void verifyInventryReportAfterOQCSA1() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterOQCSA1.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //	@Test(priority = 32)
 //	public void verifyOQCBinningSA1() throws Throwable {
@@ -822,14 +822,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-	@Test(priority = 33)
-	public void verifyInventryReportAfterOQCBinningSA1() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterOQCBinningSA1.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 33)
+//	public void verifyInventryReportAfterOQCBinningSA1() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterOQCBinningSA1.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //
 //	@Test(priority = 34)
@@ -840,14 +840,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-	@Test(priority = 35)
-	public void verifyInventryReportAfterMaterialIssueFG() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterMaterialIssueFG.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 35)
+//	public void verifyInventryReportAfterMaterialIssueFG() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterMaterialIssueFG.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //
 //	@Test(priority = 36)
@@ -867,14 +867,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-	@Test(priority = 38)
-	public void verifyInventryReportAfterOQCFG() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterOQCFG.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 38)
+//	public void verifyInventryReportAfterOQCFG() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterOQCFG.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 //
 //	@Test(priority = 39)
 //	public void verifyOQCBinningFG() throws Throwable {
@@ -885,14 +885,14 @@ public class TEST_SA_Flow extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 
-	@Test(priority = 40)
-	public void verifyInventryReportAfterOQCBinningFG() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterOQCBinningFG.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 40)
+//	public void verifyInventryReportAfterOQCBinningFG() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterOQCBinningFG.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 	@AfterTest
 	public void afetrTest() {

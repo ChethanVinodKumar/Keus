@@ -269,31 +269,26 @@ public class QuoteCreatePage extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 		// Verify Three Line Side Bar in Home Page
-		boolean threeLineIconBarIsDisplayed = threeLineIconBar.isDisplayed();
-		assertTrue(threeLineIconBarIsDisplayed, "Three Line Icon Bar is not Displayed");
-		threeLineIconBar.click();
+
+		click(driver, threeLineIconBar);
 
 		// Click on Sales Module
-		boolean salesModuledropdownIsDisplayed = salesModuledropdown.isDisplayed();
-		assertTrue(salesModuledropdownIsDisplayed, "Sales Module dropdown IsDisplayed.");
-		salesModuledropdown.click();
+
+		click(driver, salesModuledropdown);
 
 		// Click on Quote Module Drop Down
-		boolean quoteModuleDropDownIsDisplayed = quoteModuleDropDown.isDisplayed();
-		assertTrue(quoteModuleDropDownIsDisplayed, "Sales Module dropdown IsDisplayed.");
-		quoteModuleDropDown.click();
+
+		click(driver, quoteModuleDropDown);
 
 		// Click on Create Quote
-		boolean createQuoteOptionIsDisplayed = createQuoteOption.isDisplayed();
-		assertTrue(createQuoteOptionIsDisplayed, "Sales Module dropdown IsDisplayed.");
-		createQuoteOption.click();
-		js.executeScript("arguments[0].click();", threeLineIconBar);
+
+		click(driver, createQuoteOption);
+		click(driver, threeLineIconBar);
 
 		// Verify the Customer Name Drop Down in LP Costing Page-Sales Module
-		boolean customerNameDropDownIsDisplayed = customerNameDropDown.isDisplayed();
-		assertTrue(customerNameDropDownIsDisplayed, "Customer Name Drop Down is not Displayed.");
+
 		customerNameDropDown.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", customerNameDropDownSelect);
+		click(driver, customerNameDropDownSelect);
 
 //		//Verify the Customer Alias Name Drop Down in LP Costing Page-Sales Module
 //		boolean customerAliasNameDropDownIsDisplayed = customerAliasNameDropDown.isDisplayed();
@@ -302,117 +297,56 @@ public class QuoteCreatePage extends Testbase1 {
 //		js.executeScript("arguments[0].click();", customerAliasCLick);
 
 		// Verify the RFQ Number Drop Down in Quote Create Page-Sales Module
-		boolean rfqNumberDropDownIsDisplayed = rfqNumberDropDown.isDisplayed();
-		assertTrue(rfqNumberDropDownIsDisplayed, "rfqNumberDropDown is not Displayed.");
-		rfqNumberDropDown.click();
+		click(driver, rfqNumberDropDown);
+		isSelected(driver, rfqNumberDropDown, "rfqNumberDropDown");
 
 		WebElement rfqSelect = driver.findElement(By.xpath(updatedXpath));
-		js.executeScript("arguments[0].click();", rfqSelect);
+		click(driver, rfqSelect);
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		// Verify the Quote Ref. Field3
-		boolean quoteRefField3IsDisplayed = quoteRefField3.isDisplayed();
-		assertTrue(quoteRefField3IsDisplayed, "Quote Ref. Field3 is not Displayed.");
-		quoteRefField3.sendKeys(Keys.ENTER);
-		WebElement quoteRefField3FocusedElement = driver.switchTo().activeElement();
-		boolean quoteRefField3IsSelected = quoteRefField3FocusedElement.equals(quoteRefField3);
-		assertTrue(quoteRefField3IsSelected, "Quote Ref. Field3 is not Selected");
+		click(driver, quoteRefField3);
+		isSelected(driver, quoteRefField3, "quoteRefField3");
 		quoteRefField3.sendKeys(quoteRef);
 
-//		//Verify the typeOfSolution Drop Down in Quote Create Page-Sales Module
-//		boolean typeOfSolutionIsDisplayed = typeOfSolution.isDisplayed();
-//		assertTrue(typeOfSolutionIsDisplayed, "typeOfSolution Type Drop Down is not Displayed.");
-//		typeOfSolution.sendKeys(Keys.ENTER);
-//		WebElement typeOfSolutionFocusedElement = driver.switchTo().activeElement();
-//	    boolean typeOfSolutionIsSelected = typeOfSolutionFocusedElement.equals(typeOfSolution);
-//	    assertTrue(typeOfSolutionIsSelected, "typeOfSolution Type Drop Down is not Selected");
-//	    
-//		js.executeScript("arguments[0].click();", typeOfSolutionSelect);
+//		// Verify the typeOfSolution Drop Down in Quote Create Page-Sales Module
+//		click(driver, typeOfSolution);
+//		isSelected(driver, typeOfSolution, "typeOfSolution");
+//		click(driver, typeOfSolutionSelect);
 //
-//		
-//		//Verify the productType Drop Down in Quote Create Page-Sales Module
-//		boolean productTypeIsDisplayed = productType.isDisplayed();
-//		assertTrue(productTypeIsDisplayed, "product Type Drop Down is not Displayed.");
-//		productType.sendKeys(Keys.ENTER);
-//		WebElement productTypeFocusedElement = driver.switchTo().activeElement();
-//	    boolean productTypeIsSelected = productTypeFocusedElement.equals(productType);
-//	    assertTrue(productTypeIsSelected, "product Type Drop Down is not Selected");
-//	    
-//		js.executeScript("arguments[0].click();", productTypeSelect);
+//		// Verify the productType Drop Down in Quote Create Page-Sales Module
+//		click(driver, productType);
+//		isSelected(driver, productType, "productType");
+//		click(driver, productTypeSelect);
 
 		// ################## General Tab ######################
 
-		// Verify General Tab in Quote
-//		WebElement generalTab = driver.findElement(By.linkText("General"));
-//	    boolean generalTabIsDisplayed = generalTab.isDisplayed();
-//	    assertTrue(generalTabIsDisplayed, "General Tab is not Displayed.");
-//	    generalTab.click();
-
-		// Verify General Discount Percentage Radio Button in General Tab
-		boolean generalDiscountPercentageRadioButtonIsDisplayed = generalDiscountPercentageRadioButton.isDisplayed();
-		assertTrue(generalDiscountPercentageRadioButtonIsDisplayed,
-				"General Discount Percentage Radio Button is not Displayed.");
-		generalDiscountPercentageRadioButton.sendKeys(Keys.ENTER);
-
-		// Verify General Discount Rupees Radio Button in General Tab
-		boolean generalDiscountRupeesRadioButtonIsDisplayed = generalDiscountRupeesRadioButton.isDisplayed();
-		assertTrue(generalDiscountRupeesRadioButtonIsDisplayed,
-				"General Discount Rupees Radio Button is not Displayed.");
-		generalDiscountRupeesRadioButton.sendKeys(Keys.ENTER);
+		click(driver, generalDiscountPercentageRadioButton);
+		click(driver, generalDiscountRupeesRadioButton);
 
 		// Verify the General Discount Field3 in General Tab
-		boolean generalDiscountField3IsDisplayed = generalDiscountField3.isDisplayed();
-		assertTrue(generalDiscountField3IsDisplayed, "General Discount Field3 is not Displayed.");
-		generalDiscountField3.sendKeys(Keys.ENTER);
-		WebElement generalDiscountField3FocusedElement = driver.switchTo().activeElement();
-		boolean generalDiscountField3IsSelected = generalDiscountField3FocusedElement.equals(generalDiscountField3);
-		assertTrue(generalDiscountField3IsSelected, "General Discount Field3 is not Selected");
+		click(driver, generalDiscountField3);
 		generalDiscountField3.clear();
 		generalDiscountField3.sendKeys(generalDiscount);
 
 		// *********************************************************************
 		// Verify the Expandable DropDown-1 LP Costing Page-Sales Module
-		boolean expandableDropDown1IsDisplayed = expandableDropDown1.isDisplayed();
-		assertTrue(expandableDropDown1IsDisplayed, "Expandable DropDown-1 is not Displayed.");
-		js.executeScript("arguments[0].click();", expandableDropDown1);
 
-//		//Verify the Price List Drop Down in Quote Create Page-Sales Module
-//		boolean priceLIstDropDownIsDisplayed = priceLIstDropDown.isDisplayed();
-//		assertTrue(priceLIstDropDownIsDisplayed, "Price List Drop Down is not Displayed.");
-//		priceLIstDropDown.click();
-//		WebElement priceLIstDropDownFocusedElement = driver.switchTo().activeElement();
-//	    boolean priceLIstDropDownIsSelected = priceLIstDropDownFocusedElement.equals(priceLIstDropDown);
-//	    assertTrue(priceLIstDropDownIsSelected, "Price List Drop Down is not Selected");
-//	    driver.findElement(By.xpath("(//div[@class='h-50'])[1]")).click();
+		click(driver, expandableDropDown1);
 
-		// Verify the Quantity Field3 in General Tab
-//        boolean QuantityField3IsDisplayed = QuantityField3.isDisplayed();
-//        assertTrue(QuantityField3IsDisplayed, "Quantity Field3 is not Displayed.");
-		QuantityField3.sendKeys(Keys.ENTER);
-		WebElement QuantityField3FocusedElement = driver.switchTo().activeElement();
-		boolean QuantityField3IsSelected = QuantityField3FocusedElement.equals(QuantityField3);
-		assertTrue(QuantityField3IsSelected, "Quantity Field3 is not Selected");
+		click(driver, QuantityField3);
 		QuantityField3.clear();
 		QuantityField3.sendKeys(Quantity);
 
 		// Verify Discount Percentage Radio Button in General Tab
-		boolean discountPercentageRadioButtonIsDisplayed = discountPercentageRadioButton.isDisplayed();
-		assertTrue(discountPercentageRadioButtonIsDisplayed, "Discount Percentage Radio Button is not Displayed.");
-		discountPercentageRadioButton.click();
+		click(driver, discountPercentageRadioButton);
 
 		// Verify Discount Rupees Radio Button in General Tab
-		boolean discountRupeesRadioButtonIsDisplayed = discountRupeesRadioButton.isDisplayed();
-		assertTrue(discountRupeesRadioButtonIsDisplayed, "Discount Rupees Radio Button is not Displayed.");
-		discountRupeesRadioButton.click();
+		click(driver, discountRupeesRadioButton);
 
 		// Verify the discount Field3 in General Tab
-		boolean discountField3IsDisplayed = discountField3.isDisplayed();
-		assertTrue(discountField3IsDisplayed, "discount Field3 is not Displayed.");
-		discountField3.sendKeys(Keys.ENTER);
-		WebElement discountField3FocusedElement = driver.switchTo().activeElement();
-		boolean discountField3IsSelected = discountField3FocusedElement.equals(discountField3);
-		assertTrue(discountField3IsSelected, "discount Field3 is not Selected");
+		click(driver, discountField3);
 		discountField3.clear();
 		discountField3.sendKeys(discount);
 
@@ -439,42 +373,26 @@ public class QuoteCreatePage extends Testbase1 {
 //        specialDiscountField3.sendKeys("50");
 
 		// Verify the IGST Field3 in General Tab
-		boolean iGSTField3Field3IsDisplayed = iGSTField3.isDisplayed();
-		assertTrue(iGSTField3Field3IsDisplayed, "IGST Field3 is not Displayed.");
-		iGSTField3.sendKeys(Keys.ENTER);
-		WebElement iGSTField3FocusedElement = driver.switchTo().activeElement();
-		boolean iGSTField3IsSelected = iGSTField3FocusedElement.equals(iGSTField3);
-		assertTrue(iGSTField3IsSelected, "IGST Field3 is not Selected");
+		click(driver, iGSTField3);
+		isSelected(driver, iGSTField3, "iGSTField3");
 		iGSTField3.clear();
 		iGSTField3.sendKeys(igst1);
 
 		// Verify the CGST Field3 in General Tab
-		boolean cGSTField3Field3IsDisplayed = cGSTField3.isDisplayed();
-		assertTrue(cGSTField3Field3IsDisplayed, "CGST Field3 is not Displayed.");
-		cGSTField3.sendKeys(Keys.ENTER);
-		WebElement cGSTField3FocusedElement = driver.switchTo().activeElement();
-		boolean cGSTField3IsSelected = cGSTField3FocusedElement.equals(cGSTField3);
-		assertTrue(cGSTField3IsSelected, "CGST Field3 is not Selected");
+		click(driver, cGSTField3);
+		isSelected(driver, cGSTField3, "cGSTField3");
 		cGSTField3.clear();
 		cGSTField3.sendKeys(cgst1);
 
 		// Verify the SGST Field3 in General Tab
-		boolean sGSTField3Field3IsDisplayed = sGSTField3.isDisplayed();
-		assertTrue(sGSTField3Field3IsDisplayed, "SGST Field3 is not Displayed.");
-		sGSTField3.sendKeys(Keys.ENTER);
-		WebElement sGSTField3FocusedElement = driver.switchTo().activeElement();
-		boolean sGSTField3IsSelected = sGSTField3FocusedElement.equals(sGSTField3);
-		assertTrue(sGSTField3IsSelected, "SGST Field3 is not Selected");
+		click(driver, sGSTField3);
+		isSelected(driver, sGSTField3, "sGSTField3");
 		sGSTField3.clear();
 		sGSTField3.sendKeys(sgst1);
 
 		// Verify the UTGST Field3 in General Tab
-		boolean uTGSTField3Field3IsDisplayed = uTGSTField3.isDisplayed();
-		assertTrue(uTGSTField3Field3IsDisplayed, "UTGST Field3 is not Displayed.");
-		uTGSTField3.sendKeys(Keys.ENTER);
-		WebElement uTGSTField3FocusedElement = driver.switchTo().activeElement();
-		boolean uTGSTField3IsSelected = uTGSTField3FocusedElement.equals(uTGSTField3);
-		assertTrue(uTGSTField3IsSelected, "UTGST Field3 is not Selected");
+		click(driver, uTGSTField3);
+		isSelected(driver, uTGSTField3, "uTGSTField3");
 		uTGSTField3.clear();
 		uTGSTField3.sendKeys(utgst1);
 
@@ -638,103 +556,52 @@ public class QuoteCreatePage extends Testbase1 {
 		// ################## Total Calculation Tab ######################
 
 		// Verify and Click on Total Calculation Tab
-		boolean totalCalculationTabIsDisplayed = totalCalculationTab.isDisplayed();
-		assertTrue(totalCalculationTabIsDisplayed, "Total Calculation Tab is not Displayed.");
-		js.executeScript("arguments[0].click();", totalCalculationTab);
-		// Scroll To View
-		// ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();",
-		// driver.findElement(By.xpath("//label[text()='Customer Alias Name']")));
-
-		// Verify and Click on Is these required to be printed in quote Toggle Button in
-		// Create-Item PriceList-Sales Module
-		boolean toggleButtonIsDisplayed = toggleButton.isDisplayed();
-		assertTrue(toggleButtonIsDisplayed, "Is these required to be printed in quote Toggle Button is not Displayed");
-		toggleButton.click();
-		toggleButton.click();
+		click(driver, totalCalculationTab);
+		click(driver, toggleButton);
 
 		// Verify the Additional Charges Label Name Drop Down in Quote Create Page-Sales
 		// Module
-		boolean additionalChargesLabelNameDropDownIsDisplayed = additionalChargesLabel.isDisplayed();
-		assertTrue(additionalChargesLabelNameDropDownIsDisplayed,
-				"Additional Charges Label Name Drop Down is not Displayed.");
-		additionalChargesLabel.click();
-		WebElement additionalChargesLabelNameDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean additionalChargesLabelNameDropDownIsSelected = additionalChargesLabelNameDropDownFocusedElement
-				.equals(additionalChargesLabel);
-		assertTrue(additionalChargesLabelNameDropDownIsSelected,
-				"Additional Charges Label Name Drop Down is not Selected");
-
-		js.executeScript("arguments[0].click();", additionalChargesLabelSelect);
+		click(driver, additionalChargesLabel);
+		click(driver, additionalChargesLabelSelect);
 
 		// Verify Additional Charges Value Percentage Radio Button in General Tab
-		boolean additionalChargesValuePercentageRadioButtonIsDisplayed = additionalChargesValuePercentageRadioButton
-				.isDisplayed();
-		assertTrue(additionalChargesValuePercentageRadioButtonIsDisplayed,
-				"Additional Charges Value Percentage Radio Button is not Displayed.");
-		additionalChargesValuePercentageRadioButton.click();
+		click(driver, additionalChargesValuePercentageRadioButton);
 
 		// Verify additionalChargesValue Rupees Radio Button in General Tab
-		boolean additionalChargesValueRupeesRadioButtonIsDisplayed = additionalChargesValueRupeesRadioButton
-				.isDisplayed();
-		assertTrue(additionalChargesValueRupeesRadioButtonIsDisplayed,
-				"additionalChargesValue Rupees Radio Button is not Displayed.");
-		additionalChargesValueRupeesRadioButton.click();
+		click(driver, additionalChargesValueRupeesRadioButton);
 
 		// Verify the additionalChargesValue Field3 in General Tab
-		boolean additionalChargesValueField3IsDisplayed = additinalChargesValue.isDisplayed();
-		assertTrue(additionalChargesValueField3IsDisplayed, "additionalChargesValue Field3 is not Displayed.");
-		additinalChargesValue.sendKeys(Keys.ENTER);
-		WebElement additionalChargesValueField3FocusedElement = driver.switchTo().activeElement();
-		boolean additionalChargesValueField3IsSelected = additionalChargesValueField3FocusedElement
-				.equals(additinalChargesValue);
-		assertTrue(additionalChargesValueField3IsSelected, "additionalChargesValue Field3 is not Selected");
+		click(driver, additinalChargesValue);
+		isSelected(driver, additinalChargesValue, "additinalChargesValue");
 		additinalChargesValue.clear();
 		additinalChargesValue.sendKeys(additinalCharges);
 
 		// Verify the IGST Field6 in General Tab
-		boolean iGSTField6Field6IsDisplayed = igst.isDisplayed();
-		assertTrue(iGSTField6Field6IsDisplayed, "IGST Field6 is not Displayed.");
-		igst.sendKeys(Keys.ENTER);
-		WebElement iGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean iGSTField6IsSelected = iGSTField6FocusedElement.equals(igst);
-		assertTrue(iGSTField6IsSelected, "IGST Field6 is not Selected");
+		click(driver, igst);
+		isSelected(driver, igst, "igst");
 		igst.clear();
 		igst.sendKeys(igst3);
 
 		// Verify the CGST Field6 in General Tab
-		boolean cGSTField6Field6IsDisplayed = cgst.isDisplayed();
-		assertTrue(cGSTField6Field6IsDisplayed, "CGST Field6 is not Displayed.");
-		cgst.sendKeys(Keys.ENTER);
-		WebElement cGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean cGSTField6IsSelected = cGSTField6FocusedElement.equals(cgst);
-		assertTrue(cGSTField6IsSelected, "CGST Field6 is not Selected");
+		click(driver, cgst);
+		isSelected(driver, cgst, "cgst");
 		cgst.clear();
 		cgst.sendKeys(cgst3);
 
 		// Verify the SGST Field6 in General Tab
-		boolean sGSTField6Field6IsDisplayed = sgst.isDisplayed();
-		assertTrue(sGSTField6Field6IsDisplayed, "SGST Field6 is not Displayed.");
-		sgst.sendKeys(Keys.ENTER);
-		WebElement sGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean sGSTField6IsSelected = sGSTField6FocusedElement.equals(sgst);
-		assertTrue(sGSTField6IsSelected, "SGST Field6 is not Selected");
+		click(driver, sgst);
+		isSelected(driver, sgst, "cgst");
 		sgst.clear();
 		sgst.sendKeys(sgst3);
 
 		// Verify the UTGST Field6 in General Tab
-		boolean uTGSTField6Field6IsDisplayed = utgst.isDisplayed();
-		assertTrue(uTGSTField6Field6IsDisplayed, "UTGST Field6 is not Displayed.");
-		utgst.sendKeys(Keys.ENTER);
-		WebElement uTGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean uTGSTField6IsSelected = uTGSTField6FocusedElement.equals(utgst);
-		assertTrue(uTGSTField6IsSelected, "UTGST Field6 is not Selected");
+		click(driver, utgst);
+		isSelected(driver, utgst, "utgst");
 		utgst.clear();
 		utgst.sendKeys(utgst3);
 
 		// Verify and Click on Add Button in Total Calculation Tab
-		boolean addButtoninTotalCalculationTabIsDisplayed = addButton.isDisplayed();
-		assertTrue(addButtoninTotalCalculationTabIsDisplayed, "Add Button in Total Calculation Tab is not Displayed.");
-		addButton.click();
+		click(driver, addButton);
 
 		// Verify specialDiscount Percentage Radio Button3 in Total Calculation Tab
 		WebElement specialDiscountPercentageRadioButton3 = driver
@@ -742,7 +609,7 @@ public class QuoteCreatePage extends Testbase1 {
 		boolean specialDiscountPercentageRadioButton3IsDisplayed = specialDiscountPercentageRadioButton3.isDisplayed();
 		assertTrue(specialDiscountPercentageRadioButton3IsDisplayed,
 				"specialDiscount Percentage Radio Button3 is not Displayed.");
-		specialDiscountPercentageRadioButton3.click();
+		click(driver, specialDiscountPercentageRadioButton3);
 
 //           		//Verify specialDiscount Rupees Radio Button3 in Total Calculation Tab
 //           		WebElement specialDiscountRupeesRadioButton3 = driver.findElement(By.xpath("//input[@id='specialDiscTotAmt']"));
@@ -762,74 +629,42 @@ public class QuoteCreatePage extends Testbase1 {
 //                   specialDiscountField5.sendKeys("20");
 //                   
 		// Verify the Payment Terms Drop Down in Quote Create Page-Sales Module
-		boolean paymentTermsDropDownIsDisplayed = paymentTerms.isDisplayed();
-		assertTrue(paymentTermsDropDownIsDisplayed, "Price List Drop Down is not Displayed.");
-		paymentTerms.click();
-		WebElement paymentTermsDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean paymentTermsDropDownIsSelected = paymentTermsDropDownFocusedElement.equals(paymentTerms);
-		assertTrue(paymentTermsDropDownIsSelected, "Price List Drop Down is not Selected");
-
-		js.executeScript("arguments[0].click()", paymentTermsSelect);
+		click(driver, paymentTerms);
+		click(driver, paymentTermsSelect);
 
 		// ################## RFQ Notes Tab ######################
 
 		// Verify and Click on RFQ Notes Tab
-		boolean rfqNotesTabIsDisplayed = rfqNotesTab.isDisplayed();
-		assertTrue(rfqNotesTabIsDisplayed, "RFQ Notes Tab is not Displayed.");
-		js.executeScript("arguments[0].click();", rfqNotesTab);
+		click(driver, rfqNotesTab);
 
 		// Verify the Select RFQ Notes Drop Down in Quote Create Page-Sales Module
-		boolean selectRFQNotesDropDownIsDisplayed = rfqNotes.isDisplayed();
-		assertTrue(selectRFQNotesDropDownIsDisplayed, "Select RFQ Notes Drop Down is not Displayed.");
-		rfqNotes.click();
-		WebElement selectRFQNotesDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean selectRFQNotesDropDownIsSelected = selectRFQNotesDropDownFocusedElement.equals(rfqNotes);
-		assertTrue(selectRFQNotesDropDownIsSelected, "Select RFQ Notes Drop Down is not Selected");
-
-		js.executeScript("arguments[0].click()", rfqNotesSelect);
+		click(driver, rfqNotes);
+		click(driver, rfqNotesSelect);
 
 		// ################## Other Terms Tab ######################
 
 		// Verify and Click on Other Terms Tab
-		boolean otherTermsTabIsDisplayed = otherTermsTab.isDisplayed();
-		assertTrue(otherTermsTabIsDisplayed, "Other Terms Tab is not Displayed.");
-		js.executeScript("arguments[0].click();", otherTermsTab);
+		click(driver, otherTermsTab);
 
 		// Verify the Select Other Terms Drop Down in Quote Create Page-Sales Module
-		boolean selectOtherTermsDropDownIsDisplayed = OtherTermDropdown.isDisplayed();
-		assertTrue(selectOtherTermsDropDownIsDisplayed, "Select Other Terms Drop Down is not Displayed.");
-		OtherTermDropdown.click();
-		WebElement selectOtherTermsDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean selectOtherTermsDropDownIsSelected = selectOtherTermsDropDownFocusedElement.equals(OtherTermDropdown);
-		assertTrue(selectOtherTermsDropDownIsSelected, "Select Other Terms Drop Down is not Selected");
-
-		js.executeScript("arguments[0].click();", OtherTermDropdownSelect);
+		click(driver, OtherTermDropdown);
+		click(driver, OtherTermDropdownSelect);
 
 		// ################## Special Terms Tab ######################
 
 		// Verify and Click on Special Terms Tab
-		boolean specialTermsTabIsDisplayed = specialTermsTab.isDisplayed();
-		assertTrue(specialTermsTabIsDisplayed, "Special Terms Tab is not Displayed.");
-		js.executeScript("arguments[0].click();", specialTermsTab);
+		click(driver, specialTermsTab);
 
 		// Verify the Special Terms Field in Quote Create Page-Sales Module
-		boolean specialTermsFieldIsDisplayed = specialTermsField.isDisplayed();
-		assertTrue(specialTermsFieldIsDisplayed, "Special Terms Field is not Displayed.");
-		specialTermsField.click();
-		WebElement specialTermsFieldFocusedElement = driver.switchTo().activeElement();
-		boolean specialTermsFieldIsSelected = specialTermsFieldFocusedElement.equals(specialTermsField);
-		assertTrue(specialTermsFieldIsSelected, "Special Terms Field is not Selected");
+		click(driver, specialTermsField);
+		isSelected(driver, specialTermsField, "specialTermsField");
 		specialTermsField.sendKeys(specialTerms);
 
 		// Verify and Click on Add Button in Special Terms Tab
-		boolean addButtoninSpecialTermsTabIsDisplayed = addButton.isDisplayed();
-		assertTrue(addButtoninSpecialTermsTabIsDisplayed, "Add Button in Special Terms Tab is not Displayed.");
-		addButton.click();
+		click(driver, addButton);
 
 		// Verify and Click on Save Button in Quote Create Page
-		boolean saveButtoninSpecialTermsTabIsDisplayed = saveButton.isDisplayed();
-		assertTrue(saveButtoninSpecialTermsTabIsDisplayed, "Save Button in Quote Create Page is not Displayed.");
-		saveButton.click();
+		click(driver, saveButton);
 
 		System.out.println("\n" + "QuoteCreatePage  Ended" + "\n");
 

@@ -266,7 +266,7 @@ public class HomePage extends Testbase1 {
 	@FindBy(xpath = "(//a[@routerlink='transaction/delivery-order/table'])[1]")
 	WebElement MorVDeliveryOrder;
 
-	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
+	@FindBy(xpath = "(//i[@title='Return Delivery Order'])[1]")
 	WebElement returnDo;
 
 	// Invoice

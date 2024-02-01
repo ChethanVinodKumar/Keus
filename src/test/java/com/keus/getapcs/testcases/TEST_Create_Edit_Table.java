@@ -487,8 +487,8 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 
 		// Purchase Order Create Page
 		homePage.clickontransactionPOcreate();
-		Purchase_Order.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
-				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Purchase_Order.purchaseOrderCreatePage("10", "1000", "TEST Special Instructions", "8", "8", "8", "8", "100",
+				"Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
@@ -690,7 +690,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 	public void verifyOQC() throws Throwable {
 
 		homePage.clickOnOQCCreate();
-		OQC.OQCCreate("10");
+		OQC.OQCCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
@@ -708,7 +708,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 	public void verifyOQCBinning() throws Throwable {
 
 		homePage.clickOnOQCBinningCreate();
-		OQCBinning.OQCBinningCreate("10");
+		OQCBinning.OQCBinningCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}

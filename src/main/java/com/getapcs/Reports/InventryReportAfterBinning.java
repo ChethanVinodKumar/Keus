@@ -56,6 +56,9 @@ public class InventryReportAfterBinning extends Testbase1 {
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
 	WebElement viewButton;
 
+	@FindBy(xpath = "(//i[@title='Project Numbers'])[1]")
+	WebElement binningWarehoseAndlocation;
+
 	public InventryReportAfterBinning() {
 
 		PageFactory.initElements(driver, this);
@@ -92,6 +95,15 @@ public class InventryReportAfterBinning extends Testbase1 {
 		String updatedXpath = elementXpath.replace("PP-54", partType1);
 
 		System.out.println(updatedXpath);
+
+		click(driver, binningWarehoseAndlocation);
+
+		String tableXpath1 = "//table[@class='table mb-2']";
+
+		// Get the first PR number text from table
+		String warehouseInBinning = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
+
+		String locationInBinning = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
 
 //		// project Number
 //

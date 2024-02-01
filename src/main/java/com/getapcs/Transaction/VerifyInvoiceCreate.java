@@ -10,7 +10,7 @@ import com.getapcs.home.login.HomePage;
 
 public class VerifyInvoiceCreate extends Testbase1 {
 
-	@FindBy(xpath = "//tbody/tr[1]/td[1]/i[1]")
+	@FindBy(xpath = "(//i[@title='Click to View'])[1]")
 	WebElement viewDO;
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")

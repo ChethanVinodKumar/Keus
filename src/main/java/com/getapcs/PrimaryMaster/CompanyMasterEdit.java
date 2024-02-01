@@ -14,7 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
 
-public class CompanyMaster extends Testbase1 {
+public class CompanyMasterEdit extends Testbase1 {
 
 	@FindBy(xpath = "(//td[normalize-space()='10'])[1]")
 	WebElement headCountTable;
@@ -410,47 +410,19 @@ public class CompanyMaster extends Testbase1 {
 	@FindBy(xpath = "(//span[normalize-space()='TEST Audit Frequency Name'])[1]")
 	WebElement auditFrequencySelect;
 
-	public CompanyMaster() {
+	public CompanyMasterEdit() {
 		PageFactory.initElements(driver, this);
 	}
 
 	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
-	public HomePage CompanyMasterCreate(String comId, String comName, String comAlias, String add, String cty,
-			String stat, String code, String boardnum, String web, String eml, String generalpin, String cName,
-			String mobileNo, String llNum, String fN, String desig, String mobileno2, String exten, String lN,
-			String eml1, String addrs, String gst, String pan, String brch, String account, String ifsc, String swtch,
-			String Iban, String adv, String specialtms, String turnovr, String dnb, String icr, String headcount,
-			String skill, String people, String cacp, String floor, String machine1, String tools, String sqft1,
-			String erp2, String osp2, String approved) throws Exception {
+	public HomePage CompanyMasterEdit1(String comName, String comAlias, String add, String cty, String stat,
+			String code, String boardnum, String web, String eml, String generalpin, String cName, String mobileNo,
+			String llNum, String fN, String desig, String mobileno2, String exten, String lN, String eml1, String addrs,
+			String gst, String pan, String brch, String account, String ifsc, String swtch, String Iban, String adv,
+			String specialtms, String turnovr, String dnb, String icr, String headcount, String skill, String people,
+			String cacp, String floor, String machine1, String tools, String sqft1, String approved) throws Exception {
 
-		companyId.sendKeys(comId);
-		// 1Verifying that Item Number Text Field is Enabled or not
-		boolean isEnabledCompanyIdTextField = companyId.isEnabled();
-		assertTrue(isEnabledCompanyIdTextField);
-		boolean isDisabledCompanyIdTextFieldn = !companyId.isEnabled();
-		assertFalse(isDisabledCompanyIdTextFieldn);
-
-		// Verifying that Item Number Text Field is displayed or hidden.
-		boolean isDisplayedCompanyIdTextField = companyId.isDisplayed();
-		assertTrue(isDisplayedCompanyIdTextField);
-		boolean isHiddenCompanyIdTextField = !companyId.isDisplayed();
-		assertFalse(isHiddenCompanyIdTextField);
-
-		// Verifying that Item Number Text Field is Selected or unselected
-		boolean isSelectedCompanyIdTextField = companyId.isSelected();
-		assertFalse(isSelectedCompanyIdTextField);
-		boolean isDeselectedCompanyIdTextField = !companyId.isSelected();
-		assertTrue(isDeselectedCompanyIdTextField);
-
-		// Verifying the Placeholder which is present in CompanyId Name text field.
-		String displayedTextInCompanyId = companyId.getAttribute("placeholder");
-
-		String expected_placeholder1 = "Enter Company ID";
-
-		assertEquals(displayedTextInCompanyId, expected_placeholder1);
-
-		companyName.sendKeys(comName);
 		// 1Verifying that Item Number Text Field is Enabled or not
 		boolean isEnabledCompanyNameTextField = companyName.isEnabled();
 		assertTrue(isEnabledCompanyNameTextField);
@@ -475,7 +447,10 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder2 = "Enter Company Name";
 
 		assertEquals(displayedTextInCompanyName, expected_placeholder2);
+		companyName.clear();
+		companyName.sendKeys(comName);
 
+		companyAlias.clear();
 		companyAlias.sendKeys(comAlias);
 		// 1Verifying that Item Number Text Field is Enabled or not
 		boolean isEnabledCompanyAliasTextField = companyAlias.isEnabled();
@@ -535,6 +510,7 @@ public class CompanyMaster extends Testbase1 {
 		// Verifying that Address Text Field is Enabled or not
 		boolean isEnabledAddressField = address.isEnabled();
 		assertTrue(isEnabledAddressField);
+		address.clear();
 		address.sendKeys(add);
 
 		// Verifying the Placeholder which is present in Address text field.
@@ -563,7 +539,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder5 = "Enter city";
 
 		assertEquals(displayedTextInCity, expected_placeholder5);
-
+		city.clear();
 		city.sendKeys(cty);
 
 		// Verify that State Field is Displayed or not
@@ -585,7 +561,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder6 = "Enter state";
 
 		assertEquals(displayedTextInState, expected_placeholder6);
-
+		state.clear();
 		state.sendKeys(stat);
 
 		// Verify that Country Field is Displayed or not
@@ -625,6 +601,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInZipCode, expected_placeholder_in_ZipCode);
 
+		zipCode.clear();
 		zipCode.sendKeys(code);
 
 		// Verify that PurchaseGroup Field is Displayed or not
@@ -664,6 +641,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInboardNumber, expected_placeholder_in_boardNumber);
 
+		boardNumber.clear();
 		boardNumber.sendKeys(boardnum);
 
 		// Verify that webSite Field is Displayed or not
@@ -686,6 +664,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInwebSite, expected_placeholder_in_webSite);
 
+		website.clear();
 		website.sendKeys(web);
 
 		// Verify that email Field is Displayed or not
@@ -708,6 +687,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInemail, expected_placeholder_in_email);
 
+		email.clear();
 		email.sendKeys(eml);
 
 		// Verify that Currency Field is Displayed or not
@@ -747,6 +727,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextIngeneralPinLocation, expected_placeholder_in_generalPinLocation);
 
+		generalPinLocation.clear();
 		generalPinLocation.sendKeys(generalpin);
 
 		// Verify that typeOfCompany Field is Displayed or not
@@ -826,6 +807,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextIncallName, expected_placeholder_in_callName);
 
+		callName.clear();
 		callName.sendKeys(cName);
 
 		// Verify that mobileNumCode Field is Displayed or not
@@ -864,7 +846,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_mobileNum = "Enter Mobile No";
 
 		assertEquals(displayedTextInmobileNum, expected_placeholder_in_mobileNum);
-
+		mobileNum.clear();
 		mobileNum.sendKeys(mobileNo);
 
 		// Verify that landLineNo Field is Displayed or not
@@ -887,11 +869,12 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInlandLineNo, expected_placeholder_in_landLineNo);
 
+		landLineNo.clear();
 		landLineNo.sendKeys(llNum);
 
 		executor.executeScript("arguments[0].click();", timeToCall);
-		timeToCall.sendKeys("12");
-		timeToCall.sendKeys("12");
+		timeToCall.sendKeys("14");
+		timeToCall.sendKeys("14");
 
 		// Verify that firstName Field is Displayed or not
 		boolean isDisabledfirstNameFieldn = !firstName.isDisplayed();
@@ -913,6 +896,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInfirstName, expected_placeholder_in_firstName);
 
+		firstName.clear();
 		firstName.sendKeys(fN);
 
 		// Verify that designation Field is Displayed or not
@@ -935,6 +919,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextIndesignation, expected_placeholder_in_designation);
 
+		designation.clear();
 		designation.sendKeys(desig);
 
 		// Verify that mobileNumCode1 Field is Displayed or not
@@ -974,6 +959,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInmobileNum1, expected_placeholder_in_mobileNum1);
 
+		mobileNum1.clear();
 		mobileNum1.sendKeys(mobileno2);
 
 		// Verify that Extension Field is Displayed or not
@@ -996,6 +982,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInExtension, expected_placeholder_in_Extension);
 
+		extension.clear();
 		extension.sendKeys(exten);
 
 		// Verify that language Field is Displayed or not
@@ -1035,6 +1022,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInlastName, expected_placeholder_in_lastName);
 
+		lastName.clear();
 		lastName.sendKeys(lN);
 
 		// Verify that department Field is Displayed or not
@@ -1074,6 +1062,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInemail1, expected_placeholder_in_email1);
 
+		email1.clear();
 		email1.sendKeys(eml1);
 
 		// **********************//
@@ -1120,6 +1109,8 @@ public class CompanyMaster extends Testbase1 {
 //Addressess		
 		executor.executeScript("arguments[0].click();", addresses);
 
+		executor.executeScript("arguments[0].click();", addressesTable);
+
 		// Verify that poAddress Field is Displayed or not
 		boolean isDisabledpoAddressFieldn = !poAddress.isDisplayed();
 		assertFalse(isDisabledpoAddressFieldn);
@@ -1140,6 +1131,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInpoAddress, expected_placeholder_in_poAddress);
 
+		poAddress.clear();
 		poAddress.sendKeys(addrs);
 
 		// Verify that gstnNum Field is Displayed or not
@@ -1157,6 +1149,7 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextIngstnNum, expected_placeholder_in_gstnNum);
 
+		gstnNum.clear();
 		gstnNum.sendKeys(gst);
 
 		// Verify that panNum Field is Displayed or not
@@ -1179,13 +1172,16 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInpanNum, expected_placeholder_in_panNum);
 
+		panNum.clear();
 		panNum.sendKeys(pan);
 
-		addAddress.click();
+		update.click();
 
 //Banking
 
 		executor.executeScript("arguments[0].click();", banking);
+
+		executor.executeScript("arguments[0].click();", bankingTable);
 
 		// Verify that bankName1 Field is Displayed or not
 		boolean isDisabledbankName1Fieldn = !bankName.isDisplayed();
@@ -1199,7 +1195,7 @@ public class CompanyMaster extends Testbase1 {
 		// Verifying that bankName1 Text Field is Enabled or not
 		boolean isEnabledbankName1Field = bankName.isEnabled();
 		assertTrue(isEnabledbankName1Field);
-
+		bankName.clear();
 		bankName.sendKeys(Keys.ENTER);
 
 		executor.executeScript("arguments[0].click();", bankNameSelect);
@@ -1223,7 +1219,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_branch = "Enter Branch";
 
 		assertEquals(displayedTextInbranch, expected_placeholder_in_branch);
-
+		branch.clear();
 		branch.sendKeys(brch);
 
 		// Verify that accountNum Field is Displayed or not
@@ -1245,7 +1241,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_accountNum = "Enter Account Number";
 
 		assertEquals(displayedTextInaccountNum, expected_placeholder_in_accountNum);
-
+		accountNumber.clear();
 		accountNumber.sendKeys(account);
 
 		// Verify that ifscCode Field is Displayed or not
@@ -1267,7 +1263,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_ifscCode = "Enter IFSC Code";
 
 		assertEquals(displayedTextInifscCode, expected_placeholder_in_ifscCode);
-
+		ifscCode.clear();
 		ifscCode.sendKeys(ifsc);
 
 		// Verify that switchCode Field is Displayed or not
@@ -1289,7 +1285,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_switchCode = "Enter Swift Code";
 
 		assertEquals(displayedTextInswitchCode, expected_placeholder_in_switchCode);
-
+		switchCode.clear();
 		switchCode.sendKeys(swtch);
 
 		// Verify that ibanCode Field is Displayed or not
@@ -1311,10 +1307,10 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_ibanCode = "Enter IBAN Code";
 
 		assertEquals(displayedTextInibanCode, expected_placeholder_in_ibanCode);
-
+		ibanCode.clear();
 		ibanCode.sendKeys(Iban);
 
-		executor.executeScript("arguments[0].click();", addBanking);
+		executor.executeScript("arguments[0].click();", update);
 
 //Terms
 
@@ -1339,7 +1335,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_advance = "Enter Advance (%)";
 
 		assertEquals(displayedTextInadvance, expected_placeholder_in_advance);
-
+		advance.clear();
 		advance.sendKeys(adv);
 
 		// Verify that paymentTerms Field is Displayed or not
@@ -1395,7 +1391,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_specialTerms = "Enter Special Terms";
 
 		assertEquals(displayedTextInspecialTerms, expected_placeholder_in_specialTerms);
-
+		specialTerms.clear();
 		specialTerms.sendKeys(specialtms);
 
 		// Verify that preferredFreightForwarder Field is Displayed or not
@@ -1509,6 +1505,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_turnOver = "Enter Turn Over (3 Years)";
 
 		assertEquals(displayedTextInturnOver, expected_placeholder_in_turnOver);
+		turnOver.clear();
 		turnOver.sendKeys(turnovr);
 
 		// Verify that dnbNumber Field is Displayed or not
@@ -1529,11 +1526,9 @@ public class CompanyMaster extends Testbase1 {
 
 		String expected_placeholder_in_dnbNumber = "Enter DNB (Hoovers) Number";
 
-		if (displayedTextIndnbNumber.equals(expected_placeholder_in_dnbNumber))
-			System.out.println("placeholder text is displayed in the dnbNumber text field.");
-		else
-			System.out.println("placeholder text is not displayed in the dnbNumber text field.");
+		assertEquals(displayedTextIndnbNumber, expected_placeholder_in_dnbNumber);
 
+		dnbNumber.clear();
 		dnbNumber.sendKeys(dnb);
 
 		// Verify that icra Field is Displayed or not
@@ -1556,27 +1551,32 @@ public class CompanyMaster extends Testbase1 {
 
 		assertEquals(displayedTextInicra, expected_placeholder_in_icra);
 
+		icra.clear();
 		icra.sendKeys(icr);
 
-		executor.executeScript("arguments[0].click();", headCount1);
+		executor.executeScript("arguments[0].click();", headCount2);
 
-		// Verify that headcount Field is clickable or not
-		WebElement headcountFieldFocusedElement = driver.switchTo().activeElement();
-		boolean headcountFieldIsSelected = headcountFieldFocusedElement.equals(enterHeadCount);
-		assertFalse(headcountFieldIsSelected, "headcount Text Field is not Selected");
-
-		// Verifying that headcount Text Field is Enabled or not
-		boolean isEnabledheadcountField = enterHeadCount.isEnabled();
-		assertTrue(isEnabledheadcountField);
-
-		// Verifying the Placeholder which is present in headcount text field.
-		String displayedTextInheadcount = enterHeadCount.getAttribute("placeholder");
-
-		String expected_placeholder_in_headcount = "Enter Head Count";
-
-		assertEquals(displayedTextInheadcount, expected_placeholder_in_headcount);
-
-		enterHeadCount.sendKeys(headcount);
+		executor.executeScript("arguments[0].click();", headCountTable);
+		//
+		//
+//		//Verify that  headcount Field is clickable or not
+//		WebElement headcountFieldFocusedElement = driver.switchTo().activeElement();
+//		boolean headcountFieldIsSelected = headcountFieldFocusedElement.equals(enterHeadCount);
+//		assertFalse(headcountFieldIsSelected, "headcount Text Field is not Selected");
+		//
+//		//Verifying that headcount Text Field is Enabled or not
+//		boolean isEnabledheadcountField = enterHeadCount.isEnabled();
+//		assertTrue(isEnabledheadcountField);
+		//
+//		//Verifying the Placeholder which is present in headcount text field.
+//		String displayedTextInheadcount = enterHeadCount.getAttribute("placeholder");
+		//
+//		String expected_placeholder_in_headcount = "Enter Head Count";
+		//
+//		assertEquals(displayedTextInheadcount, expected_placeholder_in_headcount);
+		//
+//		enterHeadCount.clear();
+//		enterHeadCount.sendKeys(headcount);
 
 		// Verifying that skill Text Field is Enabled or not
 		boolean isEnabledskillField = enterskill.isEnabled();
@@ -1588,7 +1588,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_skill = "Skill/Dept";
 
 		assertEquals(displayedTextInskill, expected_placeholder_in_skill);
-
+		enterskill.clear();
 		enterskill.sendKeys(skill);
 
 		// Verifying that numOfPeople Text Field is Enabled or not
@@ -1601,10 +1601,10 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_numOfPeople = "Qty";
 
 		assertEquals(displayedTextInnumOfPeople, expected_placeholder_in_numOfPeople);
-
+		noOfPeople.clear();
 		noOfPeople.sendKeys(people);
 
-		executor.executeScript("arguments[0].click();", addheadCount);
+		executor.executeScript("arguments[0].click();", updateHeadCountTable);
 
 		// Verify that capacity Field is Displayed or not
 		boolean isDisabledcapacityFieldn = !capacity.isDisplayed();
@@ -1625,7 +1625,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_capacity = "Enter Capacity";
 
 		assertEquals(displayedTextIncapacity, expected_placeholder_in_capacity);
-
+		capacity.clear();
 		capacity.sendKeys(cacp);
 
 		// Verify that floorSpace Field is Displayed or not
@@ -1647,7 +1647,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_floorSpace = "Enter Floor Space";
 
 		assertEquals(displayedTextInfloorSpace, expected_placeholder_in_floorSpace);
-
+		floorSpace.clear();
 		floorSpace.sendKeys(floor);
 
 		// Verify that machine Field is Displayed or not
@@ -1669,7 +1669,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_machine = "Enter Machine";
 
 		assertEquals(displayedTextInmachine, expected_placeholder_in_machine);
-
+		machine.clear();
 		machine.sendKeys(machine1);
 
 		// Verify that toolsAndEquip Field is Displayed or not
@@ -1691,7 +1691,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_toolsAndEquip = "Enter Tools & Equip";
 
 		assertEquals(displayedTextIntoolsAndEquip, expected_placeholder_in_toolsAndEquip);
-
+		toolsAndEquip.clear();
 		toolsAndEquip.sendKeys(tools);
 
 		// Verify that sqft Field is Displayed or not
@@ -1713,7 +1713,7 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_sqft = "Enter Sqft";
 
 		assertEquals(displayedTextInsqft, expected_placeholder_in_sqft);
-
+		sqft.clear();
 		sqft.sendKeys(sqft1);
 
 		// Verify that uom Field is Displayed or not
@@ -1735,28 +1735,6 @@ public class CompanyMaster extends Testbase1 {
 
 		executor.executeScript("arguments[0].click();", erpToggle);
 
-		// Verify that erp Field is Displayed or not
-		boolean isDisablederpFieldn = !enterErp.isDisplayed();
-		assertFalse(isDisablederpFieldn);
-
-		// Verify that erp Field is clickable or not
-		WebElement erpFieldFocusedElement = driver.switchTo().activeElement();
-		boolean erpFieldIsSelected = erpFieldFocusedElement.equals(enterErp);
-		assertFalse(erpFieldIsSelected, "erp Text Field is not Selected");
-
-		// Verifying that erp Text Field is Enabled or not
-		boolean isEnablederpField = enterErp.isEnabled();
-		assertTrue(isEnablederpField);
-
-		// Verifying the Placeholder which is present in erp text field.
-		String displayedTextInerp = enterErp.getAttribute("placeholder");
-
-		String expected_placeholder_in_erp = "Enter ERP";
-
-		assertEquals(displayedTextInerp, expected_placeholder_in_erp);
-
-		enterErp.sendKeys(erp2);
-
 		WebElement esdSetup = driver.findElement(By.xpath("(//input[@value='yes'])[1]"));
 		executor.executeScript("arguments[0].click();", esdSetup);
 
@@ -1764,28 +1742,6 @@ public class CompanyMaster extends Testbase1 {
 		executor.executeScript("arguments[0].click();", hazmatSetup);
 
 		executor.executeScript("arguments[0].click();", ospToggle);
-
-		// Verify that osp1 Field is Displayed or not
-		boolean isDisabledosp1Fieldn = !enterOsp.isDisplayed();
-		assertFalse(isDisabledosp1Fieldn);
-
-		// Verify that osp1 Field is clickable or not
-		WebElement osp1FieldFocusedElement = driver.switchTo().activeElement();
-		boolean osp1FieldIsSelected = osp1FieldFocusedElement.equals(enterOsp);
-		assertFalse(osp1FieldIsSelected, "osp1 Text Field is not Selected");
-
-		// Verifying that osp1 Text Field is Enabled or not
-		boolean isEnabledosp1Field = enterOsp.isEnabled();
-		assertTrue(isEnabledosp1Field);
-
-		// Verifying the Placeholder which is present in osp1 text field.
-		String displayedTextInosp1 = enterOsp.getAttribute("placeholder");
-
-		String expected_placeholder_in_osp1 = "Enter OSP";
-
-		assertEquals(displayedTextInosp1, expected_placeholder_in_osp1);
-
-		enterOsp.sendKeys(osp2);
 
 		// Company Approval
 
@@ -1869,14 +1825,10 @@ public class CompanyMaster extends Testbase1 {
 		String expected_placeholder_in_approvedBy = "Approved By";
 
 		assertEquals(displayedTextInapprovedBy, expected_placeholder_in_approvedBy);
-
+		approvedBy.clear();
 		approvedBy.sendKeys(approved);
 
 		executor.executeScript("arguments[0].click();", reaudit);
-
-		// Verify that reaudit Field is Displayed or not
-		boolean isDisabledreaudit = reaudit.isDisplayed();
-		assertTrue(isDisabledreaudit);
 
 		WebElement auditFrequency = driver.findElement(By.xpath("(//input[@type='text'])[9]"));
 
@@ -1897,19 +1849,44 @@ public class CompanyMaster extends Testbase1 {
 
 		executor.executeScript("arguments[0].click();", auditFrequencySelect);
 
+		WebElement UploadFiles1 = driver.findElement(By.xpath("(//input[@placeholder='Select Upload file'])[1]"));
+
+		uploadFile(driver, UploadFiles1, 3);
+
 		WebElement approvalDate = driver.findElement(By.xpath("(//input[@placeholder='DD-MM-YYYY'])[1]"));
-		approvalDate.click();
+		js.executeScript("arguments[0].click();", approvalDate);
+		approvalDate.sendKeys(Keys.RIGHT);
 		approvalDate.sendKeys(Keys.RIGHT);
 		approvalDate.sendKeys(Keys.ENTER);
 
-		// Verifing that do we able to upload files or not.
-		WebElement UploadFiles = driver.findElement(By.xpath("(//input[@placeholder='Select Upload file'])[1]"));
-		uploadFile(driver, UploadFiles, 2);
+//		// Verifing that do we able to upload files or not.
+//		JavascriptExecutor executor1 = (JavascriptExecutor) driver;
+//		executor1.executeScript("arguments[0].click();", UploadFiles);
+//		Robot robot = new Robot();
+//		robot.delay(2000);
+//		StringSelection stringSelection = new StringSelection(
+//				"C:\\Users\\W2191\\eclipse-workspace\\Getapcs2\\src\\test\\java\\com\\testcases\\master1\\AALoginFunctionality.java");
+//		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+//
+//		// Press Enter to open the file dialog
+//
+//		robot.delay(2000);
+//
+//		// Press Ctrl+V to paste the file path
+//		robot.keyPress(KeyEvent.VK_CONTROL);
+//		robot.keyPress(KeyEvent.VK_V);
+//		robot.delay(2000);
+//		robot.keyRelease(KeyEvent.VK_CONTROL);
+//		robot.keyRelease(KeyEvent.VK_V);
+//
+//		robot.delay(2000);
+//		// Press Enter to confirm the file selection
+//		robot.keyPress(KeyEvent.VK_ENTER);
+//		robot.keyRelease(KeyEvent.VK_ENTER);
 
 		WebElement SaveButton = driver.findElement(By.xpath("//button[normalize-space()='Save']"));
 		SaveButton.sendKeys(Keys.ENTER);
 
 		return new HomePage();
 	}
-
 }

@@ -3,7 +3,6 @@ package com.getapcs.Transaction;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,7 +14,7 @@ public class Grin extends Testbase1 {
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement venderNameDropDown;
-	@FindBy(xpath = "(//span[normalize-space()='Test venderName1'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='Keus Automation Pvt Ltd'])[1]")
 	WebElement selectVenderNameDropDownValue;
 
 	@FindBy(xpath = "//label[normalize-space(text())='Vendor Id']/following-sibling::div/input[@formcontrolname='vendorNumber']")
@@ -36,16 +35,25 @@ public class Grin extends Testbase1 {
 	@FindBy(xpath = "//input[@formcontrolname='gateEntryDate']")
 	WebElement gateEntryDatePicker;
 
+	@FindBy(xpath = "(//input[@placeholder='Gate Entry Number'])[1]")
+	WebElement gateEntryNumber;
+
 	@FindBy(linkText = "Items")
 	WebElement itemTab;
 
 	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
 	WebElement uploadFiles;
 
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement saveUploadFile;
+
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewButton;
+
 	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Close'])[13]")
 	WebElement fileCloseButton;
 
-	@FindBy(xpath = "(//input[@type='text'])[6]")
+	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement poNumberField;
 	@FindBy(xpath = "//span[contains(text(),'TISPL-MFPO-1080-0019')]")
 	WebElement selectPOnumberFieldValue;
@@ -55,13 +63,13 @@ public class Grin extends Testbase1 {
 	@FindBy(xpath = "//span[contains(text(),'ECB0002-111M INS. SINGLE END SLEEVE 0.25MM, 24# VI')]")
 	WebElement selectItemOrDescriptionNumberFieldValue;
 
-	@FindBy(xpath = "(//input[@type='text'])[9]")
+	@FindBy(xpath = "(//input[@type='text'])[8]")
 	WebElement mftrBatchNoNumberField;
 
-	@FindBy(xpath = "(//input[@type='text'])[10]")
+	@FindBy(xpath = "(//input[@type='text'])[9]")
 	WebElement unitPriceField;
 
-	@FindBy(xpath = "(//input[@type='text'])[11]")
+	@FindBy(xpath = "(//input[@type='text'])[10]")
 	WebElement quantityField;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
@@ -91,7 +99,16 @@ public class Grin extends Testbase1 {
 	WebElement expiryDate;
 
 	@FindBy(xpath = "//input[@placeholder='Upload file']")
+	WebElement UploadFiles;
+
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[1]")
 	WebElement cocUploadFiles;
+
+	@FindBy(xpath = "(//button[normalize-space()='Upload'])[1]")
+	WebElement uploadButton;
+
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
 
 	@FindBy(xpath = "//i[@title='Add Taxes']")
 	WebElement taxesButton;
@@ -247,159 +264,59 @@ public class Grin extends Testbase1 {
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/grin/create");
 
-		// Verify and Select Value from Vender Name DropDown in GRIN Create-Transaction
-		// Module
-//        WebElement venderNameDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[1]")));
-		boolean venderNameDropDownIsDisplayed = venderNameDropDown.isDisplayed();
-		assertTrue(venderNameDropDownIsDisplayed, "Vender Name DropDown is not Displayed.");
-		venderNameDropDown.sendKeys(Keys.ENTER);
-		WebElement venderNameDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean venderNameDropDownIsSelected = venderNameDropDownFocusedElement.equals(venderNameDropDown);
-		assertTrue(venderNameDropDownIsSelected, "Vender Name DropDown is not Selected");
-		venderNameDropDown.sendKeys("Test venderName1");
-		Thread.sleep(2);
-		selectVenderNameDropDownValue.click();
-		;
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("//span[contains(text(),'SUMITRON EXPORTS PVT LTD')]")));
+		// venderNameDropDown
 
-		// Verify and Select Value from Vender Id Field in GRIN Create-Transaction
-		// Module
-//        WebElement venderIdField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[normalize-space(text())='Vendor Id']/following-sibling::div/input[@formcontrolname='vendorId']")));
+		click(driver, venderNameDropDown);
+		click(driver, selectVenderNameDropDownValue);
+
+		// Vender ID
+
 		boolean venderIdFieldIsDisplayed = venderIdField.isDisplayed();
 		assertTrue(venderIdFieldIsDisplayed, "Vender Id Field is not Displayed.");
 		// To extract Value Attribute and use same approach to retrieve
 		String venderIdFieldValue = (String) js.executeScript("return arguments[0].value;", venderIdField);
 		System.out.println("Vender ID : " + venderIdFieldValue + "\n");
 
-		// Verify and Select Value from Invoice Number Field in GRIN Create-Transaction
-		// Module
-//        WebElement invoiceNumberField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Enter Invoice Number']")));
-		boolean invoiceNumberFieldIsDisplayed = invoiceNumberField.isDisplayed();
-		assertTrue(invoiceNumberFieldIsDisplayed, "Invoice Number Field is not Displayed.");
-		invoiceNumberField.sendKeys(Keys.ENTER);
-		WebElement invoiceNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean invoiceNumberFieldIsSelected = invoiceNumberFieldFocusedElement.equals(invoiceNumberField);
-		assertTrue(invoiceNumberFieldIsSelected, "Invoice Number Field is not Selected");
+		// Invoice Number
+
+		click(driver, invoiceNumberField);
 		invoiceNumberField.sendKeys(invoiceNo);
 
-		// Verify and Invoice Date Picker in GRIN Create
-//        WebElement invoiceDatePicker = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@formcontrolname='invoiceDate']")));
-		boolean invoiceDatePickerIsDisplayed = invoiceDatePicker.isDisplayed();
-		assertTrue(invoiceDatePickerIsDisplayed, "Invoice Date Picker is not Displayed.");
-		invoiceDatePicker.click();
-		// invoiceDatePicker
-		WebElement invoiceDatePickerFocusedElement = driver.switchTo().activeElement();
-		boolean invoiceDatePickerIsSelected = invoiceDatePickerFocusedElement.equals(invoiceDatePicker);
-		assertTrue(invoiceDatePickerIsSelected, "Schedule Date Picker is not Selected");
-		for (int j = 0; j < 3; j++) {
-			invoiceDatePicker.sendKeys(Keys.ARROW_DOWN);
-			Thread.sleep(300); // Add a small delay if needed
-		}
-		invoiceDatePicker.sendKeys(Keys.ARROW_RIGHT);
-		invoiceDatePicker.sendKeys(Keys.ARROW_RIGHT);
-		invoiceDatePicker.sendKeys(Keys.ENTER);
+		// Invoice Date Picker
 
-		// Verify and Select Value from Invoice Vaue_withGST Field in GRIN
-		// Create-Transaction Module
-//        WebElement invoiceValue_withGSTField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Enter Invoice Value ']")));
-		boolean invoiceValue_withGSTFieldIsDisplayed = invoiceValue_withGSTField.isDisplayed();
-		assertTrue(invoiceValue_withGSTFieldIsDisplayed, "Invoice Value_withGST Field is not Displayed.");
-		invoiceValue_withGSTField.sendKeys(Keys.ENTER);
-		WebElement invoiceValue_withGSTFieldFocusedElement = driver.switchTo().activeElement();
-		boolean invoiceValue_withGSTFieldIsSelected = invoiceValue_withGSTFieldFocusedElement
-				.equals(invoiceValue_withGSTField);
-		assertTrue(invoiceValue_withGSTFieldIsSelected, "Invoice Value_withGST Field is not Selected");
-		invoiceValue_withGSTField.sendKeys(invoiceGST);
+		datePicker(driver, invoiceDatePicker);
 
-		// Verify and Select Value from Invoice Number Field in GRIN Create-Transaction
-		// Module
-//        WebElement totalInvoiceField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Total Invoice']")));
-		boolean totalInvoiceFieldIsDisplayed = totalInvoiceField.isDisplayed();
-		assertTrue(totalInvoiceFieldIsDisplayed, "Invoice Number Field is not Displayed.");
-		totalInvoiceField.sendKeys(Keys.ENTER);
-		WebElement totalInvoiceFieldFocusedElement = driver.switchTo().activeElement();
-		boolean totalInvoiceFieldIsSelected = totalInvoiceFieldFocusedElement.equals(totalInvoiceField);
-		assertTrue(totalInvoiceFieldIsSelected, "Invoice Number Field is not Selected");
-		totalInvoiceField.sendKeys(totalInvoice);
+		// Gate Entry Datepicker
 
-		// Verify and Gate Entry Date Picker in GRIN Create
-//        WebElement gateEntryDatePicker = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@formcontrolname='gateEntryDate']")));
-		boolean gateEntryDatePickerIsDisplayed = gateEntryDatePicker.isDisplayed();
-		assertTrue(gateEntryDatePickerIsDisplayed, "Gate Entry Date Picker is not Displayed.");
-		gateEntryDatePicker.click();
+		datePicker(driver, gateEntryDatePicker);
 
-		// gateEntryDatePicker
-		WebElement gateEntryDatePickerFocusedElement = driver.switchTo().activeElement();
-		boolean gateEntryDatePickerIsSelected = gateEntryDatePickerFocusedElement.equals(gateEntryDatePicker);
-		assertTrue(gateEntryDatePickerIsSelected, "Gate Entry Date Picker is not Selected");
-		for (int j = 0; j < 3; j++) {
-			gateEntryDatePicker.sendKeys(Keys.ARROW_DOWN);
-			Thread.sleep(300); // Add a small delay if needed
-		}
-		gateEntryDatePicker.sendKeys(Keys.ARROW_RIGHT);
-		gateEntryDatePicker.sendKeys(Keys.ARROW_RIGHT);
-		gateEntryDatePicker.sendKeys(Keys.ENTER);
+		// Gate Entry Number
+
+		click(driver, gateEntryNumber);
+		gateEntryNumber.sendKeys("10");
 
 		// ################## Item Tab ######################
 
-		// Verify Item Tab in GRIN Create-Transaction Module
-//  		WebElement itemTab = driver.findElement(By.linkText("Items"));
-		boolean itemTabIsDisplayed = itemTab.isDisplayed();
-		assertTrue(itemTabIsDisplayed, "item Tab is not Displayed.");
-		itemTab.click();
+		// PO Number
 
-		// Verifying and Upload Files in Grin Create
-//  		WebElement uploadFiles = driver.findElement(By.xpath("//input[@placeholder='Upload Items']"));
-
-		// Verify and Select Value from po Number Field in GRIN Create-Transaction
-		// Module
-//        WebElement poNumberField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[7]")));
-		boolean poNumberFieldIsDisplayed = poNumberField.isDisplayed();
-		assertTrue(poNumberFieldIsDisplayed, "po Number Field is not Displayed.");
-		poNumberField.sendKeys(Keys.ENTER);
-		WebElement poNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean poNumberFieldIsSelected = poNumberFieldFocusedElement.equals(poNumberField);
-		assertTrue(poNumberFieldIsSelected, "po Number Field is not Selected");
-
+		click(driver, poNumberField);
 		WebElement selectPOnumberFieldValue = driver.findElement(By.xpath(updatedXpath));
 		js.executeScript("arguments[0].click();", selectPOnumberFieldValue);
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("//span[contains(text(),'TISPL-MFPO-1080-0019')]")));
 
-		// Verify and Select Value from Invoice Number Field in GRIN Create-Transaction
-		// Module
-//        WebElement itemOrDescriptionNumberField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@role='combobox'])[1]")));
-		boolean itemOrDescriptionNumberFieldIsDisplayed = itemOrDescriptionNumberField.isDisplayed();
-		assertTrue(itemOrDescriptionNumberFieldIsDisplayed, "itemOrDescription Number Field is not Displayed.");
-		itemOrDescriptionNumberField.click();
-		Thread.sleep(2000);
-		WebElement itemOrDescriptionNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean itemOrDescriptionNumberFieldIsSelected = itemOrDescriptionNumberFieldFocusedElement
-				.equals(itemOrDescriptionNumberField);
-		assertTrue(itemOrDescriptionNumberFieldIsSelected, "Item or Description Number Field is not Selected");
+		// Item Number Field
 
+		click(driver, itemOrDescriptionNumberField);
 		WebElement selectItemOrDescriptionNumberFieldValue = driver.findElement(By.xpath(updatedXpath1));
 		click(driver, selectItemOrDescriptionNumberFieldValue);
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("//span[contains(text(),'ECB0002-111M INS. SINGLE END SLEEVE 0.25MM, 24# VI')]")));
 
-		// Verify and Select Value from Mftr Batch No Number Field in GRIN
-		// Create-Transaction Module
-//        WebElement mftrBatchNoNumberField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[10]")));
-		boolean mftrBatchNoNumberFieldIsDisplayed = mftrBatchNoNumberField.isDisplayed();
-		assertTrue(mftrBatchNoNumberFieldIsDisplayed, "Mftr Batch No Number Field is not Displayed.");
-		mftrBatchNoNumberField.sendKeys(Keys.ENTER);
-		WebElement mftrBatchNoNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean mftrBatchNoNumberFieldIsSelected = mftrBatchNoNumberFieldFocusedElement.equals(mftrBatchNoNumberField);
-		assertTrue(mftrBatchNoNumberFieldIsSelected, "Mftr Batch No Number Field is not Selected");
+		// MFTR Number
+
+		click(driver, mftrBatchNoNumberField);
 		mftrBatchNoNumberField.sendKeys(mftrBatchNo);
 
-		// Verify and Enter Value in Unit Price Field in GRIN Create-Transaction Module
-//        WebElement unitPriceField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[11]")));
-		boolean unitPriceFieldIsDisplayed = unitPriceField.isDisplayed();
-		assertTrue(unitPriceFieldIsDisplayed, "Unit Price Field is not Displayed.");
-		unitPriceField.sendKeys(Keys.ENTER);
-		WebElement unitPriceFieldFocusedElement = driver.switchTo().activeElement();
-		boolean unitPriceFieldIsSelected = unitPriceFieldFocusedElement.equals(unitPriceField);
-		assertTrue(unitPriceFieldIsSelected, "Unit Price Field is not Selected");
+		// UnitPrice
+
+		click(driver, unitPriceField);
 		unitPriceField.clear();
 		unitPriceField.sendKeys(unitPrice);
 
@@ -407,207 +324,123 @@ public class Grin extends Testbase1 {
 
 		datePicker(driver, manufactureDatePicker);
 
-		// Verifying and Coc Upload Files in Grin Create
-//  		WebElement cocUploadFiles = driver.findElement(By.xpath("//input[@placeholder='Upload file']"));
+		click(driver, cocUploadFiles);
 
-		uploadFile(driver, cocUploadFiles, 3);
+		uploadFile(driver, UploadFiles, 3);
 
-		// Verify Taxes Button in Add Project Pop-UP
-//          WebElement taxesButton = driver.findElement(By.xpath("//i[@title='Add Taxes']"));
-		boolean taxesButton1IsDisplayed = taxesButton.isDisplayed();
-		assertTrue(taxesButton1IsDisplayed, "Taxes Button Expansion Panel is not Displayed.");
-		taxesButton.click();
+		click(driver, uploadButton);
 
-		// Verify and Enter Value in SGST Field in GRIN Create-Transaction Module
-//          WebElement sGSTField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Enter SGST']")));
-		boolean sGSTFieldIsDisplayed = sGSTField.isDisplayed();
-		assertTrue(sGSTFieldIsDisplayed, "Unit Price Field is not Displayed.");
-		sGSTField.sendKeys(Keys.ENTER);
-		WebElement sGSTFieldFocusedElement = driver.switchTo().activeElement();
-		boolean sGSTFieldIsSelected = sGSTFieldFocusedElement.equals(sGSTField);
-		assertTrue(sGSTFieldIsSelected, "Unit Price Field is not Selected");
+		click(driver, closeButton);
+
+		// Taxes Button
+
+		click(driver, taxesButton);
+
+		// SGST
+
+		click(driver, sGSTField);
 		sGSTField.clear();
 		sGSTField.sendKeys(sgst);
 
-		// Verify and Enter Value in Unit Price Field in GRIN Create-Transaction Module
-//          WebElement cGSTField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Enter CGST']")));
-		boolean cGSTFieldIsDisplayed = cGSTField.isDisplayed();
-		assertTrue(cGSTFieldIsDisplayed, "Unit Price Field is not Displayed.");
-		cGSTField.sendKeys(Keys.ENTER);
-		WebElement cGSTFieldFocusedElement = driver.switchTo().activeElement();
-		boolean cGSTFieldIsSelected = cGSTFieldFocusedElement.equals(cGSTField);
-		assertTrue(cGSTFieldIsSelected, "Unit Price Field is not Selected");
+		// CGST
+
+		click(driver, cGSTField);
 		cGSTField.clear();
 		cGSTField.sendKeys(cgst);
 
-		// Verify and Enter Value in Unit Price Field in GRIN Create-Transaction Module
-//          WebElement iGSTField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Enter IGST']")));
-		boolean iGSTFieldIsDisplayed = iGSTField.isDisplayed();
-		assertTrue(iGSTFieldIsDisplayed, "Unit Price Field is not Displayed.");
-		iGSTField.sendKeys(Keys.ENTER);
-		WebElement iGSTFieldFocusedElement = driver.switchTo().activeElement();
-		boolean iGSTFieldIsSelected = iGSTFieldFocusedElement.equals(iGSTField);
-		assertTrue(iGSTFieldIsSelected, "Unit Price Field is not Selected");
+		// IGST
+
+		click(driver, iGSTField);
 		iGSTField.clear();
 		iGSTField.sendKeys("9");
 
-		// Verify and Enter Value in Unit Price Field in GRIN Create-Transaction Module
-//          WebElement uTGSTField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Enter UTGST']")));
-		boolean uTGSTFieldIsDisplayed = uTGSTField.isDisplayed();
-		assertTrue(uTGSTFieldIsDisplayed, "Unit Price Field is not Displayed.");
-		uTGSTField.sendKeys(Keys.ENTER);
-		WebElement uTGSTFieldFocusedElement = driver.switchTo().activeElement();
-		boolean uTGSTFieldIsSelected = uTGSTFieldFocusedElement.equals(uTGSTField);
-		assertTrue(uTGSTFieldIsSelected, "Unit Price Field is not Selected");
+		// UTGST
+
+		click(driver, uTGSTField);
 		uTGSTField.clear();
 		uTGSTField.sendKeys(utgst);
 
-		// Verify save Button in Add Taxes Pop-UP
-//          WebElement saveButtonInAddTaxesPOPUP = driver.findElement(By.xpath("(//button[@type='submit'][normalize-space()='Save'])[1]"));
-		boolean saveButtonInAddTaxesPOPUP1IsDisplayed = saveButtonInAddTaxesPOPUP.isDisplayed();
-		assertTrue(saveButtonInAddTaxesPOPUP1IsDisplayed,
-				"save Button in Add Taxes Pop-Up Expansion Panel is not Displayed.");
-		saveButtonInAddTaxesPOPUP.click();
+		// Save Taxes
+
+		click(driver, saveButtonInAddTaxesPOPUP);
 
 		// Verify Freight Charges Tab
-		boolean freightChargesTabIsDisplayed = freightChargesTab.isDisplayed();
-		assertTrue(freightChargesTabIsDisplayed, "Freight Charges Tab is not Displayed.");
-		freightChargesTab.click();
+
+		click(driver, freightChargesTab);
 
 		// Verify AWB Number Field 1
-		boolean awbNumberField1IsDisplayed = awbNumberField1.isDisplayed();
-		assertTrue(awbNumberField1IsDisplayed, "AWB Number Field 1 is not Displayed.");
-		awbNumberField1.click();
-		WebElement awbNumberField1FocusedElement = driver.switchTo().activeElement();
-		boolean awbNumberField1IsSelected = awbNumberField1FocusedElement.equals(awbNumberField1);
-		assertTrue(awbNumberField1IsSelected, "AWB Number Field 1 is not Selected");
+
+		click(driver, awbNumberField1);
 		awbNumberField1.sendKeys(awbNo1);
 
 		// Verify AWB Date Picker 1
-		boolean awbDatePicker1IsDisplayed = awbDatePicker1.isDisplayed();
-		assertTrue(awbDatePicker1IsDisplayed, "AWB Date Picker 1 is not Displayed.");
-		awbDatePicker1.click();
-		// invoiceDatePicker
-		WebElement awbDatePicker1FocusedElement = driver.switchTo().activeElement();
-		boolean awbDatePicker1IsSelected = awbDatePicker1FocusedElement.equals(awbDatePicker1);
-		assertTrue(awbDatePicker1IsSelected, "AWB Date Picker1 is not Selected");
-		for (int j = 0; j < 3; j++) {
-			awbDatePicker1.sendKeys(Keys.ARROW_DOWN);
-			Thread.sleep(300); // Add a small delay if needed
-		}
-		awbDatePicker1.sendKeys(Keys.ARROW_RIGHT);
-		awbDatePicker1.sendKeys(Keys.ARROW_RIGHT);
-		awbDatePicker1.sendKeys(Keys.ENTER);
+
+		datePicker(driver, awbDatePicker1);
 
 		// Verify AWB Number Field 2
-		boolean awbNumberField2IsDisplayed = awbNumberField2.isDisplayed();
-		assertTrue(awbNumberField2IsDisplayed, "AWB Number Field 2 is not Displayed.");
-		awbNumberField2.click();
-		WebElement awbNumberField2FocusedElement = driver.switchTo().activeElement();
-		boolean awbNumberField2IsSelected = awbNumberField2FocusedElement.equals(awbNumberField2);
-		assertTrue(awbNumberField2IsSelected, "AWB Number Field 2 is not Selected");
+
+		click(driver, awbNumberField2);
 		awbNumberField2.sendKeys(awbNo2);
 
 		// Verify AWB Date Picker 2
-		boolean awbDatePicker2IsDisplayed = awbDatePicker2.isDisplayed();
-		assertTrue(awbDatePicker2IsDisplayed, "AWB Date Picker 2 is not Displayed.");
-		awbDatePicker2.click();
-		// invoiceDatePicker
-		WebElement awbDatePicker2FocusedElement = driver.switchTo().activeElement();
-		boolean awbDatePicker2IsSelected = awbDatePicker2FocusedElement.equals(awbDatePicker2);
-		assertTrue(awbDatePicker2IsSelected, "AWB Date Picker2 is not Selected");
-		for (int j = 0; j < 3; j++) {
-			awbDatePicker2.sendKeys(Keys.ARROW_DOWN);
-			Thread.sleep(300); // Add a small delay if needed
-		}
-		awbDatePicker2.sendKeys(Keys.ARROW_RIGHT);
-		awbDatePicker2.sendKeys(Keys.ARROW_RIGHT);
-		awbDatePicker2.sendKeys(Keys.ENTER);
+
+		datePicker(driver, awbDatePicker2);
 
 		// Verify B/E Number Field
-		boolean beNumberFieldIsDisplayed = beNumberField.isDisplayed();
-		assertTrue(beNumberFieldIsDisplayed, " B/E Number Field is not Displayed.");
-		beNumberField.click();
-		WebElement beNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean beNumberFieldIsSelected = beNumberFieldFocusedElement.equals(beNumberField);
-		assertTrue(beNumberFieldIsSelected, " B/E Number Field is not Selected");
+
+		click(driver, beNumberField);
 		beNumberField.sendKeys(beNo);
 
 		// Verify B/E Date Picker
-		boolean beDatePickerIsDisplayed = beDatePicker.isDisplayed();
-		assertTrue(beDatePickerIsDisplayed, "B/E Date is not Displayed.");
-		beDatePicker.click();
+
+		datePicker(driver, beDatePicker);
+
 		// B/E Date Picker
-		WebElement beDatePickerFocusedElement = driver.switchTo().activeElement();
-		boolean beDatePickerIsSelected = beDatePickerFocusedElement.equals(beDatePicker);
-		assertTrue(beDatePickerIsSelected, "B/E Date Picker is not Selected");
-		for (int j = 0; j < 3; j++) {
-			beDatePicker.sendKeys(Keys.ARROW_DOWN);
-			Thread.sleep(300); // Add a small delay if needed
-		}
-		beDatePicker.sendKeys(Keys.ARROW_RIGHT);
-		beDatePicker.sendKeys(Keys.ARROW_RIGHT);
-		beDatePicker.sendKeys(Keys.ENTER);
+
+		datePicker(driver, beDatePicker);
 
 		// Verify B/E Currency Value Field
-		boolean beCurrencyValueFieldIsDisplayed = beCurrencyValueField.isDisplayed();
-		assertTrue(beCurrencyValueFieldIsDisplayed, "B/E Currency Value Field is not Displayed.");
-		beCurrencyValueField.click();
-		WebElement beCurrencyValueFieldFocusedElement = driver.switchTo().activeElement();
-		boolean beCurrencyValueFieldIsSelected = beCurrencyValueFieldFocusedElement.equals(beCurrencyValueField);
-		assertTrue(beCurrencyValueFieldIsSelected, "B/E Currency Value Field is not Selected");
+
+		click(driver, beCurrencyValueField);
 		beCurrencyValueField.sendKeys(beCurrencyValue);
 
+		// Upload Documents
+
+		uploadFile(driver, uploadFiles, 1);
+
+		click(driver, saveUploadFile);
+
+		click(driver, viewButton);
+
+		click(driver, closeButton);
+
 		// Verify Other Cost Tab
-		boolean otherCostTabIsDisplayed = otherCostTab.isDisplayed();
-		assertTrue(otherCostTabIsDisplayed, "Other Cost Tab is not Displayed.");
-		otherCostTab.click();
+
+		click(driver, otherCostTab);
 
 		// Verify Freight Field
-		boolean freightFieldIsDisplayed = freightField.isDisplayed();
-		assertTrue(freightFieldIsDisplayed, "Freight Field is not Displayed.");
-		freightField.click();
-		WebElement freightFieldFocusedElement = driver.switchTo().activeElement();
-		boolean freightFieldIsSelected = freightFieldFocusedElement.equals(freightField);
-		assertTrue(freightFieldIsSelected, "Freight Field is not Selected");
+
+		click(driver, freightField);
 		freightField.sendKeys(freight);
 
 		// Verify Insurance Field
-		boolean insuranceFieldIsDisplayed = insuranceField.isDisplayed();
-		assertTrue(insuranceFieldIsDisplayed, "Insurance Field is not Displayed.");
-		insuranceField.click();
-		WebElement insuranceFieldFocusedElement = driver.switchTo().activeElement();
-		boolean insuranceFieldIsSelected = insuranceFieldFocusedElement.equals(insuranceField);
-		assertTrue(insuranceFieldIsSelected, "Insurance Field is not Selected");
+
+		click(driver, insuranceField);
 		insuranceField.sendKeys(insurance);
 
 		// Verify Loading Or Unloading Field
-		boolean loadingOrUnloadingFieldIsDisplayed = loadingOrUnloadingField.isDisplayed();
-		assertTrue(loadingOrUnloadingFieldIsDisplayed, "Loading Or Unloading Field is not Displayed.");
-		loadingOrUnloadingField.click();
-		WebElement loadingOrUnloadingFieldFocusedElement = driver.switchTo().activeElement();
-		boolean loadingOrUnloadingFieldIsSelected = loadingOrUnloadingFieldFocusedElement
-				.equals(loadingOrUnloadingField);
-		assertTrue(loadingOrUnloadingFieldIsSelected, "Loading Or Unloading Field is not Selected");
+
+		click(driver, loadingOrUnloadingField);
 		loadingOrUnloadingField.sendKeys(loadingOrUnloading);
 
-		// Verify Loading Or Unloading Field
-		boolean currencyConversionFieldIsDisplayed = currencyConversionField.isDisplayed();
-		assertTrue(currencyConversionFieldIsDisplayed, "Loading Or Unloading Field is not Displayed.");
-		currencyConversionField.click();
-		WebElement currencyConversionFieldFocusedElement = driver.switchTo().activeElement();
-		boolean currencyConversionFieldIsSelected = currencyConversionFieldFocusedElement
-				.equals(currencyConversionField);
-		assertTrue(currencyConversionFieldIsSelected, "Loading Or Unloading Field is not Selected");
+		// Verify Currency Conversion Field
+
+		click(driver, currencyConversionField);
 		currencyConversionField.sendKeys(currencyConversion);
 
 		// Verify Transport Field
-		boolean transportFieldIsDisplayed = transportField.isDisplayed();
-		assertTrue(transportFieldIsDisplayed, "Transport Field is not Displayed.");
-		transportField.click();
-		WebElement transportFieldFocusedElement = driver.switchTo().activeElement();
-		boolean transportFieldIsSelected = transportFieldFocusedElement.equals(transportField);
-		assertTrue(transportFieldIsSelected, "Transport Field is not Selected");
+
+		click(driver, transportField);
 		transportField.sendKeys(transport);
 
 		/*
@@ -635,10 +468,8 @@ public class Grin extends Testbase1 {
 		 */
 
 		// Verify Save Button in Add Project Pop-UP
-//          WebElement saveButton = driver.findElement(By.xpath("//button[normalize-space()='Save']"));
-		boolean saveButtonIsDisplayed = saveButton.isDisplayed();
-		assertTrue(saveButtonIsDisplayed, "save ProjectButton Expansion Panel is not Displayed.");
-		saveButton.click();
+
+		click(driver, saveButton);
 
 		return new HomePage();
 

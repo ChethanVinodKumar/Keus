@@ -41,38 +41,32 @@ public class OQC extends Testbase1 {
 
 //*************OQC Create Page******************
 
-	public HomePage OQCCreate(String AcceptedQunatity) throws InterruptedException {
+	public HomePage OQCCreate() throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("//*************OQC Create Page******************");
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
+		// FG Item Num
 
-		String tableXpath = "//table[@class='table table-striped']";
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/material-issue/table");
 
-		// Get the first PR number text from table
-		String fgItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		String tableXpath = "(//table[@class='table table-striped'])[1]";
 
-		// Store the element with hard coded PR number
+		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
-		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", fgItemNumber1 + "-Test Description");
+		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", saItemNumber1 + "-Test Description");
 
 		System.out.println(updatedXpath);
 
-		// ***********//
+		// Shop Order Num
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/shop-order/table");
+		String salesOrderNum = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
-		String tableXpath2 = "//table[@class='table table-striped']";
-
-		// Get the first PR number text from table
-		String shopOrderNumber = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
-
-		// Store the element with hard coded PR number
 		String elementXpath2 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
-		String updatedXpath2 = elementXpath2.replace("Item-FG-11-TEST", shopOrderNumber);
+		String updatedXpath1 = elementXpath2.replace("Item-FG-11-TEST", salesOrderNum);
 
-		System.out.println(updatedXpath2);
+		System.out.println(updatedXpath1);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/create-fg-oqc");
 
@@ -92,7 +86,7 @@ public class OQC extends Testbase1 {
 
 		isSelected(driver, shopOrderNum, "shopOrderNum");
 
-		WebElement shopOrderNumSelect = driver.findElement(By.xpath(updatedXpath2));
+		WebElement shopOrderNumSelect = driver.findElement(By.xpath(updatedXpath1));
 
 		click(driver, shopOrderNumSelect);
 
@@ -100,17 +94,20 @@ public class OQC extends Testbase1 {
 
 		dataPrintFromInputtag(driver, shopOrderQtyElement, "shopOrderQtyElement");
 
+//pending Qty
+
+		dataPrintFromInputtag(driver, pendingQty, "pendingQty");
+
+		String pendingQty1 = (String) js.executeScript("return arguments[0].value;", pendingQty);
+		System.out.println("\n" + "pendingQty : " + pendingQty1 + "\n");
+
 //Accepted Qty
 
 		click(driver, acceptedQty);
 
 		isSelected(driver, acceptedQty, "acceptedQty");
 
-		acceptedQty.sendKeys(AcceptedQunatity);
-
-//pending Qty
-
-		dataPrintFromInputtag(driver, pendingQty, "pendingQty");
+		acceptedQty.sendKeys(pendingQty1);
 
 //rejectedQty
 

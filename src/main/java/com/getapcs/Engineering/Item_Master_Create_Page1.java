@@ -663,13 +663,13 @@ public class Item_Master_Create_Page1 extends Testbase1 {
 		footPrintField.sendKeys(footPrint);
 
 		click(driver, uOMDropdown1);
-		uOMDropdown1SelectData.click();
+		click(driver, uOMDropdown1SelectData);
 
-		uOMDropdown2.click();
-		uOMDropdown2SelectData.click();
+		click(driver, uOMDropdown2);
+		click(driver, uOMDropdown2SelectData);
 
-		uOMDropdown3.click();
-		uOMDropdown3SelectData.click();
+		click(driver, uOMDropdown3);
+		click(driver, uOMDropdown3SelectData);
 
 		// Routing
 		routingTab.click();

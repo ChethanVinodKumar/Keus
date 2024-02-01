@@ -143,6 +143,10 @@ public class Item_Master_Create_Page extends Testbase1 {
 	WebElement filesUpload;
 	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
 	WebElement saveFile;
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewFile;
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Net Weight']")
 	WebElement netWeightField;
@@ -184,7 +188,7 @@ public class Item_Master_Create_Page extends Testbase1 {
 	@FindBy(xpath = "//input[@aria-autocomplete='list']")
 	WebElement processDropDown;
 
-	@FindBy(xpath = "//div[normalize-space()='TEST Process']")
+	@FindBy(xpath = "//div[normalize-space()='TEST Process1']")
 	WebElement processDropDownSelectData;
 
 	@FindBy(xpath = "//textarea[@placeholder='Enter Description']")
@@ -593,6 +597,8 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 		uploadFile(driver, filesUpload, 1);
 		click(driver, saveFile);
+		click(driver, viewFile);
+		click(driver, closeButton);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);
@@ -681,14 +687,14 @@ public class Item_Master_Create_Page extends Testbase1 {
 
 		footPrintField.sendKeys(footPrint);
 
-		uOMDropdown1.click();
-		uOMDropdown1SelectData.click();
+		click(driver, uOMDropdown1);
+		click(driver, uOMDropdown1SelectData);
 
-		uOMDropdown2.click();
-		uOMDropdown2SelectData.click();
+		click(driver, uOMDropdown2);
+		click(driver, uOMDropdown2SelectData);
 
-		uOMDropdown3.click();
-		uOMDropdown3SelectData.click();
+		click(driver, uOMDropdown3);
+		click(driver, uOMDropdown3SelectData);
 
 		// Routing
 		routingTab.click();

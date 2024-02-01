@@ -27,13 +27,13 @@ public class InventryReportAfterReturnInvoice extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='CLick to view'])[1]")
 	WebElement editButton;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='CLick to view'])[1]")
 	WebElement viewButton;
 
 	public InventryReportAfterReturnInvoice() {

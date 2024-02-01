@@ -138,10 +138,14 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/ul/li[4]/a")
 	WebElement dimensionsTab;
 
-	@FindBy(xpath = "//input[@placeholder='Upload file']")
+	@FindBy(xpath = "(//input[@placeholder='Please Upload files.'])[1]")
 	WebElement filesUpload;
-	@FindBy(xpath = "(//button[normalize-space()='Uploaded Files'])[1]")
-	WebElement upload;
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement saveFile;
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewFile;
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Net Weight']")
 	WebElement netWeightField;
@@ -332,6 +336,9 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement saveButton;
 
+	@FindBy(xpath = "//input[@placeholder='Enter Remarks To Vendor']")
+	WebElement remarksToVender;
+
 	public Item_Master_Create_Page_SA() {
 		PageFactory.initElements(driver, this);
 	}
@@ -458,7 +465,8 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 		js.executeScript("arguments[0].click();", uomDropDownSelectData);
 
 		hSNDropDown.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", hSNDropDownSelectData);
+		hSNDropDown.sendKeys("1001");
+//		js.executeScript("arguments[0].click();", hSNDropDownSelectData);
 
 		js.executeScript("arguments[0].click();", prRequiredToggleButton);
 
@@ -508,8 +516,8 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 
 		// Verifying the Placeholder which is present in Description text field.
 
-		defaultToggleButton.click();
-		defaultToggleButton.click();
+//		defaultToggleButton.click();
+//		defaultToggleButton.click();
 
 		// Verifying that Add button is Enabled or not
 
@@ -576,6 +584,9 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 
 		docRetField.sendKeys(docRet);
 
+		click(driver, remarksToVender);
+		remarksToVender.sendKeys("TEST remarksToVender");
+
 		cocToggleButton.click();
 
 		rOHSToggleButton.click();
@@ -584,10 +595,12 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 
 		rEACHToggleButton.click();
 
-//Upload File
+		// Upload File
 
 		uploadFile(driver, filesUpload, 1);
-		click(driver, upload);
+		click(driver, saveFile);
+		click(driver, viewFile);
+		click(driver, closeButton);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);
@@ -677,13 +690,13 @@ public class Item_Master_Create_Page_SA extends Testbase1 {
 		footPrintField.sendKeys(footPrint);
 
 		click(driver, uOMDropdown1);
-		uOMDropdown1SelectData.click();
+		click(driver, uOMDropdown1SelectData);
 
-		uOMDropdown2.click();
-		uOMDropdown2SelectData.click();
+		click(driver, uOMDropdown2);
+		click(driver, uOMDropdown2SelectData);
 
-		uOMDropdown3.click();
-		uOMDropdown3SelectData.click();
+		click(driver, uOMDropdown3);
+		click(driver, uOMDropdown3SelectData);
 
 		// Routing
 		routingTab.click();

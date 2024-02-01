@@ -33,7 +33,7 @@ public class Purchase_Order extends Testbase1 {
 	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement vendorName;
 
-	@FindBy(xpath = "(//span[normalize-space()='Test venderName1'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='Keus Automation Pvt Ltd'])[1]")
 	WebElement vendorNameSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Quotation Reference No.'])[1]")
@@ -42,11 +42,11 @@ public class Purchase_Order extends Testbase1 {
 	@FindBy(xpath = "//input[@placeholder='DD-MM-YYYY']")
 	WebElement quotationDate;
 
-	@FindBy(xpath = "(//input[@type='text'])[8]")
-	WebElement venderAddress;
-
-	@FindBy(xpath = "(//span[normalize-space()='TEST Address1'])[1]")
-	WebElement venderAddressSelect;
+//	@FindBy(xpath = "(//input[@type='text'])[8]")
+//	WebElement venderAddress;
+//
+//	@FindBy(xpath = "(//span[normalize-space()='TEST Address1'])[1]")
+//	WebElement venderAddressSelect;
 
 	// Items
 
@@ -209,6 +209,9 @@ public class Purchase_Order extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Yes'])[1]")
 	WebElement confirmPOPUP;
 
+	@FindBy(xpath = "(//button[normalize-space()='Issue Material'])[1]")
+	WebElement issueMaterialButton;
+
 	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
 	public Purchase_Order() {
@@ -217,35 +220,48 @@ public class Purchase_Order extends Testbase1 {
 
 //*****************************PO Create Page*************************************//
 
-	public HomePage purchaseOrderCreatePage(String refNo, String unitcost, String quantity, String projectQty,
-			String deliveryProjectQty, String instructions, String sgst, String cgst, String igst, String utgst,
-			String retention, String special, String inco) throws Throwable {
+	public HomePage purchaseOrderCreatePage(String refNo, String unitcost, String instructions, String sgst,
+			String cgst, String igst, String utgst, String retention, String special, String inco) throws Throwable {
 
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/item-master/table");
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/material-issue/table");
 
-		String tableXpath = "//table[@class='table table-striped']";
+		click(driver, issueMaterialButton);
 
-		// Get the first PR number text from table
-		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		// PP - Item Number
 
-		// Store the element with hard coded PR number
+		String tableXpath = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
+
+		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", ItemNumber);
 		System.out.println(updatedXpath);
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/sales-order/table");
+		String tableXpath1 = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
 
-		String tableXpath1 = "//table[@class='table table-striped']";
+		String reqQty1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[7]")).getText();
 
-		// Get the first PR number text from table
-		String ProjectNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[4]")).getText();
+		int reqQty2 = Integer.parseInt(reqQty1) + 500;
 
-		// Store the element with hard coded PR number
+		String reqQty = String.valueOf(reqQty2);
+
 		String elementXpath1 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
-		String updatedXpath1 = elementXpath1.replace("Item-FG-11-TEST", ProjectNumber);
-		System.out.println(updatedXpath1);
+		// Project Number
+
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/sales-order/table");
+
+		String tableXpath2 = "//table[@class='table table-striped']";
+
+		// Get the first PR number text from table
+		String ProjectNumber = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[4]")).getText();
+
+		// Store the element with hard coded PR number
+		String elementXpath2 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
+
+		String updatedXpath2 = elementXpath2.replace("Item-FG-11-TEST", ProjectNumber);
+		System.out.println(updatedXpath2);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/purchase-order/create");
 
@@ -312,17 +328,17 @@ public class Purchase_Order extends Testbase1 {
 		quotationDate.sendKeys(Keys.RIGHT);
 		quotationDate.sendKeys(Keys.ENTER);
 
-		// Verify that venderAddress Field is Displayed or not
-		boolean isDisabledvenderAddressFieldn = !venderAddress.isDisplayed();
-		Assert.assertFalse(isDisabledvenderAddressFieldn);
-
-		// Verify that venderAddress Field is clickable or not
-		WebElement venderAddressFieldFocusedElement = driver.switchTo().activeElement();
-		boolean venderAddressFieldIsSelected = venderAddressFieldFocusedElement.equals(venderAddress);
-		Assert.assertFalse(venderAddressFieldIsSelected, "venderAddress Text Field is not Selected");
-
-		venderAddress.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", venderAddressSelect);
+//		// Verify that venderAddress Field is Displayed or not
+//		boolean isDisabledvenderAddressFieldn = !venderAddress.isDisplayed();
+//		Assert.assertFalse(isDisabledvenderAddressFieldn);
+//
+//		// Verify that venderAddress Field is clickable or not
+//		WebElement venderAddressFieldFocusedElement = driver.switchTo().activeElement();
+//		boolean venderAddressFieldIsSelected = venderAddressFieldFocusedElement.equals(venderAddress);
+//		Assert.assertFalse(venderAddressFieldIsSelected, "venderAddress Text Field is not Selected");
+//
+//		venderAddress.sendKeys(Keys.ENTER);
+//		js.executeScript("arguments[0].click()", venderAddressSelect);
 
 //Items
 
@@ -338,6 +354,7 @@ public class Purchase_Order extends Testbase1 {
 		Assert.assertFalse(itemNumberFieldIsSelected, "itemNumber Text Field is not Selected");
 
 		itemNumber.sendKeys(Keys.ENTER);
+
 		WebElement itemNumberSelect = driver.findElement(By.xpath(updatedXpath));
 		click(driver, itemNumberSelect);
 
@@ -380,11 +397,7 @@ public class Purchase_Order extends Testbase1 {
 		String expected_placeholderquntity = "Enter Quantity";
 
 		assertEquals(displayedTextInquntity, expected_placeholderquntity);
-		quntity.sendKeys(quantity);
-
-		click(driver, prNumberButton);
-		click(driver, prNumberSelect);
-		click(driver, saveButtonPR);
+		quntity.sendKeys(reqQty);
 
 		js.executeScript("arguments[0].click()", addProject);
 
@@ -398,7 +411,7 @@ public class Purchase_Order extends Testbase1 {
 //	    Assert.assertTrue(projectNumberFieldIsSelected, "projectNumber Text Field is not Selected");
 
 		projectNumber.sendKeys(Keys.ENTER);
-		WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath1));
+		WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath2));
 		click(driver, projectNumberSelect);
 
 		// 1Verifying that projectQuntity Field is Enabled or not
@@ -420,16 +433,14 @@ public class Purchase_Order extends Testbase1 {
 
 		assertEquals(displayedTextInprojectQuntity, expected_placeholderprojectQuntity);
 
-		projectQuntity.sendKeys(projectQty);
+		projectQuntity.sendKeys(reqQty);
 
 		js.executeScript("arguments[0].click()", addProjectNumber);
 
 		js.executeScript("arguments[0].click()", DeliveryShedule);
 
 		// Verify that do we able to select the date in delevery schedule
-		deliveryDate.click();
-		deliveryDate.sendKeys(Keys.RIGHT);
-		deliveryDate.sendKeys(Keys.ENTER);
+		datePicker(driver, deliveryDate);
 
 		// 1Verifying that deliverySheduleQuntity Field is Enabled or not
 		boolean isEnableddeliverySheduleQuntityField = deliverySheduleQuntity.isEnabled();
@@ -450,7 +461,7 @@ public class Purchase_Order extends Testbase1 {
 
 		assertEquals(displayedTextIndeliverySheduleQuntity, expected_placeholderdeliverySheduleQuntity);
 
-		deliverySheduleQuntity.sendKeys(deliveryProjectQty);
+		deliverySheduleQuntity.sendKeys(reqQty);
 
 		js.executeScript("arguments[0].click()", addDeliveryShedule);
 
@@ -493,7 +504,7 @@ public class Purchase_Order extends Testbase1 {
 		String expected_placeholdersgst = "Enter SGST";
 
 		assertEquals(displayedTextInsgst, expected_placeholdersgst);
-
+		sgst1.clear();
 		sgst1.sendKeys(sgst);
 
 		// 1Verifying that cgst Field is Enabled or not
@@ -514,7 +525,7 @@ public class Purchase_Order extends Testbase1 {
 		String expected_placeholdercgst = "Enter CGST";
 
 		assertEquals(displayedTextIncgst, expected_placeholdercgst);
-
+		cgst1.clear();
 		cgst1.sendKeys(cgst);
 
 		// 1Verifying that igst Field is Enabled or not
@@ -535,7 +546,7 @@ public class Purchase_Order extends Testbase1 {
 		String expected_placeholderigst = "Enter ";
 
 		assertEquals(displayedTextInigst, expected_placeholderigst);
-
+		igst1.clear();
 		igst1.sendKeys(igst);
 
 		// 1Verifying that utgst Field is Enabled or not
@@ -556,10 +567,12 @@ public class Purchase_Order extends Testbase1 {
 		String expected_placeholderutgst = "Enter UTGST";
 
 		assertEquals(displayedTextInutgst, expected_placeholderutgst);
-
+		utgst1.clear();
 		utgst1.sendKeys(utgst);
+		Thread.sleep(2000);
 
-		js.executeScript("arguments[0].click()", addItems);
+//			click(driver, addItems);
+		js.executeScript("arguments[0].click();", addItems);
 
 //Billing and Shipping Details
 

@@ -29,11 +29,17 @@ public class InventryReportAfterGrin extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
-	WebElement editButton;
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[1]")
+	WebElement viewButton;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[9]")
+	WebElement warehouse;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[10]")
+	WebElement location;
 
 	public InventryReportAfterGrin() {
 
@@ -49,7 +55,7 @@ public class InventryReportAfterGrin extends Testbase1 {
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/grin/table");
 
-		click(driver, editButton);
+		click(driver, viewButton);
 
 		String tableXpath = "//table[@class='table mb-2']";
 
@@ -116,7 +122,13 @@ public class InventryReportAfterGrin extends Testbase1 {
 
 		click(driver, filter);
 
-		Thread.sleep(4000);
+		String warehouse_text = warehouse.getText();
+		String location_text = location.getText();
+
+		// Assert that the warehouse and location texts are equal to "GRIN"
+		assert warehouse_text.equals("GRIN") && location_text.equals("GRIN") : "Texts are not equal to 'GRIN'";
+
+		Thread.sleep(2000);
 		screenShot("After GRIN");
 
 		return new HomePage();

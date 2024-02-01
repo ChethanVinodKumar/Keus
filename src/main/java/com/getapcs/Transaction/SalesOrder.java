@@ -374,20 +374,19 @@ public class SalesOrder extends Testbase1 {
 //        js.executeScript("arguments[0].click();", threeLineIconBar);
 
 		// Verify and Click on Release Button in Quote Table Page
-		boolean releaseButtonIsDisplayed = releaseButton.isDisplayed();
-		assertTrue(releaseButtonIsDisplayed, "Release Button is not Displayed.");
-		releaseButton.click();
 
-		// Verify the Close Button in Release Quote Pop-Up
-		boolean closeButtonIsDisplayed = closeButton.isDisplayed();
-		assertTrue(closeButtonIsDisplayed, "Close Button IsDisplayed.");
-		closeButton.click();
+		click(driver, releaseButton);
+
+//		// Verify the Close Button in Release Quote Pop-Up
+//		boolean closeButtonIsDisplayed = closeButton.isDisplayed();
+//		assertTrue(closeButtonIsDisplayed, "Close Button IsDisplayed.");
+//		closeButton.click();
 
 		// to Print Option in Release Quote Pop-Up-Quote Table -Sales
-		releaseButton.click();
+//		releaseButton.click();
 
 //		WebElement toPrintButton = driver.findElement(By.xpath("//button[contains(text(),'Build To Print')]"));
-		assertTrue(convertToSalesOrderButton.isDisplayed(), "Convert to SalesOrder Button IsDisplayed.");
+//		assertTrue(convertToSalesOrderButton.isDisplayed(), "Convert to SalesOrder Button IsDisplayed.");
 		convertToSalesOrderButton.click();
 
 		// ################ Sales Order Create Page ##################

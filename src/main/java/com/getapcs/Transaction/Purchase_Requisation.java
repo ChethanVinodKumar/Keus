@@ -13,6 +13,9 @@ import com.getapcs.home.login.HomePage;
 
 public class Purchase_Requisation extends Testbase1 {
 
+	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Issue Material'])[1]")
+	WebElement issueMaterial;
+
 	@FindBy(xpath = "//label[normalize-space(text())='PR Date']/following-sibling::div/input[@formcontrolname='prDate']")
 	WebElement prDateElement;
 
@@ -204,20 +207,6 @@ public class Purchase_Requisation extends Testbase1 {
 		String prDateElementValue = (String) js.executeScript("return arguments[0].value;", prDateElement);
 		System.out.println("Pr Date : " + prDateElementValue + "\n");
 
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/item-master/table");
-
-		String tableXpath = "//table[@class='table table-striped']";
-
-		// Get the first PR number text from table
-		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
-
-		// Store the element with hard coded PR number
-		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
-
-		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", ItemNumber);
-
-		System.out.println(updatedXpath);
-
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
@@ -232,30 +221,38 @@ public class Purchase_Requisation extends Testbase1 {
 
 		System.out.println(updatedXpath1);
 
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/material-issue/table");
+
+		click(driver, issueMaterial);
+
+		String tableXpath = "//table[@formarrayname='ItemData']";
+
+		// Get the first PR number text from table
+		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]/div")).getText();
+
+		String reqQty1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[7]/div")).getText();
+
+		int reqQty2 = Integer.parseInt(reqQty1) + 500;
+
+		String reqQty = String.valueOf(reqQty2);
+
+		// Store the element with hard coded PR number
+		String elementXpathPP1 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
+
+		String updatedXpathPP1 = elementXpathPP1.replace("Item-FG-11-TEST", ItemNumber);
+
+		System.out.println(updatedXpathPP1);
+
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/purchase-requisition/create");
 
 		// Verify and Select Value from Procurement Type DropDown in PR
-		// Create-Transaction Module
-//        WebElement procurementTypeDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[2]")));
-		boolean procurementTypeDropDownIsDisplayed = procurementTypeDropDown.isDisplayed();
-		assertTrue(procurementTypeDropDownIsDisplayed, "Procurement Type DropDown is not Displayed.");
-		procurementTypeDropDown.sendKeys(Keys.ENTER);
-		WebElement procurementTypeDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean procurementTypeDropDownIsSelected = procurementTypeDropDownFocusedElement
-				.equals(procurementTypeDropDown);
-		assertTrue(procurementTypeDropDownIsSelected, "Procurement Type DropDown is not Selected");
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("(//span[text()='TEST Procurement Type Name'])[1]")));
+		click(driver, procurementTypeDropDown);
+		isSelected(driver, procurementTypeDropDown, "procurementTypeDropDown");
 		click(driver, selectProcurementTypeDropDownValue);
 
 		// Verify and Select Value from Purpose Text Field in PR Create-Transaction
-		// Module
-//        WebElement purposeTextField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//textarea[@placeholder='Enter Special Terms and Conditions']")));
-		boolean purposeTextFieldIsDisplayed = purposeTextField.isDisplayed();
-		assertTrue(purposeTextFieldIsDisplayed, "Purpose Text Field  is not Displayed.");
-		purposeTextField.sendKeys(Keys.ENTER);
-		WebElement purposeTextFieldFocusedElement = driver.switchTo().activeElement();
-		boolean purposeTextFieldIsSelected = purposeTextFieldFocusedElement.equals(purposeTextField);
-		assertTrue(purposeTextFieldIsSelected, "Purpose Text Field  is not Selected");
+		click(driver, purposeTextField);
+		isSelected(driver, purposeTextField, "purposeTextField");
 		purposeTextField.clear();
 		purposeTextField.sendKeys("TEST Purpose");
 
@@ -264,234 +261,115 @@ public class Purchase_Requisation extends Testbase1 {
 		// ################## Item Tab ######################
 
 		// Verify Item Tab in PR Create-Transaction Module
-//  		WebElement itemTab = driver.findElement(By.linkText("Items"));
-		boolean itemTabIsDisplayed = itemTab.isDisplayed();
-		assertTrue(itemTabIsDisplayed, "item Tab is not Displayed.");
-		itemTab.click();
+		click(driver, itemTab);
 
 		uploadFile(driver, uploadItem, 1);
 
 		click(driver, closeButton);
-		// Verify and Select Value from Item Number DropDown in PR Create-Transaction
-		// Module
-//        WebElement itemNumberDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[5]")));
-		boolean itemNumberDropDownIsDisplayed = itemNumberDropDown.isDisplayed();
-		assertTrue(itemNumberDropDownIsDisplayed, "Item Number DropDown is not Displayed.");
-		itemNumberDropDown.sendKeys(Keys.ENTER);
-		WebElement itemNumberDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean itemNumberDropDownIsSelected = itemNumberDropDownFocusedElement.equals(itemNumberDropDown);
-		assertTrue(itemNumberDropDownIsSelected, "Item Number DropDown is not Selected");
-		itemNumberDropDown.sendKeys("PP");
 
-		WebElement itemNumberDropDownDataSelect = driver.findElement(By.xpath(updatedXpath));
-		js.executeScript("arguments[0].click();", itemNumberDropDownDataSelect);
+		// Verify and Select Value from Item Number DropDown in PR Create-Transaction
+		click(driver, itemNumberDropDown);
+		isSelected(driver, itemNumberDropDown, "itemNumberDropDown");
+
+		WebElement itemNumberDropDownDataSelect = driver.findElement(By.xpath(updatedXpathPP1));
+		click(driver, itemNumberDropDownDataSelect);
 
 		// Verify and Select Value from Mftr Item Number DropDown in PR
-		// Create-Transaction Module
-//        WebElement mftrItemNumberDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[6]")));
-		boolean mftrItemNumberDropDownIsDisplayed = mftrItemNumberDropDown.isDisplayed();
-		assertTrue(mftrItemNumberDropDownIsDisplayed, "Item Number DropDown is not Displayed.");
-		mftrItemNumberDropDown.sendKeys(Keys.ENTER);
-		WebElement mftrItemNumberDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean mftrItemNumberDropDownIsSelected = mftrItemNumberDropDownFocusedElement.equals(mftrItemNumberDropDown);
-		assertTrue(mftrItemNumberDropDownIsSelected, "Mftr Item Number DropDown is not Selected");
+		click(driver, mftrItemNumberDropDown);
+		isSelected(driver, mftrItemNumberDropDown, "mftrItemNumberDropDown");
 		mftrItemNumberDropDown.sendKeys(Keys.ENTER);
 
 		// Verify and Select Value from quantity Text Field in PR Create-Transaction
-		// Module
-//        WebElement quantityTextField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='text'])[8]")));
-		boolean quantityTextFieldIsDisplayed = quantityTextField.isDisplayed();
-		assertTrue(quantityTextFieldIsDisplayed, "quantity Text Field  is not Displayed.");
-		quantityTextField.sendKeys(Keys.ENTER);
-		WebElement quantityTextFieldFocusedElement = driver.switchTo().activeElement();
-		boolean quantityTextFieldIsSelected = quantityTextFieldFocusedElement.equals(quantityTextField);
-		assertTrue(quantityTextFieldIsSelected, "quantity Text Field  is not Selected");
+		click(driver, quantityTextField);
+		isSelected(driver, quantityTextField, "quantityTextField");
 		quantityTextField.clear();
-		quantityTextField.sendKeys("1000");
+		quantityTextField.sendKeys(reqQty);
 
 		// ************Add Project Expansion Panel************
-//        WebElement addProjectExpansionPanel = driver.findElement(By.xpath("//mat-panel-title[@class='mat-expansion-panel-header-title ng-tns-c160-3']"));
-		boolean addProjectExpansionPanelIsDisplayed = addProjectExpansionPanel.isDisplayed();
-		assertTrue(addProjectExpansionPanelIsDisplayed, "Add Project Expansion Panel is not Displayed.");
-		addProjectExpansionPanel.click();
 
-		for (int k = 1; k <= 2; k++) {
-			// Verify and Select Value from Project Number DropDown in PR Create-Transaction
-			// Module
-//        WebElement projectNumberDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[9]")));
-			js.executeScript("arguments[0].click();", projectNumberDropDown);
-			boolean projectNumberDropDownIsDisplayed = projectNumberDropDown.isDisplayed();
-			assertTrue(projectNumberDropDownIsDisplayed, "Project Number DropDown is not Displayed.");
-			projectNumberDropDown.sendKeys(Keys.ENTER);
-			Thread.sleep(2000);
-			WebElement projectNumberDropDownFocusedElement = driver.switchTo().activeElement();
-			boolean projectNumberDropDownIsSelected = projectNumberDropDownFocusedElement.equals(projectNumberDropDown);
-			assertTrue(projectNumberDropDownIsSelected, "Project Number DropDown is not Selected");
+		click(driver, addProjectExpansionPanel);
 
-			WebElement selectProjectNumberDropDownValue = driver.findElement(By.xpath(updatedXpath1));
-			js.executeScript("arguments[0].click();", selectProjectNumberDropDownValue);
+		// Verify and Select Value from Project Number DropDown in PR Create-Transaction
+		click(driver, projectNumberDropDown);
+		isSelected(driver, projectNumberDropDown, "projectNumberDropDown");
+		Thread.sleep(2000);
 
-			// Verify and Select Value from Project Quantity Text Field in PR
-			// Create-Transaction Module
-//        WebElement projectQuantityTextField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@formcontrolname='prProjectQuantity']")));
-			boolean projectQuantityTextFieldIsDisplayed = projectQuantityTextField.isDisplayed();
-			assertTrue(projectQuantityTextFieldIsDisplayed, "Project Quantity Text Field  is not Displayed.");
-			projectQuantityTextField.sendKeys(Keys.ENTER);
-			WebElement projectQuantityTextFieldFocusedElement = driver.switchTo().activeElement();
-			boolean projectQuantityTextFieldIsSelected = projectQuantityTextFieldFocusedElement
-					.equals(projectQuantityTextField);
-			assertTrue(projectQuantityTextFieldIsSelected, "Project Quantity Text Field  is not Selected");
-			projectQuantityTextField.clear();
-			projectQuantityTextField.sendKeys("500");
+		WebElement selectProjectNumberDropDownValue = driver.findElement(By.xpath(updatedXpath1));
+		click(driver, selectProjectNumberDropDownValue);
 
-			// Verify and Click on Add Button in Project Expansion Panel
-//        WebElement addButtonInProjectExpansionPanel = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Add')])[1]")));
-			boolean addButtonInProjectExpansionPanelIsDisplayed = addButtonInProjectExpansionPanel.isDisplayed();
-			assertTrue(addButtonInProjectExpansionPanelIsDisplayed,
-					"Add Button in Project Expansion Panel is not Displayed.");
-			js.executeScript("arguments[0].click();", addButtonInProjectExpansionPanel);
+		// Verify and Select Value from Project Quantity Text Field in PR
+		click(driver, projectQuantityTextField);
+		isSelected(driver, projectQuantityTextField, "projectQuantityTextField");
+		projectQuantityTextField.clear();
+		projectQuantityTextField.sendKeys(reqQty);
 
-		}
+		// Verify and Click on Add Button in Project Expansion Panel
+		click(driver, addButtonInProjectExpansionPanel);
+
+		click(driver, addDeliveryScheduleExpansionPanel);
 
 		// ************Add Delivery Schedule Expansion Panel************
-		js.executeScript("arguments[0].click();", addDeliveryScheduleExpansionPanel);
 
-		for (int n = 1; n <= 2; n++) {
-			// Verify and Schedule Date Date Picker in General Tab
-//	        WebElement scheduleDateDatePicker = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='DD-MM-YYYY']")));
-			scheduleDateDatePicker.sendKeys(Keys.ENTER);
-			boolean scheduleDateDatePickerIsDisplayed = scheduleDateDatePicker.isDisplayed();
-			assertTrue(scheduleDateDatePickerIsDisplayed, "Schedule Date Date Picker is not Displayed.");
-			scheduleDateDatePicker.sendKeys(Keys.ENTER);
-
-			// scheduleDateDatePicker
-
-			WebElement scheduleDateDatePicker = driver.findElement(By.xpath("(//input[@placeholder='DD-MM-YYYY'])[1]"));
-			js.executeScript("arguments[0].scrollIntoView(true);", scheduleDateDatePicker);
-			Thread.sleep(5000);
-			scheduleDateDatePicker.click();
-			// js.executeScript("arguments[0].click();", scheduleDateDatePicker);
-			scheduleDateDatePicker.sendKeys(Keys.RIGHT);
-			scheduleDateDatePicker.sendKeys(Keys.ENTER);
-
-			// Verify and Select Value from quantity Text Field1 in PR Create-Transaction
-			// Module
-//	        WebElement quantityTextField1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='text'])[11]")));
-			boolean quantityTextField1IsDisplayed = quantityTextField1.isDisplayed();
-			assertTrue(quantityTextField1IsDisplayed, "quantity Text Field1  is not Displayed.");
-			quantityTextField1.sendKeys(Keys.ENTER);
-			WebElement quantityTextField1FocusedElement = driver.switchTo().activeElement();
-			boolean quantityTextField1IsSelected = quantityTextField1FocusedElement.equals(quantityTextField1);
-			assertTrue(quantityTextField1IsSelected, "quantity Text Field1  is not Selected");
-			quantityTextField1.clear();
-			quantityTextField1.sendKeys("500");
-
-			// Verify and Click on Add Button in DeliverySchedule Expansion Panel
-//	        WebElement addButtonInDeliveryScheduleExpansionPanel = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Add')])[2]")));
-			boolean addButtonInDeliveryScheduleExpansionPanelIsDisplayed = addButtonInDeliveryScheduleExpansionPanel
-					.isDisplayed();
-			assertTrue(addButtonInDeliveryScheduleExpansionPanelIsDisplayed,
-					"Add Button in DeliverySchedule Expansion Panel is not Displayed.");
-			js.executeScript("arguments[0].click();", addButtonInDeliveryScheduleExpansionPanel);
-
+		// scheduleDateDatePicker
+		Thread.sleep(2000);
+		scheduleDateDatePicker.click();
+		Thread.sleep(2000);
+		for (int j = 0; j < 5; j++) {
+			scheduleDateDatePicker.sendKeys(Keys.ARROW_DOWN);
+			Thread.sleep(500); // Add a small delay if needed
 		}
+		// Verify and Select Value from quantity Text Field1 in PR Create-Transaction
+		click(driver, quantityTextField1);
+		isSelected(driver, quantityTextField1, "quantityTextField1");
+		quantityTextField1.clear();
+		quantityTextField1.sendKeys(reqQty);
+
+		// Verify and Click on Add Button in DeliverySchedule Expansion Panel
+		click(driver, addButtonInDeliveryScheduleExpansionPanel);
+
 		// Verify the Special Instruction Text Field in Items Tab - PR
-		// Create-Transaction Module
-//	      WebElement specialInstructionTextField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//textarea[@placeholder='Enter Special Instruction']")));
-		boolean specialInstructionTextFieldIsDisplayed = specialInstructionTextField.isDisplayed();
-		assertTrue(specialInstructionTextFieldIsDisplayed, "Special Instruction Text Field  is not Displayed.");
-		specialInstructionTextField.sendKeys(Keys.ENTER);
-		WebElement specialInstructionTextFieldFocusedElement = driver.switchTo().activeElement();
-		boolean specialInstructionTextFieldIsSelected = specialInstructionTextFieldFocusedElement
-				.equals(specialInstructionTextField);
-		assertTrue(specialInstructionTextFieldIsSelected, "Special Instruction Text Field  is not Selected");
 		specialInstructionTextField.clear();
 		specialInstructionTextField.sendKeys("TEST Special Instruction");
 
 		// Verify and Click on Add Button in Item Tab
-//	        WebElement addButtonInItemsTab = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(),'Add')])[3]")));
-		boolean addButtonInItemsTabIsDisplayed = addButtonInItemsTab.isDisplayed();
-		assertTrue(addButtonInItemsTabIsDisplayed, "Add Button in Project Expansion Panel is not Displayed.");
-		js.executeScript("arguments[0].click();", addButtonInItemsTab);
+		click(driver, addButtonInItemsTab);
 
 		// ################## Billing & Shipping Details Tab ######################
 
 		// Verify Billing & Shipping Details Tab in Sales Order Create Page
-//      		WebElement billing$ShippingDetailsTab = driver.findElement(By.linkText("Billing & Shipping Details"));
-		boolean billing$ShippingDetailsTabIsDisplayed = billing$ShippingDetailsTab.isDisplayed();
-		assertTrue(billing$ShippingDetailsTabIsDisplayed, "Billing & Shippbilling Details Tab is not Displayed.");
-		js.executeScript("arguments[0].click();", billing$ShippingDetailsTab);
+		click(driver, billing$ShippingDetailsTab);
 
 		// Verify and select data in Delivery Terms Drop Down in Billing & Shipping
-		// Details Tab
-//	        WebElement deliveryTermsDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[4]")));
-		boolean deliveryTermsDropDownIsDisplayed = deliveryTermsDropDown.isDisplayed();
-		assertTrue(deliveryTermsDropDownIsDisplayed, "Delivery Terms DropDown is not Displayed.");
-		deliveryTermsDropDown.click();
-		WebElement deliveryTermsDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean deliveryTermsDropDownIsSelected = deliveryTermsDropDownFocusedElement.equals(deliveryTermsDropDown);
-		assertTrue(deliveryTermsDropDownIsSelected, "Delivery Terms DropDown is not Selected");
+		click(driver, deliveryTermsDropDown);
+		isSelected(driver, deliveryTermsDropDown, "deliveryTermsDropDown");
 		deliveryTermsDropDown.sendKeys("TEST Delivery");
-//	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("(//span[contains(text(),'TEST Delivery Terms')])[1]")));
-		selectDeliveryTermsDropDownValue.click();
+		click(driver, selectDeliveryTermsDropDownValue);
 
 		// Verify and select data in payment Terms Drop Down in Billing & Shipping
-		// Details Tab
-//	        WebElement paymentTermsDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[5]")));
-		boolean paymentTermsDropDownIsDisplayed = paymentTermsDropDown.isDisplayed();
-		assertTrue(paymentTermsDropDownIsDisplayed, "payment Terms DropDown is not Displayed.");
-		paymentTermsDropDown.click();
-		WebElement paymentTermsDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean paymentTermsDropDownIsSelected = paymentTermsDropDownFocusedElement.equals(paymentTermsDropDown);
-		assertTrue(paymentTermsDropDownIsSelected, "payment Terms DropDown is not Selected");
-//	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("(//span[normalize-space()='COD'])[1]")));
-		selectPaymentTermsDropDownValue.click();
+		click(driver, paymentTermsDropDown);
+		isSelected(driver, paymentTermsDropDown, "paymentTermsDropDown");
+		click(driver, selectPaymentTermsDropDownValue);
 
 		// Verify and select data in Shipping Mode Drop Down in Billing & Shipping
-		// Details Tab
-//	        WebElement shippingModeDropDown = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@type='text'])[6]")));
-		boolean shippingModeDropDownIsDisplayed = shippingModeDropDown.isDisplayed();
-		assertTrue(shippingModeDropDownIsDisplayed, "Shipping Mode DropDown is not Displayed.");
-		shippingModeDropDown.click();
-		WebElement shippingModeDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean shippingModeDropDownIsSelected = shippingModeDropDownFocusedElement.equals(shippingModeDropDown);
-		assertTrue(shippingModeDropDownIsSelected, "Shipping Mode DropDown is not Selected");
-//	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();" ,driver.findElement(By.xpath("//span[normalize-space()='BY ROAD']")));
-		selectShippingModeDropDownValue.click();
+		click(driver, shippingModeDropDown);
+		isSelected(driver, shippingModeDropDown, "shippingModeDropDown");
+		click(driver, selectShippingModeDropDownValue);
 
 		// ##################################### Terms Tab
 		// ############################################
 
 		// Verify Terms Tab in PR Order Create Page
-//      		WebElement termsTab = driver.findElement(By.linkText("Terms"));
-		boolean termsTabIsDisplayed = termsTab.isDisplayed();
-		assertTrue(termsTabIsDisplayed, "Terms Tab is not Displayed.");
-		js.executeScript("arguments[0].click();", termsTab);
+		click(driver, termsTab);
 
 		// Verify the Retention Period Text Field in Items Tab - PR Create-Transaction
-		// Module
-//		      WebElement retentionPeriodTextField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Enter Retention Period']")));
-		boolean retentionPeriodTextFieldIsDisplayed = retentionPeriodTextField.isDisplayed();
-		assertTrue(retentionPeriodTextFieldIsDisplayed, "Retention Period Text Field  is not Displayed.");
-		retentionPeriodTextField.sendKeys(Keys.ENTER);
-		WebElement retentionPeriodTextFieldFocusedElement = driver.switchTo().activeElement();
-		boolean retentionPeriodTextFieldIsSelected = retentionPeriodTextFieldFocusedElement
-				.equals(retentionPeriodTextField);
-		assertTrue(retentionPeriodTextFieldIsSelected, "Retention Period Text Field  is not Selected");
+		click(driver, retentionPeriodTextField);
+		isSelected(driver, retentionPeriodTextField, "retentionPeriodTextField");
 		retentionPeriodTextField.clear();
 		retentionPeriodTextField.sendKeys("TEST Retention Period");
 
 		// Verify the Special Terms & Condition Text Field in Items Tab - PR
-		// Create-Transaction Module
-//		      WebElement specialTerms$ConditionTextField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//textarea[@placeholder='Enter Special Terms & Conditions']")));
-		boolean specialTerms$ConditionTextFieldIsDisplayed = specialTerms$ConditionTextField.isDisplayed();
-		assertTrue(specialTerms$ConditionTextFieldIsDisplayed,
-				"Special Terms & Condition Text Field  is not Displayed.");
-		specialTerms$ConditionTextField.sendKeys(Keys.ENTER);
-		WebElement specialTerms$ConditionTextFieldFocusedElement = driver.switchTo().activeElement();
-		boolean specialTerms$ConditionTextFieldIsSelected = specialTerms$ConditionTextFieldFocusedElement
-				.equals(specialTerms$ConditionTextField);
-		assertTrue(specialTerms$ConditionTextFieldIsSelected, "Special Terms & Condition Text Field  is not Selected");
+		click(driver, specialTerms$ConditionTextField);
+		isSelected(driver, specialTerms$ConditionTextField, "specialTerms$ConditionTextField");
 		specialTerms$ConditionTextField.clear();
 		specialTerms$ConditionTextField.sendKeys("TEST Special Terms & Condition");
 

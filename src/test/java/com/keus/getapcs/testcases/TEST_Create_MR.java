@@ -347,8 +347,8 @@ public class TEST_Create_MR extends Testbase1 {
 
 		// Purchase Order Create Page
 		homePage.clickontransactionPOcreate();
-		Purchase_Order.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
-				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Purchase_Order.purchaseOrderCreatePage("10", "1000", "TEST Special Instructions", "8", "8", "8", "8", "100",
+				"Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}
