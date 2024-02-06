@@ -33,7 +33,7 @@ public class MaterialRequest extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButton;
 
-	@FindBy(xpath = "(//button[normalize-space()='Issue'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to Material Request Issue'])[1]")
 	WebElement issueButton;
 
 	@FindBy(xpath = "(//i[@title='Add Location'])[1]")
@@ -165,7 +165,10 @@ public class MaterialRequest extends Testbase1 {
 
 //Stock
 
-		dataPrintFromInputtag(driver, stock, "stock");
+//		dataPrintFromInputtag(driver, stock, "stock");
+
+		String availableQuantityText = (String) js.executeScript("return arguments[0].value;", stock);
+		System.out.println("stock" + " : " + availableQuantityText + "\n");
 
 //Required Qty
 
@@ -173,7 +176,21 @@ public class MaterialRequest extends Testbase1 {
 
 		isSelected(driver, requiredQty, "requiredQty");
 		requiredQty.clear();
-		requiredQty.sendKeys(RequiredQuantity);
+
+		// Convert the quantityText to an integer
+		double availableQuantityValue = Double.parseDouble(availableQuantityText);
+
+		// Perform your calculations
+		double availableQuantityValue1 = availableQuantityValue / 2;
+
+		System.out.println(availableQuantityValue1);
+
+		// Convert quantityValue to a String
+		String availableQuantity = String.valueOf(availableQuantityValue1);
+
+		Thread.sleep(2000);
+
+		requiredQty.sendKeys(availableQuantity);
 
 		click(driver, saveButton);
 
@@ -223,9 +240,13 @@ public class MaterialRequest extends Testbase1 {
 
 			// Issue Quantity
 
+			double acceptedQtyValue1 = availableQuantityValue1 / 2;
+
+			String acceptedQtyValue2 = String.valueOf(acceptedQtyValue1);
+
 			click(driver, issueQty);
 
-			issueQty.sendKeys(IssueQuantity);
+			issueQty.sendKeys(acceptedQtyValue2);
 
 			// add
 

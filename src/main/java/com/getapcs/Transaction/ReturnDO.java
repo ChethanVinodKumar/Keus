@@ -89,7 +89,7 @@ public class ReturnDO extends Testbase1 {
 
 //*************Return DO Create Page******************
 
-	public HomePage ReturnDOCreate(String BinningQuantity) throws InterruptedException {
+	public HomePage ReturnDOCreate() throws InterruptedException {
 
 //Customer Name
 
@@ -119,10 +119,6 @@ public class ReturnDO extends Testbase1 {
 
 		assertTrue(DispatchQty.isDisplayed(), DispatchQty + " is not IsDisplayed.");
 
-		// To extract Value Attribute and use same approach to retrieve
-		String DispatchQtyValue = DispatchQty.getText().trim();
-		System.out.println("DispatchQty" + " : " + DispatchQtyValue + "\n");
-
 //Return By
 
 		click(driver, returnBy);
@@ -137,7 +133,16 @@ public class ReturnDO extends Testbase1 {
 
 		isSelected(driver, returnQty, "returnQty");
 
-		returnQty.sendKeys(DispatchQtyValue);
+		// Use getText() to get the text content of the quantity WebElement
+		String quantityText = DispatchQty.getText();
+
+		// Convert the quantityText to an integer
+		int quantityValue = Integer.parseInt(quantityText);
+
+		// Convert quantityValue to a String
+		String quantity1 = String.valueOf(quantityValue);
+
+		returnQty.sendKeys(quantity1);
 
 //Binning
 
@@ -192,12 +197,15 @@ public class ReturnDO extends Testbase1 {
 			}
 
 			// Quantity
+			int acceptedQtyValue1 = quantityValue / 2;
+
+			String acceptedQtyValue2 = String.valueOf(acceptedQtyValue1);
 
 			click(driver, quantityBinning);
 
 			isSelected(driver, quantityBinning, "quantityBinning");
 
-			quantityBinning.sendKeys(BinningQuantity);
+			quantityBinning.sendKeys(acceptedQtyValue2);
 
 			click(driver, add);
 		}

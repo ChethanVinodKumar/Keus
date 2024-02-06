@@ -130,7 +130,7 @@ public class DeliveryOrder extends Testbase1 {
 
 //*************Delivery Order Create Page******************
 
-	public HomePage DeliveryOrderCreate(String DispatchQuantity, String Quantity) throws InterruptedException {
+	public HomePage DeliveryOrderCreate() throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("//*************Delivery Order Create Page******************");
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/sales-order/table");
@@ -244,7 +244,18 @@ public class DeliveryOrder extends Testbase1 {
 
 		click(driver, dispatchQty);
 		dispatchQty.clear();
-		dispatchQty.sendKeys(DispatchQuantity);
+
+		String availableQuantityText = availableStock.getText();
+
+		// Convert the quantityText to an integer
+		int availableQuantityValue = Integer.parseInt(availableQuantityText);
+
+		int availableQuantityValue1 = availableQuantityValue / 2;
+
+		// Convert quantityValue to a String
+		String availableQuantity = String.valueOf(availableQuantityValue1);
+
+		dispatchQty.sendKeys(availableQuantity);
 
 //Binning 
 
@@ -287,9 +298,14 @@ public class DeliveryOrder extends Testbase1 {
 
 				click(driver, locationSelect1);
 			}
+
+			int acceptedQtyValue1 = availableQuantityValue1 / 2;
+
+			String acceptedQtyValue2 = String.valueOf(acceptedQtyValue1);
+
 			click(driver, quantity);
 
-			quantity.sendKeys(Quantity);
+			quantity.sendKeys(acceptedQtyValue2);
 
 			click(driver, add);
 		}

@@ -726,7 +726,7 @@ public class TEST_Create_Edit_Table extends Testbase1 {
 	public void verifyDOCreate() throws Throwable {
 
 		homePage.clickOnDOCreate();
-		DeliveryOrder.DeliveryOrderCreate("10", "10");
+		DeliveryOrder.DeliveryOrderCreate();
 		Thread.sleep(4000);
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 	}

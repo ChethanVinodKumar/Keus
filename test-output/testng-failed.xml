@@ -5,10 +5,18 @@
     <classes>
       <class name="com.keus.getapcs.testcases.TEST_Create">
         <methods>
-          <include name="verifyInventryReportAfterGRIN"/>
+          <include name="verifySalesRFQCreate"/>
+          <include name="verifyItemMasterCreate"/>
+          <include name="verifySalesOrderCreate"/>
+          <include name="verifyBomCreate"/>
+          <include name="verifySalesRFQCS"/>
+          <include name="verifySalesItemPriceListCreate"/>
+          <include name="verifyPrice_ListCreate"/>
           <include name="setUp"/>
-          <include name="verifyGRINCreate"/>
+          <include name="verifyShopOrderCreate"/>
+          <include name="verifyQuoteCreate"/>
           <include name="tearDown"/>
+          <include name="verifyReleaseBom"/>
         </methods>
       </class> <!-- com.keus.getapcs.testcases.TEST_Create -->
     </classes>

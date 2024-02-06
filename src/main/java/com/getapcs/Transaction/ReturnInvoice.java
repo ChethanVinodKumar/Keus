@@ -83,7 +83,7 @@ public class ReturnInvoice extends Testbase1 {
 
 //*************OQC Create Page******************
 
-	public HomePage ReturnInvoicepage(String ReturnQunatity, String Quantity) throws InterruptedException {
+	public HomePage ReturnInvoicepage() throws InterruptedException {
 
 		click(driver, returnInvoiceButtton);
 
@@ -113,7 +113,16 @@ public class ReturnInvoice extends Testbase1 {
 
 		isSelected(driver, returnQty, "returnQty");
 
-		returnQty.sendKeys(ReturnQunatity);
+		// Use getText() to get the text content of the quantity WebElement
+		String quantityText = quantity.getText();
+
+		// Convert the quantityText to an integer
+		int quantityValue = Integer.parseInt(quantityText);
+
+		// Convert quantityValue to a String
+		String quantity1 = String.valueOf(quantityValue);
+
+		returnQty.sendKeys(quantity1);
 
 //Binning 
 
@@ -157,9 +166,13 @@ public class ReturnInvoice extends Testbase1 {
 				click(driver, locationSelect1);
 			}
 
+			int acceptedQtyValue1 = quantityValue / 2;
+
+			String acceptedQtyValue2 = String.valueOf(acceptedQtyValue1);
+
 			click(driver, binningQuantity);
 
-			binningQuantity.sendKeys(Quantity);
+			binningQuantity.sendKeys(acceptedQtyValue2);
 
 			click(driver, add);
 		}

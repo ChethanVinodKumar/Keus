@@ -22,7 +22,7 @@ public class VerifyInvoiceCreate extends Testbase1 {
 	@FindBy(xpath = "(//input[@type='text'])[3]")
 	WebElement companyNameDropDown;
 
-	@FindBy(xpath = "(//span[text()='Test comName1'])[1]")
+	@FindBy(xpath = "(//span[text()='KEUS AUTOMATION PRIVATE LIMITED'])[1]")
 	WebElement companyName;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Remarks']")

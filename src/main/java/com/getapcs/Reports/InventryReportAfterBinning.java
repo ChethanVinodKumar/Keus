@@ -44,12 +44,6 @@ public class InventryReportAfterBinning extends Testbase1 {
 	@FindBy(xpath = "(//i[@title='Project Numbers'])[1]")
 	WebElement binning;
 
-	@FindBy(xpath = "(//span[@class='dropdown-btn'])[3]")
-	WebElement warehouse;
-
-	@FindBy(xpath = "(//span[@class='dropdown-btn'])[4]")
-	WebElement location;
-
 	@FindBy(xpath = "(//span[normalize-space()='»»'])[1]")
 	WebElement paginationLast;
 
@@ -58,6 +52,18 @@ public class InventryReportAfterBinning extends Testbase1 {
 
 	@FindBy(xpath = "(//i[@title='Project Numbers'])[1]")
 	WebElement binningWarehoseAndlocation;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[9]")
+	WebElement warehouse;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[10]")
+	WebElement location;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[2]/td[9]")
+	WebElement warehouse1;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[2]/td[10]")
+	WebElement location1;
 
 	public InventryReportAfterBinning() {
 
@@ -98,12 +104,16 @@ public class InventryReportAfterBinning extends Testbase1 {
 
 		click(driver, binningWarehoseAndlocation);
 
-		String tableXpath1 = "//table[@class='table mb-2']";
+		String tableXpath1 = "//table[@class='table table-striped']";
 
 		// Get the first PR number text from table
-		String warehouseInBinning = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
+		String warehouseInBinning = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[1]")).getText();
 
-		String locationInBinning = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
+		String locationInBinning = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
+
+		String warehouseInBinning1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[1]")).getText();
+
+		String locationInBinning1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[2]")).getText();
 
 //		// project Number
 //
@@ -146,6 +156,24 @@ public class InventryReportAfterBinning extends Testbase1 {
 		// Filter
 
 		click(driver, filter);
+
+		String warehouse_text = warehouse.getText();
+		String location_text = location.getText();
+		String warehouse_text1 = warehouse1.getText();
+		String location_text1 = location1.getText();
+
+//		 Assert that the warehouse and location texts are equal to Binning Warehouse
+//		 and location
+		assert warehouse_text.equals(warehouseInBinning) && location_text.equals(locationInBinning)
+				: "Texts are not equal to Binning Wrehouse an location";
+		assert warehouse_text1.equals(warehouseInBinning1) && location_text1.equals(locationInBinning1)
+				: "Texts are not equal to Binning Wrehouse an location";
+
+//		assertEquals("Concatenated warehouse and location texts are not equal to expected value",
+//				warehouseInBinning + locationInBinning, warehouse_text + location_text);
+//
+//		assertEquals("Concatenated warehouse and location texts are not equal to expected value",
+//				warehouseInBinning1 + locationInBinning1, warehouse_text1 + location_text1);
 
 		Thread.sleep(4000);
 		screenShot("After Binning");

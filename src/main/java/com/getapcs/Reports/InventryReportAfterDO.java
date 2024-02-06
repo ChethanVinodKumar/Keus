@@ -1,6 +1,9 @@
 package com.getapcs.Reports;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -29,10 +32,7 @@ public class InventryReportAfterDO extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
-	WebElement editButton;
-
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to View'])[1]")
 	WebElement viewButton;
 
 	public InventryReportAfterDO() {
@@ -45,27 +45,14 @@ public class InventryReportAfterDO extends Testbase1 {
 
 	public HomePage InventryReportPage() throws InterruptedException, IOException {
 
-////Part Type
-//
-//		driver.navigate().to("https://demo_keus.getapcs.com/transaction/delivery-order/table");
-//
-//		click(driver, viewButton);
-//		String tableXpath = "//table[@class='table mb-2']";
-//
-//		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
-//
-//		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
-//
-//		String updatedXpath = elementXpath.replace("PP-54", partType1);
-//
-//		System.out.println(updatedXpath);
+//Part Type
 
-//part Type
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/item-master/table");
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/delivery-order/table");
 
-		String tableXpath1 = "//table[@class='table table-striped']";
+		click(driver, viewButton);
+		String tableXpath = "//table[@class='table mb-2']";
 
-		String partType1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
+		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
 
@@ -73,13 +60,7 @@ public class InventryReportAfterDO extends Testbase1 {
 
 		System.out.println(updatedXpath);
 
-		String partType2 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[2]")).getText();
-
-		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath1 = elementXpath1.replace("PP-54", partType2);
-
-		System.out.println(updatedXpath1);
+		String orderBalanceQty = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[8]")).getText();
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
@@ -87,29 +68,59 @@ public class InventryReportAfterDO extends Testbase1 {
 
 		click(driver, partType);
 
-//		click(driver, searchPartType);
-//		searchPartType.sendKeys(partType1);
-//
-//		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath));
-//
-//		click(driver, partTypeSelect);
-
 		click(driver, searchPartType);
-		searchPartType.clear();
-		searchPartType.sendKeys(partType2);
+		searchPartType.sendKeys(partType1);
 
-		WebElement partTypeSelect1 = driver.findElement(By.xpath(updatedXpath1));
+		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath));
 
-		click(driver, partTypeSelect1);
+		click(driver, partTypeSelect);
 
 //Filter
 
 		click(driver, filter);
 
+		// Find the table
+		WebElement table = driver.findElement(By.xpath("//table[@class='table table-striped']"));
+
+		// Find all rows in the table body
+		List<WebElement> rows = table.findElements(By.xpath(".//tbody/tr"));
+
+		// Initialize variables for storing balance quantities and the total
+		double totalBalanceQuantity = 0.0;
+
+		// Iterate through each row
+		for (WebElement row : rows) {
+			// Find the balance quantity cell in the current row
+			WebElement balanceQuantityCell = row.findElement(By.xpath("./td[8]")); // Adjust the column index if needed
+			String balanceQuantityText = balanceQuantityCell.getText();
+
+			// Convert balance quantity text to double
+			double balanceQuantity = Double.parseDouble(balanceQuantityText);
+
+			// Add the balance quantity to the total
+			totalBalanceQuantity += balanceQuantity;
+
+			System.out.println(balanceQuantity);
+		}
+
+		// Cast totalBalanceQuantity to int
+		int totalBalanceQuantityInt = (int) totalBalanceQuantity;
+
+		// Print the total balance quantity as integer
+		System.out.println("Total Balance Quantity: " + totalBalanceQuantityInt);
+
+		int expectedorderBalanceQty = Integer.parseInt(orderBalanceQty);
+
+		System.out.println("Expected: " + expectedorderBalanceQty);
+		System.out.println("Actual: " + totalBalanceQuantityInt);
+
+		assertEquals(expectedorderBalanceQty, totalBalanceQuantityInt);
+
 		Thread.sleep(4000);
 		screenShot("After Delivery Order");
 
 		return new HomePage();
+
 	}
 
 }

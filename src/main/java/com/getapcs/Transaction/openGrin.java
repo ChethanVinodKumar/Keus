@@ -39,14 +39,20 @@ public class openGrin extends Testbase1 {
 	@FindBy(xpath = "(//input[@type='text'])[10]")
 	WebElement warehouse;
 
-	@FindBy(xpath = "(//span[normalize-space()='TEST Warehouse1'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BH-RD3'])[1]")
 	WebElement warehouseSelect;
+
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BH-RD5'])[1]")
+	WebElement warehouseSelect1;
 
 	@FindBy(xpath = "(//input[@type='text'])[11]")
 	WebElement location;
 
-	@FindBy(xpath = "(//span[normalize-space()='TEST'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='HYD-BHRD3-Room1'])[1]")
 	WebElement locationSelect;
+
+	@FindBy(xpath = "(//span[normalize-space()='room no1'])[1]")
+	WebElement locationSelect1;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter quantity'])[1]")
 	WebElement quantityBinning;
@@ -162,39 +168,74 @@ public class openGrin extends Testbase1 {
 
 		quantity.clear();
 
-		quantity.sendKeys("10");
+		quantity.sendKeys("2000");
 
 		// Binning
 
 		click(driver, binningLocations);
 
-		// Warehouse
+		for (int i = 0; i < 2; i++) {
 
-		click(driver, warehouse);
+			if (i == 0) {
+				// Warehouse
 
-		isSelected(driver, warehouse, "warehouse");
+				click(driver, warehouse);
 
-		click(driver, warehouseSelect);
+				isSelected(driver, warehouse, "warehouse");
 
-		// Location
+				click(driver, warehouseSelect);
 
-		click(driver, location);
+				// Location
 
-		isSelected(driver, location, "location");
+				click(driver, location);
 
-		click(driver, locationSelect);
+				isSelected(driver, location, "location");
 
-		// Quantity In Binning
+				click(driver, locationSelect);
 
-		click(driver, quantityBinning);
+				// Quantity In Binning
 
-		isSelected(driver, quantityBinning, "quantityBinning");
+				click(driver, quantityBinning);
 
-		quantityBinning.clear();
+				isSelected(driver, quantityBinning, "quantityBinning");
 
-		quantityBinning.sendKeys("10");
+				quantityBinning.clear();
 
-		click(driver, add);
+				quantityBinning.sendKeys("1000");
+
+				click(driver, add);
+			}
+			if (i == 1) {
+				// Warehouse
+
+				click(driver, warehouse);
+
+				isSelected(driver, warehouse, "warehouse");
+
+				click(driver, warehouseSelect1);
+
+				// Location
+
+				click(driver, location);
+
+				isSelected(driver, location, "location");
+
+				click(driver, locationSelect1);
+
+				// Quantity In Binning
+
+				click(driver, quantityBinning);
+
+				isSelected(driver, quantityBinning, "quantityBinning");
+
+				quantityBinning.clear();
+
+				quantityBinning.sendKeys("1000");
+
+				click(driver, add);
+			}
+
+		}
 
 		click(driver, save);
 

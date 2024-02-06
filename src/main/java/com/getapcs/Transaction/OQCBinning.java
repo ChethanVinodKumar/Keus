@@ -123,7 +123,8 @@ public class OQCBinning extends Testbase1 {
 		String acceptedQty1 = (String) js.executeScript("return arguments[0].value;", acceptedQty);
 		System.out.println("\n" + "pendingQty : " + acceptedQty1 + "\n");
 
-		int acceptedQty2 = Integer.parseInt(acceptedQty1) / 2;
+		double acceptedQty2 = Double.parseDouble(acceptedQty1) / 2;
+		System.out.println(acceptedQty2);
 
 //Binning 
 

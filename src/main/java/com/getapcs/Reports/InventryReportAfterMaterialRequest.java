@@ -1,6 +1,9 @@
 package com.getapcs.Reports;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -29,7 +32,7 @@ public class InventryReportAfterMaterialRequest extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
@@ -71,6 +74,11 @@ public class InventryReportAfterMaterialRequest extends Testbase1 {
 		String updatedXpath = elementXpath.replace("PP-54", partType1);
 
 		System.out.println(updatedXpath);
+
+		String stockElement = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+
+		String issuedQtyElement = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[6]")).getText();
+
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
 //Part Type
@@ -87,6 +95,64 @@ public class InventryReportAfterMaterialRequest extends Testbase1 {
 //Filter
 
 		click(driver, filter);
+		// Convert text values to integers
+		int availableQty;
+		int dispatchQty;
+		try {
+			availableQty = Integer.parseInt(stockElement);
+			dispatchQty = Integer.parseInt(issuedQtyElement);
+		} catch (NumberFormatException e) {
+			System.err.println("Error parsing quantities: " + e.getMessage());
+			return null; // Handle error appropriately
+		}
+
+		// Calculate remaining quantity
+		int remainingQty = availableQty - dispatchQty;
+
+		// Do something with the calculated remaining quantity, e.g., print it
+		System.out.println("Remaining Quantity: " + remainingQty);
+
+		Thread.sleep(4000);
+		screenShot("After Open Delivery Order");
+
+		// Find the table
+		WebElement table = driver.findElement(By.xpath("//table[@class='table table-striped']"));
+
+		// Find all rows in the table body
+		List<WebElement> rows = table.findElements(By.xpath(".//tbody/tr"));
+
+		// Initialize variables for storing balance quantities and the total
+		double totalBalanceQuantity = 0.0;
+
+		// Iterate through each row
+		for (WebElement row : rows) {
+			// Find the balance quantity cell in the current row
+			WebElement balanceQuantityCell = row.findElement(By.xpath("./td[8]")); // Adjust the column index if needed
+			String balanceQuantityText = balanceQuantityCell.getText();
+
+			// Convert balance quantity text to double
+			double balanceQuantity = Double.parseDouble(balanceQuantityText);
+
+			// Add the balance quantity to the total
+			totalBalanceQuantity += balanceQuantity;
+
+			System.out.println(balanceQuantity);
+		}
+
+		// Cast totalBalanceQuantity to int
+		int totalBalanceQuantityInt = (int) totalBalanceQuantity;
+
+		// Print the total balance quantity as integer
+		System.out.println("Total Balance Quantity: " + totalBalanceQuantityInt);
+
+//								int expectedorderBalanceQty = Integer.parseInt(orderBalanceQty);
+
+		System.out.println("Expected: " + remainingQty);
+		System.out.println("Actual: " + totalBalanceQuantityInt);
+
+		assertEquals(remainingQty, totalBalanceQuantityInt);
+
+		Thread.sleep(1000);
 
 		Thread.sleep(4000);
 		screenShot("After MR");

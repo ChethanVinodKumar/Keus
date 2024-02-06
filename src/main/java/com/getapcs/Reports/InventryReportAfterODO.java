@@ -1,6 +1,9 @@
 package com.getapcs.Reports;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -66,6 +69,10 @@ public class InventryReportAfterODO extends Testbase1 {
 
 		String updatedXpath = elementXpath.replace("PP-54", partType1);
 
+		String availableQtyElement = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[6]")).getText();
+
+		String dispatchQtyElement = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[7]")).getText();
+
 		System.out.println(updatedXpath);
 
 ////part Type
@@ -114,9 +121,62 @@ public class InventryReportAfterODO extends Testbase1 {
 
 		click(driver, filter);
 
+		// Convert text values to integers
+		int availableQty;
+		int dispatchQty;
+		try {
+			availableQty = Integer.parseInt(availableQtyElement);
+			dispatchQty = Integer.parseInt(dispatchQtyElement);
+		} catch (NumberFormatException e) {
+			System.err.println("Error parsing quantities: " + e.getMessage());
+			return null; // Handle error appropriately
+		}
+
+		// Calculate remaining quantity
+		int remainingQty = availableQty - dispatchQty;
+
+		// Do something with the calculated remaining quantity, e.g., print it
+		System.out.println("Remaining Quantity: " + remainingQty);
+
 		Thread.sleep(4000);
 		screenShot("After Open Delivery Order");
 
+		// Find the table
+		WebElement table = driver.findElement(By.xpath("//table[@class='table table-striped']"));
+
+		// Find all rows in the table body
+		List<WebElement> rows = table.findElements(By.xpath(".//tbody/tr"));
+
+		// Initialize variables for storing balance quantities and the total
+		double totalBalanceQuantity = 0.0;
+
+		// Iterate through each row
+		for (WebElement row : rows) {
+			// Find the balance quantity cell in the current row
+			WebElement balanceQuantityCell = row.findElement(By.xpath("./td[8]")); // Adjust the column index if needed
+			String balanceQuantityText = balanceQuantityCell.getText();
+
+			// Convert balance quantity text to double
+			double balanceQuantity = Double.parseDouble(balanceQuantityText);
+
+			// Add the balance quantity to the total
+			totalBalanceQuantity += balanceQuantity;
+
+			System.out.println(balanceQuantity);
+		}
+
+		// Cast totalBalanceQuantity to int
+		int totalBalanceQuantityInt = (int) totalBalanceQuantity;
+
+		// Print the total balance quantity as integer
+		System.out.println("Total Balance Quantity: " + totalBalanceQuantityInt);
+
+//				int expectedorderBalanceQty = Integer.parseInt(orderBalanceQty);
+
+		System.out.println("Expected: " + remainingQty);
+		System.out.println("Actual: " + totalBalanceQuantityInt);
+
+		assertEquals(remainingQty, totalBalanceQuantityInt);
 		return new HomePage();
 	}
 
