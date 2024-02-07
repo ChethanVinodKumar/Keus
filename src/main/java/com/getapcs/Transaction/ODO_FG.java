@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
 
-public class openDeliveryOrder extends Testbase1 {
+public class ODO_FG extends Testbase1 {
 
 	static double remainingQty;
 
@@ -111,7 +111,7 @@ public class openDeliveryOrder extends Testbase1 {
 	@FindBy(xpath = "(//table[@formarrayname='ItemData']/tbody/tr[1]/td[6]/..//input[@type='text'])[5]")
 	WebElement availableStock;
 
-	public openDeliveryOrder() {
+	public ODO_FG() {
 
 		PageFactory.initElements(driver, this);
 	}
@@ -126,7 +126,7 @@ public class openDeliveryOrder extends Testbase1 {
 
 		String tableXpath = "//table[@class='table table-striped']";
 
-		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
 
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -218,24 +218,22 @@ public class openDeliveryOrder extends Testbase1 {
 		System.out.println("availableStock" + " : " + availableQuantityText + "\n");
 //Disptch Quantity
 
-		double remainingQty = 0;
-
 		click(driver, dispatchQty);
 
 		// Convert the quantityText to an integer
 		double availableQuantityValue = Double.parseDouble(availableQuantityText);
 
 		// Perform your calculations
-		double dispatchQuantityValue1 = availableQuantityValue / 2;
+		double availableQuantityValue1 = availableQuantityValue / 2;
 
-		System.out.println(dispatchQuantityValue1);
+		System.out.println(availableQuantityValue1);
 
 		// Convert quantityValue to a String
-		String dispatchQuantity = String.valueOf(dispatchQuantityValue1);
+		String availableQuantity = String.valueOf(availableQuantityValue1);
 
 		Thread.sleep(2000);
 
-		dispatchQty.sendKeys(dispatchQuantity);
+		dispatchQty.sendKeys(availableQuantity);
 
 		Thread.sleep(2000);
 
@@ -254,10 +252,26 @@ public class openDeliveryOrder extends Testbase1 {
 		click(driver, binningButton);
 
 		for (int i = 1; i <= 2; i++) {
-			double dq = dispatchQuantityValue1 / 2;
 
 			if (i == 1) {
 
+				// Warehouse
+
+				click(driver, warehouse);
+
+				isSelected(driver, warehouse, "warehouse");
+
+				click(driver, warehouseSelect);
+
+				// Location
+
+				click(driver, location);
+
+				isSelected(driver, location, "location");
+
+				click(driver, locationSelect);
+			}
+			if (i == 2) {
 				// Warehouse
 
 				click(driver, warehouse1);
@@ -274,65 +288,14 @@ public class openDeliveryOrder extends Testbase1 {
 
 				click(driver, locationSelect1);
 			}
-			if (i == 2) {
-				// Warehouse
-				click(driver, warehouse);
 
-				isSelected(driver, warehouse, "warehouse");
+			double acceptedQtyValue1 = availableQuantityValue1 / 2;
 
-				click(driver, warehouseSelect);
+			String acceptedQtyValue2 = String.valueOf(acceptedQtyValue1);
 
-				// Location
+			click(driver, quantity);
 
-				click(driver, location);
-
-				isSelected(driver, location, "location");
-
-				click(driver, locationSelect);
-
-			}
-
-			if (i == 1) {
-
-				String availableQuantityBinning = (String) js.executeScript("return arguments[0].value;", availableQty);
-				System.out.println("availableStock" + " : " + availableQuantityBinning + "\n");
-
-				double availableQuantityBinning1 = Double.parseDouble(availableQuantityBinning);
-				System.out.println("availableQuantityBinning1 :" + availableQuantityBinning1);
-
-				if (dq <= availableQuantityBinning1) {
-
-					click(driver, quantity);
-
-					System.out.println("dq : " + dq);
-					quantity.sendKeys(String.valueOf(dq));
-				} else if (dq > availableQuantityBinning1) {
-					remainingQty = dq - availableQuantityBinning1;
-
-					click(driver, quantity);
-
-					quantity.sendKeys(String.valueOf(availableQuantityBinning1));
-				}
-			}
-			if (i == 2) {
-
-				String availableQuantityBinning = (String) js.executeScript("return arguments[0].value;", availableQty);
-				System.out.println("availableStock" + " : " + availableQuantityBinning + "\n");
-
-				double availableQuantityBinning1 = Double.parseDouble(availableQuantityBinning);
-
-				if (dq <= availableQuantityBinning1) {
-
-					click(driver, quantity);
-
-					System.out.println(dq + remainingQty);
-
-					quantity.sendKeys(String.valueOf(dq + remainingQty));
-				} else if (dq <= availableQuantityBinning1) {
-					System.out.println("Quantity Mismatch");
-				}
-
-			}
+			quantity.sendKeys(acceptedQtyValue2);
 
 			click(driver, add);
 
@@ -346,4 +309,5 @@ public class openDeliveryOrder extends Testbase1 {
 
 		return new HomePage();
 	}
+
 }

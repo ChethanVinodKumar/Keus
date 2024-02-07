@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-06T12:48:14 IST" name="Default suite" finished-at="2024-02-06T12:54:03 IST" duration-ms="348432">
+  <suite started-at="2024-02-06T16:13:10 IST" name="Default suite" finished-at="2024-02-06T16:13:48 IST" duration-ms="38398">
     <groups>
     </groups>
-    <test started-at="2024-02-06T12:48:14 IST" name="Default test" finished-at="2024-02-06T12:54:03 IST" duration-ms="348432">
+    <test started-at="2024-02-06T16:13:10 IST" name="Default test" finished-at="2024-02-06T16:13:48 IST" duration-ms="38398">
       <class name="com.keus.getapcs.testcases.TEST_Create">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:48:14 IST" name="setUp" finished-at="2024-02-06T12:48:26 IST" duration-ms="11582" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.keus.getapcs.testcases.TEST_Create@3b77a04f]" started-at="2024-02-06T16:13:10 IST" name="setUp" finished-at="2024-02-06T16:13:22 IST" duration-ms="12096" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyPrice_ListCreate()[pri:1, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:48:26 IST" name="verifyPrice_ListCreate" finished-at="2024-02-06T12:48:38 IST" duration-ms="12340" status="PASS">
+        <test-method signature="verifyInventryReportAfterODO()[pri:38, instance:com.keus.getapcs.testcases.TEST_Create@3b77a04f]" started-at="2024-02-06T16:13:22 IST" name="verifyInventryReportAfterODO" finished-at="2024-02-06T16:13:48 IST" duration-ms="25698" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyPrice_ListCreate -->
-        <test-method signature="verifyItemMasterCreate()[pri:2, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:48:38 IST" name="verifyItemMasterCreate" finished-at="2024-02-06T12:49:50 IST" duration-ms="72021" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyItemMasterCreate -->
-        <test-method signature="verifyBomCreate()[pri:3, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:49:50 IST" name="verifyBomCreate" finished-at="2024-02-06T12:50:23 IST" duration-ms="32588" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyBomCreate -->
-        <test-method signature="verifyReleaseBom()[pri:4, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:50:23 IST" name="verifyReleaseBom" finished-at="2024-02-06T12:51:24 IST" duration-ms="61105" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyReleaseBom -->
-        <test-method signature="verifySalesItemPriceListCreate()[pri:5, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:51:24 IST" name="verifySalesItemPriceListCreate" finished-at="2024-02-06T12:51:47 IST" duration-ms="23012" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesItemPriceListCreate -->
-        <test-method signature="verifySalesRFQCreate()[pri:6, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:51:47 IST" name="verifySalesRFQCreate" finished-at="2024-02-06T12:52:17 IST" duration-ms="29938" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesRFQCreate -->
-        <test-method signature="verifySalesRFQCS()[pri:7, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:52:17 IST" name="verifySalesRFQCS" finished-at="2024-02-06T12:52:34 IST" duration-ms="17170" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesRFQCS -->
-        <test-method signature="verifyQuoteCreate()[pri:8, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:52:34 IST" name="verifyQuoteCreate" finished-at="2024-02-06T12:52:54 IST" duration-ms="20084" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyQuoteCreate -->
-        <test-method signature="verifySalesOrderCreate()[pri:9, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:52:54 IST" name="verifySalesOrderCreate" finished-at="2024-02-06T12:53:29 IST" duration-ms="34273" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySalesOrderCreate -->
-        <test-method signature="verifyShopOrderCreate()[pri:10, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:53:29 IST" name="verifyShopOrderCreate" finished-at="2024-02-06T12:54:02 IST" duration-ms="33244" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyShopOrderCreate -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.keus.getapcs.testcases.TEST_Create@75c9e76b]" started-at="2024-02-06T12:54:02 IST" name="tearDown" finished-at="2024-02-06T12:54:03 IST" duration-ms="987" status="PASS">
+        </test-method> <!-- verifyInventryReportAfterODO -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.keus.getapcs.testcases.TEST_Create@3b77a04f]" started-at="2024-02-06T16:13:48 IST" name="tearDown" finished-at="2024-02-06T16:13:48 IST" duration-ms="515" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

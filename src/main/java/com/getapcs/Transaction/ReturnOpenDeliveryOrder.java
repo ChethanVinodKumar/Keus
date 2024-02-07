@@ -152,10 +152,10 @@ public class ReturnOpenDeliveryOrder extends Testbase1 {
 		isSelected(driver, returnQty, "returnQty");
 
 		// Use getText() to get the text content of the quantity WebElement
-		String quantityText = DispatchQty.getText();
+//		String quantityText = DispatchQtyValue.getText();
 
 		// Convert the quantityText to an integer
-		int quantityValue = Integer.parseInt(quantityText);
+		double quantityValue = Double.parseDouble(DispatchQtyValue);
 
 		// Convert quantityValue to a String
 		String quantity1 = String.valueOf(quantityValue);
@@ -205,7 +205,7 @@ public class ReturnOpenDeliveryOrder extends Testbase1 {
 			}
 
 			// Quantity
-			int acceptedQtyValue1 = quantityValue / 2;
+			double acceptedQtyValue1 = quantityValue / 2;
 
 			String acceptedQtyValue2 = String.valueOf(acceptedQtyValue1);
 

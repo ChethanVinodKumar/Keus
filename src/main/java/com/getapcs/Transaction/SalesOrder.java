@@ -371,23 +371,9 @@ public class SalesOrder extends Testbase1 {
 			String billingandShippingRemark, String additionalCharges, String sgst, String cgst, String igst,
 			String utgst, String specialDiscount) throws Throwable {
 
-//        js.executeScript("arguments[0].click();", threeLineIconBar);
-
-		// Verify and Click on Release Button in Quote Table Page
-
 		click(driver, releaseButton);
 
-//		// Verify the Close Button in Release Quote Pop-Up
-//		boolean closeButtonIsDisplayed = closeButton.isDisplayed();
-//		assertTrue(closeButtonIsDisplayed, "Close Button IsDisplayed.");
-//		closeButton.click();
-
-		// to Print Option in Release Quote Pop-Up-Quote Table -Sales
-//		releaseButton.click();
-
-//		WebElement toPrintButton = driver.findElement(By.xpath("//button[contains(text(),'Build To Print')]"));
-//		assertTrue(convertToSalesOrderButton.isDisplayed(), "Convert to SalesOrder Button IsDisplayed.");
-		convertToSalesOrderButton.click();
+		click(driver, convertToSalesOrderButton);
 
 		// ################ Sales Order Create Page ##################
 
@@ -424,12 +410,8 @@ public class SalesOrder extends Testbase1 {
 		System.out.println("Order Date : " + orderDatePicker1Value + "\n");
 
 		// Verify the Order Type Drop Down in Sales Order Create Page-Transaction Module
-		assertTrue(orderTypeDropDown.isDisplayed(), "order Type Drop Down is not Displayed.");
-		orderTypeDropDown.sendKeys(Keys.ENTER);
-		WebElement orderTypeDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean orderTypeDropDownIsSelected = orderTypeDropDownFocusedElement.equals(orderTypeDropDown);
-		assertTrue(orderTypeDropDownIsSelected, "Order Type Drop Down is not Selected");
-		js.executeScript("arguments[0].click();", orderTypeDropDownSelectData);
+		click(driver, orderTypeDropDown);
+		click(driver, orderTypeDropDownSelectData);
 
 		// Verify the Customer Name Element in Sales Order Create Page-Transaction
 		// Module
@@ -515,11 +497,7 @@ public class SalesOrder extends Testbase1 {
 
 		// Verify the Sales Person Drop Down in Sales Order Create Page-Transaction
 		// Module
-		assertTrue(salesPersonDropDown.isDisplayed(), "Sales Person Drop Down is not Displayed.");
-		salesPersonDropDown.sendKeys(Keys.ENTER);
-		WebElement salesPersonDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean salesPersonDropDownIsSelected = salesPersonDropDownFocusedElement.equals(salesPersonDropDown);
-		assertTrue(salesPersonDropDownIsSelected, "Sales Person Drop Down is not Selected");
+		click(driver, salesPersonDropDown);
 		click(driver, salesPersonDropDownSelectData);
 
 		// Verify the Created By Element in Sales Order Create Page-Transaction Module
@@ -533,21 +511,13 @@ public class SalesOrder extends Testbase1 {
 		// Verify Items Tab in Sales Order Create Page
 
 		// Verify General Discount Percentage Radio Button in General Tab
-		assertTrue(generalDiscountPercentageRadioButton.isDisplayed(),
-				"General Discount Percentage Radio Button is not Displayed.");
-		generalDiscountPercentageRadioButton.click();
+		click(driver, generalDiscountPercentageRadioButton);
 
 		// Verify General Discount Rupees Radio Button in General Tab
-		assertTrue(generalDiscountRupeesRadioButton.isDisplayed(),
-				"General Discount Rupees Radio Button is not Displayed.");
-		generalDiscountRupeesRadioButton.click();
+		click(driver, generalDiscountRupeesRadioButton);
 
 		// Verify the General Discount Field3 in General Tab
-		assertTrue(generalDiscountField3.isDisplayed(), "General Discount Field3 is not Displayed.");
-		generalDiscountField3.sendKeys(Keys.ENTER);
-		WebElement generalDiscountField3FocusedElement = driver.switchTo().activeElement();
-		assertTrue(generalDiscountField3FocusedElement.equals(generalDiscountField3),
-				"General Discount Field3 is not Selected");
+		click(driver, generalDiscountField3);
 		generalDiscountField3.clear();
 		generalDiscountField3.sendKeys(generalDiscount);
 
@@ -586,40 +556,26 @@ public class SalesOrder extends Testbase1 {
 //        discountField1.sendKeys(discount1);
 
 		// Verify the SGST Field1 in General Tab
-		assertTrue(sGSTField1.isDisplayed(), "SGST Field1 is not Displayed.");
-		sGSTField1.sendKeys(Keys.ENTER);
-		WebElement sGSTField1FocusedElement = driver.switchTo().activeElement();
-		assertTrue(sGSTField1FocusedElement.equals(sGSTField1), "SGST Field1 is not Selected");
+		click(driver, sGSTField1);
+		isSelected(driver, sGSTField1, "sGSTField1");
 		sGSTField1.clear();
 		sGSTField1.sendKeys(sgst1);
 
 		// Verify the CGST Field1 in General Tab
-		boolean cGSTField1Field1IsDisplayed = cGSTField1.isDisplayed();
-		assertTrue(cGSTField1Field1IsDisplayed, "CGST Field1 is not Displayed.");
-		cGSTField1.sendKeys(Keys.ENTER);
-		WebElement cGSTField1FocusedElement = driver.switchTo().activeElement();
-		boolean cGSTField1IsSelected = cGSTField1FocusedElement.equals(cGSTField1);
-		assertTrue(cGSTField1IsSelected, "CGST Field1 is not Selected");
+		click(driver, cGSTField1);
+		isSelected(driver, cGSTField1, "cGSTField1");
 		cGSTField1.clear();
 		cGSTField1.sendKeys(cgst1);
 
 		// Verify the IGST Field1 in General Tab
-		boolean iGSTField1Field1IsDisplayed = iGSTField1.isDisplayed();
-		assertTrue(iGSTField1Field1IsDisplayed, "IGST Field1 is not Displayed.");
-		iGSTField1.sendKeys(Keys.ENTER);
-		WebElement iGSTField1FocusedElement = driver.switchTo().activeElement();
-		boolean iGSTField1IsSelected = iGSTField1FocusedElement.equals(iGSTField1);
-		assertTrue(iGSTField1IsSelected, "IGST Field1 is not Selected");
+		click(driver, iGSTField1);
+		isSelected(driver, iGSTField1, "iGSTField1");
 		iGSTField1.clear();
 		iGSTField1.sendKeys(igst1);
 
 		// Verify the UTGST Field1 in General Tab
-		boolean uTGSTField1Field1IsDisplayed = uTGSTField1.isDisplayed();
-		assertTrue(uTGSTField1Field1IsDisplayed, "UTGST Field1 is not Displayed.");
-		uTGSTField1.sendKeys(Keys.ENTER);
-		WebElement uTGSTField1FocusedElement = driver.switchTo().activeElement();
-		boolean uTGSTField1IsSelected = uTGSTField1FocusedElement.equals(uTGSTField1);
-		assertTrue(uTGSTField1IsSelected, "UTGST Field1 is not Selected");
+		click(driver, uTGSTField1);
+		isSelected(driver, uTGSTField1, "uTGSTField1");
 		uTGSTField1.clear();
 		uTGSTField1.sendKeys(utgst1);
 
@@ -645,33 +601,24 @@ public class SalesOrder extends Testbase1 {
 
 		// Verify the Remark Field1
 //        WebElement remarkField1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"ngb-nav-0-panel\"]/div[2]/table/tbody/tr[1]/td[18]/div/textarea")));
-		boolean remarkField1IsDisplayed = remarkField1.isDisplayed();
-		assertTrue(remarkField1IsDisplayed, "Remark Field1 is not Displayed.");
-		remarkField1.sendKeys(Keys.ENTER);
-		WebElement remarkField1FocusedElement = driver.switchTo().activeElement();
-		boolean remarkField1IsSelected = remarkField1FocusedElement.equals(remarkField1);
-		assertTrue(remarkField1IsSelected, "Remark Field1 is not Selected");
+		click(driver, remarkField1);
+		isSelected(driver, remarkField1, "remarkField1");
 		remarkField1.clear();
 		remarkField1.sendKeys(remark1);
 
 		// ################## PO Details Tab ######################
 
 		// Verify PO Details Tab in Sales Order Create Page
-		assertTrue(poDetailsTab.isDisplayed(), "Items Tab is not Displayed.");
-		poDetailsTab.click();
+		click(driver, poDetailsTab);
 
 		// Verify the PO Number Text Field
-		assertTrue(poNumberTextField.isDisplayed(), "PO Text Field is not Displayed.");
-		poNumberTextField.sendKeys(Keys.ENTER);
-		WebElement poNumberTextFieldFocusedElement = driver.switchTo().activeElement();
-		boolean poNumberTextFieldIsSelected = poNumberTextFieldFocusedElement.equals(poNumberTextField);
-		assertTrue(poNumberTextFieldIsSelected, "PO Text Field is not Selected");
+		click(driver, poNumberTextField);
+		isSelected(driver, poNumberTextField, "poNumberTextField");
 		poNumberTextField.clear();
 		poNumberTextField.sendKeys(poNumber);
 
 		// Verify and PO Date Picker in in General Tab
-		assertTrue(poDatePicker.isDisplayed(), "PO Date Picker is not Displayed.");
-		poDatePicker.click();
+		click(driver, poDatePicker);
 		WebElement poDatePickerFocusedElement = driver.switchTo().activeElement();
 		boolean poDatePickerIsSelected = poDatePickerFocusedElement.equals(poDatePicker);
 		assertTrue(poDatePickerIsSelected, "PO Date Picker is not Selected");
@@ -684,11 +631,7 @@ public class SalesOrder extends Testbase1 {
 		poDatePicker.sendKeys(Keys.ENTER);
 
 		// Verify and PO Received Date Picker in in General Tab
-		assertTrue(poReceivedDatePicker.isDisplayed(), "PO Received Date Picker is not Displayed.");
-		poReceivedDatePicker.click();
-		WebElement poReceivedDatePickerFocusedElement = driver.switchTo().activeElement();
-		boolean poReceivedDatePickerIsSelected = poReceivedDatePickerFocusedElement.equals(poReceivedDatePicker);
-		assertTrue(poReceivedDatePickerIsSelected, "PO Received Date Picker is not Selected");
+		click(driver, poReceivedDatePicker);
 
 		poReceivedDatePicker.sendKeys(Keys.ARROW_UP);
 		Thread.sleep(100); // Add a small delay if needed
@@ -700,16 +643,11 @@ public class SalesOrder extends Testbase1 {
 		// ################## Billing & Shipping Details Tab ######################
 
 		// Verify billing & Shipping Details Tab in Sales Order Create Page
-		assertTrue(billingandShippingDetailsTab.isDisplayed(), "Billing & Shipping Details Tab is not Displayed.");
-		billingandShippingDetailsTab.click();
+		click(driver, billingandShippingDetailsTab);
 
 		// Verify the billTo Drop Down in Sales Order Create Page-Transaction Module
-		assertTrue(billToDropDown.isDisplayed(), " billTo Drop Down is not Displayed.");
-		billToDropDown.click();
-		WebElement billToDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean billToDropDownIsSelected = billToDropDownFocusedElement.equals(billToDropDown);
-		assertTrue(billToDropDownIsSelected, " billTo Drop Down is not Selected");
-		billToDropDownSelectData.click();
+		click(driver, billToDropDown);
+		click(driver, billToDropDownSelectData);
 
 		// Verify the billTo Id Element in Sales Order Create Page-Transaction Module
 		assertTrue(billToIdElement.isDisplayed(), " billTo Id Element is not Displayed.");
@@ -718,12 +656,8 @@ public class SalesOrder extends Testbase1 {
 		System.out.println("Bill To Id : " + billToIdElementValue + "\n");
 
 		// Verify the Ship To Drop Down in Sales Order Create Page-Transaction Module
-		assertTrue(shipToDropDown.isDisplayed(), "Ship To Drop Down is not Displayed.");
-		shipToDropDown.click();
-		WebElement shipToDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean shipToDropDownIsSelected = shipToDropDownFocusedElement.equals(shipToDropDown);
-		assertTrue(shipToDropDownIsSelected, "Ship To Drop Down is not Selected");
-		shipToDropDownSelectData.click();
+		click(driver, shipToDropDown);
+		click(driver, shipToDropDownSelectData);
 
 		// Verify the Ship To Id Element in Sales Order Create Page-Transaction Module
 		assertTrue(shipToIdElement.isDisplayed(), "Ship To Id Element is not Displayed.");
@@ -733,29 +667,20 @@ public class SalesOrder extends Testbase1 {
 
 		// Verify the Payment Terms Drop Down in Sales Order Create Page-Transaction
 		// Module
-		assertTrue(paymentTermsDropDown.isDisplayed(), "Payment Terms Drop Down is not Displayed.");
-		paymentTermsDropDown.sendKeys(Keys.ENTER);
-		WebElement paymentTermsDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean paymentTermsDropDownIsSelected = paymentTermsDropDownFocusedElement.equals(paymentTermsDropDown);
-		assertTrue(paymentTermsDropDownIsSelected, "Payment Terms Drop Down is not Selected");
-		paymentTermsDropDownSelectDate.click();
+		click(driver, paymentTermsDropDown);
+		click(driver, paymentTermsDropDownSelectDate);
 
 		// Verify the Remark Text Field
 //                WebElement remarkTextField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//textarea[@formcontrolname='remarks']")));
-		boolean remarkTextFieldIsDisplayed = remarkTextField.isDisplayed();
-		assertTrue(remarkTextFieldIsDisplayed, "Remark Text Field is not Displayed.");
-		remarkTextField.sendKeys(Keys.ENTER);
-		WebElement remarkTextFieldFocusedElement = driver.switchTo().activeElement();
-		boolean remarkTextFieldIsSelected = remarkTextFieldFocusedElement.equals(remarkTextField);
-		assertTrue(remarkTextFieldIsSelected, "Remark Text Field is not Selected");
+		click(driver, remarkTextField);
+		isSelected(driver, remarkTextField, "remarkTextField");
 		remarkTextField.clear();
 		remarkTextField.sendKeys(billingandShippingRemark);
 
 		// ################## Total Calculation Tab ######################
 
 		// Verify and Click on Total Calculation Tab
-		assertTrue(totalCalculationTab.isDisplayed(), "Total Calculation Tab is not Displayed.");
-		js.executeScript("arguments[0].click();", totalCalculationTab);
+		click(driver, totalCalculationTab);
 
 		// Verify the Total Amount Element1 in Sales Order Create Page-Transaction
 		// Module
@@ -766,15 +691,9 @@ public class SalesOrder extends Testbase1 {
 
 		// Verify the Additional Charges Label Name Drop Down in Quote Create Page-Sales
 		// Module
-		assertTrue(additionalChargesLabelNameDropDown.isDisplayed(),
-				"Additional Charges Label Name Drop Down is not Displayed.");
-		additionalChargesLabelNameDropDown.click();
-		WebElement additionalChargesLabelNameDropDownFocusedElement = driver.switchTo().activeElement();
-		boolean additionalChargesLabelNameDropDownIsSelected = additionalChargesLabelNameDropDownFocusedElement
-				.equals(additionalChargesLabelNameDropDown);
-		assertTrue(additionalChargesLabelNameDropDownIsSelected,
-				"Additional Charges Label Name Drop Down is not Selected");
-		additionalChargesLabelNameDropDownSelectDate.click();
+		click(driver, additionalChargesLabelNameDropDown);
+		click(driver, additionalChargesLabelNameDropDownSelectDate);
+
 //           		//Verify Additional Charges Value Percentage Radio Button in General Tab
 ////           		WebElement additionalChargesValuePercentageRadioButton = driver.findElement(By.xpath("//input[@id='addtionalPer']"));
 //           	    boolean additionalChargesValuePercentageRadioButtonIsDisplayed = additionalChargesValuePercentageRadioButton.isDisplayed();
@@ -843,9 +762,7 @@ public class SalesOrder extends Testbase1 {
 //                   uTGSTField.sendKeys(utgst);
 
 		// Verify and Click on Add Button in Total Calculation Tab
-		assertTrue(addButtoninTotalCalculationTab.isDisplayed(),
-				"Add Button in Total Calculation Tab is not Displayed.");
-		addButtoninTotalCalculationTab.click();
+		click(driver, addButtoninTotalCalculationTab);
 
 		// Verify the Total additionalCharges Element in Sales Order Create
 		// Page-Transaction Module
@@ -888,10 +805,7 @@ public class SalesOrder extends Testbase1 {
 		System.out.println("Total Final Amount in Total Calculation Tab : " + totalFinalAmountElementValue + "\n");
 
 		// Verify and Click on Save Button Of Sales Order Create Page in Add Vendor
-		assertTrue(saveButtonOfSalesOrderCreatePage.isDisplayed(),
-				"Save Button Of Sales Order Create Page is not Displayed.");
-		js.executeScript("arguments[0].scrollIntoView(true);", saveButtonOfSalesOrderCreatePage);
-		saveButtonOfSalesOrderCreatePage.click();
+		click(driver, saveButtonOfSalesOrderCreatePage);
 
 		return new HomePage();
 
