@@ -334,7 +334,7 @@ public class Item_Master_Create_Page_FG extends Testbase1 {
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/div/div/div[6]/div/label[2]/span")
 	WebElement pFOToggleButton;
 
-	@FindBy(xpath = "//button[normalize-space()='Save']")
+	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButton;
 
 	public Item_Master_Create_Page_FG() {
@@ -671,14 +671,9 @@ public class Item_Master_Create_Page_FG extends Testbase1 {
 		// PFO Toggle Button
 		click(driver, pFOToggleButton);
 
-		String beforeSaveButton = driver.getCurrentUrl();
-		System.out.println(beforeSaveButton + "\n");
-
 		click(driver, saveButton);
 
 		Thread.sleep(3000);
-		String afterSaveButton = driver.getCurrentUrl();
-		System.out.println(afterSaveButton + "\n");
 
 		return new HomePage();
 	}
