@@ -50,7 +50,7 @@ public class InventryReportAfterBinning extends Testbase1 {
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
 	WebElement viewButton;
 
-	@FindBy(xpath = "(//i[@title='Project Numbers'])[1]")
+	@FindBy(xpath = "(//i[@title='Binning Location'])[1]")
 	WebElement binningWarehoseAndlocation;
 
 	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[9]")

@@ -212,6 +212,15 @@ public class Purchase_Order extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Issue Material'])[1]")
 	WebElement issueMaterialButton;
 
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement saveButton;
+
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewButton;
+
+	@FindBy(xpath = "//button[normalize-space()='Close']")
+	WebElement closeButton;
+
 	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
 	public Purchase_Order() {
@@ -710,6 +719,12 @@ public class Purchase_Order extends Testbase1 {
 		js.executeScript("arguments[0].click()", addTerms);
 
 		uploadFile(driver, UploadFiles1, 2);
+
+		click(driver, saveButton);
+
+		click(driver, viewButton);
+
+		click(driver, closeButton);
 
 		click(driver, save);
 		Thread.sleep(4000);

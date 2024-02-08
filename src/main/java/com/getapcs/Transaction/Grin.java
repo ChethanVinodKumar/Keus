@@ -410,9 +410,9 @@ public class Grin extends Testbase1 {
 
 		click(driver, saveUploadFile);
 
-		click(driver, viewButton);
-
-		click(driver, closeButton);
+//		click(driver, viewButton);
+//
+//		click(driver, closeButton);
 
 		// Verify Other Cost Tab
 

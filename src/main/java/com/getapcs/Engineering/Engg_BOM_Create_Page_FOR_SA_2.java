@@ -193,8 +193,6 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends Testbase1 {
 
 		// ############## Child Item Tab ################
 
-		js.executeScript("arguments[0].scrollIntoView(true);", itemNumberForChildItem);
-		Thread.sleep(4000);
 		click(driver, itemNumberForChildItem);
 		isSelected(driver, itemNumberForChildItem, "itemNumberForChildItem");
 		itemNumberForChildItem.sendKeys(ItemNum);

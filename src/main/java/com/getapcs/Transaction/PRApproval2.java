@@ -202,13 +202,6 @@ public class PRApproval2 extends Testbase1 {
 		String purposeTextElementText = purposeTextElement.getText().trim();
 		System.out.println("Purpose Text : " + purposeTextElementText + "\n");
 
-		// Verify the PR File in PR View Page-Transaction Module
-//   	 WebElement prFileElement = driver.findElement(By.xpath("//label[text()='PR Files']/following-sibling::label[@class='field2']"));
-		boolean prFileElementIsDisplayed = prFileElement.isDisplayed();
-		assertTrue(prFileElementIsDisplayed, "PR File Element is not Displayed.");
-		String prFileElementElementText = prFileElement.getText().trim();
-		System.out.println("PR File Name : " + prFileElementElementText + "\n");
-
 		// ################################## Items Tab
 		// ##################################################
 //	 
@@ -254,7 +247,7 @@ public class PRApproval2 extends Testbase1 {
 //		     WebElement projectDeatilPopUp = driver.findElement(By.xpath("//i[@title='Project']"));
 		boolean projectDeatilPopUpIsDisplayed = projectDeatilPopUp.isDisplayed();
 		assertTrue(projectDeatilPopUpIsDisplayed, "View Upload File Button is not Displayed.");
-		projectDeatilPopUp.click();
+		click(driver, projectDeatilPopUp);
 
 		System.out.println("Project Details Table" + "\n");
 

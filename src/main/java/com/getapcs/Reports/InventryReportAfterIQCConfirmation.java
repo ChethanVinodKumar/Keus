@@ -115,7 +115,7 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 		String location_text = location.getText();
 
 		// Assert that the warehouse and location texts are equal to "GRIN"
-		assert warehouse_text.equals("IQC") && location_text.equals("IQC") : "Texts are not equal to 'GRIN'";
+		assert warehouse_text.equals("IQC") && location_text.equals("IQC") : "Texts are not equal to 'IQC'";
 
 		Thread.sleep(2000);
 		screenShot("After IQCConfirmation");

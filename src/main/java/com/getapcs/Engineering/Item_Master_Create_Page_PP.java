@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
 
-public class Item_Master_Create_Page1 extends Testbase1 {
+public class Item_Master_Create_Page_PP extends Testbase1 {
 
 	@FindBy(xpath = "//div[@class='title_sub_div_1 mt-1']")
 	WebElement headingText;
@@ -337,7 +337,7 @@ public class Item_Master_Create_Page1 extends Testbase1 {
 	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement saveButton;
 
-	public Item_Master_Create_Page1() {
+	public Item_Master_Create_Page_PP() {
 		PageFactory.initElements(driver, this);
 	}
 

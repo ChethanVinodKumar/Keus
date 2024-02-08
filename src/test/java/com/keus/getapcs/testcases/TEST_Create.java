@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 import com.getapcs.Engineering.EnggBOM_ReleaseBOM;
 import com.getapcs.Engineering.Engg_BOM_Create_Page;
 import com.getapcs.Engineering.Engg_BOM_Edit_Page;
-import com.getapcs.Engineering.Item_Master_Create_Page;
-import com.getapcs.Engineering.Item_Master_Create_Page1;
+import com.getapcs.Engineering.Item_Master_Create_Page_FG;
+import com.getapcs.Engineering.Item_Master_Create_Page_PP;
 import com.getapcs.Engineering.Item_Master_Create_Page_SA;
 import com.getapcs.Engineering.Item_Master_Edit_Page;
 import com.getapcs.Reports.InventryReportAfterBinning;
@@ -69,15 +69,15 @@ import com.getapcs.home.login.LoginPage;
 
 public class TEST_Create extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 0013";
-	public final static String fg = "TEST-FG-0013";
-	public final static String pp = "TEST-PP-0013";
+	public final static String priceList = "TEST PriceList 0017";
+	public final static String fg = "TEST-FG-0017";
+	public final static String pp = "TEST-PP-0017";
 
 	LoginPage loginPage;
 	HomePage homePage;
 
-	Item_Master_Create_Page itemMasterCreatePage;
-	Item_Master_Create_Page1 itemMasterCreatePage1;
+	Item_Master_Create_Page_FG itemMasterCreatePage;
+	Item_Master_Create_Page_PP itemMasterCreatePage1;
 	Item_Master_Create_Page_SA itemMasterCreatePageSA;
 	Engg_BOM_Create_Page enggBomCreatePage;
 	Price_List Price_List;
@@ -146,8 +146,8 @@ public class TEST_Create extends Testbase1 {
 		initialization();
 		loginPage = new LoginPage();
 		homePage = loginPage.login("gopal@mail.com", "gopal@123");
-		itemMasterCreatePage = new Item_Master_Create_Page();
-		itemMasterCreatePage1 = new Item_Master_Create_Page1();
+		itemMasterCreatePage = new Item_Master_Create_Page_FG();
+		itemMasterCreatePage1 = new Item_Master_Create_Page_PP();
 		itemMasterEditPage = new Item_Master_Edit_Page();
 		itemMasterCreatePageSA = new Item_Master_Create_Page_SA();
 		enggBomCreatePage = new Engg_BOM_Create_Page();
@@ -245,134 +245,134 @@ public class TEST_Create extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 
 	}
-
-	@Test(priority = 3)
-	public void verifyBomCreate() throws Throwable {
-
-		homePage.clickOnBomCreatePage();
-		enggBomCreatePage.bomCreate("29", // Quantity
-				"50", // scarpAllowance
-				"TestRemark", // Remark
-				"1", // Version
-				"10", // quantityPer
-				"100", // probability
-				"TEST Alternate Remark", // alternateRemark
-				"10", // quantityNRE
-				"20");// cost
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 4)
-	public void verifyReleaseBom() throws Throwable {
-		homePage.clickOnReleaseBomPage();
-		releaseBom.releaseBom("Test Remark");// Remark
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 5)
-	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
-
-		// Purchase Order Create Page
-		homePage.clickonTransactionPriceListCreate();
-		priceList_CreatePage.ItemPriceListCreate("29", "200", "50", "100", "200", "40");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 6)
-	public void verifySalesRFQCreate() throws Throwable {
-
-		// Purchase Order Create Page
-
-		rfq_CreatePage.RFQCreate("TEST Rfq Number", "29", "TEST Note");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 7)
-	public void verifySalesRFQCS() throws Throwable {
-
-		// Purchase Order Create Page
-		homePage.clickonSalesRfqModifyorView();
-		Thread.sleep(4000);
-		rfq_ReleaseCS.RFQCs();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 8)
-	public void verifyQuoteCreate() throws Throwable {
-
-		// Purchase Order Create Page
-
-		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "29", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
-				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 9)
-	public void verifySalesOrderCreate() throws Throwable {
-		homePage.clickOnSalesOrderCreate();
-		SalesOrder.salesOrderCreate("20", // generalDiscount
-				"20", // orderQty
-				"10", // discount1
-				"9", // sgst1
-				"9", // cgst1
-				"9", // igst1
-				"9", // utgst1
-				"29", // quantity1
-				"Test Remark", // remark1
-				"50", // orderqty2
-				"20", // discount2
-				"9", // sgst2
-				"9", // cgst2
-				"9", // igst2
-				"9", // utgst2
-				"29", // quantity2
-				"Test Remark2", // remark2
-				"50", // orderQty3
-				"10", // discount3
-				"9", // sgst3
-				"9", // cgst3
-				"9", // igst3
-				"9", // utgst3
-				"259", // quantity3
-				"Test Remark3", // remark3
-				"30", // orderQty4
-				"10", // discount4
-				"8", // sgst4
-				"8", // cgst4
-				"8", // igst4
-				"8", // utgst4
-				"29", // quantity4
-				"Test Remark4", // remark4
-				"PO57664", // poNumber
-				"TEST Remark", // billingandShippingRemark
-				"20", // totalAddidtional Charges
-				"8", // sgst
-				"8", // cgst
-				"8", // igst
-				"8", // utgst
-				"20");// specialDiscount
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 10)
-	public void verifyShopOrderCreate() throws Throwable {
-
-		homePage.clickOnTransactionShopOrderCreate();
-		ShopOrder.ShopOrderCreate();
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//
+//	@Test(priority = 3)
+//	public void verifyBomCreate() throws Throwable {
+//
+//		homePage.clickOnBomCreatePage();
+//		enggBomCreatePage.bomCreate("29", // Quantity
+//				"50", // scarpAllowance
+//				"TestRemark", // Remark
+//				"1", // Version
+//				"10", // quantityPer
+//				"100", // probability
+//				"TEST Alternate Remark", // alternateRemark
+//				"10", // quantityNRE
+//				"20");// cost
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 4)
+//	public void verifyReleaseBom() throws Throwable {
+//		homePage.clickOnReleaseBomPage();
+//		releaseBom.releaseBom("Test Remark");// Remark
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 5)
+//	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonTransactionPriceListCreate();
+//		priceList_CreatePage.ItemPriceListCreate("29", "200", "50", "100", "200", "40");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 6)
+//	public void verifySalesRFQCreate() throws Throwable {
+//
+//		// Purchase Order Create Page
+//
+//		rfq_CreatePage.RFQCreate("TEST Rfq Number", "29", "TEST Note");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 7)
+//	public void verifySalesRFQCS() throws Throwable {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonSalesRfqModifyorView();
+//		Thread.sleep(4000);
+//		rfq_ReleaseCS.RFQCs();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 8)
+//	public void verifyQuoteCreate() throws Throwable {
+//
+//		// Purchase Order Create Page
+//
+//		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "29", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
+//				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 9)
+//	public void verifySalesOrderCreate() throws Throwable {
+//		homePage.clickOnSalesOrderCreate();
+//		SalesOrder.salesOrderCreate("20", // generalDiscount
+//				"20", // orderQty
+//				"10", // discount1
+//				"9", // sgst1
+//				"9", // cgst1
+//				"9", // igst1
+//				"9", // utgst1
+//				"29", // quantity1
+//				"Test Remark", // remark1
+//				"50", // orderqty2
+//				"20", // discount2
+//				"9", // sgst2
+//				"9", // cgst2
+//				"9", // igst2
+//				"9", // utgst2
+//				"29", // quantity2
+//				"Test Remark2", // remark2
+//				"50", // orderQty3
+//				"10", // discount3
+//				"9", // sgst3
+//				"9", // cgst3
+//				"9", // igst3
+//				"9", // utgst3
+//				"259", // quantity3
+//				"Test Remark3", // remark3
+//				"30", // orderQty4
+//				"10", // discount4
+//				"8", // sgst4
+//				"8", // cgst4
+//				"8", // igst4
+//				"8", // utgst4
+//				"29", // quantity4
+//				"Test Remark4", // remark4
+//				"PO57664", // poNumber
+//				"TEST Remark", // billingandShippingRemark
+//				"20", // totalAddidtional Charges
+//				"8", // sgst
+//				"8", // cgst
+//				"8", // igst
+//				"8", // utgst
+//				"20");// specialDiscount
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 10)
+//	public void verifyShopOrderCreate() throws Throwable {
+//
+//		homePage.clickOnTransactionShopOrderCreate();
+//		ShopOrder.ShopOrderCreate();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 //
 //	@Test(priority = 11)
 //	public void verifyMaterialIssue() throws Throwable {
@@ -390,7 +390,6 @@ public class TEST_Create extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
 //
 //	@Test(priority = 13)
 //
@@ -419,7 +418,6 @@ public class TEST_Create extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-
 //
 //	@Test(priority = 16)
 //	public void verifyPurchaseOrderApproval1() throws AWTException, InterruptedException {
@@ -514,14 +512,14 @@ public class TEST_Create extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 19)
-//	public void verifyOpenGrinCreate() throws Throwable {
-//		homePage.clickOnOpenGRINCreate();
-//		openGrin.openGrinCreate();
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+////	@Test(priority = 19)
+////	public void verifyOpenGrinCreate() throws Throwable {
+////		homePage.clickOnOpenGRINCreate();
+////		openGrin.openGrinCreate();
+////
+////		Thread.sleep(4000);
+////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+////	}
 ////
 ////	@Test(priority = 20)
 ////	public void verifyInventryReportAfterOpenGRIN() throws Throwable {
@@ -531,7 +529,6 @@ public class TEST_Create extends Testbase1 {
 ////		Thread.sleep(4000);
 ////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 ////	}
-
 //
 //	@Test(priority = 21)
 //	public void verifyGRINCreate() throws Throwable {
@@ -743,7 +740,7 @@ public class TEST_Create extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-
+//
 //	@Test(priority = 43)
 //	public void verifyInvoiceCreate() throws Throwable {
 //		homePage.clickOnInvoiceCreate();

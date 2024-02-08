@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.getapcs.Engineering.EnggBOM_ReleaseBOM;
 import com.getapcs.Engineering.Engg_BOM_Create_Page;
 import com.getapcs.Engineering.Engg_BOM_Edit_Page;
-import com.getapcs.Engineering.Item_Master_Create_Page;
+import com.getapcs.Engineering.Item_Master_Create_Page_FG;
 import com.getapcs.Engineering.Item_Master_Edit_Page;
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
@@ -17,7 +17,7 @@ public class EnggModuleTest extends Testbase1 {
 
 	LoginPage loginPage;
 	HomePage homePage;
-	Item_Master_Create_Page itemMasterCreatePage;
+	Item_Master_Create_Page_FG itemMasterCreatePage;
 	Item_Master_Edit_Page itemMasterEditPage;
 	Engg_BOM_Create_Page enggBomCreatePage;
 
@@ -33,7 +33,7 @@ public class EnggModuleTest extends Testbase1 {
 		initialization();
 		loginPage = new LoginPage();
 		homePage = loginPage.login("gopal@mail.com", "gopal321");
-		itemMasterCreatePage = new Item_Master_Create_Page();
+		itemMasterCreatePage = new Item_Master_Create_Page_FG();
 		itemMasterEditPage = new Item_Master_Edit_Page();
 		enggBomCreatePage = new Engg_BOM_Create_Page();
 		enggBomEditPage = new Engg_BOM_Edit_Page();

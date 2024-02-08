@@ -193,8 +193,6 @@ public class Engg_BOM_Create_Page_FOR_FG extends Testbase1 {
 		// Item Number
 		Thread.sleep(5000);
 
-		js.executeScript("arguments[0].scrollIntoView(true);", itemNumberForItem);
-		Thread.sleep(5000);
 		click(driver, itemNumberForItem);
 		isSelected(driver, itemNumberForItem, "itemNumberForItem");
 
@@ -210,8 +208,6 @@ public class Engg_BOM_Create_Page_FOR_FG extends Testbase1 {
 
 		// ############## Child Item Tab ################
 
-		js.executeScript("arguments[0].scrollIntoView(true);", itemNumberForChildItem);
-		Thread.sleep(4000);
 		click(driver, itemNumberForChildItem);
 		isSelected(driver, itemNumberForChildItem, "itemNumberForChildItem");
 		itemNumberForChildItem.sendKeys(ItemNum3);

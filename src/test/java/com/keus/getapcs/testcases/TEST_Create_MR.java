@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 import com.getapcs.Engineering.EnggBOM_ReleaseBOM;
 import com.getapcs.Engineering.Engg_BOM_Create_Page;
-import com.getapcs.Engineering.Item_Master_Create_Page;
-import com.getapcs.Engineering.Item_Master_Create_Page1;
+import com.getapcs.Engineering.Item_Master_Create_Page_FG;
+import com.getapcs.Engineering.Item_Master_Create_Page_PP;
 import com.getapcs.Reports.InventryReportAfterBinning;
 import com.getapcs.Reports.InventryReportAfterGrin;
 import com.getapcs.Reports.InventryReportAfterIQCConfirmation;
@@ -57,8 +57,8 @@ public class TEST_Create_MR extends Testbase1 {
 	LoginPage loginPage;
 	HomePage homePage;
 
-	Item_Master_Create_Page itemMasterCreatePage;
-	Item_Master_Create_Page1 itemMasterCreatePage1;
+	Item_Master_Create_Page_FG itemMasterCreatePage;
+	Item_Master_Create_Page_PP itemMasterCreatePage1;
 	Engg_BOM_Create_Page enggBomCreatePage;
 	Price_List Price_List;
 	EnggBOM_ReleaseBOM releaseBom;
@@ -105,8 +105,8 @@ public class TEST_Create_MR extends Testbase1 {
 		initialization();
 		loginPage = new LoginPage();
 		homePage = loginPage.login("admin@mail.com", "user@123");
-		itemMasterCreatePage = new Item_Master_Create_Page();
-		itemMasterCreatePage1 = new Item_Master_Create_Page1();
+		itemMasterCreatePage = new Item_Master_Create_Page_FG();
+		itemMasterCreatePage1 = new Item_Master_Create_Page_PP();
 		enggBomCreatePage = new Engg_BOM_Create_Page();
 		releaseBom = new EnggBOM_ReleaseBOM();
 		priceList_CreatePage = new ItemPriceList_CreatePage();

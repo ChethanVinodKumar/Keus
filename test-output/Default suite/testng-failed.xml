@@ -5,9 +5,10 @@
     <classes>
       <class name="com.keus.getapcs.testcases.TEST_Create">
         <methods>
+          <include name="verifyInventryReportAfterReturnDO"/>
           <include name="setUp"/>
+          <include name="verifyReturnDO"/>
           <include name="tearDown"/>
-          <include name="verifyODOCreate"/>
         </methods>
       </class> <!-- com.keus.getapcs.testcases.TEST_Create -->
     </classes>
