@@ -351,6 +351,8 @@ public class Item_Master_Create_Page_FG extends Testbase1 {
 
 		Thread.sleep(5000);
 
+		System.out.println("Item Master Create");
+
 		String actualText = headingText.getText();
 		String expectedText = "Item Master";
 		assertEquals(actualText, expectedText);
@@ -362,6 +364,8 @@ public class Item_Master_Create_Page_FG extends Testbase1 {
 		descriptionField1.sendKeys(description);
 
 		uploadFile(driver, uploadPhoto, 0);
+
+		System.out.println("General");
 
 		// ###################### GeneralDescription ##############################
 
@@ -672,6 +676,8 @@ public class Item_Master_Create_Page_FG extends Testbase1 {
 		click(driver, pFOToggleButton);
 
 		click(driver, saveButton);
+
+		System.out.println("Item Master Exit");
 
 		Thread.sleep(3000);
 

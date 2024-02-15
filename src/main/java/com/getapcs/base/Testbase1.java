@@ -51,12 +51,17 @@ public class Testbase1 {
 		// pre-condition
 
 		// Incognito Mode Execution
+
+		// Incognito Mode Execution
 		options = new ChromeOptions();
 		options.addArguments("--incognito");
+		options.addArguments("--headless");
+		options.addArguments("--start-maximized"); // Adjust the size accordingly
+		WebDriver driver = new ChromeDriver(options);
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(ChromeOptions.CAPABILITY, options);
 		options.merge(cap);
-		driver = new ChromeDriver(options);
+		Testbase1.driver = new ChromeDriver(options);
 
 		// Normal Execution
 //		driver = new ChromeDriver();
