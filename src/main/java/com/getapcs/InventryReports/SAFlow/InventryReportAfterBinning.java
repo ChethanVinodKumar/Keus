@@ -1,6 +1,9 @@
 package com.getapcs.InventryReports.SAFlow;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -55,6 +58,27 @@ public class InventryReportAfterBinning extends Testbase1 {
 
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
 	WebElement viewButton;
+
+	@FindBy(xpath = "(//i[@title='Binning Location'])[1]")
+	WebElement binningWarehoseAndlocation1;
+
+	@FindBy(xpath = "(//i[@title='Binning Location'])[2]")
+	WebElement binningWarehoseAndlocation2;
+
+	@FindBy(xpath = "(//i[@title='Binning Location'])[3]")
+	WebElement binningWarehoseAndlocation3;
+
+	@FindBy(xpath = "(//i[@title='Binning Location'])[4]")
+	WebElement binningWarehoseAndlocation4;
+
+	@FindBy(xpath = "(//i[@title='Binning Location'])[5]")
+	WebElement binningWarehoseAndlocation5;
+
+	@FindBy(xpath = "(//i[@title='Binning Location'])[6]")
+	WebElement binningWarehoseAndlocation6;
+
+	@FindBy(xpath = "//button[normalize-space()='Close']")
+	WebElement closeButton;
 
 	public InventryReportAfterBinning() {
 
@@ -210,6 +234,85 @@ public class InventryReportAfterBinning extends Testbase1 {
 
 		System.out.println(updatedXpath6);
 
+		click(driver, binningWarehoseAndlocation1);
+
+		String tableXpath7 = "(//table[@class='table table-striped'])[1]";
+		// Get the first PR number text from table
+		String warehouseInBinning1 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[1]")).getText();
+
+		String locationInBinning1 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[2]")).getText();
+
+		String warehouseInBinning11 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[1]")).getText();
+
+		String locationInBinning11 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[2]")).getText();
+
+		click(driver, closeButton);
+
+		click(driver, binningWarehoseAndlocation2);
+
+		// Get the first PR number text from table
+		String warehouseInBinning2 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[1]")).getText();
+
+		String locationInBinning2 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[2]")).getText();
+
+		String warehouseInBinning22 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[1]")).getText();
+
+		String locationInBinning22 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[2]")).getText();
+
+		click(driver, closeButton);
+
+		click(driver, binningWarehoseAndlocation3);
+
+		// Get the first PR number text from table
+		String warehouseInBinning3 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[1]")).getText();
+
+		String locationInBinning3 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[2]")).getText();
+
+		String warehouseInBinning33 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[1]")).getText();
+
+		String locationInBinning33 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[2]")).getText();
+
+		click(driver, closeButton);
+
+		click(driver, binningWarehoseAndlocation4);
+
+		// Get the first PR number text from table
+		String warehouseInBinning4 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[1]")).getText();
+
+		String locationInBinning4 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[2]")).getText();
+
+		String warehouseInBinning44 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[1]")).getText();
+
+		String locationInBinning44 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[2]")).getText();
+
+		click(driver, closeButton);
+
+		click(driver, binningWarehoseAndlocation5);
+
+		// Get the first PR number text from table
+		String warehouseInBinning5 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[1]")).getText();
+
+		String locationInBinning5 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[2]")).getText();
+
+		String warehouseInBinning55 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[1]")).getText();
+
+		String locationInBinning55 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[2]")).getText();
+
+		click(driver, closeButton);
+
+		click(driver, binningWarehoseAndlocation6);
+
+		// Get the first PR number text from table
+		String warehouseInBinning6 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[1]")).getText();
+
+		String locationInBinning6 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[1]/td[2]")).getText();
+
+		String warehouseInBinning66 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[1]")).getText();
+
+		String locationInBinning66 = driver.findElement(By.xpath(tableXpath7 + "/tbody/tr[2]/td[2]")).getText();
+
+		click(driver, closeButton);
+
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
 		// Part Type
@@ -274,10 +377,109 @@ public class InventryReportAfterBinning extends Testbase1 {
 
 		click(driver, filter);
 
+		// Adjust the XPath selector to match your table structure
+
+		int j = 0;
+		List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+
+		Map<String, String> warehouseMap = new LinkedHashMap<>(); // LinkedHashMap to maintain insertion order
+		Map<String, String> locationMap = new LinkedHashMap<>();
+
+		for (int i = 0; i < rows.size(); i++) {
+			WebElement currentRow = rows.get(i);
+
+			String warehouse = currentRow.findElement(By.xpath(".//td[position() = 9]")).getText();
+			String location = currentRow.findElement(By.xpath(".//td[position() = 10]")).getText();
+
+			// Check if both warehouse and location are equal to "Reject"
+			if ("Reject".equals(warehouse) && "Reject".equals(location)) {
+				// Skip this row if both warehouse and location are "Reject"
+				continue;
+			}
+
+			// Dynamically name the variables based on the iteration index
+			warehouseMap.put("warehouse" + (j + 1), warehouse);
+			locationMap.put("location" + (j + 1), location);
+
+			j++;
+		}
+		// Example of retrieving values from the maps
+		String warehouse1 = warehouseMap.get("warehouse1");
+		String location1 = locationMap.get("location1");
+
+		String warehouse2 = warehouseMap.get("warehouse2");
+		String location2 = locationMap.get("location2");
+
+		String warehouse3 = warehouseMap.get("warehouse3");
+		String location3 = locationMap.get("location3");
+
+		String warehouse4 = warehouseMap.get("warehouse4");
+		String location4 = locationMap.get("location4");
+
+		String warehouse5 = warehouseMap.get("warehouse5");
+		String location5 = locationMap.get("location5");
+
+		String warehouse6 = warehouseMap.get("warehouse6");
+		String location6 = locationMap.get("location6");
+
+		String warehouse7 = warehouseMap.get("warehouse7");
+		String location7 = locationMap.get("location7");
+
+		String warehouse8 = warehouseMap.get("warehouse8");
+		String location8 = locationMap.get("location8");
+
+		String warehouse9 = warehouseMap.get("warehouse9");
+		String location9 = locationMap.get("location9");
+
+		String warehouse10 = warehouseMap.get("warehouse10");
+		String location10 = locationMap.get("location10");
+
+		String warehouse11 = warehouseMap.get("warehouse11");
+		String location11 = locationMap.get("location11");
+
+		String warehouse12 = warehouseMap.get("warehouse12");
+		String location12 = locationMap.get("location12");
+
+		assert warehouse1.equals(warehouseInBinning1) && location1.equals(locationInBinning1)
+				: "Row1 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse2.equals(warehouseInBinning11) && location2.equals(locationInBinning11)
+				: "Row2 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse3.equals(warehouseInBinning2) && location3.equals(locationInBinning2)
+				: "Row3 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse4.equals(warehouseInBinning22) && location4.equals(locationInBinning22)
+				: "Row4 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse5.equals(warehouseInBinning3) && location5.equals(locationInBinning3)
+				: "Row5 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse6.equals(warehouseInBinning33) && location6.equals(locationInBinning33)
+				: "Row6 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse7.equals(warehouseInBinning4) && location7.equals(locationInBinning4)
+				: "Row7 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse8.equals(warehouseInBinning44) && location8.equals(locationInBinning44)
+				: "Row8 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse9.equals(warehouseInBinning5) && location9.equals(locationInBinning5)
+				: "Row9 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse10.equals(warehouseInBinning55) && location10.equals(locationInBinning55)
+				: "Row10 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse11.equals(warehouseInBinning6) && location11.equals(locationInBinning6)
+				: "Row11 Texts are not equal to Binning Wrehouse an location";
+
+		assert warehouse12.equals(warehouseInBinning66) && location12.equals(locationInBinning66)
+				: "Row12 Texts are not equal to Binning Wrehouse an location";
+
 		Thread.sleep(4000);
 		screenShot("After Binning");
 
 		return new HomePage();
-	}
 
+	}
 }

@@ -24,7 +24,7 @@ public class Grin_Create extends Testbase1 {
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement venderNameDropDown;
-	@FindBy(xpath = "(//span[normalize-space()='Test venderName1'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='Keus Automation Pvt Ltd'])[1]")
 	WebElement selectVenderNameDropDownValue;
 
 	@FindBy(xpath = "//label[normalize-space(text())='Vendor Id']/following-sibling::div/input[@formcontrolname='vendorNumber']")
@@ -39,11 +39,8 @@ public class Grin_Create extends Testbase1 {
 	@FindBy(xpath = "(//input[@formcontrolname='gateEntryDate'])[1]")
 	WebElement gateEntryDatePicker;
 
-	@FindBy(xpath = "(//input[@placeholder='Enter Invoice Value '])[1]")
-	WebElement invoiceValue;
-
-	@FindBy(xpath = "(//input[@placeholder='Total Invoice'])[1]")
-	WebElement totalInvoice1;
+	@FindBy(xpath = "(//input[@placeholder='Gate Entry Number'])[1]")
+	WebElement gateEntryNumber;
 
 	@FindBy(linkText = "Items")
 	WebElement itemTab;
@@ -54,17 +51,17 @@ public class Grin_Create extends Testbase1 {
 //	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Close'])[13]")
 //	WebElement fileCloseButton;
 
-	@FindBy(xpath = "(//input[@type='text'])[6]")
+	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement poNumberField;
-	@FindBy(xpath = "(//input[@type='text'])[15]")
+	@FindBy(xpath = "(//input[@type='text'])[14]")
 	WebElement poNumberField1;
-	@FindBy(xpath = "(//input[@type='text'])[24]")
+	@FindBy(xpath = "(//input[@type='text'])[23]")
 	WebElement poNumberField2;
-	@FindBy(xpath = "(//input[@type='text'])[33]")
+	@FindBy(xpath = "(//input[@type='text'])[32]")
 	WebElement poNumberField3;
-	@FindBy(xpath = "(//input[@type='text'])[42]")
+	@FindBy(xpath = "(//input[@type='text'])[41]")
 	WebElement poNumberField4;
-	@FindBy(xpath = "(//input[@type='text'])[51]")
+	@FindBy(xpath = "(//input[@type='text'])[50]")
 	WebElement poNumberField5;
 
 	@FindBy(xpath = "//span[contains(text(),'TISPL-MFPO-1080-0019')]")
@@ -72,47 +69,47 @@ public class Grin_Create extends Testbase1 {
 
 	@FindBy(xpath = "//input[@role='combobox']")
 	WebElement itemOrDescriptionNumberField;
-	@FindBy(xpath = "(//input[@type='text'])[16]")
+	@FindBy(xpath = "(//input[@type='text'])[15]")
 	WebElement itemOrDescriptionNumberField1;
-	@FindBy(xpath = "(//input[@type='text'])[25]")
+	@FindBy(xpath = "(//input[@type='text'])[24]")
 	WebElement itemOrDescriptionNumberField2;
-	@FindBy(xpath = "(//input[@type='text'])[34]")
+	@FindBy(xpath = "(//input[@type='text'])[33]")
 	WebElement itemOrDescriptionNumberField3;
-	@FindBy(xpath = "(//input[@type='text'])[43]")
+	@FindBy(xpath = "(//input[@type='text'])[42]")
 	WebElement itemOrDescriptionNumberField4;
-	@FindBy(xpath = "(//input[@type='text'])[52]")
+	@FindBy(xpath = "(//input[@type='text'])[51]")
 	WebElement itemOrDescriptionNumberField5;
 
 	@FindBy(xpath = "//span[contains(text(),'ECB0002-111M INS. SINGLE END SLEEVE 0.25MM, 24# VI')]")
 	WebElement selectItemOrDescriptionNumberFieldValue;
 
-	@FindBy(xpath = "(//input[@type='text'])[9]")
+	@FindBy(xpath = "(//input[@type='text'])[8]")
 	WebElement mftrBatchNoNumberField;
-	@FindBy(xpath = "(//input[@type='text'])[18]")
+	@FindBy(xpath = "(//input[@type='text'])[17]")
 	WebElement mftrBatchNoNumberField1;
-	@FindBy(xpath = "(//input[@type='text'])[27]")
+	@FindBy(xpath = "(//input[@type='text'])[26]")
 	WebElement mftrBatchNoNumberField2;
-	@FindBy(xpath = "(//input[@type='text'])[36]")
+	@FindBy(xpath = "(//input[@type='text'])[35]")
 	WebElement mftrBatchNoNumberField3;
-	@FindBy(xpath = "(//input[@type='text'])[45]")
+	@FindBy(xpath = "(//input[@type='text'])[44]")
 	WebElement mftrBatchNoNumberField4;
-	@FindBy(xpath = "(//input[@type='text'])[54]")
+	@FindBy(xpath = "(//input[@type='text'])[53]")
 	WebElement mftrBatchNoNumberField5;
 
-	@FindBy(xpath = "(//input[@type='text'])[10]")
+	@FindBy(xpath = "(//input[@type='text'])[9]")
 	WebElement unitPriceField;
-	@FindBy(xpath = "(//input[@type='text'])[19]")
+	@FindBy(xpath = "(//input[@type='text'])[18]")
 	WebElement unitPriceField1;
-	@FindBy(xpath = "(//input[@type='text'])[28]")
+	@FindBy(xpath = "(//input[@type='text'])[27]")
 	WebElement unitPriceField2;
-	@FindBy(xpath = "(//input[@type='text'])[37]")
+	@FindBy(xpath = "(//input[@type='text'])[36]")
 	WebElement unitPriceField3;
-	@FindBy(xpath = "(//input[@type='text'])[46]")
+	@FindBy(xpath = "(//input[@type='text'])[45]")
 	WebElement unitPriceField4;
-	@FindBy(xpath = "(//input[@type='text'])[55]")
+	@FindBy(xpath = "(//input[@type='text'])[54]")
 	WebElement unitPriceField5;
 
-	@FindBy(xpath = "(//input[@type='text'])[11]")
+	@FindBy(xpath = "(//input[@type='text'])[10]")
 	WebElement quantityField;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
@@ -121,7 +118,7 @@ public class Grin_Create extends Testbase1 {
 	@FindBy(xpath = "//i[@class='mdi mdi-delete edit-icon']")
 	WebElement addProjectPopUp;
 
-	@FindBy(xpath = "(//input[@type='text'])[15]")
+	@FindBy(xpath = "(//input[@type='text'])[14]")
 	WebElement projectNumberDropDown;
 	@FindBy(xpath = "//span[normalize-space()='TISPL-1080']")
 	WebElement selectProjectNumberDropDownValue;
@@ -135,56 +132,63 @@ public class Grin_Create extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Save'])[2]")
 	WebElement saveButton1;
 
-	@FindBy(xpath = "(//input[@type='date'])[4]")
+	@FindBy(xpath = "(//input[@type='date'])[3]")
 	WebElement manufactureDatePicker;
-	@FindBy(xpath = "(//input[@type='date'])[6]")
+	@FindBy(xpath = "(//input[@type='date'])[5]")
 	WebElement manufactureDatePicker1;
-	@FindBy(xpath = "(//input[@type='date'])[8]")
+	@FindBy(xpath = "(//input[@type='date'])[7]")
 	WebElement manufactureDatePicker2;
-	@FindBy(xpath = "(//input[@type='date'])[10]")
+	@FindBy(xpath = "(//input[@type='date'])[9]")
 	WebElement manufactureDatePicker3;
-	@FindBy(xpath = "(//input[@type='date'])[12]")
+	@FindBy(xpath = "(//input[@type='date'])[11]")
 	WebElement manufactureDatePicker4;
-	@FindBy(xpath = "(//input[@type='date'])[14]")
+	@FindBy(xpath = "(//input[@type='date'])[13]")
 	WebElement manufactureDatePicker5;
 
-	@FindBy(xpath = "(//input[@type='date'])[3]")
+	@FindBy(xpath = "(//input[@type='date'])[4]")
 	WebElement expiryDate;
-	@FindBy(xpath = "(//input[@type='date'])[5]")
+	@FindBy(xpath = "(//input[@type='date'])[6]")
 	WebElement expiryDate1;
-	@FindBy(xpath = "(//input[@type='date'])[7]")
+	@FindBy(xpath = "(//input[@type='date'])[8]")
 	WebElement expiryDate2;
-	@FindBy(xpath = "(//input[@type='date'])[9]")
+	@FindBy(xpath = "(//input[@type='date'])[10]")
 	WebElement expiryDate3;
-	@FindBy(xpath = "(//input[@type='date'])[11]")
+	@FindBy(xpath = "(//input[@type='date'])[12]")
 	WebElement expiryDate4;
-	@FindBy(xpath = "(//input[@type='date'])[13]")
+	@FindBy(xpath = "(//input[@type='date'])[14]")
 	WebElement expiryDate5;
 
-	@FindBy(xpath = "//input[@placeholder='Upload file']")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[1]")
 	WebElement cocUploadFiles;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[2]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[2]")
 	WebElement cocUploadFiles1;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[3]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[3]")
 	WebElement cocUploadFiles2;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[4]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[4]")
 	WebElement cocUploadFiles3;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[5]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[5]")
 	WebElement cocUploadFiles4;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[6]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[6]")
 	WebElement cocUploadFiles5;
+
+	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
+	WebElement uploadFile;
+	@FindBy(xpath = "(//button[normalize-space()='Upload'])[1]")
+	WebElement uploadButton;
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
 
 	@FindBy(xpath = "//i[@title='Add Taxes']")
 	WebElement taxesButton;
-	@FindBy(xpath = "(//i[@title='Add Taxes'])[2]")
+	@FindBy(xpath = "(//i[@title='Add Taxes'])[1]")
 	WebElement taxesButton1;
-	@FindBy(xpath = "(//i[@title='Add Taxes'])[3]")
+	@FindBy(xpath = "(//i[@title='Add Taxes'])[2]")
 	WebElement taxesButton2;
-	@FindBy(xpath = "(//i[@title='Add Taxes'])[4]")
+	@FindBy(xpath = "(//i[@title='Add Taxes'])[3]")
 	WebElement taxesButton3;
-	@FindBy(xpath = "(//i[@title='Add Taxes'])[5]")
+	@FindBy(xpath = "(//i[@title='Add Taxes'])[4]")
 	WebElement taxesButton4;
-	@FindBy(xpath = "(//i[@title='Add Taxes'])[6]")
+	@FindBy(xpath = "(//i[@title='Add Taxes'])[5]")
 	WebElement taxesButton5;
 
 	@FindBy(xpath = "//input[@placeholder='Enter SGST']")
@@ -430,13 +434,8 @@ public class Grin_Create extends Testbase1 {
 		// Verify and Gate Entry Date Picker in GRIN Create
 		datePicker(driver, gateEntryDatePicker);
 
-		click(driver, invoiceValue);
-		isSelected(driver, invoiceValue, "gateEntryNumber");
-		invoiceValue.sendKeys("1234");
-
-		click(driver, totalInvoice1);
-		isSelected(driver, totalInvoice1, "totalInvoice1");
-		totalInvoice1.sendKeys("1234");
+		click(driver, gateEntryNumber);
+		gateEntryNumber.sendKeys("10");
 		// ################## Item Tab ######################
 
 		// Verify Item Tab in GRIN Create-Transaction Module
@@ -479,7 +478,11 @@ public class Grin_Create extends Testbase1 {
 				datePicker(driver, manufactureDatePicker);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles, 3);
+				click(driver, cocUploadFiles);
+				uploadFile(driver, uploadFile, 3);
+
+				click(driver, uploadButton);
+				click(driver, closeButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton);
@@ -521,7 +524,11 @@ public class Grin_Create extends Testbase1 {
 				datePicker(driver, manufactureDatePicker1);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles1, 3);
+				click(driver, cocUploadFiles1);
+				uploadFile(driver, uploadFile, 3);
+
+				click(driver, uploadButton);
+				click(driver, closeButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton1);
@@ -597,7 +604,11 @@ public class Grin_Create extends Testbase1 {
 				datePicker(driver, manufactureDatePicker2);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles2, 3);
+				click(driver, cocUploadFiles2);
+				uploadFile(driver, uploadFile, 3);
+
+				click(driver, uploadButton);
+				click(driver, closeButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton2);
@@ -639,7 +650,11 @@ public class Grin_Create extends Testbase1 {
 				datePicker(driver, manufactureDatePicker3);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles3, 3);
+				click(driver, cocUploadFiles3);
+				uploadFile(driver, uploadFile, 3);
+
+				click(driver, uploadButton);
+				click(driver, closeButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton3);
@@ -714,7 +729,11 @@ public class Grin_Create extends Testbase1 {
 				datePicker(driver, manufactureDatePicker4);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles4, 3);
+				click(driver, cocUploadFiles4);
+				uploadFile(driver, uploadFile, 3);
+
+				click(driver, uploadButton);
+				click(driver, closeButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton4);
@@ -757,7 +776,11 @@ public class Grin_Create extends Testbase1 {
 				datePicker(driver, manufactureDatePicker5);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles5, 3);
+				click(driver, cocUploadFiles5);
+				uploadFile(driver, uploadFile, 3);
+
+				click(driver, uploadButton);
+				click(driver, closeButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton5);

@@ -29,13 +29,13 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[1]")
 	WebElement viewButton;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[2]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[2]")
 	WebElement viewButton1;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[3]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-table-icon'])[3]")
 	WebElement viewButton2;
 
 	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")
@@ -43,6 +43,42 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[9]")
+	WebElement warehouse1;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[10]")
+	WebElement location1;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[2]/td[9]")
+	WebElement warehouse2;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[2]/td[10]")
+	WebElement location2;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[3]/td[9]")
+	WebElement warehouse3;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[3]/td[10]")
+	WebElement location3;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[4]/td[9]")
+	WebElement warehouse4;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[4]/td[10]")
+	WebElement location4;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[5]/td[9]")
+	WebElement warehouse5;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[5]/td[10]")
+	WebElement location5;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[6]/td[9]")
+	WebElement warehouse6;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[6]/td[10]")
+	WebElement location6;
 
 	public InventryReportAfterIQCConfirmation() {
 
@@ -200,7 +236,33 @@ public class InventryReportAfterIQCConfirmation extends Testbase1 {
 
 		click(driver, filter);
 
-		Thread.sleep(4000);
+		String warehouse_text1 = warehouse1.getText();
+		String location_text1 = location1.getText();
+
+		String warehouse_text2 = warehouse2.getText();
+		String location_text2 = location2.getText();
+
+		String warehouse_text3 = warehouse3.getText();
+		String location_text3 = location3.getText();
+
+		String warehouse_text4 = warehouse4.getText();
+		String location_text4 = location4.getText();
+
+		String warehouse_text5 = warehouse5.getText();
+		String location_text5 = location5.getText();
+
+		String warehouse_text6 = warehouse6.getText();
+		String location_text6 = location6.getText();
+
+		// Assert that the warehouse and location texts are equal to "IQC"
+		assert warehouse_text1.equals("IQC") && location_text1.equals("IQC") : "ROW1 Texts are not equal to 'IQC'";
+		assert warehouse_text2.equals("IQC") && location_text2.equals("IQC") : "ROW2 Texts are not equal to 'IQC'";
+		assert warehouse_text3.equals("IQC") && location_text3.equals("IQC") : "Row3 Texts are not equal to 'IQC'";
+		assert warehouse_text4.equals("IQC") && location_text4.equals("IQC") : "Row4 Texts are not equal to 'IQC'";
+		assert warehouse_text5.equals("IQC") && location_text5.equals("IQC") : "Row5 Texts are not equal to 'IQC'";
+		assert warehouse_text6.equals("IQC") && location_text6.equals("IQC") : "Row6 Texts are not equal to 'IQC'";
+
+		Thread.sleep(1000);
 		screenShot("After IQC Confirmation");
 
 		return new HomePage();

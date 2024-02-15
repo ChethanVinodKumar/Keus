@@ -192,6 +192,9 @@ public class Purchase_Requisation_FG extends Testbase1 {
 	@FindBy(xpath = "//button[contains(text(),'Approve')]")
 	WebElement approval2Button;
 
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewButton;
+
 	public Purchase_Requisation_FG() {
 
 		PageFactory.initElements(driver, this);
@@ -263,6 +266,10 @@ public class Purchase_Requisation_FG extends Testbase1 {
 		purposeTextField.sendKeys("TEST Purpose");
 
 		uploadFile(driver, uploadFiles, 1);
+
+		click(driver, saveButtonInPRCreate);
+		click(driver, viewButton);
+		click(driver, closeButton);
 
 		// ################## Item Tab ######################
 

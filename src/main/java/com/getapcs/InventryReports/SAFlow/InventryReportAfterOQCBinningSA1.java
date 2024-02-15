@@ -29,9 +29,6 @@ public class InventryReportAfterOQCBinningSA1 extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
-	WebElement viewButton;
-
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[2]")
 	WebElement viewButton1;
 
@@ -50,6 +47,27 @@ public class InventryReportAfterOQCBinningSA1 extends Testbase1 {
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
 
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[3]/td[9]")
+	WebElement warehouse;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[3]/td[10]")
+	WebElement location;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[4]/td[9]")
+	WebElement warehouse1;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[4]/td[10]")
+	WebElement location1;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[3]/td[8]")
+	WebElement quantity;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr[4]/td[8]")
+	WebElement quantity1;
+
+	@FindBy(xpath = "(//i[@title='CLick to view'])[1]")
+	WebElement viewButton;
+
 	public InventryReportAfterOQCBinningSA1() {
 
 		PageFactory.initElements(driver, this);
@@ -66,14 +84,6 @@ public class InventryReportAfterOQCBinningSA1 extends Testbase1 {
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
-		String FG = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
-
-		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath1 = elementXpath1.replace("PP-54", FG);
-
-		System.out.println(updatedXpath1);
-
 		String SA1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[3]")).getText();
 
 		String elementXpath2 = "(//div[normalize-space()='PP-54'])[1]";
@@ -82,163 +92,60 @@ public class InventryReportAfterOQCBinningSA1 extends Testbase1 {
 
 		System.out.println(updatedXpath2);
 
-		String SA2 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[3]/td[3]")).getText();
+		driver.navigate().to("https://demo_keus.getapcs.com/transaction/oqc-binning");
 
-		String elementXpath3 = "(//div[normalize-space()='PP-54'])[1]";
+		click(driver, viewButton);
 
-		String updatedXpath3 = elementXpath3.replace("PP-54", SA2);
+		String tableXpath2 = "//table[@class='table table-striped']";
 
-		System.out.println(updatedXpath3);
+		// Get the first PR number text from table
+		String warehouseInOQCBinning = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[1]")).getText();
 
-		click(driver, issueMaterial3);
+		String locationInOQCBinning = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
 
-		String tableXpath2 = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
+		String QuantityInOQCBinning = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[3]")).getText();
 
-		String PP1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
+		String warehouseInOQCBinning1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[1]")).getText();
 
-		String elementXpath4 = "(//div[normalize-space()='PP-54'])[1]";
+		String locationInOQCBinning1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[2]")).getText();
 
-		String updatedXpath4 = elementXpath4.replace("PP-54", PP1);
-
-		System.out.println(updatedXpath4);
-
-		String PP2 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[3]")).getText();
-
-		String elementXpath5 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath5 = elementXpath5.replace("PP-54", PP2);
-
-		System.out.println(updatedXpath5);
-
-		driver.navigate().back();
-
-		click(driver, issueMaterial2);
-
-		String PP3 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[3]")).getText();
-
-		String elementXpath6 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath6 = elementXpath6.replace("PP-54", PP3);
-
-		System.out.println(updatedXpath6);
-
-		String PP4 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
-
-		String elementXpath7 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath7 = elementXpath7.replace("PP-54", PP4);
-
-		System.out.println(updatedXpath7);
-
-		driver.navigate().back();
-
-		click(driver, issueMaterial1);
-
-		String PP5 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
-
-		String elementXpath8 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath8 = elementXpath8.replace("PP-54", PP5);
-
-		System.out.println(updatedXpath8);
-
-		String PP6 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[3]")).getText();
-
-		String elementXpath9 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath9 = elementXpath9.replace("PP-54", PP6);
-
-		System.out.println(updatedXpath9);
+		String QuantityInOQCBinning1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
 //Part Type
 
-		for (int i = 1; i <= 9; i++) {
+		click(driver, partType);
 
-			if (i == 1) {
-				click(driver, partType);
-			}
+		click(driver, searchPartType);
+		searchPartType.clear();
+		searchPartType.sendKeys(SA1);
 
-			if (i == 1) {
-				js.executeScript("arguments[0].click();", searchPartType);
-				searchPartType.clear();
-				searchPartType.sendKeys(FG);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath1));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 2) {
-				searchPartType.clear();
-				searchPartType.sendKeys(SA1);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath2));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 3) {
-				searchPartType.clear();
-				searchPartType.sendKeys(SA2);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath3));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 4) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP1);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath4));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 5) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP2);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath5));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 6) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP3);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath6));
-				click(driver, partTypeSelect);
-			}
-			if (i == 7) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP4);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath7));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 8) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP5);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath8));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 9) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP6);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath9));
-				click(driver, partTypeSelect);
-			}
-		}
+		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath2));
+		click(driver, partTypeSelect);
 
 //Filter
 
 		click(driver, filter);
 
+		String warehouse_text = warehouse.getText();
+		String location_text = location.getText();
+		String warehouse_text1 = warehouse1.getText();
+		String location_text1 = location1.getText();
+		String Quantity = quantity.getText();
+		String Quantity1 = quantity1.getText();
+
+//		 Assert that the warehouse and location texts are equal to Binning Warehouse
+//		 and location
+		assert warehouse_text.equals(warehouseInOQCBinning) && location_text.equals(locationInOQCBinning)
+				: " Row 1 Texts are not equal to Binning Wrehouse an location";
+		assert warehouse_text1.equals(warehouseInOQCBinning1) && location_text1.equals(locationInOQCBinning1)
+				: " Row 2 Texts are not equal to Binning Wrehouse an location";
+		assert Quantity.equals(QuantityInOQCBinning) && Quantity1.equals(QuantityInOQCBinning1)
+				: "Quantity are not equal to Binning Wrehouse an location";
+
 		Thread.sleep(4000);
-		screenShot("After Material Issue SA1");
+		screenShot("After OQC Binning SA1");
 
 		return new HomePage();
 	}

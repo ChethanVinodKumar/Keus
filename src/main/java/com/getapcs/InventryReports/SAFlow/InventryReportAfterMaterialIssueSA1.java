@@ -1,6 +1,11 @@
 package com.getapcs.InventryReports.SAFlow;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,14 +22,8 @@ public class InventryReportAfterMaterialIssueSA1 extends Testbase1 {
 	@FindBy(xpath = "(//span[@class='dropdown-multiselect__caret'])[1]")
 	WebElement partType;
 
-	@FindBy(xpath = "(//span[@class='dropdown-btn'])[2]")
-	WebElement projectNumber;
-
 	@FindBy(xpath = "(//input[@placeholder='Search'])[2]")
 	WebElement searchPartType;
-
-	@FindBy(xpath = "(//input[@placeholder='Search'])[3]")
-	WebElement searchprojectNumber;
 
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
@@ -66,22 +65,6 @@ public class InventryReportAfterMaterialIssueSA1 extends Testbase1 {
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
-		String FG = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
-
-		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath1 = elementXpath1.replace("PP-54", FG);
-
-		System.out.println(updatedXpath1);
-
-		String SA1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[3]")).getText();
-
-		String elementXpath2 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath2 = elementXpath2.replace("PP-54", SA1);
-
-		System.out.println(updatedXpath2);
-
 		String SA2 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[3]/td[3]")).getText();
 
 		String elementXpath3 = "(//div[normalize-space()='PP-54'])[1]";
@@ -90,27 +73,7 @@ public class InventryReportAfterMaterialIssueSA1 extends Testbase1 {
 
 		System.out.println(updatedXpath3);
 
-		click(driver, issueMaterial3);
-
 		String tableXpath2 = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
-
-		String PP1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
-
-		String elementXpath4 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath4 = elementXpath4.replace("PP-54", PP1);
-
-		System.out.println(updatedXpath4);
-
-		String PP2 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[3]")).getText();
-
-		String elementXpath5 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath5 = elementXpath5.replace("PP-54", PP2);
-
-		System.out.println(updatedXpath5);
-
-		driver.navigate().back();
 
 		click(driver, issueMaterial2);
 
@@ -130,114 +93,90 @@ public class InventryReportAfterMaterialIssueSA1 extends Testbase1 {
 
 		System.out.println(updatedXpath7);
 
+		String quantityInBinning1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[8]")).getText();
+
+		String quantityInBinning2 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[8]")).getText();
+
+		String quantityInBinning3 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[8]")).getText();
+
+		System.out.println(quantityInBinning1);
+		System.out.println(quantityInBinning2);
 		driver.navigate().back();
-
-		click(driver, issueMaterial1);
-
-		String PP5 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
-
-		String elementXpath8 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath8 = elementXpath8.replace("PP-54", PP5);
-
-		System.out.println(updatedXpath8);
-
-		String PP6 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[3]")).getText();
-
-		String elementXpath9 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath9 = elementXpath9.replace("PP-54", PP6);
-
-		System.out.println(updatedXpath9);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
 //Part Type
 
-		for (int i = 1; i <= 9; i++) {
+		click(driver, partType);
 
-			if (i == 1) {
-				click(driver, partType);
-			}
+		click(driver, searchPartType);
+		searchPartType.clear();
+		searchPartType.sendKeys(SA2);
 
-			if (i == 1) {
-				js.executeScript("arguments[0].click();", searchPartType);
-				searchPartType.clear();
-				searchPartType.sendKeys(FG);
+		WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath3));
+		click(driver, partTypeSelect);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath1));
-				click(driver, partTypeSelect);
-			}
+		searchPartType.clear();
 
-			if (i == 2) {
-				searchPartType.clear();
-				searchPartType.sendKeys(SA1);
+		searchPartType.clear();
+		searchPartType.sendKeys(PP3);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath2));
-				click(driver, partTypeSelect);
-			}
+		WebElement partTypeSelect1 = driver.findElement(By.xpath(updatedXpath6));
+		click(driver, partTypeSelect1);
 
-			if (i == 3) {
-				searchPartType.clear();
-				searchPartType.sendKeys(SA2);
+		searchPartType.clear();
+		Thread.sleep(2000);
+		searchPartType.sendKeys(PP4);
+		Thread.sleep(6000);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath3));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 4) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP1);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath4));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 5) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP2);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath5));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 6) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP3);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath6));
-				click(driver, partTypeSelect);
-			}
-			if (i == 7) {
-				searchPartType.clear();
-				Thread.sleep(2000);
-				searchPartType.sendKeys(PP4);
-				Thread.sleep(6000);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath7));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 8) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP5);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath8));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 9) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP6);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath9));
-				click(driver, partTypeSelect);
-			}
-		}
+		WebElement partTypeSelect2 = driver.findElement(By.xpath(updatedXpath7));
+		click(driver, partTypeSelect2);
 
 //Filter
 
 		click(driver, filter);
+
+		double TotalQuantityInBinning = Double.parseDouble(quantityInBinning1) + Double.parseDouble(quantityInBinning2)
+				+ Double.parseDouble(quantityInBinning3);
+
+		System.out.println("TotalQuantityInBinning : " + TotalQuantityInBinning);
+
+		int j = 0;
+		List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+
+		Map<String, String> warehouseMap = new LinkedHashMap<>();
+		Map<String, String> locationMap = new LinkedHashMap<>();
+		int totalQuantity = 0; // Variable to store total quantity
+
+		for (int i = 0; i < rows.size(); i++) {
+			WebElement currentRow = rows.get(i);
+
+			String warehouse = currentRow.findElement(By.xpath(".//td[position() = 9]")).getText();
+			String location = currentRow.findElement(By.xpath(".//td[position() = 10]")).getText();
+			String quantityText = currentRow.findElement(By.xpath(".//td[position() = 8]")).getText(); // Assuming
+																										// quantity is
+			if ("Reject".equals(warehouse) && "Reject".equals(location)) {
+				// Skip this row if both warehouse and location are "Reject"
+				continue;
+			} // in the 8th
+				// column
+			int quantity = Integer.parseInt(quantityText); // Parse quantity from string
+
+			// Store warehouse and location information
+			warehouseMap.put("warehouse" + (j + 1), warehouse);
+			locationMap.put("location" + (j + 1), location);
+
+			// Add quantity to both total and map (optional)
+			totalQuantity += quantity;
+			// You can also add quantity to a map with dynamic keys if needed
+
+			j++;
+		}
+
+		// Print or use the total quantity as needed
+		System.out.println("Total quantity : " + totalQuantity);
+
+		assertEquals(TotalQuantityInBinning, totalQuantity);
 
 		Thread.sleep(4000);
 		screenShot("After Material Issue SA1");

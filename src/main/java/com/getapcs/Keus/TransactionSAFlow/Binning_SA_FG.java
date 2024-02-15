@@ -347,8 +347,8 @@ public class Binning_SA_FG extends Testbase1 {
 					// To extract Value Attribute and use same approach to retrieve
 					String elementValue = acceptedQty1.getText().trim();
 					System.out.println("acceptedQty1 : " + elementValue + "\n");
-					int acceptedQtyValue = Integer.parseInt(elementValue);
-					int acceptedQtyValue1 = acceptedQtyValue / 2;
+					double acceptedQtyValue = Double.parseDouble(elementValue);
+					double acceptedQtyValue1 = acceptedQtyValue / 2;
 					String stringacceptedQtyValue1 = String.valueOf(acceptedQtyValue1);
 
 					click(driver, quantity);
@@ -403,8 +403,8 @@ public class Binning_SA_FG extends Testbase1 {
 					// To extract Value Attribute and use same approach to retrieve
 					String elementValue = acceptedQty1.getText().trim();
 					System.out.println("acceptedQty1 : " + elementValue + "\n");
-					int acceptedQtyValue = Integer.parseInt(elementValue);
-					int acceptedQtyValue1 = acceptedQtyValue / 2;
+					double acceptedQtyValue = Double.parseDouble(elementValue);
+					double acceptedQtyValue1 = acceptedQtyValue / 2;
 					String stringacceptedQtyValue1 = String.valueOf(acceptedQtyValue1);
 
 					click(driver, quantity);
@@ -459,8 +459,8 @@ public class Binning_SA_FG extends Testbase1 {
 					// To extract Value Attribute and use same approach to retrieve
 					String elementValue = acceptedQty1.getText().trim();
 					System.out.println("acceptedQty1 : " + elementValue + "\n");
-					int acceptedQtyValue = Integer.parseInt(elementValue);
-					int acceptedQtyValue1 = acceptedQtyValue / 2;
+					double acceptedQtyValue = Double.parseDouble(elementValue);
+					double acceptedQtyValue1 = acceptedQtyValue / 2;
 					String stringacceptedQtyValue1 = String.valueOf(acceptedQtyValue1);
 
 					click(driver, quantity);
@@ -515,8 +515,8 @@ public class Binning_SA_FG extends Testbase1 {
 					// To extract Value Attribute and use same approach to retrieve
 					String elementValue = acceptedQty1.getText().trim();
 					System.out.println("acceptedQty1 : " + elementValue + "\n");
-					int acceptedQtyValue = Integer.parseInt(elementValue);
-					int acceptedQtyValue1 = acceptedQtyValue / 2;
+					double acceptedQtyValue = Double.parseDouble(elementValue);
+					double acceptedQtyValue1 = acceptedQtyValue / 2;
 					String stringacceptedQtyValue1 = String.valueOf(acceptedQtyValue1);
 
 					click(driver, quantity);
@@ -571,8 +571,8 @@ public class Binning_SA_FG extends Testbase1 {
 					// To extract Value Attribute and use same approach to retrieve
 					String elementValue = acceptedQty1.getText().trim();
 					System.out.println("acceptedQty1 : " + elementValue + "\n");
-					int acceptedQtyValue = Integer.parseInt(elementValue);
-					int acceptedQtyValue1 = acceptedQtyValue / 2;
+					double acceptedQtyValue = Double.parseDouble(elementValue);
+					double acceptedQtyValue1 = acceptedQtyValue / 2;
 					String stringacceptedQtyValue1 = String.valueOf(acceptedQtyValue1);
 
 					click(driver, quantity);
@@ -627,8 +627,8 @@ public class Binning_SA_FG extends Testbase1 {
 					// To extract Value Attribute and use same approach to retrieve
 					String elementValue = acceptedQty1.getText().trim();
 					System.out.println("acceptedQty1 : " + elementValue + "\n");
-					int acceptedQtyValue = Integer.parseInt(elementValue);
-					int acceptedQtyValue1 = acceptedQtyValue / 2;
+					double acceptedQtyValue = Double.parseDouble(elementValue);
+					double acceptedQtyValue1 = acceptedQtyValue / 2;
 					String stringacceptedQtyValue1 = String.valueOf(acceptedQtyValue1);
 
 					click(driver, quantity);

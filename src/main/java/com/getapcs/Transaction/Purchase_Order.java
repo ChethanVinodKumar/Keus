@@ -754,131 +754,28 @@ public class Purchase_Order extends Testbase1 {
 		Thread.sleep(3000);
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/purchase-order/approvalI");
 
-		// TODO Auto-generated method stub
-		// Verify that poNumber Field is Displayed or not
-		boolean isDisabledpoNumberFieldn = !poNumber.isDisplayed();
-		Assert.assertFalse(isDisabledpoNumberFieldn);
-
-		// Verify that poNumber Field is clickable or not
-		WebElement poNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean poNumberFieldIsSelected = poNumberFieldFocusedElement.equals(poNumber);
-		Assert.assertFalse(poNumberFieldIsSelected, "poNumber Text Field is not Selected");
-		poNumber.sendKeys(Keys.ENTER);
-
+		// PO Number
+		click(driver, poNumber);
 		WebElement poNumberSelect = driver.findElement(By.xpath(updatedXpath));
 
 		executor.executeScript("arguments[0].click();", poNumberSelect);
-
-//		// PO Date
-//
-//		String poDatexpath = "//label[text()='PO Date']/..//label[@class='field2']";
-//
-//		String poDate = driver.findElement(By.xpath(poDatexpath)).getText();
-//
-//		System.out.println("PO Date is : " + poDate);
-//		Thread.sleep(2000);
-//
-//		// Rev Number
-//
-//		String revNumxpath = "//label[text()='Rev Number']/..//label[@class='field2']";
-//
-//		String revNum = driver.findElement(By.xpath(revNumxpath)).getText();
-//
-//		System.out.println("Rev Number is : " + revNum);
-//		Thread.sleep(2000);
-//
-//		// Procutement Type
-//
-//		String procutementTypexpath = "//label[text()='Procurement Type']/..//label[@class='field2']";
-//
-//		String procutementType = driver.findElement(By.xpath(procutementTypexpath)).getText();
-//
-//		System.out.println("Procutement Type is : " + procutementType);
-//		Thread.sleep(2000);
-//
-//		// Currency
-//
-//		String currencyxpath = "//label[text()='Currency']/..//label[@class='field2']";
-//
-//		String currency = driver.findElement(By.xpath(currencyxpath)).getText();
-//
-//		System.out.println("Currency is : " + currency);
-//		Thread.sleep(2000);
-
-//		// Vender Details
-//
-//		// Vender Name
-//
-//		String venderNamexpath = "//label[text()='Vendor Name']/..//label[@class='data_field']";
-//
-//		String venderName = driver.findElement(By.xpath(venderNamexpath)).getText();
-//
-//		System.out.println("Vender Name is : " + venderName);
-//		Thread.sleep(2000);
 
 		// Items
 
 		click(driver, items);
 
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-//		// Verify The Records In Table Of Item Master List
-//
-//		WebElement table = wait
-//				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@class='table table-striped']")));
-//		if (table.isDisplayed())
-//			System.out.println("Is Displayed");
-//		else
-//			System.out.println("is not displayed");
-//
-//		// Get headers (column names)
-//		List<WebElement> headers = table.findElements(By.tagName("th"));
-//
-//		// Print headers
-//		for (WebElement header : headers) {
-//			System.out.print(header.getText() + "\t");
-//		}
-//		System.out.println(); // Move to the next line
-//
-//		// Get all rows from the table
-//		List<WebElement> rows = table.findElements(By.tagName("tr"));
-//
-//		// Loop through each row
-//		for (WebElement row : rows) {
-//			// Get all columns for each row
-//			List<WebElement> columns = row.findElements(By.tagName("td"));
-//
-//			// Loop through each column
-//			for (WebElement column : columns) {
-//				// Extract and print the text from the column
-//				System.out.print(column.getText() + "\t");
-//			}
-//			System.out.println(); // Move to the next row
-//		}
-//		System.out.println();
-
 		// Billing and Shipping Details
-
-		executor.executeScript("arguments[0].click()", billing);
-
-		// verify that billing is displayed or not.
-		boolean isDisplayedbilling = billing.isDisplayed();
-		Assert.assertTrue(isDisplayedbilling, "billing is not Displayed");
-
-		// verify that billing is CLickable or not.
-		WebElement billingFieldFocusedElement = driver.switchTo().activeElement();
-		boolean billingFieldIsSelected = billingFieldFocusedElement.equals(billing);
-		Assert.assertFalse(billingFieldIsSelected, "billing Text Field is not Selected");
+		click(driver, billing);
 
 		click(driver, terms);
 
 		Thread.sleep(2000);
 
-		executor.executeScript("arguments[0].click()", approve);
+		click(driver, approve);
 
 		Thread.sleep(2000);
 
-		executor.executeScript("arguments[0].click()", approvePOPUP);
+		click(driver, approvePOPUP);
 
 		Thread.sleep(2000);
 
@@ -904,85 +801,29 @@ public class Purchase_Order extends Testbase1 {
 		System.out.println(updatedXpath);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/purchase-order/approvalII");
-		poNumber.sendKeys(Keys.ENTER);
 
-		// TODO Auto-generated method stub
-		// Verify that poNumber Field is Displayed or not
-//		boolean isDisabledpoNumberFieldn = poNumber.isDisplayed();
-//		Assert.assertTrue(isDisabledpoNumberFieldn);
-
-		// Verify that poNumber Field is clickable or not
-		WebElement poNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean poNumberFieldIsSelected = poNumberFieldFocusedElement.equals(poNumber);
-		Assert.assertTrue(poNumberFieldIsSelected, "poNumber Text Field is not Selected");
+		click(driver, poNumber);
 
 		WebElement poNumberSelect = driver.findElement(By.xpath(updatedXpath));
 
 		executor.executeScript("arguments[0].click();", poNumberSelect);
 
 //Items
-
-		executor.executeScript("arguments[0].click();", items);
-
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-////Verify The Records In Table Of Item Master List
-//
-//		WebElement table = wait
-//				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@class='table table-striped']")));
-//		if (table.isDisplayed())
-//			System.out.println("Is Displayed");
-//		else
-//			System.out.println("is not displayed");
-//
-//		// Get headers (column names)
-//		List<WebElement> headers = table.findElements(By.tagName("th"));
-//
-//		// Print headers
-//		for (WebElement header : headers) {
-//			System.out.print(header.getText() + "\t");
-//		}
-//		System.out.println(); // Move to the next line
-//
-//		// Get all rows from the table
-//		List<WebElement> rows = table.findElements(By.tagName("tr"));
-//
-//		// Loop through each row
-//		for (WebElement row : rows) {
-//			// Get all columns for each row
-//			List<WebElement> columns = row.findElements(By.tagName("td"));
-//
-//			// Loop through each column
-//			for (WebElement column : columns) {
-//				// Extract and print the text from the column
-//				System.out.print(column.getText() + "\t");
-//			}
-//			System.out.println(); // Move to the next row
-//		}
-//		System.out.println();
+		click(driver, items);
 
 //Billing and Shipping Details
 
-		executor.executeScript("arguments[0].click()", billing);
-
-		// verify that billing is displayed or not.
-		boolean isDisplayedbilling = billing.isDisplayed();
-		Assert.assertTrue(isDisplayedbilling, "billing is not Displayed");
-
-		// verify that billing is CLickable or not.
-		WebElement billingFieldFocusedElement = driver.switchTo().activeElement();
-		boolean billingFieldIsSelected = billingFieldFocusedElement.equals(billing);
-		Assert.assertFalse(billingFieldIsSelected, "billing Text Field is not Selected");
+		click(driver, billing);
 
 		click(driver, terms);
 
 		Thread.sleep(2000);
 
-		executor.executeScript("arguments[0].click()", approve);
+		click(driver, approve);
 
 		Thread.sleep(2000);
 
-		executor.executeScript("arguments[0].click()", approvePOPUP);
+		click(driver, approvePOPUP);
 
 		Thread.sleep(2000);
 

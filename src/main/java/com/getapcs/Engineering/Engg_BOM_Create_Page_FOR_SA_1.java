@@ -191,8 +191,7 @@ public class Engg_BOM_Create_Page_FOR_SA_1 extends Testbase1 {
 		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/create");
 
 		// Item Number
-		Thread.sleep(5000);
-		js.executeScript("arguments[0].scrollIntoView(true);", itemNumberForItem);
+
 		Thread.sleep(5000);
 		click(driver, itemNumberForItem);
 		isSelected(driver, itemNumberForItem, "itemNumberForItem");

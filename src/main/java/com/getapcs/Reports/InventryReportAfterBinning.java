@@ -158,6 +158,8 @@ public class InventryReportAfterBinning extends Testbase1 {
 		click(driver, filter);
 
 		String warehouse_text = warehouse.getText();
+		System.out.println(warehouse_text);
+		System.out.println(warehouseInBinning);
 		String location_text = location.getText();
 		String warehouse_text1 = warehouse1.getText();
 		String location_text1 = location1.getText();

@@ -1,6 +1,11 @@
 package com.getapcs.InventryReports.SAFlow;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -110,45 +115,49 @@ public class InventryReportAfterMaterialIssueSA2 extends Testbase1 {
 
 		System.out.println(updatedXpath5);
 
-		driver.navigate().back();
+		String quantityInBinning1 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[8]")).getText();
 
-		click(driver, issueMaterial2);
-
-		String PP3 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[3]")).getText();
-
-		String elementXpath6 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath6 = elementXpath6.replace("PP-54", PP3);
-
-		System.out.println(updatedXpath6);
-
-		String PP4 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
-
-		String elementXpath7 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath7 = elementXpath7.replace("PP-54", PP4);
-
-		System.out.println(updatedXpath7);
+		String quantityInBinning2 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[8]")).getText();
 
 		driver.navigate().back();
 
-		click(driver, issueMaterial1);
-
-		String PP5 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
-
-		String elementXpath8 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath8 = elementXpath8.replace("PP-54", PP5);
-
-		System.out.println(updatedXpath8);
-
-		String PP6 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[3]")).getText();
-
-		String elementXpath9 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath9 = elementXpath9.replace("PP-54", PP6);
-
-		System.out.println(updatedXpath9);
+//		click(driver, issueMaterial2);
+//
+//		String PP3 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[3]")).getText();
+//
+//		String elementXpath6 = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath6 = elementXpath6.replace("PP-54", PP3);
+//
+//		System.out.println(updatedXpath6);
+//
+//		String PP4 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
+//
+//		String elementXpath7 = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath7 = elementXpath7.replace("PP-54", PP4);
+//
+//		System.out.println(updatedXpath7);
+//
+//		driver.navigate().back();
+//
+//		click(driver, issueMaterial1);
+//
+//		String PP5 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[2]/td[3]")).getText();
+//
+//		String elementXpath8 = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath8 = elementXpath8.replace("PP-54", PP5);
+//
+//		System.out.println(updatedXpath8);
+//
+//		String PP6 = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[3]/td[3]")).getText();
+//
+//		String elementXpath9 = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath9 = elementXpath9.replace("PP-54", PP6);
+//
+//		System.out.println(updatedXpath9);
 
 		driver.navigate().to("https://demo_keus.getapcs.com/reports/inventory-report");
 
@@ -201,44 +210,85 @@ public class InventryReportAfterMaterialIssueSA2 extends Testbase1 {
 				click(driver, partTypeSelect);
 			}
 
-			if (i == 6) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP3);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath6));
-				click(driver, partTypeSelect);
-			}
-			if (i == 7) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP4);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath7));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 8) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP5);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath8));
-				click(driver, partTypeSelect);
-			}
-
-			if (i == 9) {
-				searchPartType.clear();
-				searchPartType.sendKeys(PP6);
-
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath9));
-				click(driver, partTypeSelect);
-			}
+//			if (i == 6) {
+//				searchPartType.clear();
+//				searchPartType.sendKeys(PP3);
+//
+//				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath6));
+//				click(driver, partTypeSelect);
+//			}
+//			if (i == 7) {
+//				searchPartType.clear();
+//				searchPartType.sendKeys(PP4);
+//
+//				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath7));
+//				click(driver, partTypeSelect);
+//			}
+//
+//			if (i == 8) {
+//				searchPartType.clear();
+//				searchPartType.sendKeys(PP5);
+//
+//				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath8));
+//				click(driver, partTypeSelect);
+//			}
+//
+//			if (i == 9) {
+//				searchPartType.clear();
+//				searchPartType.sendKeys(PP6);
+//
+//				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath9));
+//				click(driver, partTypeSelect);
+//			}
 		}
 
 //Filter
 
 		click(driver, filter);
 
+		int TotalQuantityInBinning = Integer.parseInt(quantityInBinning1) + Integer.parseInt(quantityInBinning2);
+
+		System.out.println("TotalQuantityInBinning : " + TotalQuantityInBinning);
+
+		int j = 0;
+		List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+
+		Map<String, String> warehouseMap = new LinkedHashMap<>();
+		Map<String, String> locationMap = new LinkedHashMap<>();
+		int totalQuantity = 0; // Variable to store total quantity
+
+		for (int i = 0; i < rows.size(); i++) {
+			WebElement currentRow = rows.get(i);
+
+			String warehouse = currentRow.findElement(By.xpath(".//td[position() = 9]")).getText();
+			String location = currentRow.findElement(By.xpath(".//td[position() = 10]")).getText();
+			String quantityText = currentRow.findElement(By.xpath(".//td[position() = 8]")).getText(); // Assuming
+																										// quantity is
+			if ("Reject".equals(warehouse) && "Reject".equals(location)) {
+				// Skip this row if both warehouse and location are "Reject"
+				continue;
+			} // in the 8th
+				// column
+			int quantity = Integer.parseInt(quantityText); // Parse quantity from string
+
+			// Store warehouse and location information
+			warehouseMap.put("warehouse" + (j + 1), warehouse);
+			locationMap.put("location" + (j + 1), location);
+
+			// Add quantity to both total and map (optional)
+			totalQuantity += quantity;
+			// You can also add quantity to a map with dynamic keys if needed
+
+			j++;
+		}
+
+		// Print or use the total quantity as needed
+		System.out.println("Total quantity : " + totalQuantity);
+
+		assertEquals(TotalQuantityInBinning, totalQuantity);
+
 		Thread.sleep(4000);
-		screenShot("After Material Issue SA1");
+		screenShot("After Material Issue SA2");
 
 		return new HomePage();
 	}

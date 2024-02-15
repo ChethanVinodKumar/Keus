@@ -117,7 +117,7 @@ public class ReturnInvoice extends Testbase1 {
 		String quantityText = quantity.getText();
 
 		// Convert the quantityText to an integer
-		int quantityValue = Integer.parseInt(quantityText);
+		double quantityValue = Integer.parseInt(quantityText);
 
 		// Convert quantityValue to a String
 		String quantity1 = String.valueOf(quantityValue);
@@ -166,7 +166,7 @@ public class ReturnInvoice extends Testbase1 {
 				click(driver, locationSelect1);
 			}
 
-			int acceptedQtyValue1 = quantityValue / 2;
+			double acceptedQtyValue1 = quantityValue / 2;
 
 			String acceptedQtyValue2 = String.valueOf(acceptedQtyValue1);
 

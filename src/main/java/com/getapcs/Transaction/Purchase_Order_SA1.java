@@ -1,14 +1,10 @@
 package com.getapcs.Transaction;
 
-import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import com.getapcs.base.Testbase1;
 import com.getapcs.home.login.HomePage;
@@ -31,7 +27,7 @@ public class Purchase_Order_SA1 extends Testbase1 {
 	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement vendorName;
 
-	@FindBy(xpath = "(//span[normalize-space()='Test venderName1'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='Keus Automation Pvt Ltd'])[1]")
 	WebElement vendorNameSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Quotation Reference No.'])[1]")
@@ -172,6 +168,24 @@ public class Purchase_Order_SA1 extends Testbase1 {
 	@FindBy(xpath = "(//button[normalize-space()='Issue Material'])[2]")
 	WebElement issueMaterialButton;
 
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement saveButton;
+
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewButton;
+
+	@FindBy(xpath = "//button[normalize-space()='Close']")
+	WebElement closeButton;
+
+	@FindBy(xpath = "(//i[@class='mdi mdi-plus-circle-outline add-icon'])[1]")
+	WebElement prNumberIcon;
+
+	@FindBy(xpath = "(//input[@value='m1'])[1]")
+	WebElement selectPRNumber;
+
+	@FindBy(xpath = "(//button[normalize-space()='Save'])[2]")
+	WebElement prsave;
+
 	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
 	public Purchase_Order_SA1() {
@@ -203,7 +217,7 @@ public class Purchase_Order_SA1 extends Testbase1 {
 
 		String ItemNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[3]/td[3]")).getText();
 
-		String reqQty1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[3]/td[7]")).getText();
+		String reqQty1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[7]")).getText();
 
 		int reqQty2 = Integer.parseInt(reqQty1) + 500;
 
@@ -231,97 +245,35 @@ public class Purchase_Order_SA1 extends Testbase1 {
 
 		driver.navigate().to("https://demo_keus.getapcs.com/transaction/purchase-order/create");
 
-		// Verify that procutementType Field is Displayed or not
-		boolean isDisabledprocutementTypeFieldn = !procutementType.isDisplayed();
-		Assert.assertFalse(isDisabledprocutementTypeFieldn);
+		// Procurement Type
+		click(driver, procutementType);
+		click(driver, procutementTypeSelect);
 
-		// Verify that procutementType Field is clickable or not
-		WebElement procutementTypeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean procutementTypeFieldIsSelected = procutementTypeFieldFocusedElement.equals(procutementType);
-		Assert.assertFalse(procutementTypeFieldIsSelected, "procutementType Text Field is not Selected");
-
-		procutementType.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", procutementTypeSelect);
-
-		// Verify that currency Field is Displayed or not
-		boolean isDisabledcurrencyFieldn = !currency.isDisplayed();
-		Assert.assertFalse(isDisabledcurrencyFieldn);
-
-		// Verify that currency Field is clickable or not
-		WebElement currencyFieldFocusedElement = driver.switchTo().activeElement();
-		boolean currencyFieldIsSelected = currencyFieldFocusedElement.equals(currency);
-		Assert.assertFalse(currencyFieldIsSelected, "currency Text Field is not Selected");
-
-		currency.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", currencySelect);
+		// Currency Field
+		click(driver, currency);
+		click(driver, currencySelect);
 
 //Vender Details
 
-		// Verify that vendorName Field is Displayed or not
-		boolean isDisabledvenderNameFieldn = !vendorName.isDisplayed();
-		Assert.assertFalse(isDisabledvenderNameFieldn);
+		// Vender Name
+		click(driver, vendorName);
+		click(driver, vendorNameSelect);
 
-		// Verify that venderName Field is clickable or not
-		WebElement venderNameFieldFocusedElement = driver.switchTo().activeElement();
-		boolean venderNameFieldIsSelected = venderNameFieldFocusedElement.equals(vendorName);
-		Assert.assertFalse(venderNameFieldIsSelected, "venderName Text Field is not Selected");
-
-		vendorName.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", vendorNameSelect);
-
-		// 1Verifying that quotationReferenceNo Field is Enabled or not
-		boolean isEnabledquotationReferenceNoField = quotationReferenceNo.isEnabled();
-		Assert.assertTrue(isEnabledquotationReferenceNoField);
-		boolean isDisabledquotationReferenceNoFieldn = !quotationReferenceNo.isEnabled();
-		Assert.assertFalse(isDisabledquotationReferenceNoFieldn);
-
-		// Verifying that Quality Field is displayed or hidden.
-		boolean isDisplayedquotationReferenceNoField = quotationReferenceNo.isDisplayed();
-		Assert.assertTrue(isDisplayedquotationReferenceNoField);
-		boolean isHiddenquotationReferenceNoField = !quotationReferenceNo.isDisplayed();
-		Assert.assertFalse(isHiddenquotationReferenceNoField);
-
-		// Verifying the Placeholder which is present in Quality field.
-		String displayedTextInquotationReferenceNo = quotationReferenceNo.getAttribute("placeholder");
-
-		String expected_placeholder = "Enter Quotation Reference No.";
-
-		assertEquals(displayedTextInquotationReferenceNo, expected_placeholder);
+		// quotationReferenceNumber
+		click(driver, quotationReferenceNo);
 		quotationReferenceNo.sendKeys(refNo);
 
 		// Verify that Quotation date is selecting or not
-		click(driver, quotationDate);
-		quotationDate.sendKeys(Keys.RIGHT);
-		quotationDate.sendKeys(Keys.ENTER);
-
-		// Verify that venderAddress Field is Displayed or not
-		boolean isDisabledvenderAddressFieldn = !venderAddress.isDisplayed();
-		Assert.assertFalse(isDisabledvenderAddressFieldn);
-
-		// Verify that venderAddress Field is clickable or not
-		WebElement venderAddressFieldFocusedElement = driver.switchTo().activeElement();
-		boolean venderAddressFieldIsSelected = venderAddressFieldFocusedElement.equals(venderAddress);
-		Assert.assertFalse(venderAddressFieldIsSelected, "venderAddress Text Field is not Selected");
-
-		venderAddress.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", venderAddressSelect);
+		datePicker(driver, quotationDate);
 
 //Items
 
-		js.executeScript("arguments[0].click();", items);
+		click(driver, items);
 
 		for (int i = 1; i <= 2; i++) {
 
-			// Verify that itemNumber Field is Displayed or not
-			boolean isDisableditemNumberFieldn = !itemNumber.isDisplayed();
-			Assert.assertFalse(isDisableditemNumberFieldn);
-
-			// Verify that itemNumber Field is clickable or not
-			WebElement itemNumberFieldFocusedElement = driver.switchTo().activeElement();
-			boolean itemNumberFieldIsSelected = itemNumberFieldFocusedElement.equals(itemNumber);
-			Assert.assertFalse(itemNumberFieldIsSelected, "itemNumber Text Field is not Selected");
-
-			itemNumber.sendKeys(Keys.ENTER);
+			// Item Number
+			click(driver, itemNumber);
 
 			if (i == 1) {
 				WebElement itemNumberSelect = driver.findElement(By.xpath(updatedXpath));
@@ -332,365 +284,127 @@ public class Purchase_Order_SA1 extends Testbase1 {
 				click(driver, itemNumberSelect);
 			}
 
-			// 1Verifying that unitCost Field is Enabled or not
-			boolean isEnabledunitCostField = unitCost.isEnabled();
-			Assert.assertTrue(isEnabledunitCostField);
-			boolean isDisabledunitCostFieldn = !unitCost.isEnabled();
-			Assert.assertFalse(isDisabledunitCostFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedunitCostField = unitCost.isDisplayed();
-			Assert.assertTrue(isDisplayedunitCostField);
-			boolean isHiddenunitCostField = !unitCost.isDisplayed();
-			Assert.assertFalse(isHiddenunitCostField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextInunitCost = unitCost.getAttribute("placeholder");
-
-			String expected_placeholder_unitCost = "Enter Unit Price";
-
-			assertEquals(displayedTextInunitCost, expected_placeholder_unitCost);
-
+			// Unit Cost
+			click(driver, unitCost);
 			unitCost.sendKeys(unitcost);
 
-			// 1Verifying that quntity Field is Enabled or not
-			boolean isEnabledquntityField = quntity.isEnabled();
-			Assert.assertTrue(isEnabledquntityField);
-			boolean isDisabledquntityFieldn = !quntity.isEnabled();
-			Assert.assertFalse(isDisabledquntityFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedquntityField = quntity.isDisplayed();
-			Assert.assertTrue(isDisplayedquntityField);
-			boolean isHiddenquntityField = !quntity.isDisplayed();
-			Assert.assertFalse(isHiddenquntityField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextInquntity = quntity.getAttribute("placeholder");
-
-			String expected_placeholderquntity = "Enter Quantity";
-
-			assertEquals(displayedTextInquntity, expected_placeholderquntity);
+			// Quantity
+			click(driver, quntity);
 			quntity.sendKeys(reqQty);
 
-			if (i == 1) {
-				js.executeScript("arguments[0].click()", addProject);
-			}
-//		//Verify that  projectNumber Field is Displayed or not
-//		boolean isDisabledprojectNumberFieldn = !projectNumber.isDisplayed(); 
-//		Assert.assertFalse(isDisabledprojectNumberFieldn);
-//		
-//		//Verify that  projectNumber Field is clickable or not
-//  		WebElement projectNumberFieldFocusedElement = driver.switchTo().activeElement();
-//	    boolean projectNumberFieldIsSelected = projectNumberFieldFocusedElement.equals(projectNumber);
-//	    Assert.assertTrue(projectNumberFieldIsSelected, "projectNumber Text Field is not Selected");
+			click(driver, prNumberIcon);
+			click(driver, selectPRNumber);
+			click(driver, prsave);
 
 			if (i == 1) {
-				projectNumber.sendKeys(Keys.ENTER);
+				click(driver, addProject);
+			}
+
+			if (i == 1) {
+				click(driver, projectNumber);
 				WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath2));
 				click(driver, projectNumberSelect);
 			}
 
-			// 1Verifying that projectQuntity Field is Enabled or not
-			boolean isEnabledprojectQuntityField = projectQuntity.isEnabled();
-			Assert.assertTrue(isEnabledprojectQuntityField);
-			boolean isDisabledprojectQuntityFieldn = !projectQuntity.isEnabled();
-			Assert.assertFalse(isDisabledprojectQuntityFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedprojectQuntityField = projectQuntity.isDisplayed();
-			Assert.assertTrue(isDisplayedprojectQuntityField);
-			boolean isHiddenprojectQuntityField = !projectQuntity.isDisplayed();
-			Assert.assertFalse(isHiddenprojectQuntityField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextInprojectQuntity = projectQuntity.getAttribute("placeholder");
-
-			String expected_placeholderprojectQuntity = "Enter Quantity";
-
-			assertEquals(displayedTextInprojectQuntity, expected_placeholderprojectQuntity);
-
+			// Project Quantity
+			click(driver, projectQuntity);
 			projectQuntity.sendKeys(reqQty);
 
-			js.executeScript("arguments[0].click()", addProjectNumber);
+			click(driver, addProjectNumber);
 
 			if (i == 1) {
-				js.executeScript("arguments[0].click()", DeliveryShedule);
+				click(driver, DeliveryShedule);
 			}
 
-			// Verify that do we able to select the date in delevery schedule
+			// delivery Schedule
 			datePicker(driver, deliveryDate);
 
-			// 1Verifying that deliverySheduleQuntity Field is Enabled or not
-			boolean isEnableddeliverySheduleQuntityField = deliverySheduleQuntity.isEnabled();
-			Assert.assertTrue(isEnableddeliverySheduleQuntityField);
-			boolean isDisableddeliverySheduleQuntityFieldn = !deliverySheduleQuntity.isEnabled();
-			Assert.assertFalse(isDisableddeliverySheduleQuntityFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayeddeliverySheduleQuntityField = deliverySheduleQuntity.isDisplayed();
-			Assert.assertTrue(isDisplayeddeliverySheduleQuntityField);
-			boolean isHiddendeliverySheduleQuntityField = !deliverySheduleQuntity.isDisplayed();
-			Assert.assertFalse(isHiddendeliverySheduleQuntityField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextIndeliverySheduleQuntity = deliverySheduleQuntity.getAttribute("placeholder");
-
-			String expected_placeholderdeliverySheduleQuntity = "Enter Quantity";
-
-			assertEquals(displayedTextIndeliverySheduleQuntity, expected_placeholderdeliverySheduleQuntity);
-
+			// Quantity In Delivery Schedule
+			click(driver, deliverySheduleQuntity);
 			deliverySheduleQuntity.sendKeys(reqQty);
 
-			js.executeScript("arguments[0].click()", addDeliveryShedule);
+			// Add button
+			click(driver, addDeliveryShedule);
 
-			// 1Verifying that specialInstructions Field is Enabled or not
-			boolean isEnabledspecialInstructionsField = specialInstructions.isEnabled();
-			Assert.assertTrue(isEnabledspecialInstructionsField);
-			boolean isDisabledspecialInstructionsFieldn = !specialInstructions.isEnabled();
-			Assert.assertFalse(isDisabledspecialInstructionsFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedspecialInstructionsField = specialInstructions.isDisplayed();
-			Assert.assertTrue(isDisplayedspecialInstructionsField);
-			boolean isHiddenspecialInstructionsField = !specialInstructions.isDisplayed();
-			Assert.assertFalse(isHiddenspecialInstructionsField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextInspecialInstructions = specialInstructions.getAttribute("placeholder");
-
-			String expected_placeholderspecialInstructions = "Enter Special Instruction";
-
-			assertEquals(displayedTextInspecialInstructions, expected_placeholderspecialInstructions);
-
+			// Special Instructions
+			click(driver, specialInstructions);
 			specialInstructions.sendKeys(instructions);
 
-			// 1Verifying that sgst Field is Enabled or not
-			boolean isEnabledsgstField = sgst1.isEnabled();
-			Assert.assertTrue(isEnabledsgstField);
-			boolean isDisabledsgstFieldn = !sgst1.isEnabled();
-			Assert.assertFalse(isDisabledsgstFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedsgstField = sgst1.isDisplayed();
-			Assert.assertTrue(isDisplayedsgstField);
-			boolean isHiddensgstField = !sgst1.isDisplayed();
-			Assert.assertFalse(isHiddensgstField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextInsgst = sgst1.getAttribute("placeholder");
-
-			String expected_placeholdersgst = "Enter SGST";
-
-			assertEquals(displayedTextInsgst, expected_placeholdersgst);
+			// SGST
+			click(driver, sgst1);
 			sgst1.clear();
 			sgst1.sendKeys(sgst);
 
-			// 1Verifying that cgst Field is Enabled or not
-			boolean isEnabledcgstField = cgst1.isEnabled();
-			Assert.assertTrue(isEnabledcgstField);
-			boolean isDisabledcgstFieldn = !cgst1.isEnabled();
-			Assert.assertFalse(isDisabledcgstFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedcgstField = cgst1.isDisplayed();
-			Assert.assertTrue(isDisplayedcgstField);
-			boolean isHiddencgstField = !cgst1.isDisplayed();
-			Assert.assertFalse(isHiddencgstField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextIncgst = cgst1.getAttribute("placeholder");
-
-			String expected_placeholdercgst = "Enter CGST";
-
-			assertEquals(displayedTextIncgst, expected_placeholdercgst);
+			// CGST
+			click(driver, cgst1);
 			cgst1.clear();
 			cgst1.sendKeys(cgst);
 
-			// 1Verifying that igst Field is Enabled or not
-			boolean isEnabledigstField = igst1.isEnabled();
-			Assert.assertTrue(isEnabledigstField);
-			boolean isDisabledigstFieldn = !igst1.isEnabled();
-			Assert.assertFalse(isDisabledigstFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedigstField = igst1.isDisplayed();
-			Assert.assertTrue(isDisplayedigstField);
-			boolean isHiddenigstField = !igst1.isDisplayed();
-			Assert.assertFalse(isHiddenigstField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextInigst = igst1.getAttribute("placeholder");
-
-			String expected_placeholderigst = "Enter ";
-
-			assertEquals(displayedTextInigst, expected_placeholderigst);
+			// IGST
+			click(driver, igst1);
 			igst1.clear();
 			igst1.sendKeys(igst);
 
-			// 1Verifying that utgst Field is Enabled or not
-			boolean isEnabledutgstField = utgst1.isEnabled();
-			Assert.assertTrue(isEnabledutgstField);
-			boolean isDisabledutgstFieldn = !utgst1.isEnabled();
-			Assert.assertFalse(isDisabledutgstFieldn);
-
-			// Verifying that Quality Field is displayed or hidden.
-			boolean isDisplayedutgstField = utgst1.isDisplayed();
-			Assert.assertTrue(isDisplayedutgstField);
-			boolean isHiddenutgstField = !utgst1.isDisplayed();
-			Assert.assertFalse(isHiddenutgstField);
-
-			// Verifying the Placeholder which is present in Quality field.
-			String displayedTextInutgst = utgst1.getAttribute("placeholder");
-
-			String expected_placeholderutgst = "Enter UTGST";
-
-			assertEquals(displayedTextInutgst, expected_placeholderutgst);
+			// UTGST
+			click(driver, utgst1);
 			utgst1.clear();
 			utgst1.sendKeys(utgst);
 			Thread.sleep(2000);
 
-//			click(driver, addItems);
-			js.executeScript("arguments[0].click();", addItems);
+			click(driver, addItems);
 
 		}
 
 //Billing and Shipping Details
 
-		js.executeScript("arguments[0].click()", billing);
+		click(driver, billing);
 
-		// Verify that deliveryTerms Field is Displayed or not
-		boolean isDisableddeliveryTermsFieldn = !deliveryTerms.isDisplayed();
-		Assert.assertFalse(isDisableddeliveryTermsFieldn);
+		// Delivery Terms
+		click(driver, deliveryTerms);
+		click(driver, deliveryTermsSelect);
 
-		// Verify that deliveryTerms Field is clickable or not
-		WebElement deliveryTermsFieldFocusedElement = driver.switchTo().activeElement();
-		boolean deliveryTermsFieldIsSelected = deliveryTermsFieldFocusedElement.equals(deliveryTerms);
-		Assert.assertFalse(deliveryTermsFieldIsSelected, "deliveryTerms Text Field is not Selected");
+		// Payment Terms
+		click(driver, paymentTerms);
+		click(driver, paymentTermsSelect);
 
-		deliveryTerms.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", deliveryTermsSelect);
+		// shippingMode
+		click(driver, shippingMode);
+		click(driver, shippingModeSelect);
 
-		// Verify that paymentTerms Field is Displayed or not
-		boolean isDisabledpaymentTermsFieldn = !paymentTerms.isDisplayed();
-		Assert.assertFalse(isDisabledpaymentTermsFieldn);
-
-		// Verify that paymentTerms Field is clickable or not
-		WebElement paymentTermsFieldFocusedElement = driver.switchTo().activeElement();
-		boolean paymentTermsFieldIsSelected = paymentTermsFieldFocusedElement.equals(paymentTerms);
-		Assert.assertFalse(paymentTermsFieldIsSelected, "paymentTerms Text Field is not Selected");
-
-		paymentTerms.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", paymentTermsSelect);
-
-		// Verify that shippingMode Field is Displayed or not
-		boolean isDisabledshippingModeFieldn = !shippingMode.isDisplayed();
-		Assert.assertFalse(isDisabledshippingModeFieldn);
-
-		// Verify that shippingMode Field is clickable or not
-		WebElement shippingModeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean shippingModeFieldIsSelected = shippingModeFieldFocusedElement.equals(shippingMode);
-		Assert.assertFalse(shippingModeFieldIsSelected, "shippingMode Text Field is not Selected");
-
-		shippingMode.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", shippingModeSelect);
-
-		// Verify that shipTo Field is Displayed or not
-		boolean isDisabledshipToFieldn = !shipTo.isDisplayed();
-		Assert.assertFalse(isDisabledshipToFieldn);
-
-		// Verify that shipTo Field is clickable or not
-		WebElement shipToFieldFocusedElement = driver.switchTo().activeElement();
-		boolean shipToFieldIsSelected = shipToFieldFocusedElement.equals(shipTo);
-		Assert.assertFalse(shipToFieldIsSelected, "shipTo Text Field is not Selected");
-
-		shipTo.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", shipToSelect);
+		// Ship To
+		click(driver, shipTo);
+		click(driver, shipToSelect);
 
 		// Verify that billTo Field is Displayed or not
-		boolean isDisabledbillToFieldn = !billTo.isDisplayed();
-		Assert.assertFalse(isDisabledbillToFieldn);
-
-		// Verify that billTo Field is clickable or not
-		WebElement billToFieldFocusedElement = driver.switchTo().activeElement();
-		boolean billToFieldIsSelected = billToFieldFocusedElement.equals(billTo);
-		Assert.assertFalse(billToFieldIsSelected, "billTo Text Field is not Selected");
-
-		billTo.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click()", billToSelect);
+		click(driver, billTo);
+		click(driver, billToSelect);
 
 //terms
 
-		js.executeScript("arguments[0].click()", terms);
+		click(driver, terms);
 
-		// 1Verifying that retentionPeriod Field is Enabled or not
-		boolean isEnabledretentionPeriodField = retentionPeriod.isEnabled();
-		Assert.assertTrue(isEnabledretentionPeriodField);
-		boolean isDisabledretentionPeriodFieldn = !retentionPeriod.isEnabled();
-		Assert.assertFalse(isDisabledretentionPeriodFieldn);
-
-		// Verifying that Quality Field is displayed or hidden.
-		boolean isDisplayedretentionPeriodField = retentionPeriod.isDisplayed();
-		Assert.assertTrue(isDisplayedretentionPeriodField);
-		boolean isHiddenretentionPeriodField = !retentionPeriod.isDisplayed();
-		Assert.assertFalse(isHiddenretentionPeriodField);
-
-		// Verifying the Placeholder which is present in Quality field.
-		String displayedTextInretentionPeriod = retentionPeriod.getAttribute("placeholder");
-
-		String expected_placeholderretentionPeriod = "Enter Retention Period";
-
-		assertEquals(displayedTextInretentionPeriod, expected_placeholderretentionPeriod);
-
+		// Retention Period
+		click(driver, retentionPeriod);
 		retentionPeriod.sendKeys(retention);
 
-		// 1Verifying that specialTerms Field is Enabled or not
-		boolean isEnabledspecialTermsField = specialTerms.isEnabled();
-		Assert.assertTrue(isEnabledspecialTermsField);
-		boolean isDisabledspecialTermsFieldn = !specialTerms.isEnabled();
-		Assert.assertFalse(isDisabledspecialTermsFieldn);
-
-		// Verifying that Quality Field is displayed or hidden.
-		boolean isDisplayedspecialTermsField = specialTerms.isDisplayed();
-		Assert.assertTrue(isDisplayedspecialTermsField);
-		boolean isHiddenspecialTermsField = !specialTerms.isDisplayed();
-		Assert.assertFalse(isHiddenspecialTermsField);
-
-		// Verifying the Placeholder which is present in Quality field.
-		String displayedTextInspecialTerms = specialTerms.getAttribute("placeholder");
-
-		String expected_placeholderspecialTerms = "Enter Special Terms & Conditions";
-
-		assertEquals(displayedTextInspecialTerms, expected_placeholderspecialTerms);
-
+		// Special Terms
+		click(driver, specialTerms);
 		specialTerms.sendKeys(special);
 
-		// 1Verifying that incoTerms Field is Enabled or not
-		boolean isEnabledincoTermsField = incoTerms.isEnabled();
-		Assert.assertTrue(isEnabledincoTermsField);
-		boolean isDisabledincoTermsFieldn = !incoTerms.isEnabled();
-		Assert.assertFalse(isDisabledincoTermsFieldn);
-
-		// Verifying that Quality Field is displayed or hidden.
-		boolean isDisplayedincoTermsField = incoTerms.isDisplayed();
-		Assert.assertTrue(isDisplayedincoTermsField);
-		boolean isHiddenincoTermsField = !incoTerms.isDisplayed();
-		Assert.assertFalse(isHiddenincoTermsField);
-
-		// Verifying the Placeholder which is present in Quality field.
-		String displayedTextInincoTerms = incoTerms.getAttribute("placeholder");
-
-		String expected_placeholderincoTerms = "Enter Inco Terms";
-
-		if (displayedTextInincoTerms.equals(expected_placeholderincoTerms))
-			System.out.println("placeholder text is displayed in the incoTerms field.");
-		else
-			System.out.println("placeholder text is not displayed in the incoTerms field.");
+		// Inco Terms
+		click(driver, incoTerms);
 		incoTerms.sendKeys(inco);
 
-		js.executeScript("arguments[0].click()", addTerms);
+		click(driver, addTerms);
 
+		// Upload Filea
 		uploadFile(driver, UploadFiles1, 2);
+
+		click(driver, saveButton);
+
+		click(driver, viewButton);
+
+		click(driver, closeButton);
 
 		click(driver, save);
 		Thread.sleep(4000);

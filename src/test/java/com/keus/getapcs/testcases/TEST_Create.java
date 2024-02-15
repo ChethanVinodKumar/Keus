@@ -69,9 +69,9 @@ import com.getapcs.home.login.LoginPage;
 
 public class TEST_Create extends Testbase1 {
 
-	public final static String priceList = "TEST PriceList 0017";
-	public final static String fg = "TEST-FG-0017";
-	public final static String pp = "TEST-PP-0017";
+	public final static String priceList = "TEST PriceList 0021";
+	public final static String fg = "TEST-FG-0021";
+	public final static String pp = "TEST-PP-0021";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -648,6 +648,7 @@ public class TEST_Create extends Testbase1 {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
+//
 //	@Test(priority = 31)
 //	public void verifyOQCBinning() throws Throwable {
 //
@@ -665,7 +666,7 @@ public class TEST_Create extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
+
 //	@Test(priority = 33)
 //	public void verifyDOCreate() throws Throwable {
 //
@@ -674,7 +675,7 @@ public class TEST_Create extends Testbase1 {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-//
+
 //	@Test(priority = 34)
 //	public void verifyInventryReportAfterDO() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
